@@ -16,6 +16,11 @@ runs on the TV itself.
 
 [Русский ниже](#tv-janitor-по-русски)
 
+<p align="center">
+  <img src="docs/screen-simple.png" alt="TV Janitor's simple screen on a Philips 50PUS8505: Gentle, Optimal and Maximum" width="49%">
+  <img src="docs/screen-experts.png" alt="The For experts screen: Apply, Reboot, Restore everything, modes and settings" width="49%">
+</p>
+
 ## How it started
 
 I cleaned up an old 32-inch Novex with Yandex TV: switched off the voice engine, the preloaded streaming
