@@ -73,7 +73,9 @@ public class MainActivity extends Activity {
         if (getIntent().getBooleanExtra("fromFeatures", false))
             root.addView(text(simpleUi ? T.t("✔ Ответы сохранены. Выберите, насколько чистить — обычно хватает «Оптимально».")
                     : T.t("✔ Ответы сохранены. Нажмите «👍 Оптимально», посмотрите список и «Применить»."), 17, ACCENT));
-        if (getIntent().getBooleanExtra("report", false) && store.str("bootReport") != null)
+        boolean unseen = store.flag("reportUnseen", false);
+        if (unseen) store.setFlag("reportUnseen", false);
+        if ((unseen || getIntent().getBooleanExtra("report", false)) && store.str("bootReport") != null)
             root.addView(text("✔ " + store.str("bootReport"), 17, ACCENT));
 
         // Shared: status and progress.
@@ -278,16 +280,49 @@ public class MainActivity extends Activity {
                 .setTitle(T.t("Какой магазин поставить?"))
                 .setItems(items, (d, w) -> {
                     Ops.StoreApp app = all[w];
+                    Intent open = getPackageManager().getLaunchIntentForPackage(app.pkg);
+                    if (open != null) {
+                        // Phone apps have no TV icon, so the Home screen may not list them: open from here.
+                        new android.app.AlertDialog.Builder(this)
+                                .setTitle(app.name)
+                                .setMessage(T.t("Уже установлен. На главном экране телевизора его может не быть: это приложение для телефонов, у него нет значка для ТВ. Открывайте его отсюда."))
+                                .setNegativeButton(T.t("Отмена"), null)
+                                .setNeutralButton(T.t("Переустановить"), (d2, w2) -> installStore(app))
+                                .setPositiveButton(T.t("Открыть"), (d2, w2) -> openApp(app.pkg))
+                                .show();
+                        return;
+                    }
                     new android.app.AlertDialog.Builder(this)
                             .setTitle(app.name)
                             .setMessage(app.about + T.t(".\n\nУборщик скачает его с официального сайта разработчика и поставит, только если ")
                                     + T.t("файл подписан самим разработчиком. Это стороннее приложение: за его работу отвечают его авторы."))
                             .setNegativeButton(T.t("Отмена"), null)
-                            .setPositiveButton(T.t("Скачать и поставить"), (d2, w2) -> run(T.t("Ставлю ") + app.name + "…", () -> new Ops(this, this::say).installStore(app)))
+                            .setPositiveButton(T.t("Скачать и поставить"), (d2, w2) -> installStore(app))
                             .show();
                 })
                 .setNegativeButton(T.t("Отмена"), null)
                 .show();
+    }
+
+    private String openAfterJob;
+
+    private void installStore(Ops.StoreApp app) {
+        openAfterJob = app.pkg;
+        progBar.setProgress(0); progBar.setVisibility(android.view.View.VISIBLE);
+        progText.setText(T.t("Подключаюсь…")); progText.setVisibility(android.view.View.VISIBLE);
+        run(T.t("Ставлю ") + app.name + "…", () -> new Ops(this, this::say).progress((d, t, w) -> runOnUiThread(() -> {
+            progBar.setProgress(t > 0 ? d * 100 / t : 0);
+            progText.setText(w);
+        })).installStore(app));
+    }
+
+    private void openApp(String pkg) {
+        Intent i = getPackageManager().getLaunchIntentForPackage(pkg);
+        if (i == null) i = getPackageManager().getLeanbackLaunchIntentForPackage(pkg);
+        if (i == null) return;
+        openingLog = true;
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
     }
 
     private void offerReboot() {
@@ -335,6 +370,7 @@ public class MainActivity extends Activity {
                 if (m.containsKey("_used"))
                     memory.setText(T.t("Занято ") + m.get("_used") / 1024 + T.t(" из ") + m.get("_total") / 1024 + T.t(" МБ")
                             + (store.flag("expertUi", false) ? T.t(". Цифра у приложения — сколько оно занимает сейчас.") : ""));
+                else if (m.containsKey("_connected")) memory.setText(T.t("Телевизор пока не отдал данные о памяти — он занят. Всё остальное работает; цифры появятся после «Обновить список»."));
                 else memory.setText(T.t("Нет связи с ADB телевизора. Включите «Отладку по USB / сети» и разрешите Уборщика."));
                 show(warning, m.getOrDefault("_insecure", 0L) == 1L
                         ? T.t("⚠ На этой прошивке отладка по сети открыта без подтверждения (ro.adb.secure=0): любое устройство в домашней сети может управлять телевизором. Держите Wi-Fi под паролем и не пускайте в него посторонние устройства.")
@@ -581,6 +617,7 @@ public class MainActivity extends Activity {
                 launcherBtn.setText(store.flag("launcher", false) ? T.t("Вернуть старую оболочку") : T.t("Новая оболочка"));
                 simpleLauncher.setText(launcherBtn.getText());
                 if (simpleRun) { simpleRun = false; if (done) offerReboot(); }
+                if (openAfterJob != null) { String p = openAfterJob; openAfterJob = null; if (done) openApp(p); }
                 String last = status.getText().toString();
                 show(status, (done ? T.t("Готово ✔") : T.t("Не получилось — см. «Журнал»")) + (last.startsWith("⚠") || last.startsWith(T.t("Итог: ")) ? "  ·  " + last : ""));
                 scan();

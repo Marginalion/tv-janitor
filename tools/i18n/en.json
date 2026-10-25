@@ -515,5 +515,14 @@
 "opens videos from USB and the file browser",
 "Xiaomi partner setup",
 "vendor service settings on first power-on",
-"Applying choices that were never applied yet:"
+"Applying choices that were never applied yet:",
+"The TV hasn't reported its memory yet — it's busy. Everything else works; the numbers appear after \"Refresh list\".",
+"The firmware switched nothing back on.",
+"The firmware switched back on",
+"Something is being watched — I'll show the report when you open TV Janitor",
+"Already installed. It may not show on the TV's home screen: it is a phone app without a TV icon. Open it from here.",
+"Reinstall",
+"Open",
+"no APK in the release",
+"installed ✔ Opening it. If it isn't on the home screen, open it with \"📦 Install an app store\"."
 ]

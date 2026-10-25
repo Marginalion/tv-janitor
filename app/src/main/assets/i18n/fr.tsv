@@ -517,3 +517,12 @@ Live Channels	Live Channels
 Настройки партнёра Xiaomi	Configuration partenaire Xiaomi
 служебные настройки производителя при первом включении	réglages de service du fabricant au premier allumage
 Применяю выбор, который ещё не применялся: 	Application d'un choix pas encore appliqué : 
+Телевизор пока не отдал данные о памяти — он занят. Всё остальное работает; цифры появятся после «Обновить список».	Le téléviseur n'a pas encore indiqué sa mémoire — il est occupé. Tout le reste fonctionne ; les chiffres apparaîtront après « Actualiser la liste ».
+Прошивка ничего не вернула сама.	Le firmware n'a rien réactivé.
+Прошивка вернула сама	Le firmware a réactivé
+На экране что-то смотрят — отчёт покажу, когда откроете Уборщика	Quelque chose est en cours de visionnage — j'afficherai le rapport à l'ouverture de TV Janitor
+Уже установлен. На главном экране телевизора его может не быть: это приложение для телефонов, у него нет значка для ТВ. Открывайте его отсюда.	Déjà installée. Elle peut ne pas apparaître sur l'écran d'accueil : c'est une appli pour téléphone sans icône TV. Ouvrez-la d'ici.
+Переустановить	Réinstaller
+Открыть	Ouvrir
+в выпуске нет APK	pas d'APK dans la version
+ установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 installé ✔ Je l'ouvre. S'il n'est pas sur l'écran d'accueil, ouvrez-le avec « 📦 Installer une boutique ».

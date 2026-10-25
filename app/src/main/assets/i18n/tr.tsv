@@ -517,3 +517,12 @@ Live Channels	Live Channels
 Настройки партнёра Xiaomi	Xiaomi iş ortağı kurulumu
 служебные настройки производителя при первом включении	ilk açılışta üreticinin hizmet ayarları
 Применяю выбор, который ещё не применялся: 	Henüz uygulanmamış seçim uygulanıyor: 
+Телевизор пока не отдал данные о памяти — он занят. Всё остальное работает; цифры появятся после «Обновить список».	Televizyon henüz bellek bilgisini vermedi — meşgul. Diğer her şey çalışıyor; sayılar «Listeyi yenile»den sonra görünür.
+Прошивка ничего не вернула сама.	Yazılım hiçbir şeyi kendiliğinden geri açmadı.
+Прошивка вернула сама	Yazılım kendiliğinden geri açtı:
+На экране что-то смотрят — отчёт покажу, когда откроете Уборщика	Ekranda bir şey izleniyor — raporu TV Janitor'u açtığında göstereceğim
+Уже установлен. На главном экране телевизора его может не быть: это приложение для телефонов, у него нет значка для ТВ. Открывайте его отсюда.	Zaten kurulu. Ana ekranda görünmeyebilir: TV simgesi olmayan bir telefon uygulamasıdır. Buradan aç.
+Переустановить	Yeniden kur
+Открыть	Aç
+в выпуске нет APK	sürümde APK yok
+ установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 kuruldu ✔ Açılıyor. Ana ekranda görünmüyorsa «📦 Uygulama mağazası kur» ile aç.

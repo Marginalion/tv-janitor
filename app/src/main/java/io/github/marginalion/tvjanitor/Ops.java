@@ -61,15 +61,25 @@ final class Ops {
     }
 
     /** One short line per command: what was done, and the first line of any error. */
+    /** The line of an error that says why: Android prints "Exception occurred while executing" first. */
+    private static String why(String r) {
+        for (String l : r.split("\n")) {
+            l = l.trim();
+            if (l.isEmpty() || l.startsWith("Exception occurred while executing") || l.startsWith("at ")) continue;
+            return l.length() > 140 ? l.substring(0, 140) + "…" : l;
+        }
+        return firstLine(r);
+    }
+
     private static String shortLine(String cmd, String r) {
         String[] w = cmd.split(" ");
         String pkg = w[w.length - 1];
         if (cmd.startsWith("pm disable-user"))
-            return r.contains("disabled") ? T.t("− отключено: ") + pkg : r.contains("Unknown package") ? T.t("· нет на ТВ: ") + pkg : "✗ " + pkg + ": " + firstLine(r);
+            return r.contains("disabled") ? T.t("− отключено: ") + pkg : r.contains("Unknown package") ? T.t("· нет на ТВ: ") + pkg : "✗ " + pkg + ": " + why(r);
         if (cmd.startsWith("cmd appops set")) return r.isEmpty() ? null : "✗ " + pkgOf(cmd) + ": " + firstLine(r);
         if (cmd.startsWith("am force-stop")) return r.isEmpty() ? T.t("💤 не запускается само: ") + pkg : "✗ " + pkg + ": " + firstLine(r);
         if (cmd.startsWith("pm enable"))
-            return r.contains("enabled") ? T.t("+ включено: ") + pkg : "✗ " + pkg + ": " + firstLine(r);
+            return r.contains("enabled") ? T.t("+ включено: ") + pkg : "✗ " + pkg + ": " + why(r);
         String out = r.isEmpty() ? "ok" : firstLine(r);
         return "$ " + (cmd.length() > 70 ? cmd.substring(0, 70) + "…" : cmd) + "  →  " + out;
     }
@@ -85,7 +95,8 @@ final class Ops {
 
     /** PSS (or RSS) per package in KB, plus "_used" and "_total". */
     static Map<String, Long> memory(Adb adb) throws Exception {
-        String out = adb.shell("dumpsys meminfo");
+        // Some TVs (Philips on MediaTek) need longer than dumpsys' default 10 s right after boot.
+        String out = adb.shell("dumpsys -t 40 meminfo");
         Map<String, Long> m = new HashMap<>();
 
 
@@ -104,6 +115,15 @@ final class Ops {
         if (used.find()) m.put("_used", Long.parseLong(used.group(1).replace(",", "")));
         Matcher total = Pattern.compile("Total RAM:\\s*([\\d,]+)K").matcher(out);
         if (total.find()) m.put("_total", Long.parseLong(total.group(1).replace(",", "")));
+        if (!m.containsKey("_used")) {
+            // Fallback: the kernel's own numbers. MemAvailable is nonsense on some firmware (terabytes), so check it.
+            String pm = adb.shell("cat /proc/meminfo");
+            Matcher t = Pattern.compile("MemTotal:\\s*(\\d+)").matcher(pm), a = Pattern.compile("MemAvailable:\\s*(\\d+)").matcher(pm);
+            if (t.find() && a.find()) {
+                long tk = Long.parseLong(t.group(1)), ak = Long.parseLong(a.group(1));
+                if (ak > 0 && ak < tk) { m.put("_total", tk); m.put("_used", tk - ak); }
+            }
+        }
         return m;
     }
 
@@ -220,6 +240,16 @@ final class Ops {
                 + countLines(adb, "logcat -d -b main -b system | grep -c 'Scheduling restart of crashed service'");
     }
 
+    /** Of the chosen packages, the ones Android really reports as disabled right now. */
+    private static Set<String> reallyOff(Adb adb, Set<String> chosen) throws Exception {
+        Set<String> off = new java.util.HashSet<>();
+        for (String l : adb.shell("pm list packages -d").split("\n")) {
+            l = l.trim();
+            if (l.startsWith("package:") && chosen.contains(l.substring(8))) off.add(l.substring(8));
+        }
+        return off;
+    }
+
     void disableAll(Adb adb, Collection<String> pkgs) throws Exception {
         for (String p : pkgs) sh(adb, "pm disable-user --user 0 " + p);
     }
@@ -260,9 +290,10 @@ final class Ops {
                 for (String p : store.disabled()) if (!nowOff.contains(p) && installed(p)) { if (applied.contains(p)) back.add(p); else pending++; }
                 if (pending > 0) note(T.t("Применяю выбор, который ещё не применялся: ") + pending);
                 store.setSet("firmwareBack", back);
-                if (!back.isEmpty()) note(T.t("Прошивка сама включила обратно при загрузке: ") + back.size() + T.t(" — отключаю снова"));
+                if (!back.isEmpty()) note(T.t("Прошивка сама включила обратно при загрузке: ") + back.size() + T.t(" — отключаю снова")
+                        + "  (" + String.join(", ", new java.util.TreeSet<>(back)) + ")");
                 disableAll(adb, store.disabled());
-                store.setSet("appliedOff", store.disabled());
+                store.setSet("appliedOff", reallyOff(adb, store.disabled()));
                 if (!store.disabled().isEmpty()) {
                     String first = store.disabled().iterator().next();
                     boolean ok = adb.shell("pm list packages -d").contains("package:" + first + "\n") || adb.shell("pm list packages -d").trim().endsWith(first);
@@ -273,16 +304,28 @@ final class Ops {
                 if (new File(c.getExternalFilesDir(null), "commands.txt").isFile())
                     note(T.t("Файл commands.txt больше не используется (любое приложение могло его изменить). Выбор задаётся в меню."));
                 if (store.flag("killbg", false)) sh(adb, "am kill-all");
-                if (launcher) sh(adb, "am start -a android.intent.action.MAIN -c android.intent.category.HOME");
+                if (launcher) {
+                    // Bring our Home up only if the TV is sitting on a boot or stock home screen, not over live TV.
+                    String top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
+                    String stock = store.str("stockHome");
+                    if (top.trim().isEmpty() || top.contains("FallbackHome") || (stock != null && top.contains(stock + "/")))
+                        sh(adb, "am start -a android.intent.action.MAIN -c android.intent.category.HOME");
+                }
                 String used = usedLine(adb);
                 note(used);
-                store.setStr("bootReport", T.t("После перезагрузки: ") + used
-                        + (back.isEmpty() ? T.t(". Прошивка ничего не вернула сама.") : T.t(". Прошивка вернула сама ") + back.size() + T.t(", Уборщик отключил снова."))
+                store.setStr("bootReport", T.t("После перезагрузки: ") + (used.isEmpty() ? "" : used + ". ")
+                        + (back.isEmpty() ? T.t("Прошивка ничего не вернула сама.") : T.t("Прошивка вернула сама ") + back.size() + T.t(", Уборщик отключил снова."))
                         + T.t(" Отключено: ") + store.disabled().size() + T.t(", не запускаются сами: ") + store.sleeping().size() + ".");
                 Report.saveIfConsented(c);
+                store.setFlag("reportUnseen", true);
                 if (store.flag("openAfterBoot", false)) {
                     store.setFlag("openAfterBoot", false);
-                    sh(adb, "am start -n " + BuildInfo.SELF + "/.MainActivity --ez report true");
+                    // Be polite: open with the report only over the Home screen. If the TV came up in live TV, an
+                    // input or an app, stay out of the way; the report waits until the app is opened.
+                    String top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
+                    String home = homePackage(adb);
+                    if (home != null && top.contains(home + "/")) sh(adb, "am start -n " + BuildInfo.SELF + "/.MainActivity --ez report true");
+                    else note(T.t("На экране что-то смотрят — отчёт покажу, когда откроете Уборщика"));
                 }
                 note(T.t("Готово"));
                 return true;
@@ -332,7 +375,7 @@ final class Ops {
                 }
                 wakeAll(adb, wake);
                 sleepAll(adb, sleep);
-                store.setSet("appliedOff", store.disabled());
+                store.setSet("appliedOff", reallyOff(adb, store.disabled()));
                 Report.saveIfConsented(c);
                 note(T.t("Итог: ") + T.t("отключено ") + disable.size() + T.t(", включено ") + enable.size() + T.t(", не запускаются сами ") + sleep.size());
                 tweaks(adb);
@@ -352,11 +395,13 @@ final class Ops {
             Adb adb = connect(2);
             if (adb == null) return new HashMap<>();
             try {
-                Map<String, Long> m = memory(adb);
+                Map<String, Long> m = new HashMap<>();
+                try { m = memory(adb); } catch (Exception ignored) {}
+                m.put("_connected", 1L);
                 m.put("_insecure", adbInsecure(adb) ? 1L : 0L);
                 try { snapshot(adb); } catch (Exception ignored) {}
                 return m;
-            } catch (Exception e) { return new HashMap<>(); } finally { adb.close(); save(); }
+            } catch (Exception e) { Map<String, Long> m = new HashMap<>(); m.put("_connected", 1L); return m; } finally { adb.close(); save(); }
         }
     }
 
@@ -513,7 +558,7 @@ final class Ops {
                 for (String u : app.urls) { url = u.startsWith("gitlab:") ? gitlabLatestApk(u.substring(7)) : u; if (url != null) break; }
                 if (url == null) { note(T.t("Не нашёл файл ") + app.name + T.t(" на сервере. Есть ли интернет?")); return false; }
                 note(T.t("Скачиваю: ") + url);
-                download(url, priv);
+                download(url, priv, (d, t) -> { if (prog != null) prog.progress((int) (d / 1024), (int) Math.max(t / 1024, d / 1024 + 1), T.t("Скачиваю: ") + d / 1048576 + (t > 0 ? " / " + t / 1048576 : "") + T.t(" МБ")); });
                 // Check who signed it before anything else.
                 String signer = signerSha(priv);
                 android.content.pm.PackageInfo pi = c.getPackageManager().getPackageArchiveInfo(priv.getAbsolutePath(), 0);
@@ -538,7 +583,7 @@ final class Ops {
                 if (r.contains("UPDATE_INCOMPATIBLE")) { note(T.t("Уже стоит другая сборка ") + app.name + T.t(" с другой подписью: удалите её и попробуйте снова")); return false; }
                 if (r.contains("VERIFICATION_FAILURE") || r.contains("INSTALL_FAILED_ABORTED")) { note(T.t("Эта прошивка не принимает сторонние приложения (") + firstLine(r) + ")"); return false; }
                 if (!r.contains("Success")) { note(T.t("Установка не удалась: ") + firstLine(r)); return false; }
-                note(app.name + T.t(" установлен ✔ Он на главном экране среди приложений."));
+                note(app.name + T.t(" установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин»."));
                 note(T.t("Готово"));
                 return true;
             } catch (Exception e) {
@@ -552,9 +597,17 @@ final class Ops {
     }
 
     /** Latest release APK of a GitLab project, from its public API. The signature check decides anyway. */
-    private static String gitlabLatestApk(String project) {
+    private String gitlabLatestApk(String project) {
         try {
             String json = fetch("https://gitlab.com/api/v4/projects/" + project.replace("/", "%2F") + "/releases/permalink/latest");
+            // Aurora attaches the APKs as uploads linked from the release text: [AuroraStore-4.8.4.apk](/uploads/<id>/AuroraStore-4.8.4.apk)
+            // (the hw and preload variants are for special devices). Older releases used asset links instead.
+            Matcher up = Pattern.compile("\\((/uploads/[0-9a-f]+/" + Pattern.quote(project.substring(project.indexOf('/') + 1)) + "-[0-9.]+\\.apk)\\)").matcher(json);
+            if (up.find()) {
+                // GitLab serves project uploads at /-/project/<numeric id>/uploads/...; the old /<group>/<name>/uploads path is 404.
+                Matcher id = Pattern.compile("\"id\"\\s*:\\s*(\\d+)").matcher(fetch("https://gitlab.com/api/v4/projects/" + project.replace("/", "%2F")));
+                return id.find() ? "https://gitlab.com/-/project/" + id.group(1) + up.group(1) : "https://gitlab.com/" + project + up.group(1);
+            }
             Matcher m = Pattern.compile("\"(?:direct_asset_url|url)\"\\s*:\\s*\"(https://[^\"]+\\.apk)\"").matcher(json);
             String best = null;
             while (m.find()) {
@@ -562,8 +615,9 @@ final class Ops {
                 if (u.toLowerCase(Locale.ROOT).contains("debug")) continue;
                 if (best == null || u.contains("direct")) best = u;
             }
+            if (best == null) note("GitLab: " + T.t("в выпуске нет APK"));
             return best;
-        } catch (Exception e) { return null; }
+        } catch (Exception e) { note("GitLab: " + e.getClass().getSimpleName() + " " + e.getMessage()); return null; }
     }
 
     private static String fetch(String url) throws Exception {
@@ -577,7 +631,9 @@ final class Ops {
         }
     }
 
-    private static void download(String url, File to) throws Exception {
+    interface Bytes { void got(long done, long total); }
+
+    private static void download(String url, File to, Bytes cb) throws Exception {
         for (int hop = 0; hop < 6; hop++) {
             java.net.HttpURLConnection h = (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
             h.setInstanceFollowRedirects(false);
@@ -590,10 +646,14 @@ final class Ops {
                 continue;
             }
             if (code != 200) throw new Exception(T.t("сервер ответил ") + code);
-            long total = 0;
+            long total = 0, size = h.getContentLengthLong(), shown = 0;
             try (InputStream in = h.getInputStream(); OutputStream out = new FileOutputStream(to)) {
                 byte[] b = new byte[65536]; int n;
-                while ((n = in.read(b)) > 0) { out.write(b, 0, n); total += n; if (total > 200L << 20) throw new Exception(T.t("файл слишком большой")); }
+                while ((n = in.read(b)) > 0) {
+                    out.write(b, 0, n); total += n;
+                    if (total > 200L << 20) throw new Exception(T.t("файл слишком большой"));
+                    if (cb != null && total - shown > 262144) { shown = total; cb.got(total, size); }
+                }
             }
             return;
         }

@@ -515,5 +515,14 @@
 "ouvre les vidéos depuis USB et l'explorateur",
 "Configuration partenaire Xiaomi",
 "réglages de service du fabricant au premier allumage",
-"Application d'un choix pas encore appliqué :"
+"Application d'un choix pas encore appliqué :",
+"Le téléviseur n'a pas encore indiqué sa mémoire — il est occupé. Tout le reste fonctionne ; les chiffres apparaîtront après « Actualiser la liste ».",
+"Le firmware n'a rien réactivé.",
+"Le firmware a réactivé",
+"Quelque chose est en cours de visionnage — j'afficherai le rapport à l'ouverture de TV Janitor",
+"Déjà installée. Elle peut ne pas apparaître sur l'écran d'accueil : c'est une appli pour téléphone sans icône TV. Ouvrez-la d'ici.",
+"Réinstaller",
+"Ouvrir",
+"pas d'APK dans la version",
+"installé ✔ Je l'ouvre. S'il n'est pas sur l'écran d'accueil, ouvrez-le avec « 📦 Installer une boutique »."
 ]

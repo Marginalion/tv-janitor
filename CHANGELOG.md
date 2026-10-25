@@ -6,6 +6,13 @@
   while a job was still queued). Jobs are now counted and the app waits for the last one.
 - Fix: the boot report no longer says "the firmware switched N back on" for choices that had simply not been
   applied yet; the experience report no longer lists them as re-enabled by the firmware.
+- Polite after boot: the report opens only over the Home screen, never over live TV or an input; otherwise it
+  waits until the app is opened. The new home screen is no longer pushed over live TV either.
+- Memory: longer wait for slow TVs (Philips), a fallback to the kernel's numbers, and an honest message when
+  the TV is busy instead of "no ADB connection".
+- App stores: Aurora Store's new release layout and GitLab's upload paths; a download progress bar; the store
+  opens right after install and can be opened from the app later (phone apps have no TV icon on Home).
+- The log names the real reason a command failed and which packages the firmware switched back on.
 - "What I use" now wins over a package that was already off before TV Janitor (for example Chromecast
   disabled by hand earlier): the modes switch it back on.
 
