@@ -253,10 +253,16 @@ final class Ops {
                 java.util.Set<String> nowOff = new java.util.HashSet<>();
                 for (String l : adb.shell("pm list packages -d").split("\n")) { l = l.trim(); if (l.startsWith("package:")) nowOff.add(l.substring(8)); }
                 java.util.Set<String> back = new java.util.HashSet<>();
-                for (String p : store.disabled()) if (!nowOff.contains(p) && installed(p)) back.add(p);
+                // Only what an earlier run really switched off counts as "the firmware put it back"; a choice
+                // that was saved but never applied (the app was closed mid-way) is simply applied now.
+                java.util.Set<String> applied = store.set("appliedOff");
+                int pending = 0;
+                for (String p : store.disabled()) if (!nowOff.contains(p) && installed(p)) { if (applied.contains(p)) back.add(p); else pending++; }
+                if (pending > 0) note(T.t("Применяю выбор, который ещё не применялся: ") + pending);
                 store.setSet("firmwareBack", back);
                 if (!back.isEmpty()) note(T.t("Прошивка сама включила обратно при загрузке: ") + back.size() + T.t(" — отключаю снова"));
                 disableAll(adb, store.disabled());
+                store.setSet("appliedOff", store.disabled());
                 if (!store.disabled().isEmpty()) {
                     String first = store.disabled().iterator().next();
                     boolean ok = adb.shell("pm list packages -d").contains("package:" + first + "\n") || adb.shell("pm list packages -d").trim().endsWith(first);
@@ -326,6 +332,7 @@ final class Ops {
                 }
                 wakeAll(adb, wake);
                 sleepAll(adb, sleep);
+                store.setSet("appliedOff", store.disabled());
                 Report.saveIfConsented(c);
                 note(T.t("Итог: ") + T.t("отключено ") + disable.size() + T.t(", включено ") + enable.size() + T.t(", не запускаются сами ") + sleep.size());
                 tweaks(adb);

@@ -1,4 +1,5 @@
-["Erfahrung teilen",
+[
+"Erfahrung teilen",
 "Unten steht der ganze Bericht, mehr ist nicht darin: Modell, Firmware und Systempakete. Ihre eigenen Apps kommen nur hinein, wenn Sie das unten ankreuzen.",
 "TV Janitor sendet nichts von selbst: „Speichern“ legt die Datei auf dem Fernseher ab, und Sie entscheiden, ob Sie sie an CleanYourTV schicken, um Besitzern desselben Fernsehers zu helfen.",
 "Meine Apps in den Bericht aufnehmen\nStreaming-Apps und alles andere, was Sie installiert und dann deaktiviert oder schlafen gelegt haben. Das hilft anderen, ist aber privat: Ihre Entscheidung",
@@ -513,4 +514,6 @@
 "Xiaomi-Videoplayer",
 "öffnet Videos vom USB-Stick und aus dem Dateimanager",
 "Xiaomi-Partnereinrichtung",
-"Dienst-Einstellungen des Herstellers beim ersten Einschalten"]
+"Dienst-Einstellungen des Herstellers beim ersten Einschalten",
+"Wende eine noch nicht angewendete Auswahl an:"
+]

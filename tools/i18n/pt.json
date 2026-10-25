@@ -1,4 +1,5 @@
-["Compartilhar experiência",
+[
+"Compartilhar experiência",
 "Abaixo está o relatório completo, não há mais nada nele: modelo, firmware e pacotes do sistema. Seus próprios apps só entram se você marcar isso abaixo.",
 "O TV Janitor não envia nada sozinho: «Salvar» grava o arquivo na TV, e você decide se o envia ao CleanYourTV para ajudar quem tem a mesma TV.",
 "Incluir meus apps no relatório\napps de streaming e tudo o que você instalou e depois desativou ou pôs para dormir. Ajuda os outros, mas é pessoal: você decide",
@@ -513,4 +514,6 @@
 "Player de vídeo Xiaomi",
 "abre vídeos do pendrive e do gerenciador de arquivos",
 "Configuração de parceiro Xiaomi",
-"configurações de serviço do fabricante ao ligar pela primeira vez"]
+"configurações de serviço do fabricante ao ligar pela primeira vez",
+"Aplicando uma escolha que ainda não tinha sido aplicada:"
+]

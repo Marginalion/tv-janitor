@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.1-beta (unreleased)
+
+- Fix: Apply could be lost when the new home screen was installed just before it (the app closed itself
+  while a job was still queued). Jobs are now counted and the app waits for the last one.
+- Fix: the boot report no longer says "the firmware switched N back on" for choices that had simply not been
+  applied yet; the experience report no longer lists them as re-enabled by the firmware.
+- "What I use" now wins over a package that was already off before TV Janitor (for example Chromecast
+  disabled by hand earlier): the modes switch it back on.
+
 ## 0.9-beta (2026-10-25)
 
 First public beta.

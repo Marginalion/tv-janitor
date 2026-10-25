@@ -1,4 +1,5 @@
-["Deneyimini paylaş",
+[
+"Deneyimini paylaş",
 "Aşağıda raporun tamamı var, başka bir şey içermez: model, yazılım ve sistem paketleri. Kendi uygulamaların yalnızca aşağıda işaretlersen eklenir.",
 "TV Janitor kendiliğinden hiçbir şey göndermez: «Kaydet» dosyayı televizyona koyar, aynı televizyonun sahiplerine yardım etmek için CleanYourTV'ye gönderip göndermemeye sen karar verirsin.",
 "Uygulamalarımı rapora ekle\nyükleyip sonra devre dışı bıraktığın veya «uyuttuğun» yayın uygulamaları ve diğerleri. Başkalarına yardımcı olur ama kişiseldir: karar senin",
@@ -513,4 +514,6 @@
 "Xiaomi video oynatıcı",
 "USB'den ve dosya yöneticisinden videoları açar",
 "Xiaomi iş ortağı kurulumu",
-"ilk açılışta üreticinin hizmet ayarları"]
+"ilk açılışta üreticinin hizmet ayarları",
+"Henüz uygulanmamış seçim uygulanıyor:"
+]

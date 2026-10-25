@@ -1,4 +1,5 @@
-["Partager mon expérience",
+[
+"Partager mon expérience",
 "Voici le rapport complet, il ne contient rien d'autre : modèle, firmware et paquets système. Vos propres applis n'y figurent que si vous cochez la case ci-dessous.",
 "TV Janitor n'envoie rien de lui-même : « Enregistrer » dépose le fichier sur le téléviseur, et c'est vous qui décidez de l'envoyer à CleanYourTV pour aider les propriétaires du même téléviseur.",
 "Inclure mes applis dans le rapport\napplis de streaming et tout ce que vous avez installé puis désactivé ou mis en veille. Cela aide les autres, mais c'est personnel : à vous de voir",
@@ -513,4 +514,6 @@
 "Lecteur vidéo Xiaomi",
 "ouvre les vidéos depuis USB et l'explorateur",
 "Configuration partenaire Xiaomi",
-"réglages de service du fabricant au premier allumage"]
+"réglages de service du fabricant au premier allumage",
+"Application d'un choix pas encore appliqué :"
+]

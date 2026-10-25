@@ -38,7 +38,10 @@ public class MainActivity extends Activity {
     private final List<Row> rows = new ArrayList<>();
     private Map<String, Long> mem = new HashMap<>();
     private CheckBox anim, cache, killbg, dns, expert;
-    private volatile boolean busy;
+    /** Jobs started and not finished yet. A counter, not a flag: two jobs can overlap (Home screen install,
+     *  then Apply), and the process must not end while any of them still has work queued. */
+    private static final java.util.concurrent.atomic.AtomicInteger jobs = new java.util.concurrent.atomic.AtomicInteger();
+    private static boolean busy() { return jobs.get() > 0; }
     private boolean openingLog;
 
     @Override protected void onCreate(Bundle b) {
@@ -187,10 +190,10 @@ public class MainActivity extends Activity {
         refresh.setOnClickListener(v -> scan());
         dbBtn.setOnClickListener(v -> {
             show(status, T.t("Обновляю базу CleanYourTV…"));
-            busy = true;
+            jobs.incrementAndGet();
             new Thread(() -> {
                 String r = Updater.update(this, this::say);
-                busy = false;
+                jobs.decrementAndGet();
                 runOnUiThread(() -> { show(status, r); buildList(); });
             }).start();
         });
@@ -230,7 +233,7 @@ public class MainActivity extends Activity {
 
     /** One press: set the mode, show what changes, apply, then offer a reboot. */
     private void quick(int mode) {
-        if (busy) return;
+        if (busy()) return;
         preset(mode);
         int off = 0, sleep = 0; long kb = 0;
         Set<String> slept = store.sleeping();
@@ -263,7 +266,7 @@ public class MainActivity extends Activity {
 
     /** Pick an app store to install; each one is checked against its developer's signature. */
     private void chooseStore() {
-        if (busy) return;
+        if (busy()) return;
         Ops.StoreApp[] all = Ops.STORES;
         CharSequence[] items = new CharSequence[all.length];
         for (int i = 0; i < all.length; i++) {
@@ -449,8 +452,9 @@ public class MainActivity extends Activity {
         for (Row r : rows) {
             if (r.level.equals(IMPORTANT) || r.level.equals(UNKNOWN)) continue;
             if (Edition.LITE && !r.known && !r.factoryOff) { r.state = !r.enabled ? 2 : store.sleeping().contains(r.pkg) ? 1 : 0; continue; }
-            if (r.factoryOff) { r.state = 2; paint(r); continue; }
+            // What the owner says they use wins, even over something that was already off before TV Janitor.
             if (r.needed) { r.state = 0; paint(r); continue; }
+            if (r.factoryOff) { r.state = 2; paint(r); continue; }
             int s = 0;
             boolean safeHit = r.level.equals(SAFE) && (mode >= 1 || r.tele || Catalog.get(this).containsKey(r.pkg));
             if (mode == 0) s = (r.level.equals(SAFE) && (r.tele || Catalog.get(this).containsKey(r.pkg))) ? 2 : 0;
@@ -552,7 +556,7 @@ public class MainActivity extends Activity {
         if (!isChangingConfigurations() && !openingLog) {
             finishAndRemoveTask();
             new Thread(() -> {
-                while (busy) { try { Thread.sleep(500); } catch (InterruptedException ignored) {} }
+                while (busy()) { try { Thread.sleep(500); } catch (InterruptedException ignored) {} }
                 synchronized (Ops.LOCK) { android.os.Process.killProcess(android.os.Process.myPid()); }
             }).start();
         }
@@ -563,10 +567,11 @@ public class MainActivity extends Activity {
     private void run(String msg, Job job) {
         applyBtn.setEnabled(false); launcherBtn.setEnabled(false); simpleLauncher.setEnabled(false);
         show(status, msg);
-        busy = true;
+        jobs.incrementAndGet();
         new Thread(() -> {
-            boolean ok = job.run();
-            busy = false;
+            boolean ok = false;
+            try { ok = job.run(); } catch (RuntimeException ignored) {} finally { jobs.decrementAndGet(); }
+            final boolean done = ok;
             runOnUiThread(() -> {
                 applyBtn.setEnabled(true); launcherBtn.setEnabled(true); simpleLauncher.setEnabled(true);
                 if (progBar.getVisibility() == android.view.View.VISIBLE) {
@@ -575,9 +580,9 @@ public class MainActivity extends Activity {
                 }
                 launcherBtn.setText(store.flag("launcher", false) ? T.t("Вернуть старую оболочку") : T.t("Новая оболочка"));
                 simpleLauncher.setText(launcherBtn.getText());
-                if (simpleRun) { simpleRun = false; if (ok) offerReboot(); }
+                if (simpleRun) { simpleRun = false; if (done) offerReboot(); }
                 String last = status.getText().toString();
-                show(status, (ok ? T.t("Готово ✔") : T.t("Не получилось — см. «Журнал»")) + (last.startsWith("⚠") || last.startsWith(T.t("Итог: ")) ? "  ·  " + last : ""));
+                show(status, (done ? T.t("Готово ✔") : T.t("Не получилось — см. «Журнал»")) + (last.startsWith("⚠") || last.startsWith(T.t("Итог: ")) ? "  ·  " + last : ""));
                 scan();
             });
         }).start();
