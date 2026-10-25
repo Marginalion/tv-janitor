@@ -7,6 +7,9 @@ TV Janitor asks what you use, switches off what you don't, can put a clean home 
 all again after every boot, because some firmware switches packages back on by itself. Built on the data and
 the launcher of [CleanYourTV](https://github.com/Gathin23/cleanyourtv).
 
+**No AI agent, no subscription, no computer after setup:** install the APK once with `adb`, and the cleanup
+runs on the TV itself.
+
 > **0.9 beta.** Tested on three TVs so far. Every TV is different: read "Things to know" first.
 > Speaks the TV's language: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Turkish, Chinese,
 > Japanese and Vietnamese (other languages fall back to English). Translations: [tools/i18n](tools/i18n).
@@ -137,7 +140,7 @@ are separate projects of their own authors; TV Janitor only downloads them from 
 **Чистит любой телевизор на Android TV или Google TV прямо на нём самом, после установки компьютер не
 нужен.** Спрашивает, чем вы пользуетесь, отключает лишнее, может поставить чистую оболочку и повторяет всё
 после каждой загрузки: некоторые прошивки сами включают пакеты обратно. В приложении оно называется
-«Уборщик». **Версия 0.9 бета.** Говорит на языке телевизора: 11 языков, остальные — по-английски.
+«Уборщик». **Без ИИ, без подписки и без компьютера после установки:** один раз ставите APK через `adb`, дальше всё работает на самом телевизоре. **Версия 0.9 бета.** Говорит на языке телевизора: 11 языков, остальные — по-английски.
 
 **Две версии.** **Lite** — одна кнопка, отключает только то, про что точно известно, что оно лишнее, и
 ничего не скачивает из интернета. **Full** — три режима («Бережно», «Оптимально», «Максимум»), экран «Для
