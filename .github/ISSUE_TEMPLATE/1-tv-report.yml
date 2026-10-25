@@ -1,0 +1,65 @@
+name: "📺 My TV / Мой телевизор"
+description: "Tell how TV Janitor did on your TV, so owners of the same model know what to expect. / Расскажите, как TV Janitor отработал на вашем ТВ."
+title: "[TV] <brand> <model>"
+labels: ["tv-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Reports like this are how the next owner of the same TV skips the guesswork.
+        Спасибо! Такие отчёты помогают следующему владельцу такого же телевизора. Можно писать по-русски.
+  - type: input
+    id: model
+    attributes:
+      label: "TV brand and model / Марка и модель"
+      placeholder: "Philips 50PUS8505/60"
+    validations:
+      required: true
+  - type: input
+    id: android
+    attributes:
+      label: "Android version and firmware / Версия Android и прошивки"
+      description: "Settings → About / Настройки → Об устройстве"
+      placeholder: "Android TV 12, TPM191E_R.108.001.155.000"
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: "Edition and version / Версия TV Janitor"
+      options: ["Lite", "Full"]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "App version / Номер версии"
+      placeholder: "0.9.1-beta"
+  - type: dropdown
+    id: mode
+    attributes:
+      label: "Mode used / Какой режим"
+      multiple: true
+      options: ["Gentle / Бережно", "Optimal / Оптимально", "Maximum / Максимум", "By hand in For experts / Вручную в «Для опытных»"]
+  - type: input
+    id: memory
+    attributes:
+      label: "Memory before → after, MB / Память до → после, МБ"
+      description: "The \"Used\" line at the top of the app, 2–3 minutes after a reboot. / Строка «Занято» в приложении, через 2–3 минуты после перезагрузки."
+      placeholder: "1355 → 1229 of 1952"
+  - type: dropdown
+    id: newhome
+    attributes:
+      label: "New home screen installed? / Ставили новую оболочку?"
+      options: ["Yes, works / Да, работает", "Yes, problems (below) / Да, есть проблемы (ниже)", "No / Нет"]
+  - type: textarea
+    id: works
+    attributes:
+      label: "What still works, what broke / Что работает, что сломалось"
+      description: "Remote, HDMI, live TV, voice, casting, mirroring, your streaming apps. / Пульт, HDMI, эфир, голос, трансляции, кинотеатры."
+  - type: textarea
+    id: report
+    attributes:
+      label: "Report from \"Share your experience\" (optional) / Отчёт из «Поделиться опытом» (по желанию)"
+      description: "Only if you want: it lists the model, firmware and system packages; your own apps only if you ticked that. / Только по желанию: модель, прошивка и системные пакеты; ваши приложения — только если отметили."
+      render: text

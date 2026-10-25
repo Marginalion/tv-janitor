@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "CleanYourTV: debloat lists for 300+ TVs"
+    url: https://github.com/Gathin23/cleanyourtv
+    about: "The base TV Janitor uses. A list for your TV helps everyone. / База, на которой работает TV Janitor."

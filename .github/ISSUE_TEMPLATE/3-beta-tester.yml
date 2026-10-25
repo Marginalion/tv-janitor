@@ -1,0 +1,28 @@
+name: "🧪 I want to test / Хочу тестировать"
+description: "Help try new versions on a TV we don't have. / Помогите проверять новые версии на телевизоре, которого у нас нет."
+title: "[Tester] <brand> <model>"
+labels: ["beta-tester"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We test on real TVs only, and we have three. Every new model helps.
+        Мы проверяем только на живых телевизорах, а их у нас три. Каждая новая модель помогает.
+  - type: input
+    id: model
+    attributes:
+      label: "TV brand and model, Android version / Марка, модель, версия Android"
+    validations:
+      required: true
+  - type: dropdown
+    id: adb
+    attributes:
+      label: "Comfortable with adb? / Умеете пользоваться adb?"
+      options: ["Yes / Да", "A little / Немного", "No, but willing to learn / Нет, но готов разобраться"]
+  - type: checkboxes
+    id: ok
+    attributes:
+      label: "Understood / Понимаю"
+      options:
+        - label: "It's a beta; I can undo with Restore everything. / Это бета; отменить можно кнопкой «Вернуть всё как было»."
+          required: true

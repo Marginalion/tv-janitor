@@ -104,6 +104,13 @@ debug key; such a build can't update the official release in place.
 - "Nearly the same" TVs can differ a lot inside: compare a TV with itself before and after, not with another TV.
 - You use it at your own risk (see the warnings in the app and [LICENSE](LICENSE)).
 
+## Tell us how it went
+
+Tried it? Open an issue: **[My TV](../../issues/new?template=1-tv-report.yml)** (how it did on your model),
+**[Something went wrong](../../issues/new?template=2-bug.yml)**, or **[I want to test](../../issues/new?template=3-beta-tester.yml)**
+new versions on a TV we don't have. Russian is fine. For a list your TV's owners can reuse, also send it to
+[CleanYourTV's `examples/`](https://github.com/Gathin23/cleanyourtv/tree/main/examples).
+
 ## How it was made
 
 Conceived, designed and tested on real TVs by **Marginalion**. The code was written together with
@@ -156,6 +163,10 @@ MIT, see [LICENSE](LICENSE). The bundled launcher (modified) and the hint base c
 
 **Установка:** скачайте APK со страницы [Releases](../../releases) и сверьте с `SHA256SUMS.txt`, затем
 команды из раздела «Install» выше. Или вставьте [PROMPT.ru.md](PROMPT.ru.md) в ИИ-помощника.
+
+**Обратная связь.** Попробовали? Откройте issue: [Мой телевизор](../../issues/new?template=1-tv-report.yml),
+[Что-то пошло не так](../../issues/new?template=2-bug.yml) или [Хочу тестировать](../../issues/new?template=3-beta-tester.yml).
+Можно по-русски.
 
 **Как сделан.** Задумано, спроектировано и проверено на живых телевизорах — **Marginalion**. Код написан
 вместе с [Claude](https://claude.ai) (Anthropic) в разговоре: человек решал, что и зачем делать, ИИ — как это

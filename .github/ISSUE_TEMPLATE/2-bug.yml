@@ -1,0 +1,40 @@
+name: "🐞 Something went wrong / Что-то пошло не так"
+description: "A bug, a crash, or something on the TV that stopped working. / Ошибка, вылет или что-то на ТВ перестало работать."
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **If the TV is in trouble right now:** in the app press **Restore everything**, then reboot. If the app itself won't open, see "Things to know" in the README.
+        **Если с телевизором беда прямо сейчас:** в приложении «Вернуть всё как было», затем перезагрузка.
+  - type: input
+    id: model
+    attributes:
+      label: "TV brand and model, Android version / Марка, модель, версия Android"
+      placeholder: "Novex NVX-32H219MSY, Android 9"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "TV Janitor edition and version / Версия TV Janitor"
+      placeholder: "Full 0.9.1-beta"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: "What happened, and what you pressed before / Что случилось и что нажимали перед этим"
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: "Log / Журнал"
+      description: "In the app: For experts → Log; or adb shell cat /sdcard/Android/data/io.github.marginalion.tvjanitor/files/log.txt / В приложении: «Для опытных» → «Журнал»."
+      render: text
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Photo or screenshot (optional) / Фото или снимок экрана (по желанию)"
