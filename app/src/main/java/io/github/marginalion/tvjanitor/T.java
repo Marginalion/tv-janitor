@@ -25,6 +25,15 @@ final class T {
 
     static String lang() { return lang; }
 
+    private static Map<String, String> en;
+
+    /** English, whatever the TV's language: reports for the shared CleanYourTV base are written in English. */
+    static synchronized String en(Context c, String ru) {
+        if (en == null) { en = load(c, "en"); if (en == null) en = new HashMap<>(); }
+        String v = en.get(ru);
+        return v != null ? v : ru;
+    }
+
     static String t(String ru) {
         Map<String, String> m = map;
         if (m == null || ru == null) return ru;

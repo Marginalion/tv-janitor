@@ -526,3 +526,5 @@ Live Channels	Live Channels
 Открыть	Mở
 в выпуске нет APK	bản phát hành không có APK
  установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 đã được cài ✔ Đang mở. Nếu không thấy trên màn hình chính, hãy mở bằng «📦 Cài cửa hàng ứng dụng».
+Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище	Đang cấp cho cửa hàng các quyền cần thiết: cài ứng dụng, tải trong nền, bộ nhớ
+\n\nЕщё Уборщик выдаст магазину разрешения, без которых он не работает: ставить приложения, загружать в фоне, хранить файлы.	\n\nTV Janitor cũng sẽ cấp cho cửa hàng các quyền cần thiết: cài ứng dụng, tải trong nền, lưu tệp.

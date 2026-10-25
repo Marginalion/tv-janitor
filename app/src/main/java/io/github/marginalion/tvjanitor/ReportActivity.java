@@ -60,7 +60,9 @@ public class ReportActivity extends Activity {
             try {
                 File f = new File(getExternalFilesDir(null), "report.txt");
                 try (FileOutputStream o = new FileOutputStream(f)) { o.write(report[0].getBytes(StandardCharsets.UTF_8)); }
-                status.setText(T.t("Сохранено: ") + f.getAbsolutePath() + T.t(". С ноутбука его можно забрать скриптом get_report.bat."));
+                // The hint about our own test script is for debug builds only, not for a release.
+                boolean debug = (getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+                status.setText(T.t("Сохранено: ") + f.getAbsolutePath() + (debug ? T.t(". С ноутбука его можно забрать скриптом get_report.bat.") : ""));
             } catch (Exception e) { status.setText(T.t("Не сохранилось: ") + e.getMessage()); }
         });
         setContentView(root);

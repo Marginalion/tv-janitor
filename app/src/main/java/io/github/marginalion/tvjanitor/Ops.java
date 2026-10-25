@@ -292,7 +292,10 @@ final class Ops {
                 store.setSet("firmwareBack", back);
                 if (!back.isEmpty()) note(T.t("Прошивка сама включила обратно при загрузке: ") + back.size() + T.t(" — отключаю снова")
                         + "  (" + String.join(", ", new java.util.TreeSet<>(back)) + ")");
-                disableAll(adb, store.disabled());
+                // Only what is on now: some packages are disabled by the firmware itself, and disable-user on
+                // those only throws (org.droidtv.freeviewplayers on Philips).
+                java.util.Set<String> todo = new java.util.TreeSet<>(store.disabled()); todo.removeAll(nowOff);
+                disableAll(adb, todo);
                 store.setSet("appliedOff", reallyOff(adb, store.disabled()));
                 if (!store.disabled().isEmpty()) {
                     String first = store.disabled().iterator().next();

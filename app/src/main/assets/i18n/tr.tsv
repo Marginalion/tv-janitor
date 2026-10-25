@@ -526,3 +526,5 @@ Live Channels	Live Channels
 Открыть	Aç
 в выпуске нет APK	sürümde APK yok
  установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 kuruldu ✔ Açılıyor. Ana ekranda görünmüyorsa «📦 Uygulama mağazası kur» ile aç.
+Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище	Mağazaya gereken izinler veriliyor: uygulama kurma, arka planda indirme, depolama
+\n\nЕщё Уборщик выдаст магазину разрешения, без которых он не работает: ставить приложения, загружать в фоне, хранить файлы.	\n\nTV Janitor mağazaya çalışması için gereken izinleri de verir: uygulama kurma, arka planda indirme, dosya saklama.

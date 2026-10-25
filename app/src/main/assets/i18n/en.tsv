@@ -526,3 +526,5 @@ Live Channels	Live Channels
 Открыть	Open
 в выпуске нет APK	no APK in the release
  установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 installed ✔ Opening it. If it isn't on the home screen, open it with "📦 Install an app store".
+Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище	Granting the store what it needs: installing apps, background downloads, storage
+\n\nЕщё Уборщик выдаст магазину разрешения, без которых он не работает: ставить приложения, загружать в фоне, хранить файлы.	\n\nTV Janitor also grants the store the permissions it can't work without: installing apps, downloading in the background, storing files.

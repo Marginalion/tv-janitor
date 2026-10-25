@@ -526,3 +526,5 @@ Live Channels	Live Channels
 Открыть	Öffnen
 в выпуске нет APK	kein APK im Release
  установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 installiert ✔ Ich öffne es. Fehlt es auf dem Startbildschirm, öffnen Sie es über „📦 App-Store installieren“.
+Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище	Gebe dem Store die nötigen Rechte: Apps installieren, Downloads im Hintergrund, Speicher
+\n\nЕщё Уборщик выдаст магазину разрешения, без которых он не работает: ставить приложения, загружать в фоне, хранить файлы.	\n\nAußerdem gibt TV Janitor dem Store die Rechte, ohne die er nicht funktioniert: Apps installieren, im Hintergrund laden, Dateien speichern.

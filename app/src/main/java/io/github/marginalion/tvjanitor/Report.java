@@ -43,7 +43,7 @@ final class Report {
         }
         Set<String> used = s.set("features");
         StringBuilder kept = new StringBuilder();
-        for (Features.F f : Features.ALL) if (used.contains(f.id)) kept.append(kept.length() == 0 ? "" : ", ").append(f.title.replaceAll("^\\S+ ", ""));
+        for (Features.F f : Features.ALL) if (used.contains(f.id)) kept.append(kept.length() == 0 ? "" : ", ").append(T.en(c, f.ru).replaceAll("^\\S+\\s+", ""));
         if (kept.length() > 0) r.append("#\n# The owner uses: ").append(kept).append('\n');
         r.append('\n');
         Set<String> off = system(pm, s.disabled());
@@ -91,8 +91,23 @@ final class Report {
         return out;
     }
 
+    /** The app's own name in English (the shared base is English), falling back to its label as shown. */
     private static String label(PackageManager pm, String p) {
-        try { return String.valueOf(pm.getApplicationInfo(p, PackageManager.MATCH_DISABLED_COMPONENTS).loadLabel(pm)); } catch (Exception x) { return ""; }
+        try {
+            ApplicationInfo ai = pm.getApplicationInfo(p, PackageManager.MATCH_DISABLED_COMPONENTS);
+            if (ai.labelRes != 0) {
+                try {
+                    android.content.res.Resources r = pm.getResourcesForApplication(ai);
+                    android.content.res.Configuration cfg = new android.content.res.Configuration(r.getConfiguration());
+                    cfg.setLocale(java.util.Locale.US);
+                    @SuppressWarnings("deprecation")
+                    android.content.res.Resources er = new android.content.res.Resources(r.getAssets(), r.getDisplayMetrics(), cfg);
+                    CharSequence t = er.getText(ai.labelRes);
+                    if (t != null && t.length() > 0) return t.toString();
+                } catch (Exception ignored) {}
+            }
+            return String.valueOf(ai.loadLabel(pm));
+        } catch (Exception x) { return ""; }
     }
 
     private static String pad(String p) { StringBuilder b = new StringBuilder(p); while (b.length() < 42) b.append(' '); return b.append(' ').toString(); }

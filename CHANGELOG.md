@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.2-beta (unreleased)
+
+- The experience report is always in English (app names and features), whatever the TV's language: it is
+  meant for the shared CleanYourTV base.
+- After boot, packages the firmware itself keeps disabled are no longer "disabled" again (that only threw an
+  error, e.g. org.droidtv.freeviewplayers on Philips).
+- The hint about the developers' test script appears only in debug builds.
+
 ## 0.9.1-beta (2026-10-25)
 
 - Fix: Apply could be lost when the new home screen was installed just before it (the app closed itself
