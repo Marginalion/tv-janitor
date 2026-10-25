@@ -1,0 +1,37 @@
+plugins { id 'com.android.application' }
+// Release signing: a keystore.properties next to settings.gradle (never committed). Without it the build is
+// signed with the local debug key, which is fine for trying it out on your own TV.
+def ksFile = rootProject.file('keystore.properties')
+def ks = new Properties()
+if (ksFile.exists()) ksFile.withInputStream { ks.load(it) }
+android {
+    namespace 'io.github.marginalion.tvjanitor'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'io.github.marginalion.tvjanitor'
+        minSdk 26
+        targetSdk 28
+        versionCode 30
+        versionName '0.9-beta'
+    }
+    flavorDimensions = ['edition']
+    productFlavors {
+        // Full: everything. Lite: one button, only well-known packages, nothing downloaded from the internet.
+        full { dimension 'edition' }
+        lite { dimension 'edition'; versionNameSuffix '-lite' }
+    }
+    signingConfigs {
+        if (ks['storeFile']) release {
+            storeFile file(ks['storeFile']); storePassword ks['storePassword']
+            keyAlias ks['keyAlias']; keyPassword ks['keyPassword']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true; proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            signingConfig ks['storeFile'] ? signingConfigs.release : signingConfigs.debug
+        }
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    lint { abortOnError false; checkReleaseBuilds false }
+}

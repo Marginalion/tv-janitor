@@ -1,0 +1,518 @@
+# TV Janitor translation: de. Source (Russian) TAB translation. Machine-assisted; fixes welcome.
+Поделиться опытом	Erfahrung teilen
+Ниже — весь текст отчёта, ничего больше в нём нет: модель, прошивка и системные пакеты. Ваши собственные приложения попадают, только если вы отметите это ниже. 	Unten steht der ganze Bericht, mehr ist nicht darin: Modell, Firmware und Systempakete. Ihre eigenen Apps kommen nur hinein, wenn Sie das unten ankreuzen. 
+Уборщик ничего не отправляет сам: «Сохранить» кладёт файл на телевизор, а вы решаете, отправить ли его в CleanYourTV, чтобы помочь владельцам таких же телевизоров.	TV Janitor sendet nichts von selbst: „Speichern“ legt die Datei auf dem Fernseher ab, und Sie entscheiden, ob Sie sie an CleanYourTV schicken, um Besitzern desselben Fernsehers zu helfen.
+Включить в отчёт мои приложения\nустановленные вами кинотеатры и прочее, что вы отключили или «усыпили». Помогает другим, но это личное — решать вам	Meine Apps in den Bericht aufnehmen\nStreaming-Apps und alles andere, was Sie installiert und dann deaktiviert oder schlafen gelegt haben. Das hilft anderen, ist aber privat: Ihre Entscheidung
+Сохранить файл	Datei speichern
+Делиться опытом автоматически\nотчёт обновляется сам после изменений; когда появится общий сервер — будет отправляться анонимно	Erfahrung automatisch teilen\nder Bericht aktualisiert sich nach Änderungen selbst; sobald es einen gemeinsamen Server gibt, wird er anonym gesendet
+Согласие отозвано, отчёт удалён с телевизора	Einwilligung widerrufen, der Bericht wurde vom Fernseher gelöscht
+Спасибо! Отчёт будет обновляться сам	Danke! Der Bericht hält sich selbst aktuell
+Сохранено: 	Gespeichert: 
+. С ноутбука его можно забрать скриптом get_report.bat.	. Vom Computer aus holen Sie ihn mit get_report.bat.
+Не сохранилось: 	Nicht gespeichert: 
+Уборщик	TV Janitor
+Подключаюсь к телевизору… Если появится «Разрешить отладку?», отметьте «Всегда разрешать».	Verbinde mit dem Fernseher… Wenn „USB-Debugging zulassen?“ erscheint, „Immer zulassen“ ankreuzen.
+✔ Ответы сохранены. Выберите, насколько чистить — обычно хватает «Оптимально».	✔ Antworten gespeichert. Wählen Sie, wie gründlich aufgeräumt wird — „Optimal“ reicht meistens.
+✔ Ответы сохранены. Нажмите «👍 Оптимально», посмотрите список и «Применить».	✔ Antworten gespeichert. Drücken Sie „👍 Optimal“, sehen Sie die Liste durch und drücken Sie „Anwenden“.
+🛡  Бережно	🛡  Schonend
+реклама и слежка	Werbung und Tracking
+👍  Оптимально	👍  Optimal
+плюс то, чем вы не пользуетесь	plus was Sie nicht nutzen
+🔥  Максимум	🔥  Maximum
+всё, что можно отключить без вреда	alles, was ohne Schaden weg kann
+🧹  Оптимизировать телевизор	🧹  Fernseher optimieren
+отключит только то, про что точно известно, что оно лишнее	schaltet nur ab, was sicher überflüssig ist
+То, чем вы пользуетесь, не тронем. Перед применением покажем, что изменится.	Was Sie nutzen, bleibt unangetastet. Vor dem Anwenden zeigen wir, was sich ändert.
+Вернуть старую оболочку	Alten Startbildschirm zurück
+Новая оболочка	Neuer Startbildschirm
+Чем я пользуюсь	Was ich nutze
+Для опытных  ›	Für Experten  ›
+📦 Поставить магазин	📦 App-Store installieren
+Вернуть всё как было	Alles zurücksetzen
+‹  Простой режим	‹  Einfacher Modus
+Применить	Anwenden
+Перезагрузить	Neu starten
+Обновить список	Liste aktualisieren
+Журнал	Protokoll
+Обновить базу	Datenbank aktualisieren
+Режимы	Modi
+🛡 Бережно	🛡 Schonend
+👍 Оптимально	👍 Optimal
+🔥 Максимум	🔥 Maximum
+Режим только расставляет переключатели — посмотрите список и нажмите «Применить». 	Ein Modus setzt nur die Schalter — sehen Sie die Liste durch und drücken Sie „Anwenden“. 
+Бережно: телеметрия, демо и реклама. Оптимально: плюс то, чем вы не пользуетесь, и то, что отключали на таком же ТВ; сторонние приложения не запускаются сами. 	Schonend: Telemetrie, Demo und Werbung. Optimal: plus was Sie nicht nutzen und was Besitzer desselben Fernsehers abgeschaltet haben; Drittanbieter-Apps starten nicht mehr von selbst. 
+То, чем вы пользуетесь, не трогает ни один режим. 	Kein Modus rührt an, was Sie nutzen. 
+Максимум: всё, что не защищено; приложения с главного экрана не отключаются, а только не запускаются сами.	Maximum: alles, was nicht geschützt ist; Apps vom Startbildschirm werden nicht deaktiviert, sie starten nur nicht mehr von selbst.
+Настройки	Einstellungen
+Ускорить анимации меню	Schnellere Menü-Animationen
+в 2 раза	doppelt so schnell
+Ограничить фоновые приложения	Hintergrund-Apps begrenzen
+держать в памяти не больше 8 закрытых приложений	höchstens 8 geschlossene Apps im Speicher halten
+Чистить фон после включения	Hintergrund nach dem Einschalten leeren
+закрывает всё фоновое через 15 секунд после загрузки	schließt 15 Sekunden nach dem Start alles im Hintergrund
+Блокировать рекламу через DNS	Werbung per DNS blockieren
+AdGuard DNS для всего телевизора. Рекламу в YouTube не убирает. Если роутер уже фильтрует (Pi-hole, AdGuard Home, VPN) — не включайте	AdGuard DNS für den ganzen Fernseher. Entfernt keine YouTube-Werbung. Wenn Ihr Router schon filtert (Pi-hole, AdGuard Home, VPN), nicht einschalten
+Показать скрытые системные пакеты	Versteckte Systempakete anzeigen
+служебные пакеты производителя, о которых ничего не известно. Ядро Android не показывается и не меняется никогда	Dienstpakete des Herstellers, über die nichts bekannt ist. Der Android-Kern wird nie angezeigt und nie verändert
+Вернуть всё как было?	Alles zurücksetzen?
+Уборщик включит обратно всё, что отключал, и вернёт заводские настройки, которые менял. Потом лучше перезагрузить телевизор.	TV Janitor schaltet alles wieder ein, was es abgeschaltet hat, und stellt die geänderten Werkseinstellungen wieder her. Danach den Fernseher am besten neu starten.
+Отмена	Abbrechen
+Вернуть	Zurücksetzen
+Возвращаю всё как было…	Setze alles zurück…
+Перезагружаю…	Starte neu…
+Обновляю базу CleanYourTV…	Aktualisiere die CleanYourTV-Datenbank…
+📦 Не останется ни одного магазина приложений: устанавливать и обновлять приложения будет нечем. 	📦 Es bliebe kein App-Store übrig: Apps ließen sich weder installieren noch aktualisieren. 
+Если нужно, оставьте один магазин включённым или поставьте другой: Aurora Store (каталог Google Play без аккаунта), 	Falls nötig, lassen Sie einen Store an oder installieren einen anderen: Aurora Store (der Google-Play-Katalog ohne Konto), 
+F-Droid (приложения с открытым кодом) или магазин вашего региона.	F-Droid (Open-Source-Apps) oder den Store Ihrer Region.
+🧹 Оптимизация	🧹 Optimierung
+: менять нечего, всё уже так ✔	: nichts zu ändern, alles ist schon so ✔
+Отключим: 	Wir schalten ab: 
+Не будут запускаться сами: 	Starten nicht mehr von selbst: 
+ (открываются как обычно)\n	 (öffnen sich wie gewohnt)\n
+Сейчас они занимают около 	Zurzeit belegen sie etwa 
+ МБ\n	 MB\n
+\nОтключаем только то, про что точно известно, что оно лишнее. То, чем вы пользуетесь, не тронем. Вернуть всё можно кнопкой «Вернуть всё как было».	\nWir schalten nur ab, was sicher überflüssig ist. Was Sie nutzen, bleibt unangetastet. „Alles zurücksetzen“ macht alles rückgängig.
+\nТо, чем вы пользуетесь, не тронем. Список можно посмотреть в «Для опытных», а вернуть всё — там же, кнопкой «Вернуть всё как было».	\nWas Sie nutzen, bleibt unangetastet. Die Liste finden Sie unter „Für Experten“, dort auch „Alles zurücksetzen“.
+Всё равно применить	Trotzdem anwenden
+Сначала оболочку	Erst den Startbildschirm
+⚠ Новая оболочка не установлена. Заводская оболочка может зависеть от того, что будет отключено, 	⚠ Der neue Startbildschirm ist nicht installiert. Der Original-Startbildschirm kann von dem abhängen, was abgeschaltet wird, 
+поэтому её работоспособность не гарантируется: могут пропасть плитки, разделы или перестать открываться приложения. 	daher ist nicht garantiert, dass er weiter funktioniert: Kacheln oder Bereiche können verschwinden oder Apps nicht mehr öffnen. 
+Надёжнее сначала поставить новую оболочку.	Sicherer ist es, zuerst den neuen Startbildschirm zu installieren.
+  ·  уже установлен	  ·  bereits installiert
+Какой магазин поставить?	Welchen Store installieren?
+.\n\nУборщик скачает его с официального сайта разработчика и поставит, только если 	.\n\nTV Janitor lädt ihn von der offiziellen Seite des Entwicklers und installiert ihn nur, wenn 
+файл подписан самим разработчиком. Это стороннее приложение: за его работу отвечают его авторы.	die Datei vom Entwickler signiert ist. Es ist eine Drittanbieter-App: Für sie sind ihre Autoren verantwortlich.
+Скачать и поставить	Herunterladen und installieren
+Ставлю 	Installiere 
+Готово ✔	Fertig ✔
+Чтобы память освободилась полностью, телевизор лучше перезагрузить. После загрузки Уборщик проверит, что всё на месте.	Ein Neustart gibt den Speicher vollständig frei. Nach dem Start prüft TV Janitor, dass alles an seinem Platz ist.
+Позже	Später
+ ТВ, встроенная	 Fernseher, eingebaut
+Считаю память…	Messe den Speicher…
+Занято 	Belegt 
+ из 	 von 
+ МБ	 MB
+. Цифра у приложения — сколько оно занимает сейчас.	. Die Zahl neben einer App zeigt, wie viel sie gerade belegt.
+Нет связи с ADB телевизора. Включите «Отладку по USB / сети» и разрешите Уборщика.	Keine Verbindung zum ADB des Fernsehers. Schalten Sie „USB-/Netzwerk-Debugging“ ein und erlauben Sie TV Janitor.
+⚠ На этой прошивке отладка по сети открыта без подтверждения (ro.adb.secure=0): любое устройство в домашней сети может управлять телевизором. Держите Wi-Fi под паролем и не пускайте в него посторонние устройства.	⚠ Auf dieser Firmware ist Netzwerk-Debugging ohne Bestätigung offen (ro.adb.secure=0): Jedes Gerät in Ihrem Heimnetz kann den Fernseher steuern. Schützen Sie Ihr WLAN mit einem Passwort und lassen Sie keine fremden Geräte hinein.
+Ваш телевизор есть в базе CleanYourTV (	Ihr Fernseher ist in der CleanYourTV-Datenbank (
+. Подсказки ниже — с такого же телевизора.	. Die Hinweise unten stammen vom selben Fernseher.
+Вашей модели нет в базе CleanYourTV (	Ihr Modell ist nicht in der CleanYourTV-Datenbank (
+) — Уборщик сам определит важное, а подсказки собраны со всех телевизоров.	) — TV Janitor erkennt Wichtiges selbst, die Hinweise stammen von allen Fernsehern.
+на некоторых моделях без него ломается	manche Modelle funktionieren ohne es nicht
+ (хотя в базе такой ТВ его отключал)	 (obwohl derselbe Fernseher in der Datenbank es abgeschaltet hat)
+настройки прошивки (оверлей): памяти почти не занимает, отключать нет смысла	Firmware-Einstellungen (Overlay): belegt kaum Speicher, Abschalten bringt nichts
+текущая клавиатура	aktuelle Tastatur
+на таком же ТВ: не отключать	beim selben Fernseher: nicht abschalten
+системный пакет производителя	Systempaket des Herstellers
+отключали на таком же ТВ	beim selben Fernseher abgeschaltet
+по названию похоже на телеметрию или рекламу	der Name klingt nach Telemetrie oder Werbung
+  ·  похоже на телеметрию/рекламу	  ·  klingt nach Telemetrie/Werbung
+⚠ на 	⚠ auf 
+ ТВ просят не трогать	 Fernsehern: bitte nicht anfassen
+отключали на 	abgeschaltet auf 
+ ТВ	 Fernsehern
+нужно вам: 	brauchen Sie: 
+для функции, которой вы не пользуетесь: 	für eine Funktion, die Sie nicht nutzen: 
+↩ Уборщик вернул его: после отключения что-то начало падать  ·  	↩ TV Janitor hat es zurückgeholt: nach dem Abschalten begann etwas abzustürzen  ·  
+прошивка включает его обратно при загрузке  ·  	die Firmware schaltet es beim Start wieder ein  ·  
+Что это — неизвестно: нет ни описания, ни статистики. Не уверены — оставьте ✅	Was das ist: unbekannt, keine Beschreibung und keine Statistik. Unsicher? Lassen Sie es ✅
+служебный пакет без описания	Dienstpaket ohne Beschreibung
+✅ Рекомендуем отключить	✅ Zum Abschalten empfohlen
+❓ На ваш выбор	❓ Ihre Wahl
+❔ Неизвестное	❔ Unbekannt
+Про эти пакеты никто ничего не знает: ни описания, ни опыта других владельцев. Режимы их не трогают.	Über diese Pakete weiß niemand etwas: keine Beschreibung, keine Erfahrung anderer Besitzer. Modi rühren sie nicht an.
+⚠ Важное — без этого телевизор может работать неправильно	⚠ Wichtig — ohne diese funktioniert der Fernseher womöglich nicht richtig
+Менять можно, но на свой риск: Уборщик попросит подтверждения. Ядро Android, без которого телевизор не загрузится, сюда не попадает и не меняется никогда.	Sie können sie auf eigenes Risiko ändern: TV Janitor fragt nach einer Bestätigung. Der Android-Kern, ohne den der Fernseher nicht startet, erscheint nie und wird nie verändert.
+OK на строке: ✅ работает → 💤 не запускается само (открывается вручную как обычно) → ⛔ отключено. Потом «Применить». 	OK auf einer Zeile: ✅ läuft → 💤 startet nicht von selbst (öffnet sich wie gewohnt per Hand) → ⛔ deaktiviert. Dann „Anwenden“. 
+Уборщик отключает порциями по 5 и, если после порции что-то начинает падать, сам её возвращает.	TV Janitor schaltet in Portionen zu 5 ab und holt eine Portion selbst zurück, wenn danach etwas abzustürzen beginnt.
+🛡 Бережно: проверьте список и нажмите «Применить»	🛡 Schonend: Liste prüfen und „Anwenden“ drücken
+👍 Оптимально: проверьте список и нажмите «Применить»	👍 Optimal: Liste prüfen und „Anwenden“ drücken
+🔥 Максимум: проверьте особенно внимательно, потом «Применить»	🔥 Maximum: besonders sorgfältig prüfen, dann „Anwenden“
+Перед применением	Vor dem Anwenden
+⚠ Вы меняете важное	⚠ Sie ändern etwas Wichtiges
+Это может нарушить работу телевизора:\n\n	Das kann den Fernseher beeinträchtigen:\n\n
+\n\nВы действуете на свой риск. Авторы Уборщика не несут ответственности за последствия, 	\n\nSie handeln auf eigenes Risiko. Die Autoren von TV Janitor haften nicht für die Folgen, 
+включая неработающие функции, потерю настроек и необходимость сброса или перепрошивки. 	einschließlich nicht mehr funktionierender Funktionen, verlorener Einstellungen und der Notwendigkeit eines Resets oder Neu-Flashens. 
+Обычно всё можно вернуть кнопкой «Вернуть всё как было», но это не гарантируется.	Meist stellt „Alles zurücksetzen“ alles wieder her, garantiert ist das aber nicht.
+Понимаю, применить	Verstanden, anwenden
+Подключаюсь…	Verbinde…
+Применяю порциями…	Wende in Portionen an…
+Возвращаю старую оболочку…	Stelle den alten Startbildschirm wieder her…
+Ставлю новую оболочку…	Installiere den neuen Startbildschirm…
+Не получилось — см. «Журнал»	Hat nicht geklappt — siehe „Protokoll“
+Итог: 	Ergebnis: 
+✅ Работает	✅ Läuft
+💤 Не запускается само	💤 Startet nicht von selbst
+⛔ Отключено	⛔ Deaktiviert
+Шаг 1 из 3	Schritt 1 von 3
+Добро пожаловать в Уборщика	Willkommen bei TV Janitor
+Он отключит на телевизоре лишнее, чтобы тот работал быстрее. Что оставить — решаете вы.	Es schaltet ab, was der Fernseher nicht braucht, damit er schneller läuft. Was bleibt, entscheiden Sie.
+⚠  Уборщик меняет системные настройки. Он бережёт ядро Android и умеет всё вернуть, 	⚠  TV Janitor ändert Systemeinstellungen. Es schützt den Android-Kern und kann alles rückgängig machen, 
+но каждый телевизор устроен по-своему: вы пользуетесь им на свой риск.	aber jeder Fernseher ist anders: Sie nutzen es auf eigenes Risiko.
+Принимаю, дальше	Akzeptieren, weiter
+Шаг 2 из 3	Schritt 2 von 3
+Чем вы пользуетесь?	Was nutzen Sie?
+Отмеченное Уборщик не тронет. Неотмеченное «Рекомендуемый» режим предложит отключить.	Was Sie ankreuzen, rührt TV Janitor nicht an. Der Modus „Optimal“ schlägt vor, das Nicht-Angekreuzte abzuschalten.
+Дальше	Weiter
+Готово	Fertig
+Шаг 3 из 3	Schritt 3 von 3
+Помочь другим?	Anderen helfen?
+Ваш опыт подскажет владельцам таких же телевизоров, что можно отключать. Без вашей галочки ничего не собирается.	Ihre Erfahrung zeigt Besitzern desselben Fernsehers, was abgeschaltet werden kann. Ohne Ihr Häkchen wird nichts gesammelt.
+Да, делиться моим опытом	Ja, meine Erfahrung teilen
+модель, прошивка и системные пакеты; весь текст виден в «Поделиться опытом»	Modell, Firmware und Systempakete; der ganze Text ist unter „Erfahrung teilen“ sichtbar
+…и мои приложения тоже	…und auch meine Apps
+кинотеатры и прочее, что вы отключили или «усыпили»	Streaming-Apps und alles andere, was Sie abgeschaltet oder schlafen gelegt haben
+Передумать можно в любой момент.	Sie können es sich jederzeit anders überlegen.
+В лёгкой версии база не обновляется из интернета	Die Lite-Version aktualisiert die Datenbank nicht aus dem Internet
+Спрашиваю GitHub, что нового…	Frage GitHub, was es Neues gibt…
+База уже свежая: 	Die Datenbank ist schon aktuell: 
+Не получилось: на GitHub нашлось слишком мало списков (	Hat nicht geklappt: auf GitHub zu wenige Listen gefunden (
+Скачано 	Heruntergeladen 
+Не получилось: скачалось только 	Hat nicht geklappt: nur heruntergeladen 
+. Осталась прежняя база.	. Die bisherige Datenbank bleibt.
+ ТВ от 	 Fernseher von 
+База обновлена: 	Datenbank aktualisiert: 
+Не удалось обновить (	Aktualisierung fehlgeschlagen (
+). Работаем на прежней базе — GitHub бывает недоступен.	). Es läuft mit der bisherigen Datenbank weiter — GitHub ist manchmal nicht erreichbar.
+Наводит порядок…	Räume auf…
+источник ТВ: HDMI, антенна или эфир	TV-Eingang: HDMI, Antenne oder Rundfunk
+экранная клавиатура	Bildschirmtastatur
+служба спецвозможностей: на ней часто держатся кнопки пульта	Bedienungshilfe-Dienst: Fernbedienungstasten hängen oft davon ab
+постоянная системная служба	dauerhafter Systemdienst
+похоже на пульт, Bluetooth, входы или каналы	klingt nach Fernbedienung, Bluetooth, Eingängen oder Sendern
+заводское меню: не трогать и не открывать	Werksmenü: nicht anfassen, nicht öffnen
+мастер настройки: может перехватить «Домой» и забрать Wi-Fi	Einrichtungsassistent: kann „Home“ und das WLAN an sich reißen
+Нет связи с ADB (	Keine ADB-Verbindung (
+Не подключился. Включена ли отладка по сети и разрешён ли Уборщик на экране телевизора?	Keine Verbindung. Ist Netzwerk-Debugging an und TV Janitor auf dem Fernseher erlaubt?
+− отключено: 	− deaktiviert: 
+· нет на ТВ: 	· nicht auf diesem Fernseher: 
+💤 не запускается само: 	💤 startet nicht von selbst: 
++ включено: 	+ aktiviert: 
+Снимок «как было» сохранён: отключено с завода 	Ausgangszustand gesichert: ab Werk deaktiviert 
+ пакетов	 Pakete
+Возвращаю всё как было	Setze alles zurück
+включено обратно 	wieder eingeschaltet 
+. Перезагрузите телевизор, чтобы всё встало на места.	. Starten Sie den Fernseher neu, damit sich alles setzt.
+Ошибка: 	Fehler: 
+Перезагружаю телевизор…	Starte den Fernseher neu…
+Старт (	Start (
+Подключено	Verbunden
+Прошивка сама включила обратно при загрузке: 	Die Firmware hat beim Start wieder eingeschaltet: 
+ — отключаю снова	 — schalte erneut ab
+⚠ Похоже, прошивка не даёт отключать приложения (	⚠ Die Firmware scheint das Abschalten von Apps zu verhindern (
+ остался включён)	 blieb an)
+Файл commands.txt больше не используется (любое приложение могло его изменить). Выбор задаётся в меню.	commands.txt wird nicht mehr verwendet (jede App konnte sie ändern). Die Auswahl erfolgt im Menü.
+После перезагрузки: 	Nach dem Neustart: 
+. Прошивка ничего не вернула сама.	. Die Firmware hat nichts wieder eingeschaltet.
+. Прошивка вернула сама 	. Die Firmware hat wieder eingeschaltet 
+, Уборщик отключил снова.	, TV Janitor hat sie erneut abgeschaltet.
+ Отключено: 	 Deaktiviert: 
+, не запускаются сами: 	, starten nicht von selbst: 
+Применяю выбор	Wende die Auswahl an
+Порция 	Portion 
+: отключаю 	: schalte ab 
+ · проверяю, всё ли в порядке…	 · prüfe, ob alles in Ordnung ist…
+ проверена	 geprüft
+⚠ После этой порции что-то начало падать (	⚠ Nach dieser Portion begann etwas abzustürzen (
+ сбоев) — возвращаю её: 	 Abstürze) — hole sie zurück: 
+отключено 	deaktiviert 
+, включено 	, aktiviert 
+, не запускаются сами 	, starten nicht von selbst 
+Ставлю новую оболочку	Installiere den neuen Startbildschirm
+Заводская оболочка: 	Original-Startbildschirm: 
+Файл оболочки не совпал с оригиналом — установка отменена	Die Startbildschirm-Datei stimmt nicht mit dem Original überein — Installation abgebrochen
+Эта прошивка не принимает сторонние приложения (	Diese Firmware akzeptiert keine Drittanbieter-Apps (
+). Новую оболочку поставить нельзя, остальное работает.	). Der neue Startbildschirm lässt sich nicht installieren; alles andere funktioniert.
+Установка не удалась	Installation fehlgeschlagen
+⚠ Мастер настройки Google владеет вашей сетью Wi-Fi: его не трогаю, иначе Android удалит сеть. Если «Домой» откроет не нас — забудьте сеть и подключитесь заново в Настройках.	⚠ Der Google-Einrichtungsassistent besitzt Ihr WLAN: Ich lasse ihn in Ruhe, sonst löscht Android das Netz. Wenn „Home“ etwas anderes öffnet, das Netz vergessen und in den Einstellungen neu verbinden.
+Мастер настройки Google тоже претендует на «Домой» — проверяю, что победили мы.	Auch der Google-Einrichtungsassistent beansprucht „Home“ — prüfe, dass wir gewonnen haben.
+Главный экран теперь: 	Startbildschirm jetzt: 
+ — и он на экране ✔	 — und er ist auf dem Bildschirm ✔
+ — но по «Домой» открылось другое: 	 — aber „Home“ öffnete etwas anderes: 
+Возвращаю старую оболочку	Stelle den alten Startbildschirm wieder her
+каталог Google Play без аккаунта Google. Интерфейс телефонный, пультом не очень удобно	der Google-Play-Katalog ohne Google-Konto. Handy-Oberfläche, mit der Fernbedienung etwas umständlich
+бесплатные приложения с открытым кодом, без рекламы и слежки	kostenlose Open-Source-Apps, ohne Werbung und Tracking
+Не нашёл файл 	Datei nicht gefunden: 
+ на сервере. Есть ли интернет?	 auf dem Server. Gibt es Internet?
+Скачиваю: 	Lade herunter: 
+⚠ Файл подписан не разработчиком 	⚠ Die Datei ist nicht vom Entwickler signiert: 
+нет подписи	keine Signatur
+) — установка отменена	) — Installation abgebrochen
+Подпись разработчика совпала ✔ (	Signatur des Entwicklers stimmt ✔ (
+Файл изменился при копировании — установка отменена	Die Datei hat sich beim Kopieren verändert — Installation abgebrochen
+Уже стоит другая сборка 	Es ist bereits eine andere Version installiert: 
+ с другой подписью: удалите её и попробуйте снова	 mit anderer Signatur: deinstallieren und erneut versuchen
+Установка не удалась: 	Installation fehlgeschlagen: 
+ установлен ✔ Он на главном экране среди приложений.	 installiert ✔ Es liegt auf dem Startbildschirm bei den Apps.
+. Есть ли интернет?	. Gibt es Internet?
+сервер ответил 	Server antwortete 
+файл слишком большой	Datei zu groß
+слишком много перенаправлений	zu viele Weiterleitungen
+Журнал пуст	Das Protokoll ist leer
+🎤 Голосовой поиск и ассистент	🎤 Sprachsuche und Assistent
+кнопка микрофона на пульте, Google Ассистент, Алиса	die Mikrofontaste der Fernbedienung, Google Assistant, Alice
+📡 Эфирное и кабельное ТВ	📡 Antennen- und Kabelfernsehen
+каналы через антенну или кабель	Sender über Antenne oder Kabel
+🎮 HDMI-устройства	🎮 HDMI-Geräte
+приставки, консоли, ресиверы и управление ими пультом ТВ (CEC)	Set-Top-Boxen, Konsolen, Receiver und deren Steuerung mit der TV-Fernbedienung (CEC)
+📱 Трансляция с телефона (Chromecast)	📱 Streamen vom Handy (Chromecast)
+кнопка «Транслировать» в YouTube и других приложениях	die Taste „Streamen“ in YouTube und anderen Apps
+🪞 Повтор экрана (Miracast) и DLNA	🪞 Bildschirmspiegelung (Miracast) und DLNA
+экран телефона или ноутбука на телевизоре	der Bildschirm von Handy oder Laptop auf dem Fernseher
+💾 Фото и видео с флешки	💾 Fotos und Videos vom USB-Stick
+проводник, галерея, видеоплеер для USB	Dateimanager, Galerie, Videoplayer für USB
+🖼 Заставка с фото	🖼 Foto-Bildschirmschoner
+картинки на экране, пока телевизор простаивает	Bilder auf dem Bildschirm, während der Fernseher ruht
+🔄 Обновления прошивки	🔄 Firmware-Updates
+автоматические обновления системы телевизора	automatische Systemupdates des Fernsehers
+🌐 Браузер и «красная кнопка»	🌐 Browser und „Red Button“
+сайты на телевизоре, интерактив на каналах (HbbTV)	Websites auf dem Fernseher, interaktive Senderinhalte (HbbTV)
+🎵 Музыкальные приложения	🎵 Musik-Apps
+YouTube Music, Яндекс Музыка, Mi Music	YouTube Music, Yandex Music, Mi Music
+💡 Умный дом и колонки	💡 Smart Home und Lautsprecher
+лампы Philips Hue, колонки DTS Play-Fi, Ambilight+Hue	Philips-Hue-Lampen, DTS-Play-Fi-Lautsprecher, Ambilight+Hue
+🕹 Игры и геймпады	🕹 Spiele und Gamepads
+Google Play Игры, облачные игры	Google Play Spiele, Cloud-Gaming
+📦 Магазин приложений	📦 App-Store
+ставлю и обновляю приложения (Google Play, магазин производителя и другие)	ich installiere und aktualisiere Apps (Google Play, Hersteller-Store und andere)
+♿ Спецвозможности	♿ Bedienungshilfen
+озвучка экрана и прочее для людей с нарушениями зрения	Bildschirmleser und mehr für Menschen mit Sehbehinderung
+небезопасная ссылка	unsicherer Link
+Miracast (Xiaomi)	Miracast (Xiaomi)
+без него пропадает трансляция экрана	ohne es verschwindet die Bildschirmspiegelung
+приёмник Miracast	Miracast-Empfänger
+MiLink (Xiaomi)	MiLink (Xiaomi)
+основа трансляций	Grundlage des Streamens
+Пульт Xiaomi	Xiaomi-Fernbedienung
+без него пульт может отвалиться	ohne es kann die Fernbedienung ausfallen
+Быстрые настройки Xiaomi	Xiaomi-Schnelleinstellungen
+Системная служба Xiaomi	Xiaomi-Systemdienst
+Менеджер ТВ Xiaomi	Xiaomi-TV-Manager
+Блокировка Xiaomi	Xiaomi-Sperre
+Эфир/CI Xiaomi	Xiaomi Rundfunk/CI
+FallbackHome (Яндекс ТВ)	FallbackHome (Yandex TV)
+без него и главного экрана ТВ не загрузится	ohne es und den Startbildschirm startet der Fernseher nicht
+Ядро Яндекс ТВ	Yandex-TV-Kern
+Платформа Яндекс ТВ	Yandex-TV-Plattform
+Конфигурация Яндекс ТВ	Yandex-TV-Konfiguration
+Настройки Яндекс ТВ	Yandex-TV-Einstellungen
+ТВ Philips	Philips TV
+Каналы Philips	Philips-Sender
+Настройки Philips	Philips-Einstellungen
+Интерфейс Philips	Philips-Oberfläche
+Главный экран Philips	Philips-Startbildschirm
+Оболочка Philips	Philips-Launcher
+Меню источников Philips	Philips-Quellenmenü
+Источники Philips	Philips-Quellen
+без него умирает меню SOURCES	ohne es stirbt das SOURCES-Menü
+Питание Philips	Philips-Energie
+ТВ-служба Philips	Philips-TV-Dienst
+Ambilight	Ambilight
+Статистика Xiaomi	Xiaomi-Statistik
+Демо-режим Xiaomi	Xiaomi-Demomodus
+Mi Music	Mi Music
+PatchWall (оболочка Xiaomi)	PatchWall (Xiaomi-Launcher)
+тяжёлая, с трейлерами и рекламой	schwer, mit Trailern und Werbung
+Ряды PatchWall на главном экране	PatchWall-Reihen auf dem Startbildschirm
+Mi TV+	Mi TV+
+в России не работает	funktioniert in Russland nicht
+Обновления прошивки Xiaomi	Xiaomi-Firmware-Updates
+Заставка Xiaomi	Xiaomi-Bildschirmschoner
+Галерея Xiaomi	Xiaomi-Galerie
+фото с флешки	Fotos vom USB-Stick
+Проводник Xiaomi	Xiaomi-Dateimanager
+видео с USB	Videos vom USB-Stick
+Google Play Игры	Google Play Spiele
+Google Фильмы	Google Filme
+TalkBack (озвучка экрана)	TalkBack (Bildschirmleser)
+Печать	Drucken
+Отчёты Google	Google-Feedback
+YouTube Music	YouTube Music
+Голосовой поиск Google	Google-Sprachsuche
+Chromecast	Chromecast
+на Xiaomi проверьте Miracast после	bei Xiaomi danach Miracast prüfen
+Рекомендации Google	Google-Empfehlungen
+ряды на главном экране	Reihen auf dem Startbildschirm
+Главный экран Google	Google-Startbildschirm
+отключится сам при включении новой оболочки	schaltet sich beim Aktivieren des neuen Startbildschirms selbst ab
+Главный экран Яндекса	Yandex-Startbildschirm
+только если FallbackHome включён	nur wenn FallbackHome an ist
+Алиса	Alice
+Яндекс Музыка	Yandex Music
+Яндекс Браузер	Yandex Browser
+Заставка Яндекса	Yandex-Bildschirmschoner
+Рекламный ID Яндекса	Yandex-Werbe-ID
+Отчёты об ошибках Яндекса	Yandex-Absturzberichte
+Обновления Яндекс ТВ	Yandex-TV-Updates
+Мастер настройки Яндекса	Yandex-Einrichtungsassistent
+Эфир (антенна)	Rundfunk (Antenne)
+ТВ и HDMI Яндекса	Yandex TV und HDMI
+Движок Алисы	Alice-Engine
+на Новексе без последствий	bei Novex ohne Folgen
+YouTube (Яндекс)	YouTube (Yandex)
+Заводской тест экрана	Werkstest Bildschirm
+Заводской автотест	Werks-Selbsttest
+Заводской тест лицензий	Werkstest Lizenzen
+Замер скорости загрузки	Messung der Startzeit
+TED	TED
+Демо-режим Philips	Philips-Demomodus
+Alexa	Alexa
+Статистика Philips	Philips-Statistik
+~40 МБ	~40 MB
+Аналитика Philips	Philips-Analytik
+Метрики Philips	Philips-Metriken
+Лучшие подборки Philips	Philips-Top-Tipps
+Рекомендации Philips	Philips-Empfehlungen
+Магазин Philips	Philips-Store
+Фитнес Philips	Philips-Fitness
+Philips Hue	Philips Hue
+DTS Play-Fi	DTS Play-Fi
+Браузер	Browser
+Браузер Philips	Philips-Browser
+и «красная кнопка» HbbTV	und der HbbTV-„Red Button“
+Whale Live	Whale Live
+Prime Video	Prime Video
+Netflix	Netflix
+МТС / KION	MTS / KION
+more.tv	more.tv
+ivi	ivi
+Wink	Wink
+Rutube	Rutube
+VK Видео	VK Video
+Кинопоиск	Kinopoisk
+Premier	Premier
+Zona	Zona
+Lift	Lift
+YouTube	YouTube
+Фотозаставка Google	Google-Foto-Bildschirmschoner
+~200 МБ, пока показывает фото; без неё экран просто гаснет	~200 MB, solange er Fotos zeigt; ohne ihn wird der Bildschirm einfach dunkel
+Подтверждение резервной копии	Sicherungsbestätigung
+окно «разрешить резервную копию» при adb backup; в обычной жизни не нужно	das Fenster „Sicherung erlauben“ bei adb backup; im Alltag nicht nötig
+Автонастройка прокси (PAC)	Proxy-Autokonfiguration (PAC)
+нужно только в сетях с прокси по PAC-файлу, дома почти никогда	nur in Netzen mit PAC-Proxy nötig, zu Hause fast nie
+Резервная копия обоев	Hintergrundbild-Sicherung
+сохраняет обои в облако; на телевизоре почти бесполезно	sichert Hintergrundbilder in die Cloud; auf dem Fernseher fast nutzlos
+Резервная копия общей памяти	Sicherung des gemeinsamen Speichers
+участвует в резервном копировании файлов	beteiligt sich an der Dateisicherung
+Локальное резервное копирование	Lokale Sicherung
+служебный «транспорт» для резервных копий	ein Dienst-„Transport“ für Sicherungen
+очередь печати на принтер	die Druckerwarteschlange
+Просмотр HTML	HTML-Anzeige
+показывает лицензии и справку в виде веб-страниц	zeigt Lizenzen und Hilfe als Webseiten
+Вход в Wi-Fi с авторизацией	WLAN-Anmeldeportal
+страница входа в гостевые сети (отели, кафе); дома не нужна, но и не мешает	die Anmeldeseite von Gastnetzen (Hotels, Cafés); zu Hause unnötig, aber harmlos
+Установка сертификатов	Zertifikatsinstallation
+ставит сертификаты для корпоративного Wi-Fi и VPN	installiert Zertifikate für Firmen-WLAN und VPN
+Сопряжение устройств	Gerätekopplung
+помогает приложениям подключать часы, браслеты и прочее	hilft Apps, Uhren, Armbänder und Ähnliches zu verbinden
+Базовая заставка	Einfacher Bildschirmschoner
+простая заставка Android (цвета)	ein einfacher Android-Bildschirmschoner (Farben)
+Временная прошивка (DSU)	Dynamisches Systemupdate (DSU)
+для разработчиков: загрузка тестовой системы	für Entwickler: Start eines Testsystems
+Вход в Passpoint Wi-Fi	Passpoint-WLAN-Anmeldung
+авторегистрация в операторских сетях Wi-Fi Hotspot 2.0	automatische Anmeldung in Hotspot-2.0-Netzen von Anbietern
+Прокси	Proxy
+работа с прокси-сервером	Arbeit mit einem Proxy-Server
+Выбор звука	Tonauswahl
+окно выбора мелодии	das Fenster zur Klingeltonauswahl
+Проверка ссылок приложений	App-Link-Prüfung
+сверяет, какие ссылки открывает какое приложение	prüft, welche Links welche App öffnet
+Окна VPN	VPN-Dialoge
+запрос разрешения при включении VPN	die Berechtigungsabfrage beim Start eines VPN
+Заглушка для тестов (CTS)	Test-Platzhalter (CTS)
+пустой пакет для проверок совместимости Google	ein leeres Paket für Google-Kompatibilitätstests
+Резервная копия звонков	Anrufliste-Sicherung
+для телефонов; на телевизоре без дела	für Handys; auf dem Fernseher ohne Aufgabe
+Хранилище календаря	Kalenderspeicher
+календарь; на телевизоре почти не нужен	Kalender; auf dem Fernseher kaum nötig
+Хранилище контактов	Kontaktspeicher
+контакты; на телевизоре почти не нужно	Kontakte; auf dem Fernseher kaum nötig
+Пользовательский словарь	Benutzerwörterbuch
+слова, которые выучила клавиатура	Wörter, die die Tastatur gelernt hat
+Заблокированные номера	Blockierte Nummern
+для телефонов	für Handys
+Корпоративная настройка	Arbeitsprofil-Einrichtung
+для устройств, которыми управляет организация	für Geräte, die von einer Organisation verwaltet werden
+Экстренная информация	Notfallinformationen
+Запись трассировки	System-Tracing
+инструмент разработчика для отладки скорости	ein Entwicklerwerkzeug zur Leistungsanalyse
+Пасхалка Android	Android-Easter-Egg
+игрушка в «Версии Android»	das Spielzeug unter „Android-Version“
+Закладки	Lesezeichen
+хранилище закладок браузера	Lesezeichenspeicher des Browsers
+Окна SIM-карты	SIM-Karten-Dialoge
+Меню SIM-карты	SIM-Karten-Menü
+Отчёты в Google	Google-Feedback
+отправка отзывов и отчётов об ошибках	sendet Feedback und Fehlerberichte
+Отчёты об ошибках Google TV	Google-TV-Fehlerberichte
+отправляет отчёты в Google	sendet Berichte an Google
+Первичная настройка Google	Google-Ersteinrichtung
+работает один раз после сброса	läuft einmal nach einem Reset
+Настройки партнёра Google	Google-Partnereinrichtung
+служебные настройки производителя для сервисов Google	Dienst-Einstellungen des Herstellers für Google-Dienste
+Синхронизация календаря	Kalendersynchronisierung
+календарь Google	Google Kalender
+Синхронизация контактов	Kontaktsynchronisierung
+контакты Google	Google Kontakte
+Резервное копирование Google	Google-Sicherung
+сохраняет настройки в аккаунт Google	sichert Einstellungen im Google-Konto
+Синтез речи Google	Google-Sprachausgabe
+голос для озвучки и спецвозможностей	die Stimme für Bildschirmleser und Bedienungshilfen
+TalkBack	TalkBack
+озвучка экрана для незрячих	Bildschirmleser für blinde Menschen
+ряды подборок на главном экране Google	Google-Empfehlungsreihen auf dem Startbildschirm
+красивые фото в простое; заметно ест память, пока работает	schöne Fotos im Leerlauf; belegt spürbar Speicher, solange er läuft
+кнопка микрофона и Ассистент	die Mikrofontaste und der Assistant
+трансляция с телефона кнопкой «Транслировать»	Streamen vom Handy mit der Taste „Streamen“
+магазин фильмов Google (в России не работает)	Googles Filmshop (funktioniert in Russland nicht)
+игровой профиль и достижения	Spielerprofil und Erfolge
+музыкальное приложение	Musik-App
+приложение YouTube	die YouTube-App
+заводская оболочка Android TV	der Original-Startbildschirm von Android TV
+Рекомендации старого главного экрана	Empfehlungen des alten Startbildschirms
+подборки для старой оболочки Android TV	Vorschläge für den alten Android-TV-Startbildschirm
+Мастер настройки Google TV	Google-TV-Einrichtungsassistent
+первая настройка; иногда перехватывает «Домой» и владеет сетью Wi-Fi	Ersteinrichtung; reißt manchmal „Home“ an sich und besitzt das WLAN
+Мост авторизации Google	Google-Anmeldebrücke
+вход в аккаунт для некоторых сервисов	Kontoanmeldung für manche Dienste
+Пульт с телефона	Fernbedienung per Handy
+управление телевизором из приложения Google TV на телефоне	den Fernseher über die Google-TV-App auf dem Handy steuern
+Клавиатура Gboard	Gboard-Tastatur
+Google Meet / Duo	Google Meet / Duo
+видеозвонки	Videoanrufe
+Главный экран Google TV	Google-TV-Startbildschirm
+заводская оболочка Google TV	der Original-Startbildschirm von Google TV
+Заглушки Google TV	Google-TV-Platzhalter
+пустые пакеты, чтобы приложения не падали	leere Pakete, damit Apps nicht abstürzen
+Заставка при загрузке	Startanimation
+картинка во время включения	das Bild beim Einschalten
+Служба политик Google	Google-Richtliniendienst
+служебная часть сервисов Google	ein Dienstteil der Google-Dienste
+Обновление настроек Google	Google-Konfigurationsupdates
+обновляет списки и сертификаты	aktualisiert Listen und Zertifikate
+Системные службы Google	Google-Systemdienste
+ядро: уведомления и прочее	Kern: Benachrichtigungen und mehr
+Настройка WebView	WebView-Einrichtung
+оформление встроенного браузера	das Aussehen des eingebauten Browsers
+Подсказки и поиск в Настройках	Vorschläge und Suche in den Einstellungen
+строка поиска и советы в меню настроек; сами настройки работают и без него	die Suchleiste und Tipps im Einstellungsmenü; die Einstellungen funktionieren auch ohne
+Автоустановка приложений Xiaomi	Xiaomi-App-Autoinstallation
+список, что ставить самому при первом включении	eine Liste, was beim ersten Einschalten selbst installiert wird
+Документы Xiaomi	Xiaomi-Dokumente
+пользовательское соглашение и политика конфиденциальности	Nutzungsvereinbarung und Datenschutzerklärung
+Служба Xiaomi для пульта	Xiaomi-Dienst für die Fernbedienung
+Bluetooth-пульт и кнопка Netflix на нём	die Bluetooth-Fernbedienung und ihre Netflix-Taste
+Отказ от ответственности при включении	Haftungsausschluss beim Einschalten
+экран с юридическим текстом производителя	ein Bildschirm mit dem Rechtstext des Herstellers
+Мастер настройки каналов	Sendereinrichtungs-Assistent
+первичная настройка ТВ и поиск каналов	TV-Ersteinrichtung und Sendersuche
+Live Channels	Live Channels
+приложение «Каналы» для эфира и онлайн-ТВ	die App „Sender“ für Rundfunk und Online-TV
+Промо-контент Xiaomi	Xiaomi-Werbeinhalte
+веб-контейнер для рекламы и подборок, грузит рекламу для заставки	ein Web-Container für Werbung und Vorschläge; lädt Werbung für den Bildschirmschoner
+файлы и видео с флешки	Dateien und Videos vom USB-Stick
+Видеоплеер Xiaomi	Xiaomi-Videoplayer
+открывает видео с флешки и из проводника	öffnet Videos vom USB-Stick und aus dem Dateimanager
+Настройки партнёра Xiaomi	Xiaomi-Partnereinrichtung
+служебные настройки производителя при первом включении	Dienst-Einstellungen des Herstellers beim ersten Einschalten

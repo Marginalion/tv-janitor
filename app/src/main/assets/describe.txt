@@ -1,0 +1,75 @@
+# pkg | понятное название | что это (только объясняет, на группу не влияет)
+com.android.backupconfirm|Подтверждение резервной копии|окно «разрешить резервную копию» при adb backup; в обычной жизни не нужно
+com.android.pacprocessor|Автонастройка прокси (PAC)|нужно только в сетях с прокси по PAC-файлу, дома почти никогда
+com.android.wallpaperbackup|Резервная копия обоев|сохраняет обои в облако; на телевизоре почти бесполезно
+com.android.sharedstoragebackup|Резервная копия общей памяти|участвует в резервном копировании файлов
+com.android.localtransport|Локальное резервное копирование|служебный «транспорт» для резервных копий
+com.android.printspooler|Печать|очередь печати на принтер
+com.android.htmlviewer|Просмотр HTML|показывает лицензии и справку в виде веб-страниц
+com.android.captiveportallogin|Вход в Wi-Fi с авторизацией|страница входа в гостевые сети (отели, кафе); дома не нужна, но и не мешает
+com.android.certinstaller|Установка сертификатов|ставит сертификаты для корпоративного Wi-Fi и VPN
+com.android.companiondevicemanager|Сопряжение устройств|помогает приложениям подключать часы, браслеты и прочее
+com.android.dreams.basic|Базовая заставка|простая заставка Android (цвета)
+com.android.dynsystem|Временная прошивка (DSU)|для разработчиков: загрузка тестовой системы
+com.android.hotspot2.osulogin|Вход в Passpoint Wi-Fi|авторегистрация в операторских сетях Wi-Fi Hotspot 2.0
+com.android.proxyhandler|Прокси|работа с прокси-сервером
+com.android.soundpicker|Выбор звука|окно выбора мелодии
+com.android.statementservice|Проверка ссылок приложений|сверяет, какие ссылки открывает какое приложение
+com.android.vpndialogs|Окна VPN|запрос разрешения при включении VPN
+com.android.cts.ctsshim|Заглушка для тестов (CTS)|пустой пакет для проверок совместимости Google
+com.android.cts.priv.ctsshim|Заглушка для тестов (CTS)|пустой пакет для проверок совместимости Google
+com.android.calllogbackup|Резервная копия звонков|для телефонов; на телевизоре без дела
+com.android.providers.calendar|Хранилище календаря|календарь; на телевизоре почти не нужен
+com.android.providers.contacts|Хранилище контактов|контакты; на телевизоре почти не нужно
+com.android.providers.userdictionary|Пользовательский словарь|слова, которые выучила клавиатура
+com.android.providers.blockednumber|Заблокированные номера|для телефонов
+com.android.managedprovisioning|Корпоративная настройка|для устройств, которыми управляет организация
+com.android.emergency|Экстренная информация|для телефонов
+com.android.traceur|Запись трассировки|инструмент разработчика для отладки скорости
+com.android.egg|Пасхалка Android|игрушка в «Версии Android»
+com.android.bookmarkprovider|Закладки|хранилище закладок браузера
+com.android.simappdialog|Окна SIM-карты|для телефонов
+com.android.stk|Меню SIM-карты|для телефонов
+com.google.android.feedback|Отчёты в Google|отправка отзывов и отчётов об ошибках
+com.google.android.tv.bugreportsender|Отчёты об ошибках Google TV|отправляет отчёты в Google
+com.google.android.onetimeinitializer|Первичная настройка Google|работает один раз после сброса
+com.google.android.partnersetup|Настройки партнёра Google|служебные настройки производителя для сервисов Google
+com.google.android.syncadapters.calendar|Синхронизация календаря|календарь Google
+com.google.android.syncadapters.contacts|Синхронизация контактов|контакты Google
+com.google.android.backuptransport|Резервное копирование Google|сохраняет настройки в аккаунт Google
+com.google.android.tts|Синтез речи Google|голос для озвучки и спецвозможностей
+com.google.android.marvin.talkback|TalkBack|озвучка экрана для незрячих
+com.google.android.tvrecommendations|Рекомендации Google|ряды подборок на главном экране Google
+com.google.android.backdrop|Фотозаставка Google|красивые фото в простое; заметно ест память, пока работает
+com.google.android.katniss|Голосовой поиск Google|кнопка микрофона и Ассистент
+com.google.android.apps.mediashell|Chromecast|трансляция с телефона кнопкой «Транслировать»
+com.google.android.videos|Google Фильмы|магазин фильмов Google (в России не работает)
+com.google.android.play.games|Google Play Игры|игровой профиль и достижения
+com.google.android.youtube.tvmusic|YouTube Music|музыкальное приложение
+com.google.android.youtube.tv|YouTube|приложение YouTube
+com.google.android.tvlauncher|Главный экран Google|заводская оболочка Android TV
+com.google.android.leanbacklauncher.recommendations|Рекомендации старого главного экрана|подборки для старой оболочки Android TV
+com.google.android.tungsten.setupwraith|Мастер настройки Google TV|первая настройка; иногда перехватывает «Домой» и владеет сетью Wi-Fi
+com.google.android.sss.authbridge|Мост авторизации Google|вход в аккаунт для некоторых сервисов
+com.google.android.tv.remote.service|Пульт с телефона|управление телевизором из приложения Google TV на телефоне
+com.google.android.inputmethod.latin|Клавиатура Gboard|экранная клавиатура
+com.google.android.apps.tachyon|Google Meet / Duo|видеозвонки
+com.google.android.apps.tv.launcherx|Главный экран Google TV|заводская оболочка Google TV
+com.google.android.tv.frameworkpackagestubs|Заглушки Google TV|пустые пакеты, чтобы приложения не падали
+com.google.android.boot.appsplashscreen|Заставка при загрузке|картинка во время включения
+com.google.android.gms.policy_sidecar_aps|Служба политик Google|служебная часть сервисов Google
+com.google.android.configupdater|Обновление настроек Google|обновляет списки и сертификаты
+com.google.android.ext.services|Системные службы Google|ядро: уведомления и прочее
+com.google.android.overlay.googlewebview|Настройка WebView|оформление встроенного браузера
+com.android.settings.intelligence|Подсказки и поиск в Настройках|строка поиска и советы в меню настроек; сами настройки работают и без него
+android.autoinstalls.config.xiaomi.amelie|Автоустановка приложений Xiaomi|список, что ставить самому при первом включении
+com.xiaomo.tv.milegal|Документы Xiaomi|пользовательское соглашение и политика конфиденциальности
+com.mitv.overseaservice|Служба Xiaomi для пульта|Bluetooth-пульт и кнопка Netflix на нём
+com.mstar.android.tv.disclaimercustomization|Отказ от ответственности при включении|экран с юридическим текстом производителя
+com.mediatek.wwtv.setupwizard|Мастер настройки каналов|первичная настройка ТВ и поиск каналов
+com.google.android.tv|Live Channels|приложение «Каналы» для эфира и онлайн-ТВ
+com.xm.webcontent|Промо-контент Xiaomi|веб-контейнер для рекламы и подборок, грузит рекламу для заставки
+com.xiaomi.mitv.mediaexplorer|Проводник Xiaomi|файлы и видео с флешки
+com.mitv.videoplayer|Видеоплеер Xiaomi|открывает видео с флешки и из проводника
+com.mitv.gallery|Галерея Xiaomi|фото с флешки
+com.xiaomi.android.tvsetup.partnercustomizer|Настройки партнёра Xiaomi|служебные настройки производителя при первом включении

@@ -1,0 +1,518 @@
+# TV Janitor translation: vi. Source (Russian) TAB translation. Machine-assisted; fixes welcome.
+Поделиться опытом	Chia sẻ trải nghiệm
+Ниже — весь текст отчёта, ничего больше в нём нет: модель, прошивка и системные пакеты. Ваши собственные приложения попадают, только если вы отметите это ниже. 	Dưới đây là toàn bộ báo cáo, không có gì khác: mẫu TV, firmware và các gói hệ thống. Ứng dụng của riêng bạn chỉ được đưa vào nếu bạn đánh dấu bên dưới. 
+Уборщик ничего не отправляет сам: «Сохранить» кладёт файл на телевизор, а вы решаете, отправить ли его в CleanYourTV, чтобы помочь владельцам таких же телевизоров.	TV Janitor không tự gửi gì cả: «Lưu» chỉ đặt tệp lên TV, còn bạn quyết định có gửi nó cho CleanYourTV để giúp những người dùng cùng mẫu TV hay không.
+Включить в отчёт мои приложения\nустановленные вами кинотеатры и прочее, что вы отключили или «усыпили». Помогает другим, но это личное — решать вам	Đưa ứng dụng của tôi vào báo cáo\ncác ứng dụng xem phim và mọi thứ bạn đã cài rồi tắt hoặc cho «ngủ». Việc này giúp người khác, nhưng là thông tin cá nhân: bạn quyết định
+Сохранить файл	Lưu tệp
+Делиться опытом автоматически\nотчёт обновляется сам после изменений; когда появится общий сервер — будет отправляться анонимно	Tự động chia sẻ trải nghiệm\nbáo cáo tự cập nhật sau khi thay đổi; khi có máy chủ chung, báo cáo sẽ được gửi ẩn danh
+Согласие отозвано, отчёт удалён с телевизора	Đã rút lại đồng ý, báo cáo đã bị xóa khỏi TV
+Спасибо! Отчёт будет обновляться сам	Cảm ơn bạn! Báo cáo sẽ tự cập nhật
+Сохранено: 	Đã lưu: 
+. С ноутбука его можно забрать скриптом get_report.bat.	. Từ máy tính, bạn có thể lấy nó bằng get_report.bat.
+Не сохранилось: 	Không lưu được: 
+Уборщик	TV Janitor
+Подключаюсь к телевизору… Если появится «Разрешить отладку?», отметьте «Всегда разрешать».	Đang kết nối với TV… Nếu xuất hiện «Cho phép gỡ lỗi USB?», hãy đánh dấu «Luôn cho phép».
+✔ Ответы сохранены. Выберите, насколько чистить — обычно хватает «Оптимально».	✔ Đã lưu câu trả lời. Chọn mức dọn dẹp — thường «Tối ưu» là đủ.
+✔ Ответы сохранены. Нажмите «👍 Оптимально», посмотрите список и «Применить».	✔ Đã lưu câu trả lời. Nhấn «👍 Tối ưu», xem danh sách rồi nhấn «Áp dụng».
+🛡  Бережно	🛡  Nhẹ nhàng
+реклама и слежка	quảng cáo và theo dõi
+👍  Оптимально	👍  Tối ưu
+плюс то, чем вы не пользуетесь	thêm những gì bạn không dùng
+🔥  Максимум	🔥  Tối đa
+всё, что можно отключить без вреда	mọi thứ có thể tắt mà không gây hại
+🧹  Оптимизировать телевизор	🧹  Tối ưu hóa TV
+отключит только то, про что точно известно, что оно лишнее	chỉ tắt những gì chắc chắn là thừa
+То, чем вы пользуетесь, не тронем. Перед применением покажем, что изменится.	Những gì bạn dùng sẽ không bị đụng tới. Trước khi áp dụng, chúng tôi sẽ cho thấy những gì thay đổi.
+Вернуть старую оболочку	Trả lại màn hình chính cũ
+Новая оболочка	Màn hình chính mới
+Чем я пользуюсь	Tôi dùng gì
+Для опытных  ›	Dành cho chuyên gia  ›
+📦 Поставить магазин	📦 Cài cửa hàng ứng dụng
+Вернуть всё как было	Khôi phục tất cả
+‹  Простой режим	‹  Chế độ đơn giản
+Применить	Áp dụng
+Перезагрузить	Khởi động lại
+Обновить список	Làm mới danh sách
+Журнал	Nhật ký
+Обновить базу	Cập nhật cơ sở dữ liệu
+Режимы	Chế độ
+🛡 Бережно	🛡 Nhẹ nhàng
+👍 Оптимально	👍 Tối ưu
+🔥 Максимум	🔥 Tối đa
+Режим только расставляет переключатели — посмотрите список и нажмите «Применить». 	Chế độ chỉ đặt các công tắc — hãy xem danh sách rồi nhấn «Áp dụng». 
+Бережно: телеметрия, демо и реклама. Оптимально: плюс то, чем вы не пользуетесь, и то, что отключали на таком же ТВ; сторонние приложения не запускаются сами. 	Nhẹ nhàng: đo lường từ xa, demo và quảng cáo. Tối ưu: thêm những gì bạn không dùng và những gì người dùng cùng mẫu TV đã tắt; ứng dụng bên thứ ba không còn tự khởi động. 
+То, чем вы пользуетесь, не трогает ни один режим. 	Không chế độ nào đụng tới những gì bạn dùng. 
+Максимум: всё, что не защищено; приложения с главного экрана не отключаются, а только не запускаются сами.	Tối đa: mọi thứ không được bảo vệ; ứng dụng trên màn hình chính không bị tắt, chỉ không còn tự khởi động.
+Настройки	Cài đặt
+Ускорить анимации меню	Tăng tốc hiệu ứng menu
+в 2 раза	nhanh gấp 2 lần
+Ограничить фоновые приложения	Giới hạn ứng dụng chạy nền
+держать в памяти не больше 8 закрытых приложений	chỉ giữ tối đa 8 ứng dụng đã đóng trong bộ nhớ
+Чистить фон после включения	Dọn nền sau khi bật
+закрывает всё фоновое через 15 секунд после загрузки	đóng mọi thứ chạy nền 15 giây sau khi khởi động
+Блокировать рекламу через DNS	Chặn quảng cáo bằng DNS
+AdGuard DNS для всего телевизора. Рекламу в YouTube не убирает. Если роутер уже фильтрует (Pi-hole, AdGuard Home, VPN) — не включайте	AdGuard DNS cho toàn bộ TV. Không chặn quảng cáo YouTube. Nếu router đã lọc sẵn (Pi-hole, AdGuard Home, VPN), đừng bật
+Показать скрытые системные пакеты	Hiện các gói hệ thống ẩn
+служебные пакеты производителя, о которых ничего не известно. Ядро Android не показывается и не меняется никогда	các gói dịch vụ của nhà sản xuất mà không ai biết gì. Lõi Android không bao giờ hiện ra và không bao giờ bị thay đổi
+Вернуть всё как было?	Khôi phục tất cả?
+Уборщик включит обратно всё, что отключал, и вернёт заводские настройки, которые менял. Потом лучше перезагрузить телевизор.	TV Janitor sẽ bật lại mọi thứ nó đã tắt và trả lại các cài đặt gốc mà nó đã thay đổi. Sau đó nên khởi động lại TV.
+Отмена	Hủy
+Вернуть	Khôi phục
+Возвращаю всё как было…	Đang khôi phục tất cả…
+Перезагружаю…	Đang khởi động lại…
+Обновляю базу CleanYourTV…	Đang cập nhật cơ sở dữ liệu CleanYourTV…
+📦 Не останется ни одного магазина приложений: устанавливать и обновлять приложения будет нечем. 	📦 Sẽ không còn cửa hàng ứng dụng nào: không có gì để cài hoặc cập nhật ứng dụng. 
+Если нужно, оставьте один магазин включённым или поставьте другой: Aurora Store (каталог Google Play без аккаунта), 	Nếu cần, hãy giữ một cửa hàng hoặc cài cửa hàng khác: Aurora Store (danh mục Google Play không cần tài khoản), 
+F-Droid (приложения с открытым кодом) или магазин вашего региона.	F-Droid (ứng dụng mã nguồn mở) hoặc cửa hàng ở khu vực của bạn.
+🧹 Оптимизация	🧹 Tối ưu hóa
+: менять нечего, всё уже так ✔	: không có gì cần đổi, mọi thứ đã như vậy ✔
+Отключим: 	Sẽ tắt: 
+Не будут запускаться сами: 	Sẽ không tự khởi động: 
+ (открываются как обычно)\n	 (vẫn mở như bình thường)\n
+Сейчас они занимают около 	Hiện chúng đang dùng khoảng 
+ МБ\n	 MB\n
+\nОтключаем только то, про что точно известно, что оно лишнее. То, чем вы пользуетесь, не тронем. Вернуть всё можно кнопкой «Вернуть всё как было».	\nChúng tôi chỉ tắt những gì chắc chắn là thừa. Những gì bạn dùng sẽ không bị đụng tới. «Khôi phục tất cả» sẽ hoàn tác mọi thứ.
+\nТо, чем вы пользуетесь, не тронем. Список можно посмотреть в «Для опытных», а вернуть всё — там же, кнопкой «Вернуть всё как было».	\nNhững gì bạn dùng sẽ không bị đụng tới. Danh sách nằm trong «Dành cho chuyên gia», «Khôi phục tất cả» cũng ở đó.
+Всё равно применить	Vẫn áp dụng
+Сначала оболочку	Màn hình chính trước
+⚠ Новая оболочка не установлена. Заводская оболочка может зависеть от того, что будет отключено, 	⚠ Màn hình chính mới chưa được cài. Màn hình chính gốc có thể phụ thuộc vào những gì sẽ bị tắt, 
+поэтому её работоспособность не гарантируется: могут пропасть плитки, разделы или перестать открываться приложения. 	nên không đảm bảo nó vẫn hoạt động: các ô hoặc mục có thể biến mất, hoặc ứng dụng có thể không mở được. 
+Надёжнее сначала поставить новую оболочку.	An toàn hơn là cài màn hình chính mới trước.
+  ·  уже установлен	  ·  đã cài
+Какой магазин поставить?	Cài cửa hàng nào?
+.\n\nУборщик скачает его с официального сайта разработчика и поставит, только если 	.\n\nTV Janitor sẽ tải nó từ trang chính thức của nhà phát triển và chỉ cài nếu 
+файл подписан самим разработчиком. Это стороннее приложение: за его работу отвечают его авторы.	tệp được chính nhà phát triển ký. Đây là ứng dụng bên thứ ba: tác giả của nó chịu trách nhiệm về nó.
+Скачать и поставить	Tải về và cài
+Ставлю 	Đang cài 
+Готово ✔	Xong ✔
+Чтобы память освободилась полностью, телевизор лучше перезагрузить. После загрузки Уборщик проверит, что всё на месте.	Khởi động lại TV sẽ giải phóng bộ nhớ hoàn toàn. Sau khi khởi động, TV Janitor sẽ kiểm tra mọi thứ còn đúng chỗ.
+Позже	Để sau
+ ТВ, встроенная	 TV, tích hợp sẵn
+Считаю память…	Đang đo bộ nhớ…
+Занято 	Đã dùng 
+ из 	 / 
+ МБ	 MB
+. Цифра у приложения — сколько оно занимает сейчас.	. Con số cạnh ứng dụng là lượng nó đang dùng lúc này.
+Нет связи с ADB телевизора. Включите «Отладку по USB / сети» и разрешите Уборщика.	Không kết nối được ADB của TV. Hãy bật «Gỡ lỗi USB / mạng» và cho phép TV Janitor.
+⚠ На этой прошивке отладка по сети открыта без подтверждения (ro.adb.secure=0): любое устройство в домашней сети может управлять телевизором. Держите Wi-Fi под паролем и не пускайте в него посторонние устройства.	⚠ Trên firmware này, gỡ lỗi qua mạng được mở mà không cần xác nhận (ro.adb.secure=0): bất kỳ thiết bị nào trong mạng gia đình cũng có thể điều khiển TV. Hãy đặt mật khẩu Wi-Fi và đừng cho thiết bị lạ vào.
+Ваш телевизор есть в базе CleanYourTV (	TV của bạn có trong cơ sở dữ liệu CleanYourTV (
+. Подсказки ниже — с такого же телевизора.	. Gợi ý bên dưới lấy từ cùng mẫu TV.
+Вашей модели нет в базе CleanYourTV (	Mẫu TV của bạn chưa có trong cơ sở dữ liệu CleanYourTV (
+) — Уборщик сам определит важное, а подсказки собраны со всех телевизоров.	) — TV Janitor tự xác định những gì quan trọng, còn gợi ý được tổng hợp từ mọi TV.
+на некоторых моделях без него ломается	một số mẫu bị lỗi nếu thiếu nó
+ (хотя в базе такой ТВ его отключал)	 (dù cùng mẫu TV trong cơ sở dữ liệu đã tắt nó)
+настройки прошивки (оверлей): памяти почти не занимает, отключать нет смысла	cài đặt firmware (overlay): gần như không tốn bộ nhớ, tắt đi chẳng có ích gì
+текущая клавиатура	bàn phím hiện tại
+на таком же ТВ: не отключать	trên cùng mẫu TV: đừng tắt
+системный пакет производителя	gói hệ thống của nhà sản xuất
+отключали на таком же ТВ	đã tắt trên cùng mẫu TV
+по названию похоже на телеметрию или рекламу	theo tên thì giống đo lường từ xa hoặc quảng cáo
+  ·  похоже на телеметрию/рекламу	  ·  giống đo lường/quảng cáo
+⚠ на 	⚠ trên 
+ ТВ просят не трогать	 TV được dặn đừng đụng vào
+отключали на 	đã tắt trên 
+ ТВ	 TV
+нужно вам: 	bạn cần: 
+для функции, которой вы не пользуетесь: 	cho tính năng bạn không dùng: 
+↩ Уборщик вернул его: после отключения что-то начало падать  ·  	↩ TV Janitor đã trả nó lại: sau khi tắt có thứ bắt đầu bị lỗi  ·  
+прошивка включает его обратно при загрузке  ·  	firmware bật lại nó khi khởi động  ·  
+Что это — неизвестно: нет ни описания, ни статистики. Не уверены — оставьте ✅	Đây là gì: chưa rõ, không có mô tả lẫn thống kê. Không chắc? Hãy để ✅
+служебный пакет без описания	gói dịch vụ không có mô tả
+✅ Рекомендуем отключить	✅ Nên tắt
+❓ На ваш выбор	❓ Tùy bạn
+❔ Неизвестное	❔ Chưa rõ
+Про эти пакеты никто ничего не знает: ни описания, ни опыта других владельцев. Режимы их не трогают.	Không ai biết gì về các gói này: không có mô tả, không có kinh nghiệm của người dùng khác. Các chế độ không đụng tới chúng.
+⚠ Важное — без этого телевизор может работать неправильно	⚠ Quan trọng — thiếu chúng TV có thể hoạt động không đúng
+Менять можно, но на свой риск: Уборщик попросит подтверждения. Ядро Android, без которого телевизор не загрузится, сюда не попадает и не меняется никогда.	Có thể thay đổi nhưng bạn tự chịu rủi ro: TV Janitor sẽ yêu cầu xác nhận. Lõi Android, thiếu nó TV sẽ không khởi động, không bao giờ xuất hiện ở đây và không bao giờ bị thay đổi.
+OK на строке: ✅ работает → 💤 не запускается само (открывается вручную как обычно) → ⛔ отключено. Потом «Применить». 	OK trên một dòng: ✅ đang chạy → 💤 không tự khởi động (vẫn mở bằng tay như bình thường) → ⛔ đã tắt. Sau đó «Áp dụng». 
+Уборщик отключает порциями по 5 и, если после порции что-то начинает падать, сам её возвращает.	TV Janitor tắt theo từng đợt 5 gói và nếu sau một đợt có thứ bắt đầu bị lỗi, nó tự trả đợt đó lại.
+🛡 Бережно: проверьте список и нажмите «Применить»	🛡 Nhẹ nhàng: kiểm tra danh sách rồi nhấn «Áp dụng»
+👍 Оптимально: проверьте список и нажмите «Применить»	👍 Tối ưu: kiểm tra danh sách rồi nhấn «Áp dụng»
+🔥 Максимум: проверьте особенно внимательно, потом «Применить»	🔥 Tối đa: kiểm tra thật kỹ, rồi «Áp dụng»
+Перед применением	Trước khi áp dụng
+⚠ Вы меняете важное	⚠ Bạn đang thay đổi thứ quan trọng
+Это может нарушить работу телевизора:\n\n	Việc này có thể làm TV hoạt động sai:\n\n
+\n\nВы действуете на свой риск. Авторы Уборщика не несут ответственности за последствия, 	\n\nBạn tự chịu rủi ro. Tác giả của TV Janitor không chịu trách nhiệm về hậu quả, 
+включая неработающие функции, потерю настроек и необходимость сброса или перепрошивки. 	bao gồm tính năng ngừng hoạt động, mất cài đặt và phải khôi phục cài đặt gốc hoặc nạp lại firmware. 
+Обычно всё можно вернуть кнопкой «Вернуть всё как было», но это не гарантируется.	Thường thì «Khôi phục tất cả» sẽ trả lại mọi thứ, nhưng không được đảm bảo.
+Понимаю, применить	Tôi hiểu, áp dụng
+Подключаюсь…	Đang kết nối…
+Применяю порциями…	Đang áp dụng theo đợt…
+Возвращаю старую оболочку…	Đang trả lại màn hình chính cũ…
+Ставлю новую оболочку…	Đang cài màn hình chính mới…
+Не получилось — см. «Журнал»	Không thành công — xem «Nhật ký»
+Итог: 	Kết quả: 
+✅ Работает	✅ Đang chạy
+💤 Не запускается само	💤 Không tự khởi động
+⛔ Отключено	⛔ Đã tắt
+Шаг 1 из 3	Bước 1/3
+Добро пожаловать в Уборщика	Chào mừng đến với TV Janitor
+Он отключит на телевизоре лишнее, чтобы тот работал быстрее. Что оставить — решаете вы.	Ứng dụng tắt những gì TV không cần để TV chạy nhanh hơn. Giữ lại gì là do bạn quyết định.
+⚠  Уборщик меняет системные настройки. Он бережёт ядро Android и умеет всё вернуть, 	⚠  TV Janitor thay đổi cài đặt hệ thống. Nó bảo vệ lõi Android và có thể hoàn tác mọi thứ, 
+но каждый телевизор устроен по-своему: вы пользуетесь им на свой риск.	nhưng mỗi TV mỗi khác: bạn tự chịu rủi ro khi dùng.
+Принимаю, дальше	Đồng ý, tiếp tục
+Шаг 2 из 3	Bước 2/3
+Чем вы пользуетесь?	Bạn dùng những gì?
+Отмеченное Уборщик не тронет. Неотмеченное «Рекомендуемый» режим предложит отключить.	TV Janitor sẽ không đụng tới những gì bạn đánh dấu. Chế độ «Tối ưu» sẽ đề xuất tắt những gì không được đánh dấu.
+Дальше	Tiếp
+Готово	Xong
+Шаг 3 из 3	Bước 3/3
+Помочь другим?	Giúp người khác?
+Ваш опыт подскажет владельцам таких же телевизоров, что можно отключать. Без вашей галочки ничего не собирается.	Kinh nghiệm của bạn cho người dùng cùng mẫu TV biết có thể tắt gì. Không có dấu của bạn thì không thu thập gì cả.
+Да, делиться моим опытом	Có, chia sẻ trải nghiệm của tôi
+модель, прошивка и системные пакеты; весь текст виден в «Поделиться опытом»	mẫu TV, firmware và các gói hệ thống; toàn bộ nội dung xem được trong «Chia sẻ trải nghiệm»
+…и мои приложения тоже	…và cả ứng dụng của tôi
+кинотеатры и прочее, что вы отключили или «усыпили»	các ứng dụng xem phim và mọi thứ bạn đã tắt hoặc cho «ngủ»
+Передумать можно в любой момент.	Bạn có thể đổi ý bất cứ lúc nào.
+В лёгкой версии база не обновляется из интернета	Bản Lite không cập nhật cơ sở dữ liệu từ internet
+Спрашиваю GitHub, что нового…	Đang hỏi GitHub có gì mới…
+База уже свежая: 	Cơ sở dữ liệu đã mới nhất: 
+Не получилось: на GitHub нашлось слишком мало списков (	Không thành công: trên GitHub có quá ít danh sách (
+Скачано 	Đã tải 
+Не получилось: скачалось только 	Không thành công: chỉ tải được 
+. Осталась прежняя база.	. Vẫn giữ cơ sở dữ liệu cũ.
+ ТВ от 	 TV, từ 
+База обновлена: 	Đã cập nhật cơ sở dữ liệu: 
+Не удалось обновить (	Không cập nhật được (
+). Работаем на прежней базе — GitHub бывает недоступен.	). Tiếp tục dùng cơ sở dữ liệu cũ — đôi khi không truy cập được GitHub.
+Наводит порядок…	Đang dọn dẹp…
+источник ТВ: HDMI, антенна или эфир	nguồn TV: HDMI, ăng-ten hoặc truyền hình
+экранная клавиатура	bàn phím trên màn hình
+служба спецвозможностей: на ней часто держатся кнопки пульта	dịch vụ hỗ trợ tiếp cận: các nút điều khiển từ xa thường phụ thuộc vào nó
+постоянная системная служба	dịch vụ hệ thống thường trực
+похоже на пульт, Bluetooth, входы или каналы	giống điều khiển từ xa, Bluetooth, nguồn vào hoặc kênh
+заводское меню: не трогать и не открывать	menu nhà máy: đừng đụng, đừng mở
+мастер настройки: может перехватить «Домой» и забрать Wi-Fi	trình hướng dẫn cài đặt: có thể chiếm nút «Trang chủ» và Wi-Fi
+Нет связи с ADB (	Không có kết nối ADB (
+Не подключился. Включена ли отладка по сети и разрешён ли Уборщик на экране телевизора?	Không kết nối được. Gỡ lỗi qua mạng đã bật chưa và TV Janitor đã được cho phép trên màn hình TV chưa?
+− отключено: 	− đã tắt: 
+· нет на ТВ: 	· không có trên TV này: 
+💤 не запускается само: 	💤 không tự khởi động: 
++ включено: 	+ đã bật: 
+Снимок «как было» сохранён: отключено с завода 	Đã lưu ảnh chụp «trạng thái ban đầu»: tắt từ nhà máy 
+ пакетов	 gói
+Возвращаю всё как было	Đang khôi phục tất cả
+включено обратно 	đã bật lại 
+. Перезагрузите телевизор, чтобы всё встало на места.	. Hãy khởi động lại TV để mọi thứ ổn định.
+Ошибка: 	Lỗi: 
+Перезагружаю телевизор…	Đang khởi động lại TV…
+Старт (	Bắt đầu (
+Подключено	Đã kết nối
+Прошивка сама включила обратно при загрузке: 	Firmware đã tự bật lại khi khởi động: 
+ — отключаю снова	 — tắt lại
+⚠ Похоже, прошивка не даёт отключать приложения (	⚠ Có vẻ firmware không cho tắt ứng dụng (
+ остался включён)	 vẫn bật)
+Файл commands.txt больше не используется (любое приложение могло его изменить). Выбор задаётся в меню.	commands.txt không còn được dùng (ứng dụng nào cũng có thể sửa nó). Lựa chọn được đặt trong menu.
+После перезагрузки: 	Sau khi khởi động lại: 
+. Прошивка ничего не вернула сама.	. Firmware không tự bật lại gì.
+. Прошивка вернула сама 	. Firmware đã tự bật lại 
+, Уборщик отключил снова.	, TV Janitor đã tắt lại.
+ Отключено: 	 Đã tắt: 
+, не запускаются сами: 	, không tự khởi động: 
+Применяю выбор	Đang áp dụng lựa chọn
+Порция 	Đợt 
+: отключаю 	: đang tắt 
+ · проверяю, всё ли в порядке…	 · đang kiểm tra mọi thứ có ổn không…
+ проверена	 đã kiểm tra
+⚠ После этой порции что-то начало падать (	⚠ Sau đợt này có thứ bắt đầu bị lỗi (
+ сбоев) — возвращаю её: 	 lần lỗi) — đang trả đợt này lại: 
+отключено 	đã tắt 
+, включено 	, đã bật 
+, не запускаются сами 	, không tự khởi động 
+Ставлю новую оболочку	Đang cài màn hình chính mới
+Заводская оболочка: 	Màn hình chính gốc: 
+Файл оболочки не совпал с оригиналом — установка отменена	Tệp màn hình chính không khớp với bản gốc — đã hủy cài đặt
+Эта прошивка не принимает сторонние приложения (	Firmware này không chấp nhận ứng dụng bên thứ ba (
+). Новую оболочку поставить нельзя, остальное работает.	). Không thể cài màn hình chính mới; mọi thứ khác vẫn hoạt động.
+Установка не удалась	Cài đặt không thành công
+⚠ Мастер настройки Google владеет вашей сетью Wi-Fi: его не трогаю, иначе Android удалит сеть. Если «Домой» откроет не нас — забудьте сеть и подключитесь заново в Настройках.	⚠ Trình hướng dẫn cài đặt của Google sở hữu mạng Wi-Fi của bạn: tôi không đụng vào nó, nếu không Android sẽ xóa mạng. Nếu «Trang chủ» mở thứ khác, hãy quên mạng và kết nối lại trong Cài đặt.
+Мастер настройки Google тоже претендует на «Домой» — проверяю, что победили мы.	Trình hướng dẫn cài đặt của Google cũng giành nút «Trang chủ» — đang kiểm tra xem chúng ta đã thắng chưa.
+Главный экран теперь: 	Màn hình chính hiện tại: 
+ — и он на экране ✔	 — và nó đang hiển thị ✔
+ — но по «Домой» открылось другое: 	 — nhưng «Trang chủ» lại mở thứ khác: 
+Возвращаю старую оболочку	Đang trả lại màn hình chính cũ
+каталог Google Play без аккаунта Google. Интерфейс телефонный, пультом не очень удобно	danh mục Google Play không cần tài khoản Google. Giao diện kiểu điện thoại, dùng điều khiển từ xa hơi bất tiện
+бесплатные приложения с открытым кодом, без рекламы и слежки	ứng dụng mã nguồn mở miễn phí, không quảng cáo và không theo dõi
+Не нашёл файл 	Không tìm thấy tệp 
+ на сервере. Есть ли интернет?	 trên máy chủ. Có internet không?
+Скачиваю: 	Đang tải: 
+⚠ Файл подписан не разработчиком 	⚠ Tệp không được ký bởi nhà phát triển của 
+нет подписи	không có chữ ký
+) — установка отменена	) — đã hủy cài đặt
+Подпись разработчика совпала ✔ (	Chữ ký nhà phát triển khớp ✔ (
+Файл изменился при копировании — установка отменена	Tệp đã thay đổi khi sao chép — đã hủy cài đặt
+Уже стоит другая сборка 	Đã có bản dựng khác được cài: 
+ с другой подписью: удалите её и попробуйте снова	 với chữ ký khác: hãy gỡ nó rồi thử lại
+Установка не удалась: 	Cài đặt không thành công: 
+ установлен ✔ Он на главном экране среди приложений.	 đã được cài ✔ Nó nằm trên màn hình chính cùng các ứng dụng.
+. Есть ли интернет?	. Có internet không?
+сервер ответил 	máy chủ trả lời 
+файл слишком большой	tệp quá lớn
+слишком много перенаправлений	quá nhiều chuyển hướng
+Журнал пуст	Nhật ký trống
+🎤 Голосовой поиск и ассистент	🎤 Tìm kiếm bằng giọng nói và trợ lý
+кнопка микрофона на пульте, Google Ассистент, Алиса	nút micro trên điều khiển, Google Assistant, Alice
+📡 Эфирное и кабельное ТВ	📡 Truyền hình ăng-ten và cáp
+каналы через антенну или кабель	kênh qua ăng-ten hoặc cáp
+🎮 HDMI-устройства	🎮 Thiết bị HDMI
+приставки, консоли, ресиверы и управление ими пультом ТВ (CEC)	đầu thu, máy chơi game, ampli và điều khiển chúng bằng remote TV (CEC)
+📱 Трансляция с телефона (Chromecast)	📱 Truyền từ điện thoại (Chromecast)
+кнопка «Транслировать» в YouTube и других приложениях	nút «Truyền» trong YouTube và các ứng dụng khác
+🪞 Повтор экрана (Miracast) и DLNA	🪞 Phản chiếu màn hình (Miracast) và DLNA
+экран телефона или ноутбука на телевизоре	màn hình điện thoại hoặc laptop lên TV
+💾 Фото и видео с флешки	💾 Ảnh và video từ USB
+проводник, галерея, видеоплеер для USB	trình quản lý tệp, thư viện ảnh, trình phát video cho USB
+🖼 Заставка с фото	🖼 Màn hình chờ ảnh
+картинки на экране, пока телевизор простаивает	hình ảnh trên màn hình khi TV không dùng
+🔄 Обновления прошивки	🔄 Cập nhật firmware
+автоматические обновления системы телевизора	cập nhật hệ thống TV tự động
+🌐 Браузер и «красная кнопка»	🌐 Trình duyệt và «nút đỏ»
+сайты на телевизоре, интерактив на каналах (HbbTV)	trang web trên TV, nội dung tương tác trên kênh (HbbTV)
+🎵 Музыкальные приложения	🎵 Ứng dụng âm nhạc
+YouTube Music, Яндекс Музыка, Mi Music	YouTube Music, Yandex Music, Mi Music
+💡 Умный дом и колонки	💡 Nhà thông minh và loa
+лампы Philips Hue, колонки DTS Play-Fi, Ambilight+Hue	đèn Philips Hue, loa DTS Play-Fi, Ambilight+Hue
+🕹 Игры и геймпады	🕹 Trò chơi và tay cầm
+Google Play Игры, облачные игры	Google Play Games, chơi game trên đám mây
+📦 Магазин приложений	📦 Cửa hàng ứng dụng
+ставлю и обновляю приложения (Google Play, магазин производителя и другие)	tôi cài và cập nhật ứng dụng (Google Play, cửa hàng của hãng và các cửa hàng khác)
+♿ Спецвозможности	♿ Hỗ trợ tiếp cận
+озвучка экрана и прочее для людей с нарушениями зрения	trình đọc màn hình và các công cụ khác cho người khiếm thị
+небезопасная ссылка	liên kết không an toàn
+Miracast (Xiaomi)	Miracast (Xiaomi)
+без него пропадает трансляция экрана	thiếu nó sẽ mất tính năng phản chiếu màn hình
+приёмник Miracast	bộ thu Miracast
+MiLink (Xiaomi)	MiLink (Xiaomi)
+основа трансляций	nền tảng của việc truyền
+Пульт Xiaomi	Điều khiển Xiaomi
+без него пульт может отвалиться	thiếu nó điều khiển có thể mất kết nối
+Быстрые настройки Xiaomi	Cài đặt nhanh Xiaomi
+Системная служба Xiaomi	Dịch vụ hệ thống Xiaomi
+Менеджер ТВ Xiaomi	Trình quản lý TV Xiaomi
+Блокировка Xiaomi	Khóa Xiaomi
+Эфир/CI Xiaomi	Truyền hình/CI Xiaomi
+FallbackHome (Яндекс ТВ)	FallbackHome (Yandex TV)
+без него и главного экрана ТВ не загрузится	thiếu nó và màn hình chính thì TV không khởi động
+Ядро Яндекс ТВ	Lõi Yandex TV
+Платформа Яндекс ТВ	Nền tảng Yandex TV
+Конфигурация Яндекс ТВ	Cấu hình Yandex TV
+Настройки Яндекс ТВ	Cài đặt Yandex TV
+ТВ Philips	Philips TV
+Каналы Philips	Kênh Philips
+Настройки Philips	Cài đặt Philips
+Интерфейс Philips	Giao diện Philips
+Главный экран Philips	Màn hình chính Philips
+Оболочка Philips	Launcher Philips
+Меню источников Philips	Menu nguồn vào Philips
+Источники Philips	Nguồn vào Philips
+без него умирает меню SOURCES	thiếu nó menu SOURCES sẽ chết
+Питание Philips	Nguồn điện Philips
+ТВ-служба Philips	Dịch vụ TV Philips
+Ambilight	Ambilight
+Статистика Xiaomi	Thống kê Xiaomi
+Демо-режим Xiaomi	Chế độ demo Xiaomi
+Mi Music	Mi Music
+PatchWall (оболочка Xiaomi)	PatchWall (launcher Xiaomi)
+тяжёлая, с трейлерами и рекламой	nặng, có trailer và quảng cáo
+Ряды PatchWall на главном экране	Các hàng PatchWall trên màn hình chính
+Mi TV+	Mi TV+
+в России не работает	không hoạt động ở Nga
+Обновления прошивки Xiaomi	Cập nhật firmware Xiaomi
+Заставка Xiaomi	Màn hình chờ Xiaomi
+Галерея Xiaomi	Thư viện ảnh Xiaomi
+фото с флешки	ảnh từ USB
+Проводник Xiaomi	Trình quản lý tệp Xiaomi
+видео с USB	video từ USB
+Google Play Игры	Google Play Games
+Google Фильмы	Google Phim
+TalkBack (озвучка экрана)	TalkBack (trình đọc màn hình)
+Печать	In
+Отчёты Google	Phản hồi Google
+YouTube Music	YouTube Music
+Голосовой поиск Google	Tìm kiếm bằng giọng nói Google
+Chromecast	Chromecast
+на Xiaomi проверьте Miracast после	trên Xiaomi hãy kiểm tra Miracast sau đó
+Рекомендации Google	Đề xuất của Google
+ряды на главном экране	các hàng trên màn hình chính
+Главный экран Google	Màn hình chính Google
+отключится сам при включении новой оболочки	tự tắt khi bật màn hình chính mới
+Главный экран Яндекса	Màn hình chính Yandex
+только если FallbackHome включён	chỉ khi FallbackHome đang bật
+Алиса	Alice
+Яндекс Музыка	Yandex Music
+Яндекс Браузер	Yandex Browser
+Заставка Яндекса	Màn hình chờ Yandex
+Рекламный ID Яндекса	ID quảng cáo Yandex
+Отчёты об ошибках Яндекса	Báo cáo lỗi Yandex
+Обновления Яндекс ТВ	Cập nhật Yandex TV
+Мастер настройки Яндекса	Trình hướng dẫn cài đặt Yandex
+Эфир (антенна)	Truyền hình (ăng-ten)
+ТВ и HDMI Яндекса	TV và HDMI của Yandex
+Движок Алисы	Bộ máy Alice
+на Новексе без последствий	trên Novex không ảnh hưởng gì
+YouTube (Яндекс)	YouTube (Yandex)
+Заводской тест экрана	Kiểm tra màn hình của nhà máy
+Заводской автотест	Tự kiểm tra của nhà máy
+Заводской тест лицензий	Kiểm tra giấy phép của nhà máy
+Замер скорости загрузки	Đo thời gian khởi động
+TED	TED
+Демо-режим Philips	Chế độ demo Philips
+Alexa	Alexa
+Статистика Philips	Thống kê Philips
+~40 МБ	~40 MB
+Аналитика Philips	Phân tích Philips
+Метрики Philips	Số liệu Philips
+Лучшие подборки Philips	Tuyển chọn Philips
+Рекомендации Philips	Đề xuất Philips
+Магазин Philips	Cửa hàng Philips
+Фитнес Philips	Thể dục Philips
+Philips Hue	Philips Hue
+DTS Play-Fi	DTS Play-Fi
+Браузер	Trình duyệt
+Браузер Philips	Trình duyệt Philips
+и «красная кнопка» HbbTV	và «nút đỏ» HbbTV
+Whale Live	Whale Live
+Prime Video	Prime Video
+Netflix	Netflix
+МТС / KION	MTS / KION
+more.tv	more.tv
+ivi	ivi
+Wink	Wink
+Rutube	Rutube
+VK Видео	VK Video
+Кинопоиск	Kinopoisk
+Premier	Premier
+Zona	Zona
+Lift	Lift
+YouTube	YouTube
+Фотозаставка Google	Màn hình chờ ảnh Google
+~200 МБ, пока показывает фото; без неё экран просто гаснет	~200 MB khi đang hiển thị ảnh; thiếu nó màn hình chỉ tắt đi
+Подтверждение резервной копии	Xác nhận sao lưu
+окно «разрешить резервную копию» при adb backup; в обычной жизни не нужно	cửa sổ «cho phép sao lưu» khi dùng adb backup; không cần trong đời thường
+Автонастройка прокси (PAC)	Tự cấu hình proxy (PAC)
+нужно только в сетях с прокси по PAC-файлу, дома почти никогда	chỉ cần trong mạng có proxy qua tệp PAC, ở nhà gần như không bao giờ
+Резервная копия обоев	Sao lưu hình nền
+сохраняет обои в облако; на телевизоре почти бесполезно	lưu hình nền lên đám mây; gần như vô dụng trên TV
+Резервная копия общей памяти	Sao lưu bộ nhớ dùng chung
+участвует в резервном копировании файлов	tham gia sao lưu tệp
+Локальное резервное копирование	Sao lưu cục bộ
+служебный «транспорт» для резервных копий	«kênh truyền» dịch vụ cho bản sao lưu
+очередь печати на принтер	hàng đợi in
+Просмотр HTML	Trình xem HTML
+показывает лицензии и справку в виде веб-страниц	hiển thị giấy phép và trợ giúp dưới dạng trang web
+Вход в Wi-Fi с авторизацией	Cổng đăng nhập Wi-Fi
+страница входа в гостевые сети (отели, кафе); дома не нужна, но и не мешает	trang đăng nhập mạng khách (khách sạn, quán cà phê); ở nhà không cần nhưng cũng không sao
+Установка сертификатов	Trình cài chứng chỉ
+ставит сертификаты для корпоративного Wi-Fi и VPN	cài chứng chỉ cho Wi-Fi doanh nghiệp và VPN
+Сопряжение устройств	Ghép nối thiết bị
+помогает приложениям подключать часы, браслеты и прочее	giúp ứng dụng kết nối đồng hồ, vòng đeo tay và các thiết bị tương tự
+Базовая заставка	Màn hình chờ cơ bản
+простая заставка Android (цвета)	màn hình chờ Android đơn giản (màu sắc)
+Временная прошивка (DSU)	Cập nhật hệ thống động (DSU)
+для разработчиков: загрузка тестовой системы	cho nhà phát triển: khởi động hệ thống thử nghiệm
+Вход в Passpoint Wi-Fi	Đăng nhập Wi-Fi Passpoint
+авторегистрация в операторских сетях Wi-Fi Hotspot 2.0	tự đăng ký vào mạng Wi-Fi Hotspot 2.0 của nhà mạng
+Прокси	Proxy
+работа с прокси-сервером	làm việc với máy chủ proxy
+Выбор звука	Chọn âm thanh
+окно выбора мелодии	cửa sổ chọn nhạc chuông
+Проверка ссылок приложений	Xác minh liên kết ứng dụng
+сверяет, какие ссылки открывает какое приложение	đối chiếu ứng dụng nào mở liên kết nào
+Окна VPN	Hộp thoại VPN
+запрос разрешения при включении VPN	yêu cầu cấp quyền khi bật VPN
+Заглушка для тестов (CTS)	Gói giả cho kiểm thử (CTS)
+пустой пакет для проверок совместимости Google	gói rỗng cho các bài kiểm tra tương thích của Google
+Резервная копия звонков	Sao lưu cuộc gọi
+для телефонов; на телевизоре без дела	cho điện thoại; trên TV không dùng đến
+Хранилище календаря	Bộ lưu trữ lịch
+календарь; на телевизоре почти не нужен	lịch; trên TV hầu như không cần
+Хранилище контактов	Bộ lưu trữ danh bạ
+контакты; на телевизоре почти не нужно	danh bạ; trên TV hầu như không cần
+Пользовательский словарь	Từ điển người dùng
+слова, которые выучила клавиатура	những từ bàn phím đã học
+Заблокированные номера	Số bị chặn
+для телефонов	cho điện thoại
+Корпоративная настройка	Thiết lập doanh nghiệp
+для устройств, которыми управляет организация	cho thiết bị do tổ chức quản lý
+Экстренная информация	Thông tin khẩn cấp
+Запись трассировки	Ghi lại dấu vết hệ thống
+инструмент разработчика для отладки скорости	công cụ cho nhà phát triển để gỡ lỗi hiệu năng
+Пасхалка Android	Quả trứng phục sinh Android
+игрушка в «Версии Android»	món đồ chơi trong «Phiên bản Android»
+Закладки	Dấu trang
+хранилище закладок браузера	kho lưu dấu trang của trình duyệt
+Окна SIM-карты	Hộp thoại thẻ SIM
+Меню SIM-карты	Menu thẻ SIM
+Отчёты в Google	Phản hồi Google
+отправка отзывов и отчётов об ошибках	gửi phản hồi và báo cáo lỗi
+Отчёты об ошибках Google TV	Báo cáo lỗi Google TV
+отправляет отчёты в Google	gửi báo cáo cho Google
+Первичная настройка Google	Thiết lập ban đầu của Google
+работает один раз после сброса	chạy một lần sau khi khôi phục cài đặt gốc
+Настройки партнёра Google	Thiết lập đối tác Google
+служебные настройки производителя для сервисов Google	cài đặt dịch vụ của nhà sản xuất cho các dịch vụ Google
+Синхронизация календаря	Đồng bộ lịch
+календарь Google	Google Lịch
+Синхронизация контактов	Đồng bộ danh bạ
+контакты Google	Danh bạ Google
+Резервное копирование Google	Sao lưu Google
+сохраняет настройки в аккаунт Google	lưu cài đặt vào tài khoản Google
+Синтез речи Google	Chuyển văn bản thành giọng nói của Google
+голос для озвучки и спецвозможностей	giọng đọc cho trình đọc màn hình và hỗ trợ tiếp cận
+TalkBack	TalkBack
+озвучка экрана для незрячих	trình đọc màn hình cho người khiếm thị
+ряды подборок на главном экране Google	các hàng đề xuất trên màn hình chính Google
+красивые фото в простое; заметно ест память, пока работает	ảnh đẹp khi không dùng; tốn bộ nhớ đáng kể khi chạy
+кнопка микрофона и Ассистент	nút micro và Trợ lý
+трансляция с телефона кнопкой «Транслировать»	truyền từ điện thoại bằng nút «Truyền»
+магазин фильмов Google (в России не работает)	cửa hàng phim của Google (không hoạt động ở Nga)
+игровой профиль и достижения	hồ sơ chơi game và thành tích
+музыкальное приложение	ứng dụng âm nhạc
+приложение YouTube	ứng dụng YouTube
+заводская оболочка Android TV	màn hình chính gốc của Android TV
+Рекомендации старого главного экрана	Đề xuất của màn hình chính cũ
+подборки для старой оболочки Android TV	tuyển chọn cho màn hình chính Android TV cũ
+Мастер настройки Google TV	Trình hướng dẫn cài đặt Google TV
+первая настройка; иногда перехватывает «Домой» и владеет сетью Wi-Fi	thiết lập lần đầu; đôi khi chiếm nút «Trang chủ» và sở hữu mạng Wi-Fi
+Мост авторизации Google	Cầu nối đăng nhập Google
+вход в аккаунт для некоторых сервисов	đăng nhập tài khoản cho một số dịch vụ
+Пульт с телефона	Điều khiển bằng điện thoại
+управление телевизором из приложения Google TV на телефоне	điều khiển TV từ ứng dụng Google TV trên điện thoại
+Клавиатура Gboard	Bàn phím Gboard
+Google Meet / Duo	Google Meet / Duo
+видеозвонки	cuộc gọi video
+Главный экран Google TV	Màn hình chính Google TV
+заводская оболочка Google TV	màn hình chính gốc của Google TV
+Заглушки Google TV	Gói giả Google TV
+пустые пакеты, чтобы приложения не падали	các gói rỗng để ứng dụng không bị lỗi
+Заставка при загрузке	Hình động khởi động
+картинка во время включения	hình ảnh hiện khi bật TV
+Служба политик Google	Dịch vụ chính sách Google
+служебная часть сервисов Google	phần dịch vụ của các dịch vụ Google
+Обновление настроек Google	Cập nhật cấu hình Google
+обновляет списки и сертификаты	cập nhật danh sách và chứng chỉ
+Системные службы Google	Dịch vụ hệ thống Google
+ядро: уведомления и прочее	lõi: thông báo và các thứ khác
+Настройка WebView	Thiết lập WebView
+оформление встроенного браузера	giao diện của trình duyệt tích hợp
+Подсказки и поиск в Настройках	Gợi ý và tìm kiếm trong Cài đặt
+строка поиска и советы в меню настроек; сами настройки работают и без него	thanh tìm kiếm và mẹo trong menu cài đặt; bản thân cài đặt vẫn hoạt động khi thiếu nó
+Автоустановка приложений Xiaomi	Tự cài ứng dụng Xiaomi
+список, что ставить самому при первом включении	danh sách những gì tự cài khi bật lần đầu
+Документы Xiaomi	Tài liệu Xiaomi
+пользовательское соглашение и политика конфиденциальности	thỏa thuận người dùng và chính sách quyền riêng tư
+Служба Xiaomi для пульта	Dịch vụ Xiaomi cho điều khiển
+Bluetooth-пульт и кнопка Netflix на нём	điều khiển Bluetooth và nút Netflix trên đó
+Отказ от ответственности при включении	Tuyên bố miễn trừ khi bật
+экран с юридическим текстом производителя	màn hình có văn bản pháp lý của nhà sản xuất
+Мастер настройки каналов	Trình hướng dẫn cài đặt kênh
+первичная настройка ТВ и поиск каналов	thiết lập TV ban đầu và dò kênh
+Live Channels	Live Channels
+приложение «Каналы» для эфира и онлайн-ТВ	ứng dụng «Kênh» cho truyền hình phát sóng và trực tuyến
+Промо-контент Xiaomi	Nội dung quảng bá Xiaomi
+веб-контейнер для рекламы и подборок, грузит рекламу для заставки	vùng chứa web cho quảng cáo và tuyển chọn, tải quảng cáo cho màn hình chờ
+файлы и видео с флешки	tệp và video từ USB
+Видеоплеер Xiaomi	Trình phát video Xiaomi
+открывает видео с флешки и из проводника	mở video từ USB và từ trình quản lý tệp
+Настройки партнёра Xiaomi	Thiết lập đối tác Xiaomi
+служебные настройки производителя при первом включении	cài đặt dịch vụ của nhà sản xuất khi bật lần đầu

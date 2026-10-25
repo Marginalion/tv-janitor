@@ -1,0 +1,99 @@
+# pkg | level | label | note      level: safe (recommended), ask (your choice), lock (never)
+# ---------- never (breaks the TV) ----------
+com.xiaomi.mitv.smartshare|lock|Miracast (Xiaomi)|без него пропадает трансляция экрана
+com.xiaomi.wfdsinkhelperservice|lock|Miracast (Xiaomi)|приёмник Miracast
+com.mitv.milinkservice|lock|MiLink (Xiaomi)|основа трансляций
+com.mi.bluetooth|lock|Пульт Xiaomi|без него пульт может отвалиться
+com.xiaomi.tvqs.overseas|lock|Быстрые настройки Xiaomi|
+mitv.service|lock|Системная служба Xiaomi|
+com.xiaomi.mitv.tvmanager|lock|Менеджер ТВ Xiaomi|
+com.mitv.tvlock|lock|Блокировка Xiaomi|
+com.mitv.livetv.ci_mediatek|lock|Эфир/CI Xiaomi|
+com.example.user.myapplication|lock|FallbackHome (Яндекс ТВ)|без него и главного экрана ТВ не загрузится
+com.yandex.tv.services|lock|Ядро Яндекс ТВ|
+com.yandex.tv.services.platform|lock|Платформа Яндекс ТВ|
+com.yandex.tv.vendor.config|lock|Конфигурация Яндекс ТВ|
+com.yandex.tv.settings|lock|Настройки Яндекс ТВ|
+org.droidtv.playtv|lock|ТВ Philips|
+org.droidtv.channels|lock|Каналы Philips|
+org.droidtv.settings|lock|Настройки Philips|
+org.droidtv.tvsystemui|lock|Интерфейс Philips|
+org.droidtv.homeintentresolver|lock|Главный экран Philips|
+org.droidtv.nettv_launcherapp|lock|Оболочка Philips|
+org.droidtv.philipstvdrawer|lock|Меню источников Philips|
+org.droidtv.fastip|lock|Источники Philips|без него умирает меню SOURCES
+org.droidtv.tvpowermanagerservice|lock|Питание Philips|
+org.droidtv.tv.tptvservice|lock|ТВ-служба Philips|
+org.droidtv.ambiair|lock|Ambilight|
+# ---------- recommended ----------
+com.miui.tv.analytics|safe|Статистика Xiaomi|
+com.xiaomi.statistic|safe|Статистика Xiaomi|
+fusion.android.tv.demo|safe|Демо-режим Xiaomi|
+com.xiaomi.mimusic2|safe|Mi Music|
+com.mitv.tvhome.atv|ask|PatchWall (оболочка Xiaomi)|тяжёлая, с трейлерами и рекламой
+com.mitv.tvhome.michannel|safe|Ряды PatchWall на главном экране|
+com.mitv.tvhome.mitvplus|safe|Mi TV+|в России не работает
+com.xiaomi.mitv.updateservice|ask|Обновления прошивки Xiaomi|
+com.mitv.dream|ask|Заставка Xiaomi|
+com.mitv.gallery|ask|Галерея Xiaomi|фото с флешки
+com.xiaomi.mitv.mediaexplorer|ask|Проводник Xiaomi|видео с USB
+com.google.android.play.games|safe|Google Play Игры|
+com.google.android.videos|safe|Google Фильмы|
+com.google.android.marvin.talkback|safe|TalkBack (озвучка экрана)|
+com.android.printspooler|safe|Печать|
+com.google.android.feedback|safe|Отчёты Google|
+com.google.android.youtube.tvmusic|ask|YouTube Music|
+com.google.android.katniss|ask|Голосовой поиск Google|
+com.google.android.apps.mediashell|ask|Chromecast|на Xiaomi проверьте Miracast после
+com.google.android.tvrecommendations|ask|Рекомендации Google|ряды на главном экране
+com.google.android.tvlauncher|ask|Главный экран Google|отключится сам при включении новой оболочки
+com.yandex.tv.home|ask|Главный экран Яндекса|только если FallbackHome включён
+com.yandex.tv.alice|safe|Алиса|
+com.yandex.tv.music|safe|Яндекс Музыка|
+com.yandex.browser.tv|safe|Яндекс Браузер|
+com.yandex.tv.daydream|safe|Заставка Яндекса|
+com.yandex.android.advid|safe|Рекламный ID Яндекса|
+com.yandex.tv.bugreportsender|safe|Отчёты об ошибках Яндекса|
+com.yandex.launcher.updaterapp|ask|Обновления Яндекс ТВ|
+com.yandex.tv.setupwizard|safe|Мастер настройки Яндекса|
+com.yandex.tv.input.efir|ask|Эфир (антенна)|
+com.yandex.tv.live|ask|ТВ и HDMI Яндекса|
+com.yandex.io.sdk|ask|Движок Алисы|на Новексе без последствий
+com.yandex.tv.ytplayer|ask|YouTube (Яндекс)|
+com.cvte.tv.burn|safe|Заводской тест экрана|
+com.cvte.factory.at|safe|Заводской автотест|
+com.cvte.license.at|safe|Заводской тест лицензий|
+com.mediatek.TimeMeasurementAgent|safe|Замер скорости загрузки|
+com.ted.android.tv|safe|TED|
+org.droidtv.demome|safe|Демо-режим Philips|
+org.droidtv.amazonalexa|safe|Alexa|
+org.droidtv.usagelogger|safe|Статистика Philips|~40 МБ
+org.droidtv.candeebug|safe|Аналитика Philips|~40 МБ
+org.droidtv.gel|safe|Метрики Philips|
+org.droidtv.nettvrecommender|safe|Лучшие подборки Philips|
+org.droidtv.recommendation|safe|Рекомендации Philips|
+org.droidtv.nettv.market|safe|Магазин Philips|
+org.droidtv.android.fitness|safe|Фитнес Philips|
+org.droidtv.alhuewizard|ask|Philips Hue|
+com.phorus.playfi.softap|ask|DTS Play-Fi|
+com.phorus.playfi.tv|ask|DTS Play-Fi|
+com.vewd.core.browserui|ask|Браузер|
+org.droidtv.nettvbrowser|ask|Браузер Philips|и «красная кнопка» HbbTV
+com.zeasn.whalelive|ask|Whale Live|
+com.xiaomi.amazon.alexa|safe|Alexa|
+com.amazon.amazonvideo.livingroom|ask|Prime Video|
+com.netflix.ninja|ask|Netflix|
+ru.mts.mtstv|ask|МТС / KION|
+ru.more.play|ask|more.tv|
+com.ctcmediagroup.videomore|ask|more.tv|
+ru.ivi.client|ask|ivi|
+ru.rt.video.app.tv|ask|Wink|
+ru.rutube.app|ask|Rutube|
+com.vk.tv|ask|VK Видео|
+ru.kinopoisk.tv|ask|Кинопоиск|
+ru.kinopoisk.yandex.tv|ask|Кинопоиск|
+gpm.tnt_premier|ask|Premier|
+mobi.zona|ask|Zona|
+io.lift.app|ask|Lift|
+com.google.android.youtube.tv|ask|YouTube|
+com.google.android.backdrop|ask|Фотозаставка Google|~200 МБ, пока показывает фото; без неё экран просто гаснет

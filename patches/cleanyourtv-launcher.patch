@@ -1,0 +1,57 @@
+diff --git a/launcher/app/src/main/java/com/gathin/tvhome/SystemSettings.java b/launcher/app/src/main/java/com/gathin/tvhome/SystemSettings.java
+index 20eb8e0..75700b8 100644
+--- a/launcher/app/src/main/java/com/gathin/tvhome/SystemSettings.java
++++ b/launcher/app/src/main/java/com/gathin/tvhome/SystemSettings.java
+@@ -15,6 +15,11 @@ final class SystemSettings {
+ 
+     static Intent intent(Context context, String action) {
+         PackageManager pm = context.getPackageManager();
++        // Only the main settings screen is redirected; Wi-Fi and other pages keep the standard route.
++        if (Settings.ACTION_SETTINGS.equals(action)) {
++            Intent preferred = firstInstalled(context, R.array.settings_preferred_components);
++            if (preferred != null) return preferred;
++        }
+         Intent standard = new Intent(action);
+         ResolveInfo resolved = pm.resolveActivity(standard, PackageManager.MATCH_DEFAULT_ONLY);
+         // Fire OS resolves the standard actions to a CTS compliance stub that opens nothing;
+@@ -29,13 +34,19 @@ final class SystemSettings {
+      *  Xiaomi's Account & Security, where the ADB switch lives - in the vendor's own settings app;
+      *  MainActivity's Settings menu offers it as "Native settings" while one is installed. */
+     static Intent vendorIntent(Context context) {
++        return firstInstalled(context, R.array.settings_fallback_components);
++    }
++
++    /** The first component from the given array whose activity exists on this TV, or null. */
++    private static Intent firstInstalled(Context context, int arrayRes) {
+         PackageManager pm = context.getPackageManager();
+-        for (String value : context.getResources().getStringArray(R.array.settings_fallback_components)) {
++        for (String value : context.getResources().getStringArray(arrayRes)) {
+             ComponentName component = ComponentName.unflattenFromString(value);
+             if (component == null) continue;
+-            // Explicit resolveActivity() always succeeds, so check the package exists instead.
++            // Check the activity itself, not just the package: a package can be installed without the
++            // activity we expect (another firmware revision), or be disabled.
+             try {
+-                pm.getPackageInfo(component.getPackageName(), 0);
++                if (!pm.getActivityInfo(component, 0).isEnabled()) continue;
+             } catch (PackageManager.NameNotFoundException e) {
+                 continue;
+             }
+diff --git a/launcher/app/src/main/res/values/config.xml b/launcher/app/src/main/res/values/config.xml
+index 8dbd32b..25c76c6 100644
+--- a/launcher/app/src/main/res/values/config.xml
++++ b/launcher/app/src/main/res/values/config.xml
+@@ -9,6 +9,13 @@
+ 
+     <!-- Tried in order when no standard settings handler is usable; each package must also be visible
+          through <queries> in the manifest. -->
++    <!-- Vendor settings that must win even when the standard intent resolves: on Yandex TV (YaOS, CVTE
++         boards) com.android.tv.settings answers ACTION_SETTINGS but crashes on missing vendor classes
++         (docs/devices/hi-vhix-43f169msy.md), so the fallback list below never got a chance to run. -->
++    <string-array name="settings_preferred_components" translatable="false">
++        <item>com.cvte.tv.customer.settings/com.yandex.tv.settings.MainActivity</item>
++    </string-array>
++
+     <string-array name="settings_fallback_components" translatable="false">
+         <item>com.xiaomi.mitv.settings/com.xiaomi.mitv.settings.entry.MainActivity</item>
+         <item>com.tcl.settings/com.tcl.settings.ui.MainActivity</item>

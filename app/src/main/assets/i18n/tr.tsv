@@ -1,0 +1,518 @@
+# TV Janitor translation: tr. Source (Russian) TAB translation. Machine-assisted; fixes welcome.
+Поделиться опытом	Deneyimini paylaş
+Ниже — весь текст отчёта, ничего больше в нём нет: модель, прошивка и системные пакеты. Ваши собственные приложения попадают, только если вы отметите это ниже. 	Aşağıda raporun tamamı var, başka bir şey içermez: model, yazılım ve sistem paketleri. Kendi uygulamaların yalnızca aşağıda işaretlersen eklenir. 
+Уборщик ничего не отправляет сам: «Сохранить» кладёт файл на телевизор, а вы решаете, отправить ли его в CleanYourTV, чтобы помочь владельцам таких же телевизоров.	TV Janitor kendiliğinden hiçbir şey göndermez: «Kaydet» dosyayı televizyona koyar, aynı televizyonun sahiplerine yardım etmek için CleanYourTV'ye gönderip göndermemeye sen karar verirsin.
+Включить в отчёт мои приложения\nустановленные вами кинотеатры и прочее, что вы отключили или «усыпили». Помогает другим, но это личное — решать вам	Uygulamalarımı rapora ekle\nyükleyip sonra devre dışı bıraktığın veya «uyuttuğun» yayın uygulamaları ve diğerleri. Başkalarına yardımcı olur ama kişiseldir: karar senin
+Сохранить файл	Dosyayı kaydet
+Делиться опытом автоматически\nотчёт обновляется сам после изменений; когда появится общий сервер — будет отправляться анонимно	Deneyimimi otomatik paylaş\nrapor değişikliklerden sonra kendini günceller; ortak bir sunucu olduğunda anonim olarak gönderilecek
+Согласие отозвано, отчёт удалён с телевизора	Onay geri alındı, rapor televizyondan silindi
+Спасибо! Отчёт будет обновляться сам	Teşekkürler! Rapor kendini güncel tutacak
+Сохранено: 	Kaydedildi: 
+. С ноутбука его можно забрать скриптом get_report.bat.	. Bilgisayardan get_report.bat ile alabilirsin.
+Не сохранилось: 	Kaydedilemedi: 
+Уборщик	TV Janitor
+Подключаюсь к телевизору… Если появится «Разрешить отладку?», отметьте «Всегда разрешать».	Televizyona bağlanılıyor… «USB hata ayıklamaya izin verilsin mi?» çıkarsa «Her zaman izin ver»i işaretle.
+✔ Ответы сохранены. Выберите, насколько чистить — обычно хватает «Оптимально».	✔ Yanıtlar kaydedildi. Ne kadar temizleneceğini seç — genelde «İdeal» yeterli.
+✔ Ответы сохранены. Нажмите «👍 Оптимально», посмотрите список и «Применить».	✔ Yanıtlar kaydedildi. «👍 İdeal»e bas, listeye göz at ve «Uygula»ya bas.
+🛡  Бережно	🛡  Hafif
+реклама и слежка	reklam ve takip
+👍  Оптимально	👍  İdeal
+плюс то, чем вы не пользуетесь	artı kullanmadıkların
+🔥  Максимум	🔥  Maksimum
+всё, что можно отключить без вреда	zarar vermeden kapatılabilen her şey
+🧹  Оптимизировать телевизор	🧹  Televizyonu optimize et
+отключит только то, про что точно известно, что оно лишнее	yalnızca gereksiz olduğu kesin olanları kapatır
+То, чем вы пользуетесь, не тронем. Перед применением покажем, что изменится.	Kullandıklarına dokunulmaz. Uygulamadan önce neyin değişeceğini gösteririz.
+Вернуть старую оболочку	Eski ana ekranı geri getir
+Новая оболочка	Yeni ana ekran
+Чем я пользуюсь	Ne kullanıyorum
+Для опытных  ›	Uzmanlar için  ›
+📦 Поставить магазин	📦 Uygulama mağazası kur
+Вернуть всё как было	Her şeyi eski haline getir
+‹  Простой режим	‹  Basit mod
+Применить	Uygula
+Перезагрузить	Yeniden başlat
+Обновить список	Listeyi yenile
+Журнал	Günlük
+Обновить базу	Veritabanını güncelle
+Режимы	Modlar
+🛡 Бережно	🛡 Hafif
+👍 Оптимально	👍 İdeal
+🔥 Максимум	🔥 Maksimum
+Режим только расставляет переключатели — посмотрите список и нажмите «Применить». 	Mod yalnızca anahtarları ayarlar — listeye göz at ve «Uygula»ya bas. 
+Бережно: телеметрия, демо и реклама. Оптимально: плюс то, чем вы не пользуетесь, и то, что отключали на таком же ТВ; сторонние приложения не запускаются сами. 	Hafif: telemetri, demo ve reklam. İdeal: artı kullanmadıkların ve aynı televizyonun sahiplerinin kapattıkları; üçüncü taraf uygulamalar kendiliğinden açılmaz. 
+То, чем вы пользуетесь, не трогает ни один режим. 	Hiçbir mod kullandıklarına dokunmaz. 
+Максимум: всё, что не защищено; приложения с главного экрана не отключаются, а только не запускаются сами.	Maksimum: korunmayan her şey; ana ekrandaki uygulamalar devre dışı bırakılmaz, yalnızca kendiliğinden açılmaz.
+Настройки	Ayarlar
+Ускорить анимации меню	Menü animasyonlarını hızlandır
+в 2 раза	2 kat
+Ограничить фоновые приложения	Arka plan uygulamalarını sınırla
+держать в памяти не больше 8 закрытых приложений	bellekte en fazla 8 kapalı uygulama tut
+Чистить фон после включения	Açılışta arka planı temizle
+закрывает всё фоновое через 15 секунд после загрузки	açılıştan 15 saniye sonra arka plandaki her şeyi kapatır
+Блокировать рекламу через DNS	Reklamları DNS ile engelle
+AdGuard DNS для всего телевизора. Рекламу в YouTube не убирает. Если роутер уже фильтрует (Pi-hole, AdGuard Home, VPN) — не включайте	Tüm televizyon için AdGuard DNS. YouTube reklamlarını kaldırmaz. Modemin zaten filtreliyorsa (Pi-hole, AdGuard Home, VPN) açma
+Показать скрытые системные пакеты	Gizli sistem paketlerini göster
+служебные пакеты производителя, о которых ничего не известно. Ядро Android не показывается и не меняется никогда	hakkında hiçbir şey bilinmeyen üretici hizmet paketleri. Android çekirdeği asla gösterilmez ve asla değiştirilmez
+Вернуть всё как было?	Her şey eski haline getirilsin mi?
+Уборщик включит обратно всё, что отключал, и вернёт заводские настройки, которые менял. Потом лучше перезагрузить телевизор.	TV Janitor kapattığı her şeyi yeniden açacak ve değiştirdiği fabrika ayarlarını geri yükleyecek. Ardından televizyonu yeniden başlatmak iyi olur.
+Отмена	İptal
+Вернуть	Geri getir
+Возвращаю всё как было…	Her şey eski haline getiriliyor…
+Перезагружаю…	Yeniden başlatılıyor…
+Обновляю базу CleanYourTV…	CleanYourTV veritabanı güncelleniyor…
+📦 Не останется ни одного магазина приложений: устанавливать и обновлять приложения будет нечем. 	📦 Hiç uygulama mağazası kalmayacak: uygulama yüklemek ya da güncellemek için hiçbir şey olmayacak. 
+Если нужно, оставьте один магазин включённым или поставьте другой: Aurora Store (каталог Google Play без аккаунта), 	Gerekirse bir mağazayı açık bırak ya da başka birini kur: Aurora Store (hesapsız Google Play kataloğu), 
+F-Droid (приложения с открытым кодом) или магазин вашего региона.	F-Droid (açık kaynak uygulamalar) ya da bölgenin mağazası.
+🧹 Оптимизация	🧹 Optimizasyon
+: менять нечего, всё уже так ✔	: değişecek bir şey yok, her şey zaten öyle ✔
+Отключим: 	Kapatacağız: 
+Не будут запускаться сами: 	Kendiliğinden açılmayacak: 
+ (открываются как обычно)\n	 (her zamanki gibi açılırlar)\n
+Сейчас они занимают около 	Şu anda yaklaşık şu kadar yer kaplıyorlar: 
+ МБ\n	 MB\n
+\nОтключаем только то, про что точно известно, что оно лишнее. То, чем вы пользуетесь, не тронем. Вернуть всё можно кнопкой «Вернуть всё как было».	\nYalnızca gereksiz olduğu kesin olanları kapatırız. Kullandıklarına dokunulmaz. «Her şeyi eski haline getir» her şeyi geri alır.
+\nТо, чем вы пользуетесь, не тронем. Список можно посмотреть в «Для опытных», а вернуть всё — там же, кнопкой «Вернуть всё как было».	\nKullandıklarına dokunulmaz. Liste «Uzmanlar için» bölümünde, «Her şeyi eski haline getir» de orada.
+Всё равно применить	Yine de uygula
+Сначала оболочку	Önce ana ekran
+⚠ Новая оболочка не установлена. Заводская оболочка может зависеть от того, что будет отключено, 	⚠ Yeni ana ekran kurulu değil. Fabrika ana ekranı kapatılacak şeylere bağlı olabilir, 
+поэтому её работоспособность не гарантируется: могут пропасть плитки, разделы или перестать открываться приложения. 	bu yüzden çalışmaya devam edeceği garanti değil: kutucuklar ya da bölümler kaybolabilir, uygulamalar açılmayabilir. 
+Надёжнее сначала поставить новую оболочку.	Önce yeni ana ekranı kurmak daha güvenli.
+  ·  уже установлен	  ·  zaten kurulu
+Какой магазин поставить?	Hangi mağaza kurulsun?
+.\n\nУборщик скачает его с официального сайта разработчика и поставит, только если 	.\n\nTV Janitor onu geliştiricinin resmi sitesinden indirir ve yalnızca 
+файл подписан самим разработчиком. Это стороннее приложение: за его работу отвечают его авторы.	dosya geliştiricinin kendisi tarafından imzalanmışsa kurar. Üçüncü taraf bir uygulamadır: sorumluluğu yazarlarına aittir.
+Скачать и поставить	İndir ve kur
+Ставлю 	Kuruluyor: 
+Готово ✔	Tamam ✔
+Чтобы память освободилась полностью, телевизор лучше перезагрузить. После загрузки Уборщик проверит, что всё на месте.	Belleğin tamamen boşalması için televizyonu yeniden başlatmak iyi olur. Açılıştan sonra TV Janitor her şeyin yerinde olduğunu kontrol eder.
+Позже	Sonra
+ ТВ, встроенная	 televizyon, yerleşik
+Считаю память…	Bellek ölçülüyor…
+Занято 	Kullanılan 
+ из 	 / 
+ МБ	 MB
+. Цифра у приложения — сколько оно занимает сейчас.	. Bir uygulamanın yanındaki sayı, şu anda ne kadar yer kapladığıdır.
+Нет связи с ADB телевизора. Включите «Отладку по USB / сети» и разрешите Уборщика.	Televizyonun ADB'sine bağlantı yok. «USB / ağ hata ayıklama»yı aç ve TV Janitor'a izin ver.
+⚠ На этой прошивке отладка по сети открыта без подтверждения (ro.adb.secure=0): любое устройство в домашней сети может управлять телевизором. Держите Wi-Fi под паролем и не пускайте в него посторонние устройства.	⚠ Bu yazılımda ağ üzerinden hata ayıklama onaysız açık (ro.adb.secure=0): ev ağındaki herhangi bir cihaz televizyonu kontrol edebilir. Wi-Fi'ını şifreyle koru ve yabancı cihazları içeri alma.
+Ваш телевизор есть в базе CleanYourTV (	Televizyonun CleanYourTV veritabanında var (
+. Подсказки ниже — с такого же телевизора.	. Aşağıdaki ipuçları aynı televizyondan.
+Вашей модели нет в базе CleanYourTV (	Modelin CleanYourTV veritabanında yok (
+) — Уборщик сам определит важное, а подсказки собраны со всех телевизоров.	) — TV Janitor önemli olanı kendisi belirler, ipuçları tüm televizyonlardan toplanır.
+на некоторых моделях без него ломается	bazı modeller onsuz bozuluyor
+ (хотя в базе такой ТВ его отключал)	 (veritabanındaki aynı televizyon onu kapatmış olsa da)
+настройки прошивки (оверлей): памяти почти не занимает, отключать нет смысла	yazılım ayarları (overlay): neredeyse hiç bellek kullanmaz, kapatmanın anlamı yok
+текущая клавиатура	geçerli klavye
+на таком же ТВ: не отключать	aynı televizyonda: kapatma
+системный пакет производителя	üreticinin sistem paketi
+отключали на таком же ТВ	aynı televizyonda kapatılmış
+по названию похоже на телеметрию или рекламу	adına bakılırsa telemetri ya da reklam gibi
+  ·  похоже на телеметрию/рекламу	  ·  telemetri/reklam gibi
+⚠ на 	⚠ 
+ ТВ просят не трогать	 televizyonda dokunulmaması isteniyor
+отключали на 	kapatıldığı televizyon sayısı: 
+ ТВ	 
+нужно вам: 	gerekiyor: 
+для функции, которой вы не пользуетесь: 	kullanmadığın bir özellik için: 
+↩ Уборщик вернул его: после отключения что-то начало падать  ·  	↩ TV Janitor onu geri getirdi: kapatıldıktan sonra bir şey çökmeye başladı  ·  
+прошивка включает его обратно при загрузке  ·  	yazılım onu açılışta yeniden açıyor  ·  
+Что это — неизвестно: нет ни описания, ни статистики. Не уверены — оставьте ✅	Ne olduğu: bilinmiyor, açıklama da istatistik de yok. Emin değil misin? ✅ bırak
+служебный пакет без описания	açıklaması olmayan hizmet paketi
+✅ Рекомендуем отключить	✅ Kapatılması önerilir
+❓ На ваш выбор	❓ Senin seçimin
+❔ Неизвестное	❔ Bilinmeyen
+Про эти пакеты никто ничего не знает: ни описания, ни опыта других владельцев. Режимы их не трогают.	Bu paketler hakkında kimse bir şey bilmiyor: ne açıklama ne de diğer sahiplerin deneyimi. Modlar onlara dokunmaz.
+⚠ Важное — без этого телевизор может работать неправильно	⚠ Önemli — bunlar olmadan televizyon düzgün çalışmayabilir
+Менять можно, но на свой риск: Уборщик попросит подтверждения. Ядро Android, без которого телевизор не загрузится, сюда не попадает и не меняется никогда.	Değiştirebilirsin ama risk sana ait: TV Janitor onay isteyecek. Televizyonun onsuz açılmadığı Android çekirdeği burada görünmez ve asla değiştirilmez.
+OK на строке: ✅ работает → 💤 не запускается само (открывается вручную как обычно) → ⛔ отключено. Потом «Применить». 	Bir satırda OK: ✅ çalışıyor → 💤 kendiliğinden açılmıyor (her zamanki gibi elle açılır) → ⛔ devre dışı. Sonra «Uygula». 
+Уборщик отключает порциями по 5 и, если после порции что-то начинает падать, сам её возвращает.	TV Janitor 5'erli gruplar halinde kapatır ve bir gruptan sonra bir şey çökmeye başlarsa o grubu kendisi geri getirir.
+🛡 Бережно: проверьте список и нажмите «Применить»	🛡 Hafif: listeyi kontrol et ve «Uygula»ya bas
+👍 Оптимально: проверьте список и нажмите «Применить»	👍 İdeal: listeyi kontrol et ve «Uygula»ya bas
+🔥 Максимум: проверьте особенно внимательно, потом «Применить»	🔥 Maksimum: özellikle dikkatli kontrol et, sonra «Uygula»
+Перед применением	Uygulamadan önce
+⚠ Вы меняете важное	⚠ Önemli bir şeyi değiştiriyorsun
+Это может нарушить работу телевизора:\n\n	Bu, televizyonun çalışmasını bozabilir:\n\n
+\n\nВы действуете на свой риск. Авторы Уборщика не несут ответственности за последствия, 	\n\nRisk sana ait. TV Janitor'un yazarları sonuçlardan sorumlu değildir, 
+включая неработающие функции, потерю настроек и необходимость сброса или перепрошивки. 	çalışmayan özellikler, kaybolan ayarlar ve sıfırlama ya da yazılımı yeniden yükleme gereği de dahil. 
+Обычно всё можно вернуть кнопкой «Вернуть всё как было», но это не гарантируется.	Genelde «Her şeyi eski haline getir» her şeyi geri getirir ama bu garanti değildir.
+Понимаю, применить	Anladım, uygula
+Подключаюсь…	Bağlanılıyor…
+Применяю порциями…	Gruplar halinde uygulanıyor…
+Возвращаю старую оболочку…	Eski ana ekran geri getiriliyor…
+Ставлю новую оболочку…	Yeni ana ekran kuruluyor…
+Не получилось — см. «Журнал»	Olmadı — «Günlük»e bak
+Итог: 	Sonuç: 
+✅ Работает	✅ Çalışıyor
+💤 Не запускается само	💤 Kendiliğinden açılmıyor
+⛔ Отключено	⛔ Devre dışı
+Шаг 1 из 3	Adım 1 / 3
+Добро пожаловать в Уборщика	TV Janitor'a hoş geldin
+Он отключит на телевизоре лишнее, чтобы тот работал быстрее. Что оставить — решаете вы.	Televizyonun ihtiyaç duymadığı şeyleri kapatarak daha hızlı çalışmasını sağlar. Neyin kalacağına sen karar verirsin.
+⚠  Уборщик меняет системные настройки. Он бережёт ядро Android и умеет всё вернуть, 	⚠  TV Janitor sistem ayarlarını değiştirir. Android çekirdeğini korur ve her şeyi geri alabilir, 
+но каждый телевизор устроен по-своему: вы пользуетесь им на свой риск.	ama her televizyon farklıdır: riski sana ait olarak kullanırsın.
+Принимаю, дальше	Kabul ediyorum, ileri
+Шаг 2 из 3	Adım 2 / 3
+Чем вы пользуетесь?	Neleri kullanıyorsun?
+Отмеченное Уборщик не тронет. Неотмеченное «Рекомендуемый» режим предложит отключить.	İşaretlediklerine TV Janitor dokunmaz. «İdeal» modu işaretlenmeyenleri kapatmayı önerir.
+Дальше	İleri
+Готово	Tamam
+Шаг 3 из 3	Adım 3 / 3
+Помочь другим?	Başkalarına yardım edelim mi?
+Ваш опыт подскажет владельцам таких же телевизоров, что можно отключать. Без вашей галочки ничего не собирается.	Deneyimin, aynı televizyonun sahiplerine neyin kapatılabileceğini gösterir. İşaretin olmadan hiçbir şey toplanmaz.
+Да, делиться моим опытом	Evet, deneyimimi paylaş
+модель, прошивка и системные пакеты; весь текст виден в «Поделиться опытом»	model, yazılım ve sistem paketleri; metnin tamamı «Deneyimini paylaş»ta görünür
+…и мои приложения тоже	…ve uygulamalarım da
+кинотеатры и прочее, что вы отключили или «усыпили»	kapattığın ya da «uyuttuğun» yayın uygulamaları ve diğerleri
+Передумать можно в любой момент.	Fikrini istediğin zaman değiştirebilirsin.
+В лёгкой версии база не обновляется из интернета	Lite sürüm veritabanını internetten güncellemez
+Спрашиваю GitHub, что нового…	GitHub'a yenilikler soruluyor…
+База уже свежая: 	Veritabanı zaten güncel: 
+Не получилось: на GitHub нашлось слишком мало списков (	Olmadı: GitHub'da çok az liste bulundu (
+Скачано 	İndirildi 
+Не получилось: скачалось только 	Olmadı: yalnızca şu kadar indirildi: 
+. Осталась прежняя база.	. Önceki veritabanı kalıyor.
+ ТВ от 	 televizyon, kaynak: 
+База обновлена: 	Veritabanı güncellendi: 
+Не удалось обновить (	Güncellenemedi (
+). Работаем на прежней базе — GitHub бывает недоступен.	). Önceki veritabanıyla devam ediliyor — GitHub bazen erişilemez olur.
+Наводит порядок…	Toparlıyor…
+источник ТВ: HDMI, антенна или эфир	TV girişi: HDMI, anten ya da yayın
+экранная клавиатура	ekran klavyesi
+служба спецвозможностей: на ней часто держатся кнопки пульта	erişilebilirlik hizmeti: kumanda tuşları sıklıkla buna bağlıdır
+постоянная системная служба	kalıcı sistem hizmeti
+похоже на пульт, Bluetooth, входы или каналы	kumanda, Bluetooth, girişler ya da kanallarla ilgili gibi
+заводское меню: не трогать и не открывать	fabrika menüsü: dokunma, açma
+мастер настройки: может перехватить «Домой» и забрать Wi-Fi	kurulum sihirbazı: «Ana sayfa»yı ve Wi-Fi'ı ele geçirebilir
+Нет связи с ADB (	ADB bağlantısı yok (
+Не подключился. Включена ли отладка по сети и разрешён ли Уборщик на экране телевизора?	Bağlanamadı. Ağ üzerinden hata ayıklama açık mı ve TV Janitor'a televizyon ekranında izin verildi mi?
+− отключено: 	− devre dışı: 
+· нет на ТВ: 	· bu televizyonda yok: 
+💤 не запускается само: 	💤 kendiliğinden açılmıyor: 
++ включено: 	+ etkin: 
+Снимок «как было» сохранён: отключено с завода 	«Önceki hal» anlık görüntüsü kaydedildi: fabrikadan devre dışı 
+ пакетов	 paket
+Возвращаю всё как было	Her şey eski haline getiriliyor
+включено обратно 	yeniden açıldı 
+. Перезагрузите телевизор, чтобы всё встало на места.	. Her şeyin yerine oturması için televizyonu yeniden başlat.
+Ошибка: 	Hata: 
+Перезагружаю телевизор…	Televizyon yeniden başlatılıyor…
+Старт (	Başlangıç (
+Подключено	Bağlandı
+Прошивка сама включила обратно при загрузке: 	Yazılım açılışta şunları yeniden açtı: 
+ — отключаю снова	 — yeniden kapatılıyor
+⚠ Похоже, прошивка не даёт отключать приложения (	⚠ Yazılım uygulamaların kapatılmasını engelliyor gibi (
+ остался включён)	 açık kaldı)
+Файл commands.txt больше не используется (любое приложение могло его изменить). Выбор задаётся в меню.	commands.txt artık kullanılmıyor (her uygulama onu değiştirebiliyordu). Seçim menüden yapılır.
+После перезагрузки: 	Yeniden başlattıktan sonra: 
+. Прошивка ничего не вернула сама.	. Yazılım hiçbir şeyi kendiliğinden geri açmadı.
+. Прошивка вернула сама 	. Yazılım kendiliğinden geri açtı: 
+, Уборщик отключил снова.	, TV Janitor yeniden kapattı.
+ Отключено: 	 Devre dışı: 
+, не запускаются сами: 	, kendiliğinden açılmayan: 
+Применяю выбор	Seçim uygulanıyor
+Порция 	Grup 
+: отключаю 	: kapatılıyor 
+ · проверяю, всё ли в порядке…	 · her şey yolunda mı kontrol ediliyor…
+ проверена	 kontrol edildi
+⚠ После этой порции что-то начало падать (	⚠ Bu gruptan sonra bir şey çökmeye başladı (
+ сбоев) — возвращаю её: 	 çökme) — grup geri getiriliyor: 
+отключено 	devre dışı 
+, включено 	, etkin 
+, не запускаются сами 	, kendiliğinden açılmayan 
+Ставлю новую оболочку	Yeni ana ekran kuruluyor
+Заводская оболочка: 	Fabrika ana ekranı: 
+Файл оболочки не совпал с оригиналом — установка отменена	Ana ekran dosyası orijinaliyle eşleşmiyor — kurulum iptal edildi
+Эта прошивка не принимает сторонние приложения (	Bu yazılım üçüncü taraf uygulamaları kabul etmiyor (
+). Новую оболочку поставить нельзя, остальное работает.	). Yeni ana ekran kurulamaz; diğer her şey çalışıyor.
+Установка не удалась	Kurulum başarısız
+⚠ Мастер настройки Google владеет вашей сетью Wi-Fi: его не трогаю, иначе Android удалит сеть. Если «Домой» откроет не нас — забудьте сеть и подключитесь заново в Настройках.	⚠ Google kurulum sihirbazı Wi-Fi ağının sahibi: ona dokunmuyorum, yoksa Android ağı siler. «Ana sayfa» başka bir şey açarsa ağı unut ve Ayarlar'dan yeniden bağlan.
+Мастер настройки Google тоже претендует на «Домой» — проверяю, что победили мы.	Google kurulum sihirbazı da «Ana sayfa»yı istiyor — kazandığımızı kontrol ediyorum.
+Главный экран теперь: 	Ana ekran şimdi: 
+ — и он на экране ✔	 — ve ekranda ✔
+ — но по «Домой» открылось другое: 	 — ama «Ana sayfa» başka bir şey açtı: 
+Возвращаю старую оболочку	Eski ana ekran geri getiriliyor
+каталог Google Play без аккаунта Google. Интерфейс телефонный, пультом не очень удобно	Google hesabı gerektirmeyen Google Play kataloğu. Telefon arayüzü, kumandayla biraz zahmetli
+бесплатные приложения с открытым кодом, без рекламы и слежки	ücretsiz açık kaynak uygulamalar, reklamsız ve takipsiz
+Не нашёл файл 	Dosya bulunamadı: 
+ на сервере. Есть ли интернет?	 sunucuda yok. İnternet var mı?
+Скачиваю: 	İndiriliyor: 
+⚠ Файл подписан не разработчиком 	⚠ Dosya şu uygulamanın geliştiricisi tarafından imzalanmamış: 
+нет подписи	imza yok
+) — установка отменена	) — kurulum iptal edildi
+Подпись разработчика совпала ✔ (	Geliştirici imzası eşleşti ✔ (
+Файл изменился при копировании — установка отменена	Dosya kopyalanırken değişti — kurulum iptal edildi
+Уже стоит другая сборка 	Başka bir sürüm zaten kurulu: 
+ с другой подписью: удалите её и попробуйте снова	 farklı imzayla: kaldırıp yeniden dene
+Установка не удалась: 	Kurulum başarısız: 
+ установлен ✔ Он на главном экране среди приложений.	 kuruldu ✔ Ana ekranda uygulamaların arasında.
+. Есть ли интернет?	. İnternet var mı?
+сервер ответил 	sunucu yanıtı 
+файл слишком большой	dosya çok büyük
+слишком много перенаправлений	çok fazla yönlendirme
+Журнал пуст	Günlük boş
+🎤 Голосовой поиск и ассистент	🎤 Sesli arama ve asistan
+кнопка микрофона на пульте, Google Ассистент, Алиса	kumandadaki mikrofon tuşu, Google Asistan, Alice
+📡 Эфирное и кабельное ТВ	📡 Anten ve kablo TV
+каналы через антенну или кабель	anten ya da kablo üzerinden kanallar
+🎮 HDMI-устройства	🎮 HDMI cihazları
+приставки, консоли, ресиверы и управление ими пультом ТВ (CEC)	uydu alıcıları, konsollar, ses sistemleri ve bunları TV kumandasıyla yönetmek (CEC)
+📱 Трансляция с телефона (Chromecast)	📱 Telefondan yayın (Chromecast)
+кнопка «Транслировать» в YouTube и других приложениях	YouTube ve diğer uygulamalardaki «Yayınla» tuşu
+🪞 Повтор экрана (Miracast) и DLNA	🪞 Ekran yansıtma (Miracast) ve DLNA
+экран телефона или ноутбука на телевизоре	telefonun ya da dizüstü bilgisayarın ekranı televizyonda
+💾 Фото и видео с флешки	💾 USB'den fotoğraf ve video
+проводник, галерея, видеоплеер для USB	USB için dosya yöneticisi, galeri, video oynatıcı
+🖼 Заставка с фото	🖼 Fotoğraflı ekran koruyucu
+картинки на экране, пока телевизор простаивает	televizyon boşta beklerken ekranda resimler
+🔄 Обновления прошивки	🔄 Yazılım güncellemeleri
+автоматические обновления системы телевизора	televizyon sisteminin otomatik güncellemeleri
+🌐 Браузер и «красная кнопка»	🌐 Tarayıcı ve «kırmızı tuş»
+сайты на телевизоре, интерактив на каналах (HbbTV)	televizyonda web siteleri, kanallarda etkileşimli içerik (HbbTV)
+🎵 Музыкальные приложения	🎵 Müzik uygulamaları
+YouTube Music, Яндекс Музыка, Mi Music	YouTube Music, Yandex Music, Mi Music
+💡 Умный дом и колонки	💡 Akıllı ev ve hoparlörler
+лампы Philips Hue, колонки DTS Play-Fi, Ambilight+Hue	Philips Hue lambalar, DTS Play-Fi hoparlörler, Ambilight+Hue
+🕹 Игры и геймпады	🕹 Oyunlar ve oyun kumandaları
+Google Play Игры, облачные игры	Google Play Oyunlar, bulut oyun
+📦 Магазин приложений	📦 Uygulama mağazası
+ставлю и обновляю приложения (Google Play, магазин производителя и другие)	uygulama yükler ve güncellerim (Google Play, üreticinin mağazası ve diğerleri)
+♿ Спецвозможности	♿ Erişilebilirlik
+озвучка экрана и прочее для людей с нарушениями зрения	görme engelliler için ekran okuyucu ve diğerleri
+небезопасная ссылка	güvensiz bağlantı
+Miracast (Xiaomi)	Miracast (Xiaomi)
+без него пропадает трансляция экрана	o olmadan ekran yansıtma kaybolur
+приёмник Miracast	Miracast alıcısı
+MiLink (Xiaomi)	MiLink (Xiaomi)
+основа трансляций	yayının temeli
+Пульт Xiaomi	Xiaomi kumanda
+без него пульт может отвалиться	o olmadan kumanda bağlantıyı kaybedebilir
+Быстрые настройки Xiaomi	Xiaomi hızlı ayarlar
+Системная служба Xiaomi	Xiaomi sistem hizmeti
+Менеджер ТВ Xiaomi	Xiaomi TV yöneticisi
+Блокировка Xiaomi	Xiaomi kilit
+Эфир/CI Xiaomi	Xiaomi yayın/CI
+FallbackHome (Яндекс ТВ)	FallbackHome (Yandex TV)
+без него и главного экрана ТВ не загрузится	o ve ana ekran olmadan televizyon açılmaz
+Ядро Яндекс ТВ	Yandex TV çekirdeği
+Платформа Яндекс ТВ	Yandex TV platformu
+Конфигурация Яндекс ТВ	Yandex TV yapılandırması
+Настройки Яндекс ТВ	Yandex TV ayarları
+ТВ Philips	Philips TV
+Каналы Philips	Philips kanallar
+Настройки Philips	Philips ayarlar
+Интерфейс Philips	Philips arayüz
+Главный экран Philips	Philips ana ekran
+Оболочка Philips	Philips başlatıcı
+Меню источников Philips	Philips kaynak menüsü
+Источники Philips	Philips kaynaklar
+без него умирает меню SOURCES	o olmadan SOURCES menüsü ölür
+Питание Philips	Philips güç
+ТВ-служба Philips	Philips TV hizmeti
+Ambilight	Ambilight
+Статистика Xiaomi	Xiaomi istatistikleri
+Демо-режим Xiaomi	Xiaomi demo modu
+Mi Music	Mi Music
+PatchWall (оболочка Xiaomi)	PatchWall (Xiaomi başlatıcı)
+тяжёлая, с трейлерами и рекламой	ağır, fragmanlar ve reklamlarla
+Ряды PatchWall на главном экране	Ana ekrandaki PatchWall sıraları
+Mi TV+	Mi TV+
+в России не работает	Rusya'da çalışmıyor
+Обновления прошивки Xiaomi	Xiaomi yazılım güncellemeleri
+Заставка Xiaomi	Xiaomi ekran koruyucu
+Галерея Xiaomi	Xiaomi galeri
+фото с флешки	USB'den fotoğraflar
+Проводник Xiaomi	Xiaomi dosya yöneticisi
+видео с USB	USB'den videolar
+Google Play Игры	Google Play Oyunlar
+Google Фильмы	Google Filmler
+TalkBack (озвучка экрана)	TalkBack (ekran okuyucu)
+Печать	Yazdırma
+Отчёты Google	Google geri bildirim
+YouTube Music	YouTube Music
+Голосовой поиск Google	Google sesli arama
+Chromecast	Chromecast
+на Xiaomi проверьте Miracast после	Xiaomi'de sonra Miracast'i kontrol et
+Рекомендации Google	Google önerileri
+ряды на главном экране	ana ekrandaki sıralar
+Главный экран Google	Google ana ekranı
+отключится сам при включении новой оболочки	yeni ana ekran açılınca kendiliğinden kapanır
+Главный экран Яндекса	Yandex ana ekranı
+только если FallbackHome включён	yalnızca FallbackHome açıksa
+Алиса	Alice
+Яндекс Музыка	Yandex Music
+Яндекс Браузер	Yandex Browser
+Заставка Яндекса	Yandex ekran koruyucu
+Рекламный ID Яндекса	Yandex reklam kimliği
+Отчёты об ошибках Яндекса	Yandex hata raporları
+Обновления Яндекс ТВ	Yandex TV güncellemeleri
+Мастер настройки Яндекса	Yandex kurulum sihirbazı
+Эфир (антенна)	Yayın (anten)
+ТВ и HDMI Яндекса	Yandex TV ve HDMI
+Движок Алисы	Alice motoru
+на Новексе без последствий	Novex'te sorunsuz
+YouTube (Яндекс)	YouTube (Yandex)
+Заводской тест экрана	Fabrika ekran testi
+Заводской автотест	Fabrika öz testi
+Заводской тест лицензий	Fabrika lisans testi
+Замер скорости загрузки	Açılış süresi ölçümü
+TED	TED
+Демо-режим Philips	Philips demo modu
+Alexa	Alexa
+Статистика Philips	Philips istatistikleri
+~40 МБ	~40 MB
+Аналитика Philips	Philips analitik
+Метрики Philips	Philips ölçümler
+Лучшие подборки Philips	Philips seçkiler
+Рекомендации Philips	Philips önerileri
+Магазин Philips	Philips mağaza
+Фитнес Philips	Philips fitness
+Philips Hue	Philips Hue
+DTS Play-Fi	DTS Play-Fi
+Браузер	Tarayıcı
+Браузер Philips	Philips tarayıcı
+и «красная кнопка» HbbTV	ve HbbTV «kırmızı tuş»
+Whale Live	Whale Live
+Prime Video	Prime Video
+Netflix	Netflix
+МТС / KION	MTS / KION
+more.tv	more.tv
+ivi	ivi
+Wink	Wink
+Rutube	Rutube
+VK Видео	VK Video
+Кинопоиск	Kinopoisk
+Premier	Premier
+Zona	Zona
+Lift	Lift
+YouTube	YouTube
+Фотозаставка Google	Google fotoğraf ekran koruyucu
+~200 МБ, пока показывает фото; без неё экран просто гаснет	fotoğraf gösterirken ~200 MB; o olmadan ekran sadece kararır
+Подтверждение резервной копии	Yedekleme onayı
+окно «разрешить резервную копию» при adb backup; в обычной жизни не нужно	adb backup sırasındaki «yedeklemeye izin ver» penceresi; günlük hayatta gerekmez
+Автонастройка прокси (PAC)	Proxy otomatik yapılandırma (PAC)
+нужно только в сетях с прокси по PAC-файлу, дома почти никогда	yalnızca PAC dosyalı proxy kullanan ağlarda gerekir, evde neredeyse hiç
+Резервная копия обоев	Duvar kâğıdı yedeği
+сохраняет обои в облако; на телевизоре почти бесполезно	duvar kâğıdını buluta kaydeder; televizyonda neredeyse işe yaramaz
+Резервная копия общей памяти	Paylaşılan depolama yedeği
+участвует в резервном копировании файлов	dosya yedeklemeye katılır
+Локальное резервное копирование	Yerel yedekleme
+служебный «транспорт» для резервных копий	yedekler için bir hizmet «taşıyıcısı»
+очередь печати на принтер	yazıcı kuyruğu
+Просмотр HTML	HTML görüntüleyici
+показывает лицензии и справку в виде веб-страниц	lisansları ve yardımı web sayfası olarak gösterir
+Вход в Wi-Fi с авторизацией	Wi-Fi giriş portalı
+страница входа в гостевые сети (отели, кафе); дома не нужна, но и не мешает	misafir ağlarının (otel, kafe) giriş sayfası; evde gerekmez ama zararı da yok
+Установка сертификатов	Sertifika yükleyici
+ставит сертификаты для корпоративного Wi-Fi и VPN	kurumsal Wi-Fi ve VPN için sertifika yükler
+Сопряжение устройств	Cihaz eşleştirme
+помогает приложениям подключать часы, браслеты и прочее	uygulamaların saat, bileklik ve benzerlerini bağlamasına yardım eder
+Базовая заставка	Temel ekran koruyucu
+простая заставка Android (цвета)	basit bir Android ekran koruyucu (renkler)
+Временная прошивка (DSU)	Dinamik sistem güncellemesi (DSU)
+для разработчиков: загрузка тестовой системы	geliştiriciler için: test sistemi başlatma
+Вход в Passpoint Wi-Fi	Passpoint Wi-Fi girişi
+авторегистрация в операторских сетях Wi-Fi Hotspot 2.0	operatörlerin Hotspot 2.0 Wi-Fi ağlarına otomatik kayıt
+Прокси	Proxy
+работа с прокси-сервером	proxy sunucusuyla çalışma
+Выбор звука	Ses seçici
+окно выбора мелодии	zil sesi seçme penceresi
+Проверка ссылок приложений	Uygulama bağlantısı doğrulama
+сверяет, какие ссылки открывает какое приложение	hangi uygulamanın hangi bağlantıları açtığını denetler
+Окна VPN	VPN pencereleri
+запрос разрешения при включении VPN	VPN açılırken izin isteği
+Заглушка для тестов (CTS)	Test yer tutucusu (CTS)
+пустой пакет для проверок совместимости Google	Google uyumluluk testleri için boş paket
+Резервная копия звонков	Arama kaydı yedeği
+для телефонов; на телевизоре без дела	telefonlar için; televizyonda işe yaramaz
+Хранилище календаря	Takvim deposu
+календарь; на телевизоре почти не нужен	takvim; televizyonda pek gerekmez
+Хранилище контактов	Kişiler deposu
+контакты; на телевизоре почти не нужно	kişiler; televizyonda pek gerekmez
+Пользовательский словарь	Kullanıcı sözlüğü
+слова, которые выучила клавиатура	klavyenin öğrendiği kelimeler
+Заблокированные номера	Engellenen numaralar
+для телефонов	telefonlar için
+Корпоративная настройка	Kurumsal kurulum
+для устройств, которыми управляет организация	bir kuruluşun yönettiği cihazlar için
+Экстренная информация	Acil durum bilgileri
+Запись трассировки	Sistem izleme
+инструмент разработчика для отладки скорости	performans hata ayıklama için geliştirici aracı
+Пасхалка Android	Android sürprizi
+игрушка в «Версии Android»	«Android sürümü»ndeki oyuncak
+Закладки	Yer imleri
+хранилище закладок браузера	tarayıcı yer imi deposu
+Окна SIM-карты	SIM kart pencereleri
+Меню SIM-карты	SIM kart menüsü
+Отчёты в Google	Google geri bildirim
+отправка отзывов и отчётов об ошибках	geri bildirim ve hata raporları gönderir
+Отчёты об ошибках Google TV	Google TV hata raporları
+отправляет отчёты в Google	Google'a rapor gönderir
+Первичная настройка Google	Google ilk kurulum
+работает один раз после сброса	sıfırlamadan sonra bir kez çalışır
+Настройки партнёра Google	Google iş ortağı kurulumu
+служебные настройки производителя для сервисов Google	Google hizmetleri için üreticinin hizmet ayarları
+Синхронизация календаря	Takvim eşitleme
+календарь Google	Google Takvim
+Синхронизация контактов	Kişi eşitleme
+контакты Google	Google Kişiler
+Резервное копирование Google	Google yedekleme
+сохраняет настройки в аккаунт Google	ayarları Google hesabına kaydeder
+Синтез речи Google	Google metin okuma
+голос для озвучки и спецвозможностей	ekran okuyucu ve erişilebilirlik için ses
+TalkBack	TalkBack
+озвучка экрана для незрячих	görme engelliler için ekran okuyucu
+ряды подборок на главном экране Google	Google ana ekranındaki öneri sıraları
+красивые фото в простое; заметно ест память, пока работает	boştayken güzel fotoğraflar; çalışırken belirgin bellek kullanır
+кнопка микрофона и Ассистент	mikrofon tuşu ve Asistan
+трансляция с телефона кнопкой «Транслировать»	«Yayınla» tuşuyla telefondan yayın
+магазин фильмов Google (в России не работает)	Google'ın film mağazası (Rusya'da çalışmıyor)
+игровой профиль и достижения	oyun profili ve başarımlar
+музыкальное приложение	müzik uygulaması
+приложение YouTube	YouTube uygulaması
+заводская оболочка Android TV	Android TV'nin fabrika ana ekranı
+Рекомендации старого главного экрана	Eski ana ekran önerileri
+подборки для старой оболочки Android TV	eski Android TV ana ekranı için seçkiler
+Мастер настройки Google TV	Google TV kurulum sihirbazı
+первая настройка; иногда перехватывает «Домой» и владеет сетью Wi-Fi	ilk kurulum; bazen «Ana sayfa»yı ele geçirir ve Wi-Fi ağının sahibi olur
+Мост авторизации Google	Google giriş köprüsü
+вход в аккаунт для некоторых сервисов	bazı hizmetler için hesap girişi
+Пульт с телефона	Telefondan kumanda
+управление телевизором из приложения Google TV на телефоне	televizyonu telefondaki Google TV uygulamasıyla yönetme
+Клавиатура Gboard	Gboard klavye
+Google Meet / Duo	Google Meet / Duo
+видеозвонки	görüntülü aramalar
+Главный экран Google TV	Google TV ana ekranı
+заводская оболочка Google TV	Google TV'nin fabrika ana ekranı
+Заглушки Google TV	Google TV yer tutucuları
+пустые пакеты, чтобы приложения не падали	uygulamalar çökmesin diye boş paketler
+Заставка при загрузке	Açılış animasyonu
+картинка во время включения	açılırken görünen resim
+Служба политик Google	Google politika hizmeti
+служебная часть сервисов Google	Google hizmetlerinin bir hizmet parçası
+Обновление настроек Google	Google yapılandırma güncelleyici
+обновляет списки и сертификаты	listeleri ve sertifikaları günceller
+Системные службы Google	Google sistem hizmetleri
+ядро: уведомления и прочее	çekirdek: bildirimler ve diğerleri
+Настройка WebView	WebView kurulumu
+оформление встроенного браузера	yerleşik tarayıcının görünümü
+Подсказки и поиск в Настройках	Ayarlar'da öneriler ve arama
+строка поиска и советы в меню настроек; сами настройки работают и без него	ayarlar menüsündeki arama çubuğu ve ipuçları; ayarların kendisi onsuz da çalışır
+Автоустановка приложений Xiaomi	Xiaomi uygulama otomatik kurulumu
+список, что ставить самому при первом включении	ilk açılışta kendiliğinden kurulacakların listesi
+Документы Xiaomi	Xiaomi belgeleri
+пользовательское соглашение и политика конфиденциальности	kullanıcı sözleşmesi ve gizlilik politikası
+Служба Xiaomi для пульта	Xiaomi kumanda hizmeti
+Bluetooth-пульт и кнопка Netflix на нём	Bluetooth kumanda ve üzerindeki Netflix tuşu
+Отказ от ответственности при включении	Açılıştaki sorumluluk reddi
+экран с юридическим текстом производителя	üreticinin yasal metnini gösteren ekran
+Мастер настройки каналов	Kanal kurulum sihirbazı
+первичная настройка ТВ и поиск каналов	televizyonun ilk kurulumu ve kanal arama
+Live Channels	Live Channels
+приложение «Каналы» для эфира и онлайн-ТВ	yayın ve çevrimiçi TV için «Kanallar» uygulaması
+Промо-контент Xiaomi	Xiaomi tanıtım içeriği
+веб-контейнер для рекламы и подборок, грузит рекламу для заставки	reklam ve seçkiler için web kapsayıcısı; ekran koruyucuya reklam yükler
+файлы и видео с флешки	USB'den dosya ve videolar
+Видеоплеер Xiaomi	Xiaomi video oynatıcı
+открывает видео с флешки и из проводника	USB'den ve dosya yöneticisinden videoları açar
+Настройки партнёра Xiaomi	Xiaomi iş ortağı kurulumu
+служебные настройки производителя при первом включении	ilk açılışta üreticinin hizmet ayarları

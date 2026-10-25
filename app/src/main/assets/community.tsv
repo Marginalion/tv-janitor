@@ -1,0 +1,1463 @@
+ag.kinom	1	0	Kinom	
+air.ITVMobilePlayer	2	0	ITVX (UK)	
+air.com.vudu.air.DownloaderTablet	2	0	Vudu	
+android.autoinstalls.config.Inspur.benq.S905Y2	1	0	silently installs partner apps	
+android.autoinstalls.config.JVC	2	0	Play Auto Install config: partner apps pushed after setup	
+android.autoinstalls.config.OnePlus	2	0	Play auto-installs configuration	
+android.autoinstalls.config.SW	2	0	Play Auto Installs config that pushes preloads	
+android.autoinstalls.config.arcelik.an	1	0	Arcelik partner auto-installs config	
+android.autoinstalls.config.arcelik.gx	1	0	Arcelik partner auto-installs config	
+android.autoinstalls.config.askey.tvbox	1	0	Play auto-install of partner apps	
+android.autoinstalls.config.fomovie	1	0	Play auto-install of partner apps (sic, "fomovie")	
+android.autoinstalls.config.google.gtvpai	36	0	Play Auto Installs config stub, only read during setup	
+android.autoinstalls.config.haier.hanyang	1	0	Haier auto-install stub	
+android.autoinstalls.config.hisense	1	0	silently installs promoted apps	
+android.autoinstalls.config.hisense.hayward	2	0	silently installs promoted apps	
+android.autoinstalls.config.hisense.huangshan	1	0	PAI: queues partner apps (Sling, FanDuel, Freevee tiles on the US set)	
+android.autoinstalls.config.hisense.laohushan	1	0	partner silent app auto-installs	
+android.autoinstalls.config.hisense.xiaoyushan	2	0	silent partner-app auto-installs	
+android.autoinstalls.config.hkc	1	0	PAI partner auto-install stub	
+android.autoinstalls.config.homwee	5	0	partner-app auto-installs	
+android.autoinstalls.config.nvidia	2	0	Play auto-installs of partner apps	
+android.autoinstalls.config.realtek.device	2	0	Play auto-installs of partner apps	
+android.autoinstalls.config.rplus.device	1	0	Play auto-installs of partner apps	
+android.autoinstalls.config.scbc.device	5	0	partner auto-install config for SCBC devices	
+android.autoinstalls.config.sdmc	4	0	Play auto-install of partner apps	
+android.autoinstalls.config.sei	5	0	Play auto-install of partner apps	
+android.autoinstalls.config.sharp	1	0	PAI partner auto-install stub	
+android.autoinstalls.config.skyworth	3	0	Play Auto Installs config for preloaded apps	
+android.autoinstalls.config.soc.amlogic	4	0	Amlogic first-boot app auto-install config	
+android.autoinstalls.config.sony.bravia	21	0	(new) Play auto-install of partner apps	
+android.autoinstalls.config.tcl.device	23	0	Play Auto Install stub (preload installer)	
+android.autoinstalls.config.tpv.device	4	0	Play auto-install of TP Vision partner apps	
+android.autoinstalls.config.vestel.coma	1	0	Vestel auto-install stub (preloads apps at setup)	
+android.autoinstalls.config.vestel.cosmos	1	0	partner auto-preinstall config	
+android.autoinstalls.config.vestel.medusa	1	0	Vestel auto-install stub (preloads apps at setup)	
+android.autoinstalls.config.xgimi.xgimigalileo	1	0	Play auto-install config for preloads	
+android.autoinstalls.config.xiaomi	1	0		
+android.autoinstalls.config.xiaomi.amelie	9	0	Play auto-install of partner apps	
+android.autoinstalls.config.xiaomi.mibox3	2	0	Play auto-install of partner apps	
+android.autoinstalls.config.xioami.dangal	4	0	Play auto-install of partner apps (sic, "xioami")	
+android.autoinstalls.config.xioami.mibox3	5	0	misspelled duplicate present on firmware (sic, "xioami")	
+android.rockchip.update.service	1	0	Rockchip updater left in this Allwinner image	
+android.uid.system	0	1		DO NOT DISABLE here (load-bearing or unclear, run as android.uid.system):
+ar.tvplayer.tv	1	0	TVPlayer	
+au.com.ninenow.ctv	1	0	9Now	
+au.com.stan.and	5	0	Stan	
+au.net.abc.iview	3	0	user-installed on this set	
+br.com.claro.now.smarttvclient	1	0	Claro TV+	
+br.tv.horizonte.android.premierefc	1	0	Premiere FC	
+ca.bellmedia.cravetv	1	0	Crave	
+ca.cbc.mobile.android.cbcnewsandroidwebview	1	0		
+cm.aptoidetv.pt	2	0	Aptoide TV store	
+cm.aptoidetv.pt.cvt_platform7	1	0	Preinstalled Aptoide TV build	
+cn.cvte.tv.factory.autotest	1	0		
+cn.formovie.fengos.usermanual	1	0		
+cn.tcl.odm.android.vstoresubclient	1	0	Zeasn / TCL store client	
+cn.wps.moffice_i18n_TV	1	0	WPS Office	
+cn.zeasn.toptech2851.rca.vstoresubclient	1	0	Zeasn app store; Google Play stays	
+co.sensara.tv.mitv	2	0	Sensara partner TV guide (sponsored show recommendations)	
+com.FDGEntertainment.redball4.gp	1	0	game	
+com.Smartdevice.emanual	15	0	Built-in electronic user manual	
+com.aajtak.firetv	1	0		
+com.abc.abcnews	1	0		
+com.abclocal.kabc.news	1	0	ABC7 Los Angeles	
+com.accuweather.android	2	0		
+com.adultswim.firetv	1	0		
+com.aha.mitv	1	0	dormant duplicate Aha 2.0.8; ahaflix.tv 2.0.22 is kept	
+com.aiconnx.app.stream.tv044	1	0	"Multi-Platform streamer plus" preload	
+com.airoha.ble.ota	3	0	"RC Upgrade": firmware updater for the Bluetooth remote; pairing still works	
+com.alphainventor.filemanager	1	0		
+com.amazon.aca	3	0	Alexa hints/cues providers (HintsProvider, InstaHintsProvider), ~44 MB resident	
+com.amazon.aiondec	3	0	Alexa skill connections	
+com.amazon.aiv.us	3	0	US Prime Video stub; the real app is amazonvideo.livingroom	
+com.amazon.alexa.datastore.app	1	0		
+com.amazon.alexa.externalmediaplayer.fireos	7	0	Alexa music playback	
+com.amazon.alexadirectivebrokerservice	1	0		
+com.amazon.alexamediaplayer.runtime.ftv	7	0		
+com.amazon.alta.h2clientservice	1	0		
+com.amazon.amazonvideo.livingroom	54	0	Prime Video; comes back like Netflix, see header	
+com.amazon.audiohome	5	0	Alexa Home Theater	
+com.amazon.audiolatencymeasurer	2	0		
+com.amazon.avod	1	0	Prime Video (comment out if you watch Prime Video)	
+com.amazon.avod.thirdpartyclient	2	0	Prime Video	
+com.amazon.awvflingreceiver	1	0		
+com.amazon.bueller.music	11	0	Amazon Music	
+com.amazon.bueller.photos	12	0	Amazon Photos	
+com.amazon.cardinal	1	0		
+com.amazon.cast.sink	3	0	Miracast / Fire Cast sink (AirPlay is separate)	
+com.amazon.ceviche	7	0	data collection pipelines	
+com.amazon.client.metrics	1	0		
+com.amazon.client.metrics.api	9	0	metrics client API; tested on 65U68QF	
+com.amazon.cloud9	6	0	Silk Browser background service	
+com.amazon.communication.discovery	1	0		
+com.amazon.csm.htmlruntime	1	0		
+com.amazon.device.crashmanager	1	0		
+com.amazon.device.logmanager	1	0		
+com.amazon.device.metrics	1	0		
+com.amazon.device.sale.service	2	0	sale / deal campaign service	
+com.amazon.device.software.ota	1	0	re-enable to check for firmware updates	
+com.amazon.device.software.ota.override	1	0	re-enable to check for firmware updates	
+com.amazon.device.sync	1	0		
+com.amazon.device.sync.sdk.internal	1	0		
+com.amazon.device.telemetry.emitter	4	0	new in Fire OS 8, no components of its own	
+com.amazon.device_remote_config_sync_service	1	0		
+com.amazon.dialservice	1	0	DIAL cast receiver	
+com.amazon.diode	1	0		
+com.amazon.dp.logger	12	0	device log upload	
+com.amazon.dpcclient	1	0		
+com.amazon.dummy.alarmclock	1	0		
+com.amazon.dummy.calendar	1	0		
+com.amazon.dummy.contacts	1	0		
+com.amazon.dummy.gallery	1	0		
+com.amazon.dummy.music	1	0		
+com.amazon.dummy.settings	1	0		
+com.amazon.firebat	1	0	Prime Video	
+com.amazon.fireos.cirruscloud	1	0		
+com.amazon.firetv.androidskillconnectioncapability	1	0	Alexa skill connections / Alexa+ events, new in Fire OS 8	
+com.amazon.franktvinput	4	0	live TV input feeding the Live tab	
+com.amazon.ftv.screensaver	2	0	Amazon Photos screensaver	
+com.amazon.ftvads.deeplinking	1	0	Fire TV ad deep-linking	
+com.amazon.ftvspatial	1	0	presence and indoor-location sensing (SensorDataReceiver, IlsProximityReceiver)	
+com.amazon.gamehub	11	0	games hub / Luna cards	
+com.amazon.hedwig	8	0	Fire TV Channels (free ad-supported channels row); tested on 65U68QF	
+com.amazon.hybridadidservice	9	0	advertising ID service	
+com.amazon.imdb.tv.android.app	2	0	Freevee stub	
+com.amazon.kso.blackbird	9	0	launcher ad sync / bidding (sponsored banner and rows); tested on 65U68QF	
+com.amazon.livedeviceservice	7	0		
+com.amazon.logan	1	0		
+com.amazon.media.recommendations	7	0	sponsored and recommendation rows	
+com.amazon.metrics.api	1	0		
+com.amazon.minerva.client.api	1	0		
+com.amazon.minitv.android.app	9	0	Amazon MiniTV	
+com.amazon.music.tv	1	0		
+com.amazon.naatyam	8	0	Naatyam	
+com.amazon.neo.minerva	6	0		
+com.amazon.neo.minerva.logcat	6	0		
+com.amazon.neodelegate	1	0		
+com.amazon.neopactservice	1	0		
+com.amazon.ods.kindleconnect	6	0	"show on Fire TV" from Echo / Fire tablet (Tarazed)	
+com.amazon.perfc	10	0	performance telemetry	
+com.amazon.perfcollection	11	0	performance telemetry	
+com.amazon.platform.fdrw	1	0		
+com.amazon.privacypassservice	7	0	privacy pass token service	
+com.amazon.providers.contentsupport	5	0	content support provider	
+com.amazon.recess	1	0		
+com.amazon.rialto.cordova.webapp.webapp2660c968ef8949678398aeb6fd6cb036	1	0	preloaded Amazon web app	
+com.amazon.rialto.cordova.webapp.webapp855cc15add08457a8a1fe62312eab585	1	0	Fox News web app	
+com.amazon.rtcsessioncontroller	2	0	Alexa calling / Drop In sessions	
+com.amazon.securitysyncclient	1	0		
+com.amazon.shoptv.client	11	0	Amazon Shopping on TV	
+com.amazon.shoptv.firetv.client	7	0	Amazon Shopping on TV	
+com.amazon.smarthomemapviewapp	3	0	smart home dashboard (cameras, lights)	
+com.amazon.sneakpeek	9	0	sponsored "Sneak Peek" autoplay previews	
+com.amazon.spiderpork	2	0	Amazon Luna	
+com.amazon.spotify.mediabrowserservice	2	0	Spotify for Alexa (stub; the Spotify app is separate)	
+com.amazon.ssm	1	0	System Status Monitor	
+com.amazon.storm.lightning.tutorial	11	0	remote app tutorial	
+com.amazon.sync.provider.ipc	1	0		
+com.amazon.sync.service	1	0		
+com.amazon.systemnotices	8	0	system notices	
+com.amazon.tahoe	9	0	Amazon Kids (FreeTime)	
+com.amazon.tcomm	1	0		
+com.amazon.tcomm.client	1	0		
+com.amazon.tcomm.jackson	1	0		
+com.amazon.tmm.tutorial	12	0	remote tutorial	
+com.amazon.tv.acr	10	0	Automatic Content Recognition (what is on screen, HDMI included)	
+com.amazon.tv.alexaalerts	7	0	alarms, timers, reminders	
+com.amazon.tv.alexanotifications	7	0		
+com.amazon.tv.csapp	1	0		
+com.amazon.tv.democontent.provider	7	0	retail store demo videos	
+com.amazon.tv.developer.dataservice	7	0	"Alberto": content personalization data for third-party apps	
+com.amazon.tv.earlyaccess	3	0	early-access / preview program stub	
+com.amazon.tv.easyupgrade	8	0	"upgrade your Fire TV" promos	
+com.amazon.tv.ffsprovisioneeclient	4	0		
+com.amazon.tv.forcedotaupdater.v2	2	0	re-enable to check for firmware updates	
+com.amazon.tv.ftvambient	3	0	Ambient Experience (the plain screensaver, com.amazon.ftv.screensaver, stays)	
+com.amazon.tv.fw.metrics	6	0		
+com.amazon.tv.legal.notices	1	0		
+com.amazon.tv.legal.notices.overlay.localisation.common	1	0		
+com.amazon.tv.legalresources	1	0		
+com.amazon.tv.livetv	4	1	Live tab and guide (no tuner on a stick; Pluto TV and the like still open as apps)	Keep enabled: com.amazon.tv.livetv, com.amazon.tv.quicksettings and com.amazon.tv.settings.v2 (HDMI/tuner inputs and
+com.amazon.tv.localgallery	4	0	USB photo/video viewer	
+com.amazon.tv.mattercohost	4	0	Matter smart-home controller (com.amazon.tv.matter, Matter casting, stays)	
+com.amazon.tv.notificationcenter	1	0		
+com.amazon.tv.oobe	1	0		
+com.amazon.tv.ooberesource	1	0		
+com.amazon.tv.ottssocompanionapp	1	0		
+com.amazon.tv.quicksettings	0	1		Keep enabled: com.amazon.tv.livetv, com.amazon.tv.quicksettings and com.amazon.tv.settings.v2 (HDMI/tuner inputs and
+com.amazon.tv.releasenotes	8	0	"what's new" release notes	
+com.amazon.tv.settings.v2	0	1		Keep enabled: com.amazon.tv.livetv, com.amazon.tv.quicksettings and com.amazon.tv.settings.v2 (HDMI/tuner inputs and
+com.amazon.tv.support	1	0		
+com.amazon.tv.website_launcher	6	0	opens websites in Silk	
+com.amazon.uxnotification	8	0	UX notification popups	
+com.amazon.vizzini	2	0	Alexa voice on Fire TV	
+com.amazon.webapps.nbc.telemundo	1	0		
+com.amazon.wha.mediabrowserservice	3	0		
+com.amazon.whad	3	0	whole-home audio (multi-room music)	
+com.amazon.whasettings	3	0		
+com.amazon.whisperjoin.middleware.np	2	0	frustration-free setup of other Amazon devices	
+com.amazon.whisperjoin.middleware.v2.np	2	0	frustration-free setup of other Amazon devices	
+com.amazon.whisperjoin.wss.wifiprovisioner	1	0		
+com.amazon.whisperlink.core.android	1	0		
+com.amazon.whisperplay.contracts	1	0		
+com.amazon.whisperplay.service.install	1	0		
+com.amazon.wifilocker	8	0	syncs saved Wi-Fi passwords to Amazon	
+com.amazon.wirelessmetrics.service	11	0	Wi-Fi metrics upload	
+com.aml.dial	1	0	YouTube DIAL (cast) server	
+com.amlogic.voicesubtitle	2	0	Amlogic voice subtitle overlay	
+com.analiti.fastest.android	1	0	analiti speed test	
+com.android.adservices.api	46	0	Privacy Sandbox ad services (Topics, attribution)	
+com.android.backupconfirm	8	0		
+com.android.bips	5	0	default print service	
+com.android.bluetoothmidiservice	2	0	Bluetooth MIDI	
+com.android.browser	2	0	Outdated stock browser (AOSP)	
+com.android.calculator2	1	0		
+com.android.camera2	6	0	the webcam is driven by Formovie's own cameraservice_fm, not this app	
+com.android.cameraextensions	4	0		
+com.android.cellbroadcastreceiver	1	0		
+com.android.cellbroadcastservice	1	0		
+com.android.cts.ctsshim	7	0	CTS test shims, not user features	
+com.android.cts.priv.ctsshim	7	0	Android test shim	
+com.android.dreams.basic	11	0	basic "Colors" screensaver (Ambient/Backdrop kept)	
+com.android.dreams.phototable	1	0		
+com.android.dreams.web	1	0		
+com.android.dynsystem	10	0	Dynamic System Updates (GSI loader), boot receiver	
+com.android.egg	2	0		
+com.android.ext.adservices.api	1	0		
+com.android.federatedcompute.services	38	0	federated learning for ad/usage models	
+com.android.gallery3d	10	0	old AOSP gallery; TCL Media Center opens photos	
+com.android.health.connect.backuprestore	16	0	Health Connect backup	
+com.android.healthconnect.controller	15	0	Health Connect	
+com.android.hotspot2.osulogin	5	0	Passpoint hotspot sign-in	
+com.android.hotwordenrollment.okgoogle	1	0		
+com.android.hotwordenrollment.xgoogle	1	0		
+com.android.htmlviewer	8	0	local HTML viewer	
+com.android.localtransport	2	0	local backup transport	
+com.android.location.fused	0	1		# reported to boot-loop when disabled
+com.android.managedprovisioning	3	0	enterprise work-profile provisioning	
+com.android.media.tools	1	0	/system/app/clean/clean.apk	
+com.android.mgstv	1	0	Mango TV, preinstalled as a user app (Taobao ACCS push + Firebase)	
+com.android.music	3	0		
+com.android.musicfx	3	0		
+com.android.nfc	1	0		
+com.android.nfx	1	0	vendor NfxAccessibilityService, not a typo for com.android.nfc	
+com.android.ondevicepersonalization.services	40	0	Privacy Sandbox on-device personalization	
+com.android.onetimeinitializer	2	0		
+com.android.pacprocessor	2	0		
+com.android.printservice.recommendation	2	0		
+com.android.printspooler	79	0	print spooler, no printers on a projector	
+com.android.providers.blockednumber	1	0		
+com.android.providers.calendar	18	0	calendar storage (calendar is one of the allowed providers)	
+com.android.providers.contacts	6	0	contacts, nothing on a TV uses it	
+com.android.providers.tv	0	1		(com.android.providers.tv, the TV content provider, stays enabled: the repo never disables it)
+com.android.providers.userdictionary	2	0		
+com.android.proxyhandler	2	0		
+com.android.se	4	0	Secure Element (eSIM, NFC payments). This TV has	
+com.android.settings.intelligence	4	0	the search box inside Settings. The menus keep	
+com.android.sharedstoragebackup	9	0		
+com.android.simappdialog	1	0	SIM toolkit	
+com.android.smspush	5	0	WAP push manager, no SMS on a TV box	
+com.android.soundpicker	2	0		
+com.android.tcl.messagebox	1	0	image-message popup receiver	
+com.android.tv.feedbackconsent	56	0	consent prompt for the feedback reporter	
+com.android.tv.settings	0	2		the TV's Settings app (the launcher's Settings button)
+com.android.vending	0	1		# Google Play Store
+com.android.wallpaper.livepicker	3	0	live wallpaper picker	
+com.android.wallpaperbackup	15	0	wallpaper backup agent	
+com.android.wallpapercropper	1	0		
+com.android.wechathci	0	1		WeChat hand-off
+com.apgsolutionsllc.APGSOLUTIONSLLC0007	1	0	white-label TV browser (Play, 2022), replaced by	
+com.appgeneration.itunerfree	2	0	iTuner radio	
+com.apple.airplay.amazon.airplay	1	0	AirPlay receiver: keep if you cast from an iPhone or Mac	
+com.apple.atve.amazon.appletv	1	0	Apple TV app (AirPlay is separate and stays)	
+com.apple.atve.androidtv.appletv	6	0	Apple TV (user-installed), off by choice	
+com.apple.atve.sony.appletv	2	0	Apple TV app	
+com.apps.authota	2	0	companion to com.apps.ota	
+com.apps.channels	4	0	the SCBC "S-Channels" content app	
+com.apps.clear	4	0	background task killer	
+com.apps.eshow	4	0	E-SHOW in-store demo / promo	
+com.apps.esticker	3	0	ShowService overlay, demo stickers	
+com.apps.esticker3	2	0	store-demo sticker overlay (ShopModeReceiver, boot receiver)	
+com.apps.factory.ui	1	0		
+com.apps.function.audiolink	1	0	Audio Link	
+com.apps.function.gdpr	5	0	SCBC data-consent agent	
+com.apps.mk.gameui	1	0		
+com.apps.mk.wd	1	0	boot receiver with ClickAd/ClickApp/ClickChannel activities	
+com.apps.networkspeed	4	0	speed-test app	
+com.apps.ota	2	0	SANYO firmware updates; re-enable to check for updates	
+com.apps.puresound	1	0		
+com.apps.scast	2	0	likely screen mirroring	
+com.apps.timeclock	2	0	WorldClock	
+com.apps.tvmanager	1	0	TV manager / cleaner	
+com.apps.usbmediaplayer	4	0	Redundant USB player	
+com.apps.wifihotspot	7	0	TV as a Wi-Fi hotspot	
+com.arcelik.arserviceapp	1	0	HotelService (hotel/B2B mode), boot receiver, INSTALL_PACKAGES	
+com.arcelik.smartremotecompanion.grundig	1	0	Grundig Smart Remote phone-app companion	
+com.arcelik.tvcarehub	1	0	TV Care Hub promo/help videos	
+com.asanteegames.magicrampage	1	0		
+com.at.factory.androidtvaidlservice	2	0	factory test service	
+com.at.factory.factorymanager	2	0	factory test manager, boot receiver	
+com.audiocn.karaoke.micmanager	2	0	karaoke microphone manager	
+com.baidu.oases	2	0	Baidu SDK service started at boot	
+com.beko.tv.channel	1	0	"Beko Channel": the Beko twin of com.grundig.tv.channel (home-screen tiles and rows)	
+com.benq.notification	1	0	BenQ push messages and promos (Tag Manager)	
+com.blacknut.client	1	0	Blacknut cloud games	
+com.bloomberg.btva	1	0		
+com.boosteroidtv.streaming	5	0	Boosteroid TV cloud gaming	
+com.bruyere.android.solitaire	1	0		
+com.canal.android.canal	1	0	Canal+	
+com.cbs.ca	3	0	Paramount+ / CBS	
+com.cbs.ott	4	0	Paramount+	
+com.cbsnews.ott	1	0		
+com.cg.football	1	0	football game	
+com.channel4.youviewandroidlauncher	1	0		
+com.channel5.my5	1	0	My5 (UK)	
+com.channel5.my5sony	1	0		
+com.clearchannel.iheartradio.tv	1	0		
+com.cloudmosa.puffinTV	1	0		
+com.cltv.fast	7	0	Anoki/iWedia "Free TV" FAST channels (ad-supported TV input, ACR)	
+com.cnn.mobile.android.tv	1	0		
+com.coloros.relax.tv	1	0	"Relax" ambient sounds app, with nearx tracking	
+com.community.newroom	1	0	Community Newroom	
+com.community.oneroom	1	0	Community OneRoom	
+com.coocaa.NewStoreSystem	1	0		
+com.coocaa.activecenter	1	0	Activity / promotions center	
+com.coocaa.app_browser	3	0	Built-in lightweight web browser	
+com.coocaa.demonow.lightining	3	0	"Demo Now" retail mode, auto-starts from home	
+com.coocaa.educate	2	0	kids/education channel, ad SDK	
+com.coocaa.emergencywarning	0	1		emergency broadcast
+com.coocaa.factory	1	1	Coocaa factory test suite; lived with disabled without trouble	factory menu (also the ADB toggle)
+com.coocaa.guide	3	0	boot/upgrade guide, push receiver	
+com.coocaa.lifeassistant	2	0	morning call, sleep aid, weather	
+com.coocaa.mall	1	0	Shopping portal	
+com.coocaa.messageprovider	3	0	system message box, pushes notices and promotions	
+com.coocaa.miitee.guard	1	0	Kids guard	
+com.coocaa.mitee.tv	1	0	Kids content	
+com.coocaa.os.customerservice	1	0	Online customer service	
+com.coocaa.os.thememanager	2	0	Theme manager	
+com.coocaa.os.upgrade	2	0	firmware/OTA updates	
+com.coocaa.playtvskill	1	0	TV skill	
+com.coocaa.screensaver	2	1	screensaver with an ad SDK (com.coocaa.adsdk)	screensaver
+com.coocaa.sky.ccapi	1	1	Coocaa payment centre; breaks Coocaa membership purchases	content API
+com.coocaa.skycast.tool	1	0	cast component updater; casting itself still works	
+com.coocaa.sport	1	0	Coocaa Sports	
+com.coocaa.sysreport	2	0	usage reporting on boot, screen and app install	
+com.coocaa.teampresent	2	0	help and customer service	
+com.coocaa.theme.child	1	0	Children's mode theme	
+com.coocaa.theme_package_ccos_nine	1	0	Theme package	
+com.coocaa.theme_package_ccos_seven	1	0	Theme package	
+com.coocaa.tvmanager	1	1	cleaner / "speed up", Baidu TV shield	TV manager
+com.coocaa.tvpi	1	0	TV+ streaming (bundled UMeng push ad component)	
+com.coocaa.tvpitv	1	0	PiTV aggregation service	
+com.crackle.androidtv	2	0		
+com.creative.fastscreen.tv	2	0	FastCast Miracast receiver (screen mirroring)	
+com.crunchyroll.crunchyroid	3	0	Crunchyroll	
+com.ctc	1	0	"MediaProcessorDemoActivity"	
+com.curiosity.curiositystream.androidtv	1	0		
+com.cvte.dssshare.dlna	1	0	DLNA renderer (Jetty on a random port); a normal app, gone for good once removed	
+com.cvte.fac.menu	1	0		
+com.cvte.gaia.ad.service	3	0	ad service, the largest app process after Play services (~27 MB)	
+com.cvte.haier.tv.appmanager	1	0	boot receiver that manages Haier apps	
+com.cvte.industries	2	0	push messenger (ACTION_INDUSTRY_MESSENGER) + AdReceiver	
+com.cvte.startpartnertv	1	0	preloaded partner-TV app	
+com.cvte.startpartnertvvod	1	0	preloaded VOD partner app	
+com.cvte.tcl.factory.at	1	0		
+com.cvte.tv.appstore	1	0	Proprietary app store	
+com.cvte.tv.at	2	0	factory auto-test activity	
+com.cvte.tv.audiotest	1	0		
+com.cvte.tv.fac.aging	1	0	factory aging test	
+com.cvte.tv.fac.menu	1	0	factory menu	
+com.cvte.tv.launcher	1	0		
+com.cvte.tv.launcher.highend	1	0		
+com.cvte.tv.launcher.highend.skin	1	0		
+com.cvte.tv.launcher.space	1	0	ads, SensorsData, Sentry, Firebase; also a live-TV preview	
+com.cvte.tv.launcher.space.skin	1	0		
+com.cvte.tv.media	1	0	Stock media center	
+com.cvte.tv.pictorial	3	0	screensaver with ads; switch to com.android.dreams.basic Colors	
+com.cvte.tv.player	1	0	Stock media player	
+com.cvte.tv.steward	3	0	"cleaner" with scheduled "optimisation"	
+com.cvte.tv.systemupgrade	1	0	firmware updates; off by choice, re-enable to update	
+com.cvte.tv.ucservice	1	0	CVTE UserCenter service	
+com.cvte.tv.weather	3	0	the stock launcher's weather; keep it if you keep the stock launcher	
+com.cvte.tvclean	1	0	Background memory cleaner	
+com.cvte.wonder.cloud.service	3	0	"UniAdService", Firebase, Sentry	
+com.cxinventor.file.explorer	1	0	X-plore file manager	
+com.dazn	2	0	DAZN	
+com.ddnational.prasarbharati	1	0		
+com.demo	1	0		
+com.dialog.tv	1	0	Dialog home, IPTV and Catch-up; keep it if you watch Dialog's channels	
+com.discovery.dplay	1	0	discovery+	
+com.discoveryplus.mitv	1	0		
+com.discoveryplus.tv.android	2	0	Discovery+	
+com.disney.disneyplus	15	0	Disney+	
+com.disney.starplus	1	0	Star+	
+com.disneyplus.mea	1	0	Disney+ (Middle East)	
+com.disneyplus.ph	1	0	Disney+	
+com.dolby	0	1		com.dolby.*; the three packages marked DO NOT DISABLE below are load-bearing, see comments.
+com.dolby.android.audio.service	0	2		# Dolby audio processing
+com.doodle.turboracing3d	1	0		
+com.droidlogic.appinstall	1	0	App installer service	
+com.droidlogic.keystone	0	1		# keystone (picture shape) correction
+com.droidlogic.miracast	1	0		
+com.droidlogic.readlog	2	0	copies logs to a USB drive when one is mounted	
+com.droidlogic.tvinput	0	1		HDMI and tuner input framework
+com.droidlogic.updater	1	1	OTA updater	Firmware OTA updates
+com.dstv.ad1	1	0	bundled third-party ad app	
+com.dstvmobile.android	1	0		
+com.duokan.airkan.tvbox	2	0	AirKan DLNA	
+com.duokan.factorytest	1	0		
+com.duokan.videodaily	6	0	short-video promos; bundles the Xiaomi ad SDK and a P2P upload service	
+com.ecloud.emedia	1	0	DLNA/media cloud service	
+com.electronic.manual	2	0	on-TV e-manual	
+com.emotn.browser	1	0	Emotn browser preload (the launcher itself is a separate owner-installed app)	
+com.epson.onlinemeetings	1	0	Epson Online Meetings (video conferencing), owner does not use it	
+com.eros.mitv	1	0		
+com.esaba.downloader	1	0	background APK/content downloader, boot-started	
+com.eshare.tutorial	1	0	screen-mirroring tutorial (mirroring itself stays)	
+com.espn.gtv	1	0		
+com.espn.score_center	3	0		
+com.estrongs.android.pop	1	0		
+com.example.copydatatotv	1	0	factory test app, persistent	
+com.example.tvcapture	1	0	factory test app	
+com.facebook.katana	2	0	Facebook	
+com.fancode.tv	1	0		
+com.fengmi.testsuite	1	0	factory test suite: disabled, never launched	
+com.fgl27.twitch	1	0	Twitch client	
+com.fgol.HungrySharkEvolution	1	0		
+com.fireos.arcus.proxy	1	0		
+com.fireos.usagestats.proxy	1	0		
+com.formulaone.production	1	0	F1 TV	
+com.fox.foxone	1	0		
+com.fox.fts.android	1	0	FOX	
+com.foxnews.android	1	0	also adds a live channel input	
+com.foxsports.videogo	2	0		
+com.fubo.firetv.screen	1	0		
+com.gaana.fire_tv	1	0	Gaana	
+com.gameloft.android.HEP.GloftANHP	1	0	Gameloft game preload	
+com.gitvdemo.video	2	0	GITV promo demo reel	
+com.glance.tv	1	0	Glance lock-screen news and ads	
+com.goodtoolapps.zeus	1	0	Zeus	
+com.google.android.adservices.api	3	0	Privacy Sandbox ad services	
+com.google.android.apps.mediashell	40	6	Chromecast built-in; re-enable to cast from phones	Chromecast built-in (kept by request)
+com.google.android.apps.nbu.smartconnect.tv	20	0	Google background data service (registers a VpnService), starts at boot	
+com.google.android.apps.pixelmigrate	1	0		
+com.google.android.apps.searchlite.overlay	1	0		
+com.google.android.apps.tachyon	3	0	Google Meet / Duo	
+com.google.android.apps.tv.dreamx	44	0	ambient mode screensaver (shows promos); screensaver moved to com.android.dreams.basic	
+com.google.android.apps.tv.launcherx	38	0	then: cmd package set-home-activity --user 0 com.gathin.tvhome/.MainActivity	
+com.google.android.apps.tv.netoscope	1	0	network diagnostics reporting	
+com.google.android.backdrop	61	0	Ambient screensaver, ~160 MB resident; replaced by com.gathin.tvhome/.ClockDream	
+com.google.android.backuptransport	1	0		
+com.google.android.boot.appsplashscreen	2	0	Boot splash screen animator	
+com.google.android.carriersetup	1	0		
+com.google.android.ext.adservices.api	3	0		
+com.google.android.federatedcompute	3	0		
+com.google.android.feedback	220	0	Market Feedback Agent: crash and feedback reports to Google	
+com.google.android.gms	0	1		# Google Play Services
+com.google.android.gsf	0	1		# Google Services Framework
+com.google.android.inputmethod.japanese	7	0	Japanese keyboard; Sony's com.sony.dtv.ime.chww stays the active keyboard	
+com.google.android.inputmethod.latin	0	2		# the on-screen keyboard
+com.google.android.katniss	98	2	Assistant and voice search; the remote's mic button and "Hey Google" stop. Alexa is separate	Do NOT disable com.google.android.katniss — it's Google Assistant/voice search; the
+com.google.android.leanbacklauncher	6	0	old Android TV launcher, no HOME activity on this build	
+com.google.android.leanbacklauncher.partnercustomizer	7	0	"Featured by Google Play" partner row config	
+com.google.android.leanbacklauncher.recommendations	28	0	recommendation rows for the old launcher	
+com.google.android.marvin.talkback	58	0	one unit only; already off at the firmware level on the other	
+com.google.android.music	15	0	Google Play Music, shut down in 2020; FCM push, runs at boot	
+com.google.android.ondevicepersonalization.services	3	0		
+com.google.android.onetimeinitializer	46	0	runs once at first setup, nothing afterwards	
+com.google.android.partnersetup	98	0	disabled by owner choice; not proven telemetry-only	
+com.google.android.play.games	177	0	Play Games (off by choice on this unit)	
+com.google.android.speech.pumpkin	16	0	speech recognition engine, see the note at the bottom	
+com.google.android.sss	1	0		
+com.google.android.sss.authbridge	5	0	Second Screen Setup Auth Bridge (set-up-from-phone helper)	
+com.google.android.syncadapters.calendar	80	0	calendar sync; also carries Google's GrowthKit promo framework	
+com.google.android.syncadapters.contacts	6	0	contacts sync	
+com.google.android.tts	21	0	Google text-to-speech; ~227 MB RSS at baseline; the TalkBack screen reader has no voice without it	
+com.google.android.tungsten.setupwraith	108	6	costs phone casting after a reboot (the Cast receiver reads its credentials from setupwraith)	- Do NOT disable com.google.android.tungsten.setupwraith on this set: dumpsys wifi confirms it
+com.google.android.tv	4	0	Live Channels; re-enable for a network tuner (HDHomeRun, Channels)	
+com.google.android.tv.assistant	26	0	assistant LED / hotword service	
+com.google.android.tv.bugreportsender	46	0	automatic bug report upload	
+com.google.android.tv.dfuservice	1	0	remote firmware updates and Find my remote	
+com.google.android.tv.inputplayer	0	4		# HDMI passthrough player and input switcher
+com.google.android.tv.remote.service	18	6	Google TV phone-app remote (the physical remote is unaffected)	# Google TV phone-app remote (kept by choice;
+com.google.android.tv.remotecontrol.logging	3	0	remote usage logging	
+com.google.android.tv.setup.customizationsample	1	0		
+com.google.android.tvlauncher	28	0	stock Android TV home: sponsored banner, "Free TV" and recommendation rows	
+com.google.android.tvrecommendations	120	0	"Android TV Core Services" despite the name: recommendation rows, channels, notification panel	
+com.google.android.tvtutorials	5	0	Android TV first-run tutorials	
+com.google.android.videos	127	0	Google Play Movies & TV / Google TV app (movies you bought now play in YouTube)	
+com.google.android.voicesearch	1	0		
+com.google.android.youtube.tv	17	0	replaced by SmartTube here; read the GlobalKey note above first	
+com.google.android.youtube.tvkids	5	0	YouTube Kids	
+com.google.android.youtube.tvmusic	111	0	one unit only; the firmware removed it for user 0 after the first reboot	
+com.google.android.youtube.tvunplugged	4	0	YouTube TV	
+com.graymatrix.did	3	0	device analytics (data app; on the AS23 unit)	
+com.grundig.tv.channel	1	0	"Grundig Channel": Hoppr FAST/ad tiles, home-screen program rows	
+com.haier.apps	4	0	Haier promo content app (Kinopoisk)	
+com.haier.emanual	1	0		
+com.haier.emanual9603	2	0	e-manual	
+com.haier.launcher.haiermatrix	3	0	Zeasn content launcher, not the system Home (re-enabled at boot)	
+com.haier.oemtabprovider	3	0	the "Haier" tab on the Google TV home (re-enabled at boot)	
+com.haier.overseastv.bluetoothspeaker	1	0	TV as Bluetooth speaker, not wanted	
+com.haier.sharetv.webview	1	0	webview used by the share service	
+com.haier.tvhousekeeper	4	0	"TV housekeeper" cleaner	
+com.haier.yudee.tv	1	0	Haier share service	
+com.haierubic.usmartdevice	4	0	Haier smart-device / IoT service	
+com.haystack.android	1	0	Haystack News	
+com.hbo.hbonow	7	0	old HBO Max app (Max, com.wbd.stream, kept)	
+com.hbo_android_tv	1	0	old HBO app, superseded by Max (com.wbd.stream, kept)	
+com.heytap.ars.sink	1	0	OnePlus "TV Mirror" screen sharing	
+com.heytap.mcs	2	0	HeyTap push messaging, with nearx tracking	
+com.heytap.olink	2	0	OnePlus Connect (phone link)	
+com.heytap.optvmiracastservice	1	0	Miracast	
+com.heytap.tv.assistant.oneplus	2	0	OnePlus TV Manager (cleaner, bandwidth alerts)	
+com.heytap.tv.btspeaker	2	0	Bluetooth speaker mode	
+com.heytap.tv.camera	1	0	Camera app	
+com.heytap.tv.filebrowser	2	0	File manager (USB)	
+com.heytap.tv.gallery3d	1	0	Gallery (USB)	
+com.heytap.tv.imagewall	1	0	Image wall	
+com.heytap.tv.musicplayer	1	0	Music player (USB)	
+com.heytap.tv.remotediagnosing	1	0	HeyTap remote diagnosis	
+com.heytap.tv.videoplayer	1	0	Video player (USB)	
+com.hikeen.factoryautomation	1	0	Factory automation	
+com.hikeen.factorymenu	1	0	Factory menu (MENU+1147 does NOT work on SMART2KTVSE)	
+com.hikeen.middleware.server	1	0	Middleware server	
+com.hisense.aiod	0	1		AI picture quality (AIPQ)
+com.hisense.aiot	0	1		AIoT. NOT verified on this platform (it is not present on the
+com.hisense.aiservice	0	1		gestures / AI service
+com.hisense.alexa	2	0	/system/app/HiAlexa	
+com.hisense.app.logreport	2	0	LogReportManagerService, persistent system reporter	
+com.hisense.ar.baike	4	0	AR encyclopedia	
+com.hisense.autotest	3	0	factory autotest app (never launch it, see PROMPT.md)	
+com.hisense.bluetoothpair	0	3		remote pairing; losing it can leave you without a remote
+com.hisense.business.ad	4	0	ships Alibaba Baichuan + CIBN shopping SDKs; installed as a user app	
+com.hisense.demonstrate	4	0	DbxDemo / multi-channel sound demo reels	
+com.hisense.electronictutorial	4	0	electronic manual	
+com.hisense.evservice	3	0	codePath /system/app/acr: automatic content recognition	
+com.hisense.fte	2	0	first-time experience	
+com.hisense.hibrowser	1	0		
+com.hisense.hiservice	0	2		MQTT base service
+com.hisense.hitv.das	3	0	DasApp: DataReportReceiver only	
+com.hisense.hitv.hicloud.account	1	1	HiCloud account manager	JuUI account / sign-in
+com.hisense.hitv.payment	0	1		payment
+com.hisense.hotelmenu	4	0	hotel mode menu	
+com.hisense.hotelmode	1	0		
+com.hisense.laser.closetv	0	1		laser engine service (projector hardware)
+com.hisense.logupload	4	0	log uploader	
+com.hisense.multiwindow	0	1		split screen
+com.hisense.myapplication	1	0	Hisense screensaver (DayDreamService), off by choice	
+com.hisense.odinbrowser	5	0	generic ad-supported OEM browser (ACCESS_ADSERVICES_* perms), not Sony's own UI	
+com.hisense.padinputmethod	0	2		fallback IME
+com.hisense.platformreport	3	0	usage/telemetry reporting	
+com.hisense.raycodereceiver	0	3		was running in the process list; likely a remote path
+com.hisense.remoteupgrade	2	0		
+com.hisense.screen	0	1		projector screen/ambient service
+com.hisense.service.ad	4	0	its WatchingAccessibilityService was registered in enabled_accessibility_services	
+com.hisense.service.hproxy	3	0	LoopingService + network-change receiver, polls forever	
+com.hisense.service.message	7	0	/system/app/HiMsgService: Hisense push messages	
+com.hisense.storemode	4	0	retail store demo mode	
+com.hisense.systeminfo	0	2		system info provider
+com.hisense.tv.b2b	3	0	/system/app/HisenseB2B: hotel/commercial mode	
+com.hisense.tv.baseservice	0	3		TV base services
+com.hisense.tv.customerlauncher	1	0	CustomerLauncher home-screen tweaks	
+com.hisense.tv.fitmirror	3	0	fitness mirror	
+com.hisense.tv.foodmanage	4	0	recipe app	
+com.hisense.tv.globalui	0	1		vendor UI layer
+com.hisense.tv.hisremotenow	2	0	RemoteNOW phone remote, off by choice	
+com.hisense.tv.hisremotenowserver	1	0		
+com.hisense.tv.inputs	0	3		SysUIMerge: the source panel and TaskCenter
+com.hisense.tv.mirror	0	1		screen mirroring, if you mirror
+com.hisense.tv.ota	2	0		
+com.hisense.tv.protector	1	0	TvProtector "speedup" cleaner	
+com.hisense.tv.smartsense	1	4	Smartsense analytics	WARNING, shared with the huangshan FFM list: never disable com.hisense.tv.smartsense,
+com.hisense.tv.smartservice	1	0	SmartsenseService background service	
+com.hisense.tv.tiletransition	0	1		TileAnimationService, required by the source panel. Disabled, the
+com.hisense.tv.videochat.social	2	0	preloaded video chat	
+com.hisense.tv.videoconference	3	0	video conferencing	
+com.hisense.tv.weather	4	0	weather card, another content feed	
+com.hisense.uifac	0	2		factory UI component
+com.hisense.usbupgrade	1	0		
+com.hisense.widget.pro	2	0	home operator widget rows	
+com.hisilicon.miracast	1	0	Miracast receiver	
+com.hitv.explore	1	0	"File Manager" (HiTV, Play-installed 2020)	
+com.hk.gingaplayer.huangs	1	0	Ginga (Latin-America ISDB-T middleware), inert on an EU DVB set	
+com.homwee.aipont	5	0	AI PONT brand portal and its recommendation channels	
+com.homwee.alexacontrol	3	0	Alexa integration; Google Assistant stays (katniss kept)	
+com.homwee.chinstallapk	2	0	silent installer	
+com.homwee.chtvmanager	2	0	"TV Manager" cleaner / memory optimizer	
+com.homwee.dmt.upgrade	1	0	second factory updater	
+com.homwee.help	11	0	e-manual	
+com.homwee.mmp.fileexplorer	3	0	Media Player (USB files and media); not used on this set	
+com.homwee.mmp.imageplayer	2	0	re-enable in Settings to view photos from USB	
+com.homwee.mmp.screenshare	5	0	brand screen mirroring; Google Cast (mediashell) stays	
+com.homwee.multiscreenshare	5	0	Miracast / AirPlay	
+com.homwee.store	11	0	Changhong app store	
+com.homwee.upgrade	3	0	vendor app updater; the Play Store still updates apps	
+com.hoppr.androidtv.thumper.prodtv	1	0	Hoppr ad and analytics engine, see header	
+com.htc.eventuploadservice	1	0	usage/event uploader	
+com.htc.expandsdk	1	0	service used by the HTC launcher/theme stack	
+com.htc.htclauncherhighenglishd08	1	0	stock Home; re-enable if the custom launcher is removed	
+com.htc.htcotaupdate	1	0	OTA; re-enable to check for firmware updates	
+com.htc.hyk_test	1	0	factory test app	
+com.htc.screensaver	1	0	stock screensaver; ClockDream replaces it	
+com.htc.storeos	2	0	HTC app store	
+com.hulu.livingroomplus	1	0		
+com.hulu.plus	2	0		
+com.hungama.movies	1	0		
+com.hysd.vafocus	1	0	vendor projector control/voice helper; see note below	
+com.icoolme.tv.weather	1	0	Weather preload	
+com.iflytek.xiri	1	0	iFlytek voice	
+com.iflytek.xiri.recorder.svc	1	0	iFlytek recorder	
+com.iflytek.xiri.translate	1	0	iFlytek translate	
+com.iflytek.xiri2.hal	1	0	iFlytek HAL	
+com.iflytek.xiri2.system	1	0	iFlytek system service	
+com.imdb.livingroom.firetv	1	0	IMDb app	
+com.imdbtv.livingroom	1	0	IMDb TV / Freevee	
+com.inspur.firebase	1	0	Inspur data collection (DCReceiver)	
+com.instagram.airwave	3	0	Instagram for TV, installed by the Play Store at setup	
+com.internet.tvbrowser	3	0	TV browser (Play-installed)	
+com.ionitech.airscreen	2	0	AirScreen casting; Miracast (com.droidlogic.miracast) kept	
+com.iplayer.android.webview	2	0		
+com.iqiyi.i18n.tv	5	0	partner auto-install	
+com.itv.youviewandroidlauncher	1	0		
+com.itwgame.mota.nearme.gamecenter	1	0	Bundled third-party game center	
+com.ivona.orchestrator	1	0	Alexa TTS engine	
+com.ivona.tts.oem	1	0		
+com.jamdeo.calendar	4	0	vendor calendar, not the AOSP one	
+com.jamdeo.screensaver	3	0		
+com.jamdeo.tv.fte	4	0	first-run wizard, done; the saved Wi-Fi belongs to android.uid.system	
+com.jamdeo.tv.livetv	0	3		Live TV and the HDMI/AV renderer
+com.jamdeo.tv.mediacenter	2	1	Hisense MediaCenter DLNA/USB player	media centre, plays a USB stick
+com.jamdeo.tv.service	0	3		TVServices: the TIL/JNI side of source switching
+com.jamdeo.tv.vod	0	2		com.jamdeo.tv.vod — KEEP ENABLED. This list is debloat only; the stock Home stays.
+com.jamdeo.updateservice	0	3		OTA; disable it and firmware updates stop
+com.jd.smartservicetwo	2	0	JD SmartService	
+com.jio.media.stb.ondemand	5	0	JioCinema / Jio TV	
+com.jio.web.androidtv	3	0	JioPages browser	
+com.jmgo.helpcenter	1	0	help centre; also has a preinstall AppDownloadService	
+com.jmgo.hippo	0	1		key handling, brightness and the JMGO remote's accessibility service
+com.jmgo.overseas.atmosphere	1	0	"Atmosphere" ambient scenes app	
+com.jmgo.ptz	0	1		the gimbal stand
+com.jmgo.spider	1	0	tracker: boot receiver, location, app usage stats	
+com.joxdev.orbia	2	0	game	
+com.july.ndtv	1	0		
+com.keylab.speech.core.vidaa	0	2		voice core, left enabled even when the voice UI is disabled
+com.keylab.speech.view.vidaa	1	0		
+com.kick.mobile	1	0	Kick	
+com.king.candycrushsaga	1	0		
+com.konka.livewallpaper	1	0		
+com.ktc.serialport	1	0		
+com.ktc.tv.factory	1	0		
+com.limelight	1	0		
+com.loostone.tuning	1	0	karaoke mic tuning, starts at boot	
+com.mautilus.tvgames.portal.androidtv	1	0		
+com.maxhub.screenshare.server.tv	1	0	MHshare	
+com.mediatek	0	6		Inputs: com.mediatek.tvinput (HDMI 1-3, AV, tuner). Never disable any com.mediatek.* package.
+com.mediatek.AirplayAPK	6	0	AirPlay	
+com.mediatek.TimeMeasurementAgent	1	0	persistent: keeps running after boot even when disabled	
+com.mediatek.agent	1	0	MediaTek diagnostics agent	
+com.mediatek.airplaydaemon	5	0	AirPlay daemon; the AirplayAPK frontend is not on this firmware	
+com.mediatek.android.leanbacklauncher.partnercustomizer	14	0	partner promo rows (and the stock top-bar icons)	
+com.mediatek.androidbox	5	0	MediaTek Miracast sink (screen mirroring), off by choice	
+com.mediatek.backgrounddetection	3	0		
+com.mediatek.dialservice	2	0	"AOW_DIAL": DIAL, how Netflix/YouTube phone apps find the TV	
+com.mediatek.dmagent	1	0	MediaTek device management agent	
+com.mediatek.dtv.tvinput.atsctuner	1	0		
+com.mediatek.extservice	0	1		picture quality, CEC, audio, capture
+com.mediatek.network	3	2	Mediatek network monitor leftover	PERSISTENT network monitor
+com.mediatek.opapp	2	0	European satellite operator apps (Canal Digitaal, HD+, Skylink...), unused in Brazil	
+com.mediatek.support.webview	3	0		
+com.mediatek.testpq	3	0	MediaTek picture-quality test tool, starts at boot	
+com.mediatek.tv.agent	0	1		power, timers, global hotkeys, TV remote service agent
+com.mediatek.tv.factory	1	0	MediaTek TV factory diagnostics; lived with disabled without trouble	
+com.mediatek.tv.freeviewplay	3	0	Freeview Play (UK) integration, dead weight in Spain	
+com.mediatek.tv.inputplayeroverlay	0	1		# HDMI overlay
+com.mediatek.tv.launcher.partner	1	0	partner rows on the stock home	
+com.mediatek.tv.retaildemo	1	0	retail demo mode	
+com.mediatek.tv.service	0	6		# TV service, global keys, Netflix key receiver
+com.mediatek.tv.systemupdater	2	0	automatic OTA firmware updates	
+com.mediatek.tvinput	0	7		Inputs: com.mediatek.tvinput (HDMI 1-3, AV, tuner). Never disable any com.mediatek.* package.
+com.mediatek.wfd	1	0		
+com.mediatek.wwtv.mediaplayer	4	2	USB media player; re-enable: pm enable --user 0 com.mediatek.wwtv.mediaplayer	Live TV / inputs: com.mediatek.wwtv.tvcenter and com.mediatek.wwtv.mediaplayer (keep; never disable com.mediatek.*)
+com.mediatek.wwtv.tvcenter	0	2		Live TV app: com.mediatek.wwtv.tvcenter (.nav.TurnkeyUiMainActivity) — NEVER disable it.
+com.mediatek.wwtv.tvrecommendation	1	0		
+com.mediatek.wwtv.webview	2	1	vendor web view shell	# webview the settings apps use
+com.meetingroom	2	0	meeting-room mode	
+com.megogo.application	2	0	MEGOGO	
+com.mercadolibre.android.mplay_tv	2	0	Mercado Play	
+com.mgmedia.androidApp	2	0	CHILI film store	
+com.mi.bluetooth	0	3		remote + Bluetooth pairing
+com.mipay.wallet.tv	2	0		
+com.mirakulo.astrotv.service	2	0	Ginga interactive TV for ISDB-Tb broadcasts; disabling only turns broadcast interactivity off	
+com.mitv.ABUpdateStatus	1	0		
+com.mitv.alarmcenter	3	0	reminders/alarms: re-enable it if you set alarms with XiaoAI voice	
+com.mitv.cloudcontrol	7	0	cloud config; the HOME allowlist it downloaded stays on disk	
+com.mitv.download.service	2	0	PatchWall download service	
+com.mitv.dream	7	0	set screensaver_components to another dream first, or the screen stays on	
+com.mitv.gallery	17	0	相册 photo album; USB media still opens in the media explorer	
+com.mitv.livetv	0	3		owns .input.SelectInputActivity - the HDMI/source switcher lives
+com.mitv.milinkservice	8	0	Mi cast (MiLink); Chromecast is separate and keeps working	
+com.mitv.mivideoplayer	2	0	Mi Video, CN streaming; com.mitv.videoplayer still plays USB files	
+com.mitv.overseaservice	1	3	overseas service partner helper	PERSISTENT; hosts .netflixService (Netflix key on the remote) AND
+com.mitv.screensaver	4	0	Xiaomi screensaver; the launcher's clock screensaver takes over	
+com.mitv.shoplugin	8	0	TV Taobao shopping plugin, two resident processes	
+com.mitv.toolhouse	5	0		
+com.mitv.tvhome.atv	23	0	one unit only; already off at the firmware level on the other	
+com.mitv.tvhome.michannel	18	0	one unit only; already off at the firmware level on the other	
+com.mitv.tvhome.mitvplus	15	0	Mi TV+ ad-funded channels (Xiaomi TV+ tile)	
+com.mitv.tvhome.oemtab	7	0	holds ACCESS_ADSERVICES_AD_ID/_ATTRIBUTION - the ad row	
+com.mitv.tvlock	3	0	Xiaomi TV lock / parental password	
+com.mitv.upgrader	2	0		
+com.mitv.videoplayer	10	0	Mi video player, used by MiLink; VLC opens video files instead	
+com.miui.analytics	6	0	installed into /data/app by com.mitv.tvhome	
+com.miui.hybrid.tv	2	0	hybrid runtime container	
+com.miui.misightservice	1	0	MiSight remote diagnostics and log upload	
+com.miui.tv.analytics	32	0	Mi analytics: reads logs and app usage	
+com.mk.tv.meeting.service	2	0	digital-signage service with an accessibility service	
+com.mk.tv.networkspeed	1	0	network speed test (Firebase)	
+com.mk.tv.timeclock	1	0	WorldClock	
+com.mobisystems.office	2	0	Office suite	
+com.mphotool.usbcastserver	1	0		
+com.mstar.android.media.tests	1	0	media test cases	
+com.mstar.android.tv.disclaimercustomization	24	0	/system/product/app/VendorDisclaimer: store disclaimer	
+com.mstar.netflixobserver	2	0	MNetflixObserver measurement service (Netflix app untouched)	
+com.mubi	1	0		
+com.mxtech.videoplayer.ad	1	0		
+com.mxtech.videoplayer.television	2	0	MX Player	
+com.nagra.ion.claroco	1	0	Claro TV (operator app)	
+com.nbaimd.gametime.nba2011	1	0	NBA	
+com.nbcast.wirelessscreen	0	1		# MagiCast: the screen-mirroring receiver ("Mogo3Pro" in a phone's list)
+com.nbcuni.telemundostation.houston.firetv	1	0		
+com.nes.bugreportsender	1	0	NES bug report mailer (INTERNET, GET_ACCOUNTS)	
+com.nes.coreservice	1	0	uninstalls launchers and sideload tools at boot; polls the update status once a second	
+com.nes.daemon	1	0	persistent: the system re-creates it, so suspending changes nothing visible	
+com.nes.dvb.playtest	3	0	DVB playback factory test	
+com.nes.leanbacklauncher.partnercustomizer	2	0	Nokia's Shop/Discover row config for the stock launcher	
+com.nes.skywayclient	1	0	NES Skyway: boot ads, silent installs; likely OTA too, re-enable for updates	
+com.nes.tr069	1	0	Dialog TR-069 remote management and statistics	
+com.nes.tvbugtracker	2	0	NES bug tracker, starts at boot	
+com.netflix.dial	1	0		
+com.netflix.mediaclient	1	0		
+com.netflix.ninja	29	0	Netflix (the remote's Netflix button then opens nothing)	
+com.netflix.partner.ncm	1	0		
+com.netflix.tokenmanager	6	0	Netflix sign-in token, Netflix itself is already off	
+com.newtv.cboxtv	1	0	CCTV NewTV (owner does not use)	
+com.nexgtv.tv	1	0		
+com.nextinteractive.rmcbfmplay.tv.free	1	0	RMC BFM Play	
+com.nousguide.android.rbtv	7	0	Red Bull TV	
+com.novoda.dch	1	0	discovery+	
+com.nvidia.KeyComboOta	1	0	OTA key combo, with the above (the Pro example leaves this on)	
+com.nvidia.NvCPLUpdater	1	0	control-panel updater, with the above	
+com.nvidia.developerwidget	1	0	developer widget service	
+com.nvidia.diagtools	2	0	log collector; re-enable if NVIDIA support asks for logs	
+com.nvidia.factory	1	0	factory test mode	
+com.nvidia.factorybundling	1	0	accessory bundle offers	
+com.nvidia.factorysyschecker	1	0	factory test	
+com.nvidia.feedback	2	0	crash reports and the "send feedback" form	
+com.nvidia.inputviewer	1	0	input test viewer	
+com.nvidia.nvgamecast	1	0	GameStream receiver; Moonlight and Sunshine don't use it	
+com.nvidia.ota	1	0	firmware updates OFF by choice; NVIDIA still ships security patches	
+com.nvidia.shield.beta	1	0	beta programme	
+com.nvidia.shield.nas	1	0	SHIELD as network storage	
+com.nvidia.shield.registration	1	0	product registration	
+com.nvidia.shield.smbauth	1	0	SMB share authentication	
+com.nvidia.shield.smbserver	1	0	"Transfer files over local network" SMB share	
+com.nvidia.shield.welcome	1	0	first-run promo	
+com.nvidia.shieldbeta	1	0	beta programme	
+com.nvidia.stats	2	0	anonymous usage statistics	
+com.nvidia.tegraprofiler.security	1	0	Tegra profiler permissions	
+com.nvidia.tegrazone3	2	0	"NVIDIA Games" app and row; GeForce NOW is a separate app	
+com.oceanwing.m1testsample	1	0	Nebula factory test app	
+com.oceanwing.nebulalinker	0	3		# device info, custom shutdown, eMMC, firmware update dispatch
+com.oceanwing.ota	0	1		# firmware updates (kept by owner's choice)
+com.oceanwing.receiver	0	3		# remote control, Nebula IME, accessibility, screen control
+com.oem.qa	3	0	BoxFactoryTest	
+com.oemservice	3	0	xCPE remote-management agent (boot receiver only)	
+com.onehundredpics.onehundredpicsquiz	1	0		
+com.onemainstream.sonyliv.android	1	0		
+com.oneplus.oobe.tv	1	0	Initial out-of-box setup leftovers	
+com.oneplus.tv.imagewall	1	0	Image wall	
+com.oneplus.tv.launcher	3	0	OnePlus content launcher page	
+com.oneplus.tv.userguide	2	0	Built-in user guide	
+com.opera.sdk.example	2	0	Opera TV SDK sample app (leanback entry, no use)	
+com.orange.owtv.tv	1	0	Orange TV	
+com.osn.go	1	0	OSN+	
+com.overseas.store.appstore	1	0		
+com.panasonic.demomode	1	0		
+com.panasonic.ehelp	1	0		
+com.panasonic.hotelmode	1	0		
+com.pandora.android.atv	3	0		
+com.peacock.peacockfiretv	2	0		
+com.peacocktv.peacockandroid	1	0		
+com.phorus.playfi.softap	5	0	DTSPlayFiSoftAP, Play-Fi's soft access point helper; stayed disabled	
+com.phorus.playfi.tv	1	0	"Play-Fi" multi-room audio app	
+com.pomelogames.MarsGame	1	0	game	
+com.poovarasan.tv.tamiltv	1	0		
+com.popoko.tictactoe	1	0		
+com.pptv.tvsports.preinstall	1	0	PPTV sports preload	
+com.qjy.browser	3	0	preloaded Chinese WebView browser	
+com.qterics.da.product	30	0	Qterics device agent telemetry	
+com.realsil.ota	1	0	firmware updater for Bluetooth remotes; this remote is infrared	
+com.realtek.dtmb	1	0		
+com.realtek.factorytools	1	0		
+com.realtek.kara	4	0	Karaoke	
+com.realtek.karaoke.userguide	5	0	karaoke how-to screen	
+com.realtek.leanbacklauncher.partnercustomizer	10	0	partner config that injects apps and rows into the home screen	
+com.realtek.miracast	1	0	Cast2Display (Miracast mirroring); Chromecast stays	
+com.realtek.netflix.setting	0	1		# Netflix ESN/config
+com.realtek.officeweb	1	0	OfficeWeb document viewer preload	
+com.realtek.power	0	1		power management
+com.realtek.retailmode	2	0	store demo	
+com.realtek.storemode	3	0	KtcStoreMode: in-store demo mode	
+com.realtek.systemservice	0	1		Do NOT disable com.realtek.systemservice (it owns the Realtek FallbackHome) or the com.realtek.tv* input
+com.realtek.tv	0	1		Do NOT disable com.realtek.systemservice (it owns the Realtek FallbackHome) or the com.realtek.tv* input
+com.realtek.tv.atsc	1	0		
+com.realtek.tv.isdb	1	0		
+com.realtek.userguide	1	0	on-TV user guide	
+com.recisio.kfandroid	1	0	KaraFun	
+com.rkgames.basisgame	1	0	game	
+com.rma.speedtesttv	1	0	Speedtest	
+com.rtk.engmenu	1	0		
+com.rtk.mediabrowser	3	0	Media Player; also the USB media player, re-enable for USB drives	
+com.salute.star	1	0	"Умный дом" smart home app, ~45 MB resident; installed itself after a reboot	
+com.sand.aircasttv	1	0	AirCast receiver	
+com.sbs.ondemand.tv	2	0	user-installed on this set	
+com.screenshare.platform	1	0	ScreenShare platform for MHshare	
+com.sdmc.GlobalKey	0	2		Remote control hotkey handler
+com.sdmc.autorunapp	1	0	starts the operator app at boot	
+com.sdmc.bluetoothconnect	0	2		# Bluetooth remote pairing wizard
+com.sdmc.bluetoothspeaker	0	1		# Bluetooth speaker mode
+com.sdmc.btservice	0	1		# Bluetooth remote auto-pairing, speaker
+com.sdmc.facTest	2	0	factory tester, starts at boot; checked with dumpsys only, never opened	
+com.sdmc.hwinfo	1	0	SDMC hardware info and diagnostics	
+com.sdmc.leakbackcustomer	2	0	SDMC partner customer service (purpose unclear; comment out if anything breaks)	
+com.sdmc.oemprovisionservice	0	1		# OEM provisioning
+com.sdmc.projector	0	1		# projector picture settings, brightness adaptation keys
+com.sdmc.service	0	1		# SDMC service manager, picture, USB OTA
+com.sdmc.tv	0	1		Live TV tuner app
+com.sdt.deviceinfo	2	0	Skyworth device-info reporter (boot receiver only)	
+com.sdt.producttest	3	0	Skyworth product test, key check, USB command handler	
+com.secretexit.turbodismount	1	0		
+com.security.SwaiotTV	1	0	Tuya smart-home preload, unrelated to TV operation	
+com.seraphic.browser	1	0	Hisense browser	
+com.seraphic.hbbtv.app	1	0	HbbTV red-button overlays, unused with US ATSC	
+com.seraphic.media.tv.interactive.app	2	0		
+com.singa.client	1	0	Singa (karaoke)	
+com.skyworth.aimanager	1	0	far-field mic AI service, starts at boot	
+com.skyworth.aisense	1	0	ACR content recognition (pushes ads)	
+com.skyworth.angel.voice	1	0		
+com.skyworth.blockchain	1	0	Blockchain preload	
+com.skyworth.performance.monitors	1	0		
+com.skyworth.skymarket	1	0	shop demo display	
+com.skyworth.smarthome_tv	1	0	Smart home dashboard	
+com.skyworth.testtime	1	0		
+com.skyworth.tianciime	0	1		the only IME on the device
+com.skyworth.tv	0	2		Live TV / System UI: com.skyworth.tv (DO NOT DISABLE).
+com.sling	1	0		
+com.smartdevice.acr.recommendation	3	0	ACR: automatic content recognition of what is on screen	
+com.smartdevice.aftersale	8	0	"after-sale" service: boot + network receivers, can install APKs	
+com.smartdevice.common.demonow	3	0	"Demo Now" store demo app	
+com.smartdevice.dailymanage	7	0	"Daily Manage" boot service, no documented purpose (like 24NA)	
+com.smartdevice.dailyshortcut	1	0		
+com.smartdevice.dtv.icast	5	0	"CastPlay" screen mirroring, 4 services at boot; the Apple TV box handles mirroring here	
+com.smartdevice.epopplayer	5	0	ePop shop demo player (USB-triggered)	
+com.smartdevice.factory	1	0		
+com.smartdevice.firewall	1	0	Skyworth background service with camera, mic, contacts and account permissions; not running	
+com.smartdevice.leanbacklauncher.customizer	13	0	partner config that injects rows into the home screen	
+com.smartdevice.myapp	6	0	Skyworth "My App" shortcut page	
+com.smartdevice.recommendation	11	0	the "Daily Play" sponsored row on the stock home (Coolita, viu, Puffin...)	
+com.smartdevice.recordactivation	6	0	records first activation; boot + network receivers	
+com.smartdevice.setupwraith	2	0	Skyworth first-run/privacy wizard; setup is finished	
+com.smartdevice.tv.aircast	1	0	Coocaa iCast AirPlay/mirroring app, starts at boot.	
+com.snm.upgrade	2	0	updateos, a second updater (not in tcl-q10g-pro; stayed disabled, updates not checked)	
+com.softwinner.ImageParser	1	0	stock image viewer	
+com.softwinner.TvdFileManager	2	0	stock file manager	
+com.softwinner.TvdVideo	2	0	stock USB video player; VLC covers playback	
+com.softwinner.awlivetv	1	0	Live TV tuner UI; this model has no tuner	
+com.softwinner.awlogsettings	1	0	log-capture settings	
+com.softwinner.miracastReceiver	1	0	screen mirroring; re-enable if you cast from a phone	
+com.softwinner.provision	1	0	provisioning app; re-enable before a factory reset	
+com.softwinner.screenshot	1	0	Quick Settings screenshot tile	
+com.softwinner.settingsassist	1	0	settings OTA activity; re-enable with the OTA packages	
+com.softwinner.settingssetup	1	0	provisioning receiver; re-enable before a factory reset	
+com.softwinner.theme.color	1	0	Allwinner theme overlay	
+com.softwinner.theme.icon	1	0	Allwinner theme overlay	
+com.softwinner.update	1	0	Allwinner OTA; re-enable to check for firmware updates	
+com.sohu.inputmethod.sogou.tv	1	1		the only IME on the device
+com.sony.dangbeimarket	1	0		
+com.sony.dtv.QuickSetupCustomizer	2	0	partner customisation for first setup	
+com.sony.dtv.accessibility.tutorial	1	0		
+com.sony.dtv.adminpassword	1	0		
+com.sony.dtv.airplayapp	3	0	AirPlay	
+com.sony.dtv.assistantadapter	6	0	Sony Assistant adapter	
+com.sony.dtv.atscbrowserservice	1	0		
+com.sony.dtv.b2b.adminpassword	3	0	B2B admin password	
+com.sony.dtv.b2b.deviceadminsettings	3	0	B2B device admin settings	
+com.sony.dtv.b2b.frameworkextension	3	0		
+com.sony.dtv.b2b.hotelmode	11	0	PERSISTENT, but the process did not return after a reboot here	
+com.sony.dtv.b2b.importexport	9	0	B2B settings import/export	
+com.sony.dtv.b2b.ipcontrolsettings	1	0		
+com.sony.dtv.b2b.noderuntime	1	0		
+com.sony.dtv.b2b.noderuntime.normal	7	0	Node.js runtime for hotel apps (also watches USB)	
+com.sony.dtv.b2b.noderuntime.privilege	7	0		
+com.sony.dtv.b2b.noderuntimeextension.bpk	4	0		
+com.sony.dtv.b2b.noderuntimeextension.node_12_13_1	1	0		
+com.sony.dtv.b2b.noderuntimeextension.node_16_13_1	1	0	node_20_11_1 on the newer VH21 builds	
+com.sony.dtv.b2b.noderuntimeextension.node_20_11_1	2	0		
+com.sony.dtv.b2b.prosettings	9	0	Pro mode settings	
+com.sony.dtv.b2b.rs232csupport	11	0	RS-232C control; re-enable if something drives the TV over serial	
+com.sony.dtv.b2b.softap	1	0		
+com.sony.dtv.b2b.vendorprotocol	17	0	SDDP broadcast for Control4-style automation; re-enable if you use one	
+com.sony.dtv.b2b.webappruntimedrm	3	0		
+com.sony.dtv.bivlinfo	16	0	BIVL content service list, feeds Discover (ATV3-specific)	
+com.sony.dtv.bravialifehack	2	0	Bravia Lifehack	
+com.sony.dtv.braviashow	1	0	BRAVIA Show DreamService	
+com.sony.dtv.broadcastclock.broadcastrequirementcontrol	1	0		
+com.sony.dtv.broadcastclock.clocksyncservice	1	0		
+com.sony.dtv.broadcastsettings	1	0		
+com.sony.dtv.browser.webappruntimeextension	1	0		
+com.sony.dtv.calibrationmonitor	1	0		
+com.sony.dtv.camerarecognitionservice	1	0		
+com.sony.dtv.customersupport	24	0	Help / Support tile	
+com.sony.dtv.customersupport.provider.res	1	0		
+com.sony.dtv.da.service	30	0	Sony device agent / remote support	
+com.sony.dtv.demo	1	0	retail demo mode	
+com.sony.dtv.demomode	12	0	Shop demo mode	
+com.sony.dtv.demosupport	26	0	Retail demo support	
+com.sony.dtv.demosystemsupport	17	0	Retail demo system support	
+com.sony.dtv.deviceadminsettings	1	0		
+com.sony.dtv.discovery	16	0	Sony Discover content bar (ATV3-specific)	
+com.sony.dtv.discovery.plugin.wasuplugin	1	0	华数 plugin feeding Discover	
+com.sony.dtv.discovery.plugin.wasusearch	1	0	华数 search provider	
+com.sony.dtv.distancealert	5	0	BRAVIA CAM (optional accessory) features	
+com.sony.dtv.duid.generator	2	0	tracking ID generator	
+com.sony.dtv.ecodashboard	2	0		
+com.sony.dtv.gestureapp	11	0	BRAVIA CAM gestures (no camera on this set)	
+com.sony.dtv.hbbtvlauncher	2	0		
+com.sony.dtv.hbbtvplayer	2	0	HbbTV red-button player for broadcast channels	
+com.sony.dtv.helpguidecontents	8	0	built-in help guide contents	
+com.sony.dtv.homekit	1	0		
+com.sony.dtv.imanual	15	0	i-Manual electronic guide	
+com.sony.dtv.indiametarecommendation	2	0	content recommendation feed (India per its name)	
+com.sony.dtv.irblaster	1	0		
+com.sony.dtv.irbrecommendation	3	0	IRB recommendations	
+com.sony.dtv.keepsleepserviceforwol	1	0		
+com.sony.dtv.kidsprofileadapter	1	0		
+com.sony.dtv.lastaccess	1	0	usage agent	
+com.sony.dtv.launcherxcustomizer	2	0	Sony config for the Google TV home	
+com.sony.dtv.livingfit	5	0	also the default screensaver, see the header	
+com.sony.dtv.magicpacketnotifyservice	1	0		
+com.sony.dtv.moreapps	1	0	更多应用 partner row	
+com.sony.dtv.multiscreendemo	28	0	Retail multi-screen demo	
+com.sony.dtv.mysony	1	0	My Sony 会员尊享 (membership/promo app)	
+com.sony.dtv.netflixmanager	1	0		
+com.sony.dtv.networkapp.wifidirect	6	0		
+com.sony.dtv.networkrecommendation	3	0	Network recommendations	
+com.sony.dtv.notificationcenter	2	0	"BRAVIA notifications" inbox	
+com.sony.dtv.osat.album	3	0	re-enable to view photos from USB	
+com.sony.dtv.osat.music	13	0	music player; re-enable to play music from USB	
+com.sony.dtv.osat.music.toast	1	0		
+com.sony.dtv.osat.video	3	0	re-enable to play videos from USB	
+com.sony.dtv.promos	22	0	My BRAVIA promos (already off)	
+com.sony.dtv.qq	1	0	QQ音乐 preload, with Tencent remote-device service	
+com.sony.dtv.recapp	1	0	records Live TV to a USB drive	
+com.sony.dtv.recommendationservice	3	0	Recommendation service	
+com.sony.dtv.remoteaccess	2	0	Sony's own remote support channel (not remote-control pairing)	
+com.sony.dtv.scrums.action	1	0	Sony SCRUMS usage metrics	
+com.sony.dtv.scrums.action.tvdotactionactivitymanagerplugin	1	0		
+com.sony.dtv.seeds.auth	4	0	BRAVIA Connect / phone remote-start authorisation	
+com.sony.dtv.seeds.iot	6	0	Sony smart-home / phone-app link (BRAVIA Connect, remote start)	
+com.sony.dtv.seeds.iot.remotestart	4	0	Sony SEEDS IoT remote start	
+com.sony.dtv.sensingcamera.fwupdate	5	0		
+com.sony.dtv.sensingcamera.settings	5	0		
+com.sony.dtv.sensingfusionservice	2	0		
+com.sony.dtv.servermgr	1	0	Sony push (C2DM receiver)	
+com.sony.dtv.serviceinformation	1	0		
+com.sony.dtv.servicemode.tuner	1	0		
+com.sony.dtv.shopsettings	2	0		
+com.sony.dtv.smarthelp	27	0	Smart Help; keep if used	
+com.sony.dtv.smarthomesettings	3	0	"Works with Alexa" setup: Amazon login, Firebase push, runs at boot	
+com.sony.dtv.smartmediaapp	5	0	Media Player, re-enable to play USB files	
+com.sony.dtv.sonybugreportsys	20	0	Sony bug-report/log uploader	
+com.sony.dtv.sonyloglevelsettingsys	3	0	system log level daemon	
+com.sony.dtv.sonyloglevelsettingvnd	2	0	vendor log level daemon	
+com.sony.dtv.sonyselect	31	0	Sony Select app store / promo tile	
+com.sony.dtv.sonyselect.overlay	4	0		
+com.sony.dtv.sonyshelf	2	0	Sony Shelf recommendation row	
+com.sony.dtv.sonytab	13	0	Sony tab on the Google TV home; unused once launcherx is off	
+com.sony.dtv.touchpad.tutorial	4	0	touchpad remote tutorial	
+com.sony.dtv.tuningconfirmation_dvbt	1	0		
+com.sony.dtv.tvcamera	2	0	电视摄像机 (no camera on this set)	
+com.sony.dtv.tvinput.atsc3tuner	1	0		
+com.sony.dtv.tvinput.atsc3tuner.drmlicenseinstaller	1	0		
+com.sony.dtv.tvlaunchercustomizer	11	0	Sony tweaks to the stock home rows	
+com.sony.dtv.tvlaunchercustomizer.overlay.apporder	2	0	app order overlay for the stock home	
+com.sony.dtv.tvxlauncher.titlelist	1	0		
+com.sony.dtv.usercontext	10	0	viewing context providers used for recommendations and profiling	
+com.sony.dtv.videochatrecord	2	0	BRAVIA CAM video chat recording	
+com.sony.dtv.voicesearch	4	0	remote's mic button stops working	
+com.sony.dtv.watchtvrecommendation	3	0	Watch TV recommendations	
+com.sony.dtv.woprecommendation	2	0	What's on Play recommendations	
+com.sony.dtv.youview	3	0	YouView (UK service, not present in Spain firmware but listed for completeness)	
+com.sony.huey.dlna.module	11	0	DLNA renderer; Media Player keeps playing USB files	
+com.sony.huey.dlna.renderersettings	10	0		
+com.sony.rvu	1	0	DIRECTV Ready (RVU client)	
+com.sony.snei.np.android.account	1	0	Sony Network Entertainment account linking, unused	
+com.sony.snei.video.hhvu	1	0	Sony Video Unlimited (service discontinued)	
+com.sonyericsson.dlna	11	0	DLNA media server/renderer	
+com.sonyericsson.dlna.dtcpplayer	3	0		
+com.sonyericsson.idd.agent	16	0	Sony IDD usage-data agent; native iddd keeps running without root	
+com.sonyliv	3	0		
+com.sonypicturescore	6	0	Sony Pictures Core (factory-disabled on the EU unit)	
+com.spocky.projengmenu	1	0	engineering / project menu	
+com.spotify.music	1	0	Spotify	
+com.spotify.tv.android	11	0	Spotify	
+com.stark.store	1	0	Stark app store; Google Play replaces it	
+com.stellamore.guide	1	0	STMGuide setup wizard	
+com.stellamore.tvfactory	1	0	STMFactory	
+com.stm	2	0	STMFeaturesTest	
+com.stm.factorytest	2	0	STMFactoryAutoTest	
+com.stremio.one	1	0		
+com.suntv.sunnxt	2	0	Sun NXT	
+com.suntv.sunnxt.mitv	1	0		
+com.svox.pico	1	0	Pico text-to-speech	
+com.swm.live	2	0	7plus	
+com.system.memory.tool	1	0		
+com.taiwanmobile.myVideotv	1	0		
+com.talents.huanclientauth	1	1	Huan client authentication	DO NOT DISABLE com.talents.huanclientauth. With it disabled the boot never completes. It was recovered
+com.tcl.FactoryMode	1	0		
+com.tcl.MultiScreenInteraction_TV	12	0	TCL T-Cast (phone casting/remote, Firebase); Chromecast kept	
+com.tcl.UpdatePeripheral	16	0	TCL soundbar/speaker firmware updates (no TCL audio gear here)	
+com.tcl.airplay2	6	0	AirPlay, together with the next two lines	
+com.tcl.android.webview	13	0	TCL WebView; TV Settings and TCL apps still work without it	
+com.tcl.appmarket2	9	1	TCL app store (Google Play Store stays)	TCL app store, the other install channel
+com.tcl.appreciate.art	5	0	art-wallpaper / screensaver promo content	
+com.tcl.appstatecontroller	1	1	boot/network/package-change receivers; nothing broke without it	# boot/network/package receivers, purpose unclear
+com.tcl.assistant	21	0	TCL's Google Assistant bridge (TV/media/settings control by voice)	
+com.tcl.atomic.servicecenter	3	0	home-screen recommendation cards (plugin host)	
+com.tcl.audioplayer	8	0	stock audio player	
+com.tcl.autopair	0	10		- Bluetooth remote pairing. Disable it and a remote that unpairs (battery
+com.tcl.bi	32	0	TCL BI analytics (Firebase, Crashlytics, net monitor)	
+com.tcl.bootadservice	6	0	boots into a full-screen ad before Home	
+com.tcl.browser	22	0	"BrowseHere" web browser (not a system app: can also be uninstalled)	
+com.tcl.c2dm.client	5	0	TCL push, long-lived connection	
+com.tcl.channelplus	28	0	TCL Live free channels - see the README: with no aerial this is all Live TV has	
+com.tcl.common.shortcutmenu	1	1	its own shortcut menu overlay	# custom-key/quick-start menu module
+com.tcl.common.terminalmanagerplus	1	0	TCL device-management service, starts at boot and watches	
+com.tcl.common.weather	4	0	weather widget and its background service	
+com.tcl.copydatatotv	14	1	"copy your phone's data to the TV" setup helper	# data copy hook
+com.tcl.cyberui	5	3	TCL's own launcher/content service, unused	Stock launcher: com.tcl.cyberui, the only activity that resolves MAIN+HOME. Never disable it.
+com.tcl.dashboard	22	2	stock quick-settings panel; the gear key is remapped, see README.md	# "TCL HOME" tile; kept, only hidden in the launcher config
+com.tcl.eletronicpolicy	1	0	e-warranty sheet	
+com.tcl.esticker	56	0	retail demo stickers. Worth re-checking here: the BeyondTV2	
+com.tcl.eva	3	0	TCL voice assistant layer (Katniss handles voice without it)	
+com.tcl.exhibit	18	0	store demo mode switcher	
+com.tcl.factory.view	1	7	factory test/demo shortcut	Never disable: com.tcl.providers.config com.tcl.initsetup com.tcl.factory.view com.tcl.system.server
+com.tcl.ffeducation	6	0	kids / education content	
+com.tcl.ffkaraoke	5	0	karaoke	
+com.tcl.framework.custom	0	1		# TCL key receiver
+com.tcl.gallery	14	0	USB photo gallery + TCL screensaver	
+com.tcl.gamebar	16	0	re-enable for the console game-mode overlay	
+com.tcl.gamecenter	2	0	game center	
+com.tcl.guard	39	1	TGuard UI/cleaner; the memory manager still runs (see quirks)	电视卫士; on this firmware the USB install path is the remaining
+com.tcl.hearaid	12	0	hearing test, TCL wireless speakers	
+com.tcl.hotelmenu	13	0	hotel-mode portal	
+com.tcl.imageplayer	8	0	stock image player	
+com.tcl.initsetup	1	9	TCL first-run setup incl. SambaTV ACR hooks; re-enable before rescanning channels	Never disable (same platform as examples/tcl-43c645): com.tcl.providers.config com.tcl.initsetup
+com.tcl.inputmethod.international	0	10		# default keyboard (T_IME)
+com.tcl.interactive	14	0	TCL TIAS background analytics service	
+com.tcl.keycustomfunctionservice	0	6		DO NOT DISABLE: com.tcl.tv com.tcl.tvinput com.tcl.autopair com.tcl.keycustomfunctionservice com.tcl.settings
+com.tcl.keyhelp	9	5	remote-key help overlays	# remote-key help/virtual keys; kept
+com.tcl.logkit	28	0	log collection, remote diagnosis	
+com.tcl.m	1	0	MenuHelp	
+com.tcl.magiconnectfree	11	0	TCL T-Cast phone app (needs com.tcl.ttvs anyway)	
+com.tcl.messagebox	46	2	TCL messages/popups, carries a ttvs receiver; updater unaffected	# carries a ttvs receiver (org.tcl.ttvs); kept to be safe
+com.tcl.micmanager	12	1	TCL microphone manager for voice	# voice
+com.tcl.miracast	16	0	screen mirroring (Cast receiver kept)	
+com.tcl.notereminder	11	0	reminders fed by the message box (already off on AR20; re-enabled at boot on AR07, hide in config.xml)	
+com.tcl.ocean.instructions	27	0	first-run instructions overlay	
+com.tcl.overseasappshow	17	0	factory promo/app-show service, re-enables partner packages	
+com.tcl.partnercustomizer	41	6	TCL Channel tile, promo rows; also the stock home's Inputs icon (see above)	# Remote key handling (handles keycode 83, inputs, shortcuts)
+com.tcl.playskill	5	0	"tips" promo app	
+com.tcl.profilemanager	3	0	audience / profile reporting	
+com.tcl.providers.config	0	11		Never disable (same platform as examples/tcl-43c645): com.tcl.providers.config com.tcl.initsetup
+com.tcl.pvr.pvrplayer	1	0		
+com.tcl.qiyiguo	1	0	iQIYI content entry	
+com.tcl.rc.ota	0	1		# remote control firmware updates
+com.tcl.recognize.service	3	0	screen recognition; also receives PackageInstall.renew and	
+com.tcl.repairguide	22	0	repair-guide app	
+com.tcl.settings	0	10		DO NOT DISABLE: com.tcl.cyberui, com.tcl.tv, com.tcl.settings, com.tcl.systemserver, com.tcl.ttvs,
+com.tcl.showmode	0	3		# sound modes (Dolby/DTS/night), not just demo
+com.tcl.smartalexa	28	0	Alexa bridge, persistent - see the note at the bottom	
+com.tcl.smartlink.core	4	0	bundles a silent app installer (CustomInstallService)	
+com.tcl.sourcemananger	0	4		DO NOT DISABLE (load-bearing): com.tcl.tv com.tcl.tvinput com.tcl.sourcemananger (Live TV,
+com.tcl.sticker	1	0		
+com.tcl.suspension	2	9	Quick Panel; the remote's Input key stops working, use the	- the Source key's QuickPanel (TclShortCutKeyManager -> com.tcl.suspension/.DismissService).
+com.tcl.system.server	0	10		Never disable: com.tcl.providers.config com.tcl.initsetup com.tcl.factory.view com.tcl.system.server
+com.tcl.systemserver	0	1		DO NOT DISABLE: com.tcl.cyberui, com.tcl.tv, com.tcl.settings, com.tcl.systemserver, com.tcl.ttvs,
+com.tcl.t_solo	17	0	T-Solo "listen alone" (Bluetooth headphones while the speakers stay off)	
+com.tcl.tcl_bt_rcu_service	0	7		# Bluetooth remote service
+com.tcl.tclmusic	1	0	music	
+com.tcl.tliveplay	2	0	live TV content entry	
+com.tcl.tshop	2	0	TCL shop / shopping entry	
+com.tcl.ttvs	17	8	Samba TV ACR viewing tracking, TCL "BI" analytics, Alexa core, T-Cast, firmware updater	DO NOT DISABLE: com.tcl.cyberui, com.tcl.tv, com.tcl.settings, com.tcl.systemserver, com.tcl.ttvs,
+com.tcl.tv	0	18		DO NOT DISABLE (load-bearing): com.tcl.tv com.tcl.tvinput com.tcl.sourcemananger (Live TV,
+com.tcl.tv.plus	5	0	TCL TV+ free channels	
+com.tcl.tv.tclchannel	1	0	TCL Channel, bundles Google Mobile Ads	
+com.tcl.tv.tclhome_master	3	0	TCL's alternate home (StartUpActivity, message receivers)	
+com.tcl.tv.tclhome_passive	37	0	pushes TCL content onto the home screen at boot	
+com.tcl.tvhealthcheck	2	0	diagnostics uploader	
+com.tcl.tvinput	0	18		DO NOT DISABLE (load-bearing): com.tcl.tv com.tcl.tvinput com.tcl.sourcemananger (Live TV,
+com.tcl.tvpassthrough	0	1		DO NOT DISABLE (load-bearing on this firmware): com.tcl.tv com.tcl.tvinput com.tcl.tvpassthrough
+com.tcl.tvsmartalbum	2	0	smart photo album	
+com.tcl.tvweishi	9	0	"TV Guard" cleaner with its own installer	
+com.tcl.ui_mediaCenter	32	1	USB media centre ("Centre multimédia" stays in the source menu, opens nothing)	USB playback; the whole Media Center app goes with it
+com.tcl.usagestats	1	0	usage statistics	
+com.tcl.useragreement	24	0	end-user agreement screen, done with it after setup	
+com.tcl.usercenter	40	0	TCL account login (QR / phone binding); re-enabled at boot, see above	
+com.tcl.versionUpdateApp	10	3	TCL updater (the OTA package com.snm.upgrade is already	# TCL OTA updater (kept by choice; can re-enable
+com.tcl.videocall	1	0	video calls	
+com.tcl.videoplayer	6	0		
+com.tcl.vod	3	0	TCL VOD entry	
+com.tcl.walleve	3	0	iFlytek voice engine; registers an AccessibilityService	
+com.tcl.waterfall.overseas	44	0	older copy of TCL's web-video portal (TCL+ is its own package)	
+com.tcl.waterfall.resource	1	0	waterfall content feed (home wall tiles)	
+com.tcl.weixin	3	0	WeChat on TV	
+com.tcl.wholenetsearch	5	0	whole-net search; results carry VOD promotions	
+com.tcl.xian.StartandroidService	7	6	background reporting service	# device authentication (per tcl-beyondtv-rt2851)
+com.teamsmart.videomanager.tv	1	0	Smart IPTV	
+com.teamviewer.quicksupport.market	1	0		
+com.ted.android.tv	10	0	TED	
+com.tencent.qqlivei18n	2	0	WeTV (user-installed), off by choice	
+com.tencent.qqmusictv	2	0	QQ音乐, preloaded and updated	
+com.tianci.ad	4	0	Coocaa ad engine (boot ad, started by bootQueue.xml at ~5 s)	
+com.tianci.appstore	3	0	Coocaa app store	
+com.tianci.autoinstaller	3	0	silent auto-install service (remote app pushing)	
+com.tianci.family.photograph	1	0	Family photo album	
+com.tianci.ipc	1	0	Tianci IPC helper	
+com.tianci.localmedia	1	1	"Media" tile: plays files from a USB drive	local media player
+com.tianci.movieplatform	0	2		2. DO NOT DISABLE com.tianci.movieplatform (stock launcher) or any other current launcher.
+com.tianci.push	3	0	Boot push notifications (bootQueue.xml, ~1.2 s)	
+com.tianci.user	2	1	Coocaa account centre; breaks Coocaa account login	user centre
+com.tiktok.tv	3	0	TikTok	
+com.tivo.sageservice	1	0	TiVo service, no use outside the US	
+com.tm.replica	1	0	"Replica" iPhone screen mirroring	
+com.toofifi.lineserver	1	0		
+com.tpv.nftgallery	1	0	"NFT Collection" art gallery app, INTERNET	
+com.tpv.xmic.ots.cms.client	1	0	TPV "CMS client" 0.6.04_ad: INTERNET, boot receiver, channel/EPG write	
+com.tubitv	3	0		
+com.tubitv.ott	3	0	Tubi	
+com.tvos	0	3		# /system/framework/tvos-framework-res.apk
+com.twentyfouri.tvbridge.rte	1	0		
+com.uei.quicksetsdk.sony	5	0	UEI QuickSet: IR control of set-top boxes and soundbars; HDMI-CEC unaffected	
+com.univision.android	1	0		
+com.utsmta.app	4	0	factory test, listens for USB sticks	
+com.valvesoftware.steamlink	1	0	Steam Link	
+com.vectorunit.purple.googleplay	2	0		
+com.verizon.tv.ams	1	0	Verizon app/screen/power event recorder + Crashlytics	
+com.verizon.tv.launcher	1	0	Verizon home with sponsored Trending/Store tabs; also hosts the remote pairing screen	
+com.vestel.smartcenter	2	0	no UI, holds GET_TASKS (sees which apps you run) + INTERNET	
+com.vestel.smartlogger	1	0	Vestel logging service	
+com.vestel.tv.speedup	2	0	"speed up" cleaner, holds READ_LOGS + DUMP + INTERNET	
+com.vestel.vestelreporter	3	0	Vestel reporter: INTERNET + BOOT_COMPLETED, no UI	
+com.vewd.core.browser	1	0	Vewd web browser	
+com.vewd.core.integration.dia	6	0	Vewd (Opera TV) app-store integration	
+com.vewd.core.service	9	0	Vewd HbbTV/operator-app engine and minidump uploader; India has no HbbTV	
+com.viacom18.tv.voot	1	0	Voot TV	
+com.viaplay.android	1	0	Viaplay	
+com.vidaa.oemtabcontentprovider	1	0	feeds the VIDAA content tab	
+com.vimeo.android.videoapp	2	0		
+com.vision.aibook	3	0	AI picture book	
+com.vodafone.vodafoneplay	1	0	Vodafone Play	
+com.vt.alexa	3	0	Hisense Alexa (Google Assistant is kept)	
+com.vt.ambiencephoto	1	0		
+com.vt.factory	1	0		
+com.vt.fte	2	0	first-time-experience walkthrough, setup only	
+com.vt.hishow	3	0	Vu "Family Moment" photo sharing, with its own screensaver	
+com.vt.storemode	3	0	shop demo mode	
+com.vt.tv.aiot	0	3		Never disabled: com.hisense.tv.smartsense, com.vt.tv.smartsense.ui, com.vt.tv.aiot. The huangshan FFM
+com.vt.tv.b2b	1	0		
+com.vt.tv.calmanconnector	1	0	Calman professional calibration connector	
+com.vt.tv.evservice	3	0	viewing-data (ACR) service	
+com.vt.tv.interactive	1	0		
+com.vt.tv.protector	2	0	"DeviceAssistant" cleaner: CACHE_CLEAN, TURBO_MODE, SPACE_PROTECTION	
+com.vt.tv.singlelisten	1	0	Vu "My Music"	
+com.vt.tv.smartsense	0	1		Do NOT disable com.vt.tv.smartsense, com.vt.tv.smartsense.ui or com.vt.tv.aiot: on the Hisense with the
+com.vt.tv.smartsense.ui	1	4	Smartsense companion UI	Do NOT disable: com.hisense.tv.smartsense, com.vt.tv.smartsense.ui (the smartsense family sent the
+com.vt.tv.usbota	1	0		
+com.wasu.wasutvcs	1	0	华数TV, preloaded	
+com.waxrain.airplaydmr_OW	1	0	AirPlay / DLNA receiver (Chromecast built-in stays)	
+com.wbd.hbomax	1	0		
+com.wbd.stream	8	0	Max, off by choice	
+com.whaletv.aivoice	1	0	AI voice assistant	
+com.whaletv.launcher	1	0	Original Whale TV launcher	
+com.whaletv.logger	1	0	WhaleLogger	
+com.whaletv.web.app_runtime	1	0	Web app runtime	
+com.witsoftware.ir.vodafonetv	1	0	Vodafone TV; runs headless, no icon	
+com.wrcplus.release	1	0		
+com.xformgames.gokartgoair	1	0		
+com.xgimi.atmosphere	1	0	XGIMI animated screensaver / ambient scenes	
+com.xgimi.atvwifiverify	3	0	factory Wi-Fi verification	
+com.xgimi.autoinstall	0	2		# purpose unclear (PermissionRequestActivity only): kept
+com.xgimi.autokst	0	3		# auto keystone correction (system uid)
+com.xgimi.bluetoothservice	0	1		# Bluetooth remote service
+com.xgimi.bugreportsender	4	0	XGIMI bug report uploader	
+com.xgimi.burnin	1	0	factory burn-in test, runs on boot	
+com.xgimi.datareporter	1	0	XGIMI usage reporting	
+com.xgimi.doubanfm	4	0	XGIMI music app, speaker-mode screen	
+com.xgimi.filemanager	1	0	file manager, DLNA/Samba servers, Baidu bridge	
+com.xgimi.gimiplayer	2	0	local video/photo player	
+com.xgimi.minitvfactory	3	0	factory menu, file transfer and burn-in (never launched)	
+com.xgimi.misckey	0	3		# remote keys, focus/keystone shortcuts, wall-colour adaptation
+com.xgimi.ota.accessories	1	0	firmware updates for remote, speaker, curtain	
+com.xgimi.overseas.xgimiatvbootwizard	0	3		# first-boot wizard: kept, setup wizards can hold Home or provisioning
+com.xgimi.screensaver	1	0	XGIMI Atmosphere screensaver / ambient scenes	
+com.xgimi.simpservice	0	1		# install service, purpose unclear: kept
+com.xgimi.soundermodeservice	0	1		# Bluetooth speaker mode
+com.xgimi.starmirror	0	1		# XGIMI screen-mirroring receiver (ships as a user app here)
+com.xgimi.tof	0	3		# ToF autofocus calibration
+com.xgimi.tvinput	0	1		# HDMI 1-3 TV input services
+com.xgimi.uiconfiguration	0	3		# global key receiver, power listener
+com.xgimi.upgrade	1	0	XGIMI firmware updater; re-enable to receive updates	
+com.xgimi.windowsystem	0	3		# keystone/window service (kstActivity, WondowService)
+com.xgimi.xgimiservice	0	3		# core XGIMI system service
+com.xgimi.xhplayer	0	1		# HDMI input player + game mode
+com.xgimi.xrmservice	0	3		# global remote keys, picture/sound adaptation (re-enables the stock launcher, see above)
+com.xiaomi.account	1	0	Mi account; needed only for Xiaomi's paid content	
+com.xiaomi.account.auth	1	0		
+com.xiaomi.aitranslate	1	0	AI subtitle translation, ~117 MB resident	
+com.xiaomi.amazon.alexa	3	0	Alexa bridge; Google voice search is kept	
+com.xiaomi.android.TV.audio	1	0	audio debug tool	
+com.xiaomi.android.tvsetup.partnercustomizer	1	0	partner customisation that seeds partner apps at setup	
+com.xiaomi.eetv.litehome	1	0	a second home screen ("办公模式" office mode)	
+com.xiaomi.floatingframe	8	0	floating promo overlay service	
+com.xiaomi.gamecenter.sdk.service.mibox	9	0	game centre SDK	
+com.xiaomi.mi_connect_service	3	0	Mi Connect phone link	
+com.xiaomi.mibox.lockscreen	2	0	child mode and privacy lock	
+com.xiaomi.mico.mqtt.service.application.tv	3	0	Mico voice MQTT service	
+com.xiaomi.mimusic2	20	0	Mi Music	
+com.xiaomi.miplay	2	0	MiPlay, Xiaomi phone casting	
+com.xiaomi.mitv.appstore	1	0		
+com.xiaomi.mitv.calendar	6	0	calendar	
+com.xiaomi.mitv.csi	3	0	售后辅助 "after-sales assistant": satisfaction survey upload	
+com.xiaomi.mitv.debug	1	0	DebugService: log collection	
+com.xiaomi.mitv.handbook	7	0	on-screen user manual	
+com.xiaomi.mitv.health	3	0	MiHealth	
+com.xiaomi.mitv.healthdiagnosis	4	0	TV self-diagnosis	
+com.xiaomi.mitv.hyper.screensaver	2	0	HyperOS screensaver Activity; see device doc	
+com.xiaomi.mitv.karaoke.service	5	0	karaoke	
+com.xiaomi.mitv.legal.webview	2	0	terms and privacy viewer	
+com.xiaomi.mitv.light	1	0	light-effect app ("Symphony of Shadows")	
+com.xiaomi.mitv.manualhelp	3	0	on-screen manual (second unit only)	
+com.xiaomi.mitv.mediaexplorer	5	0	Xiaomi USB/media file browser; keep if used	
+com.xiaomi.mitv.pay	2	0		
+com.xiaomi.mitv.payment	2	0		
+com.xiaomi.mitv.remotecontroller.service	1	0		
+com.xiaomi.mitv.shop	6	0	电视商城 Xiaomi TV store	
+com.xiaomi.mitv.smartpanel	4	0	long-press Menu panel	
+com.xiaomi.mitv.smartshare	8	0	Miracast + MiPlay receiver	
+com.xiaomi.mitv.tvmanager	21	1	cf. MFFU0: XiaoAI app-opening runs through its provider	- Do not disable com.xiaomi.mitv.tvmanager ("TV Manager"): XiaoAI's "open <app>" runs through its
+com.xiaomi.mitv.tvpush.tvpushservice	6	0	push ads/notifications	
+com.xiaomi.mitv.tvvideocall	1	0	MiTime video calls	
+com.xiaomi.mitv.updateservice	11	0	firmware and PatchWall updates, installs apps; re-enable to check for an update	
+com.xiaomi.mitv.upgrade	4	0	OTA, persistent like TimeMeasurementAgent; re-enable to update	
+com.xiaomi.screenrecorder	7	0	screen capture for feedback uploads	
+com.xiaomi.setupwizard	1	0	first-run setup only; does not claim HOME here	
+com.xiaomi.smarthome.tv	6	0	Mi Home; the remote's voice button still worked without it	
+com.xiaomi.statistic	26	0	Xiaomi usage stats uploader	
+com.xiaomi.tv.gallery	6	0	"Pictorial" wallpaper app, ships ad classes; preinstalled to /data,	
+com.xiaomi.tvqs	7	0	quality system: uploads crash/perf/dropbox entries	
+com.xiaomi.tvqs.overseas	2	0	Firebase analytics + DOWNLOAD_WITHOUT_NOTIFICATION	
+com.xiaomi.tvqs.overseas.y24	3	0	Xiaomi quality-stats uploader (DROPBOX_ENTRY_ADDED, upload log)	
+com.xiaomi.tweather	5	0	weather provider; also feeds the Hyper screensaver	
+com.xiaomi.voicecontrol	3	0	Xiao Ai voice control	
+com.xiaomi.wakeupservice	3	0	Chinese wake word for the voice assistant, ~30% CPU all the time	
+com.xiaomi.wfdsinkhelperservice	8	0	Miracast sink helper	
+com.xiaomitv.sonyliv	1	0		
+com.xiaomo.tv.milegal	9	0	Xiaomi privacy-policy screen (sic, "xiaomo"); nothing else uses it	
+com.xm.webcontent	33	0	webview/RN container for promos; fetches screensaver ads too	
+com.yablio.sendfilestotv	1	0	Send Files to TV	
+com.yeelink.yeelightflow.hisense.overseas	1	0	Yeelight smart-light app	
+com.yle.webtv	1	0	Yle Areena	
+com.yodo1.crossyroad	1	0	Crossy Road	
+com.youview.dtv.bbc	1	0		
+com.youview.poa	1	0	YouView (UK); unused on this EU unit	
+com.youview.tv.servicehost	2	0		
+com.yupptv.androidtv	1	0		
+com.yupptv.firetv	1	0		
+com.yupptv.scope.tvapp	2	0	YuppTV	
+com.zeasn.deviceportal.asdprovider.certified	2	0	device portal client	
+com.zeasn.deviceportal.asdprovider.skyworth_hisi352	1	0	ad/portal service for the Whale launcher	
+com.zeasn.deviceportal.asdprovider.toptech	2	0	Zeasn device portal; also OTA_PULL_CHECK, so no firmware update notices	
+com.zeasn.deviceportal.asdprovider.xym_hisi351	1	0	device portal/OTA (ASDMainService -> smarttv.zeasn.tv)	
+com.zeasn.hotelmodelservice	1	0	Hotel mode (not needed for home use)	
+com.zeasn.rca.toptech	1	0	Zeasn launcher with promo rows	
+com.zeasn.services.general	3	0	Zeasn services: SHOW_AD action, weather, YouTube/search shortcuts	
+com.zeasn.tokenapp	2	0	Zeasn token / tracker (BOOT_COMPLETED, key tracker)	
+com.zeasn.tv.cast	2	0	Casting bloat (not the system cast)	
+com.zeasn.whalelive	4	0	WhaleLive (Zeasn) ad-supported FAST channels	
+com.zeasn.whaleos.settings	1	0	Whale OS settings overlay	
+com.zeasn.whaleservice	1	0	Core Whale OS service	
+com.zeasn.whaletrackservice	1	0	Tracking/telemetry service	
+com.zee5.amazon	1	0		
+com.zee5.xiaomiTV	1	0		
+com.zhixin.apphelper	0	2		# McuHelper: package install helper, HTML viewer (purpose partly unclear)
+com.zhixin.atvchannel	1	0	channel app, found installed as a user app (~200 MB with its data)	
+com.zhixin.logservice.nebula	1	0	Nebula log collector/uploader (UPLOAD_LOG, runs at boot)	
+com.zhixin.nebularetailmode	1	0	Nebula retail demo mode (boot receiver)	
+com.zhixin.nebulasetupwizard	0	1		# Nebula first-run wizard (not Google's setupwraith)
+com.zhixin.nebulasmart	0	2		# remote events (GLOBAL_BUTTON), accessibility service
+com.zhixin.projector.settings	0	1		# picture / focus / keystone / battery / update UI
+com.zhixin.remoteautopair	0	1		# Bluetooth remote auto-pairing
+de.benzac.msx	1	0		
+de.prosiebensat1digital.seventv	1	0	Joyn / 7TV	
+de.rtli.tvnow	1	0	RTL+	
+deezer.android.tv	1	0		
+dw.com.androidtv.live	2	0	DW	
+fi.mtv.svod	1	0	old MTV app (v1.0.56, last updated 2024-01); MTV Katsomo is fi.mtvkatsomo	
+fr.francetv.pluzz	2	0	france.tv	
+fr.francetv.zouzous	1	0	Okoo (france.tv kids)	
+fr.free.aktu	1	0	Free Aktu news	
+fr.freebox.disneypluslauncher	1	0	Free's Disney+ shortcut	
+fr.freebox.fbxstats	1	0	Free usage statistics (system uid, boot receiver)	
+fr.m6.m6replay.free	1	0	M6+	
+fr.tf1.mytf1.free	1	0	TF1+	
+fr.tfou.max	1	0	TFOU Max (TF1 kids)	
+fusion.android.tv.demo	39	0	in-store demo loop (.HorizontalActivity/.VerticalActivity)	
+id.visionplus.android.atv	1	0	Vision+, not used	
+in.startv.hotstar	3	0		
+in.startv.hotstar.dplus.tv	1	0	Disney+ Hotstar, not used	
+io.mimi.sdk.service	2	0	its audio service; sound unaffected when both are off	
+io.mimi.tvapp	2	0	"Mimi Sound Personalization" hearing-test app; Settings only links to it	
+io.tiv.dvtv.tv	1	0		
+it.hon.service	2	0	Haier hOn IoT service	
+it.mediaset.infinitytv	1	0		
+it.radioplayer.android	1	0		
+jp.co.rarity.tvweb	1	0		
+jp.co.sharp.av.android.sharpcocoroalbum.renderasia	1	0	COCORO Album render service (album app already off)	
+ktc.factorymenu.ui	1	0		
+limehd.ru.ctv	1	0		
+limehd.ru.ctvshka	1	0		
+limehd.ru.lise	1	0		
+limehd.ru.lite	1	0		
+map.finder	1	0		
+mediatek.factorymenu.ui	3	0	factory menu: disabled, never launched	
+mitv.service	1	3	MiTV service framework for the rows removed above	PERSISTENT; hosts .TvServer, .TvSettingService, remote key handling
+mobi.zona	1	0		
+net.aljazeera.english	2	0		
+net.froemling.bombsquad	1	0	Bombsquad	
+net.hexage.ritual	1	0		
+net.megogo.tv	1	0	Megogo	
+net.oneplus.odm	1	0	OnePlus device manager (analytics)	
+net.oneplus.odm.provider	1	0	its data provider	
+net.oneplus.weather	1	0	Weather	
+net.vidaatv.hisense.android.tv	3	0	"Hisense Channels", VIDAA free ad-supported channels	
+oneplus.smarthome	2	0	OnePlus smart home control	
+org.chromium.webview_shell	6	0	WebView shell; the WebView provider stays installed	
+org.droidtv.amazonalexa	7	0	Alexa bridge; channel zapping and the guide still work without it	
+org.droidtv.android.fitness	5	0	Fitness Buddy, a /data app; not running, removes the tile	
+org.droidtv.astrahdplus	3	0	HD+ (German satellite operator) info pages; not applicable on a UK Freeview set	
+org.droidtv.aurora	0	1		do NOT disable org.droidtv.eum or org.droidtv.aurora (org.droidtv.xtv retries forever without them).
+org.droidtv.candeebug	12	0	TP Vision "DAC" analytics: CollectionService, boot receiver, ~55 MB resident	
+org.droidtv.consentcmpapp	1	0	TP Vision ad-consent (CMP) screen	
+org.droidtv.control4UcService	1	0	"UcService"	
+org.droidtv.control4adapterservice	1	0	"UcAdaptor"	
+org.droidtv.control4app	1	0	"Control4" home-automation integration (4 packages)	
+org.droidtv.control4sddp	1	0	"SddpService", Control4 discovery	
+org.droidtv.demome	9	0	"Demo me" retail demo mode, e-sticker and shop loop	
+org.droidtv.dlna	2	0	DLNA/UPnP server and renderer	
+org.droidtv.dropboxprovider	1	0	Dropbox source in Media	
+org.droidtv.eum	0	3		org.droidtv.eum (e-manual) was only hidden from the launcher grid, never disabled; on the
+org.droidtv.fastip	0	1		Apple TV are off; and org.droidtv.fastip goes to DO NOT DISABLE, the SOURCES drawer dies without
+org.droidtv.gel	12	0	metrics collector sharing candeebug's process; no INTERNET permission of its own	
+org.droidtv.ipcontrol	2	0	LAN control of volume, audio output, Ambilight on/off and ShopMode. NOT the JointSpace API on 1925/1926 -- that is served by org.droidtv.xtv, which stays. Owner does not drive the TV from Home Assistant	
+org.droidtv.m7opapp	3	0	M7 satellite operator promo (Canal Digitaal, TV Vlaanderen, Skylink, HD Austria); keep if you use one	
+org.droidtv.matter	1	0	"MatterTV", Matter smart-home bridge	
+org.droidtv.nettv.market	10	0	"Kolekce Philips TV" (Philips TV Collection) app storefront, ~34 MB	
+org.droidtv.nettv_launcherapp	1	0	NetTV app launcher entry	
+org.droidtv.nettvapp1814	4	1	ARTE	(org.droidtv.nettvapp1814, org.droidtv.nettvapp3093), and everything in the DO NOT DISABLE block of
+org.droidtv.nettvapp1984	1	0	Dailymotion	
+org.droidtv.nettvapp20004410	4	0	Couchplay Games	
+org.droidtv.nettvapp20004412	1	0	Blockbuster Nordic	
+org.droidtv.nettvapp3073	1	0	Cinetrailer	
+org.droidtv.nettvapp3093	0	1		(org.droidtv.nettvapp1814, org.droidtv.nettvapp3093), and everything in the DO NOT DISABLE block of
+org.droidtv.nettvapp3463	1	0	Videociety	
+org.droidtv.nettvapp4546	5	0	Megogo HD	
+org.droidtv.nettvapp4633	1	0	alacarta RTVE	
+org.droidtv.nettvapp4649	1	0	SF Anytime	
+org.droidtv.nettvapp4655	3	0	Deezer	
+org.droidtv.nettvapp4771	1	0	Divan.TV	
+org.droidtv.nettvapp4932	3	0	Free Games by PlayWorks	
+org.droidtv.nettvapp5225	1	0	Filmbox Live	
+org.droidtv.nettvapp5245	1	0	TV SpieleCenter	
+org.droidtv.nettvapp5251	1	0	Min Bio	
+org.droidtv.nettvapp5326	4	0	Toon Goggles	
+org.droidtv.nettvapp5512	4	0	Fishing TV	
+org.droidtv.nettvapp5527	1	0	Flix Premiere	
+org.droidtv.nettvapps	5	0	"NetTvApps", headless; holds TV_INSTALL_PACKAGES_SILENT, i.e. the gallery's silent preload installer	
+org.droidtv.nettvbrowser	0	1		It is the HbbTV handler (registered for application/vnd.hbbtv.xhtml+xml)
+org.droidtv.nettvrecommender	10	0	"Nejlepší tipy" (Top Picks) content promotion row, INTERNET, ~35 MB	
+org.droidtv.nettvregistration	1	0	Philips account registration for NetTV	
+org.droidtv.oemtabprovider	1	0	"Philips" tab of the Google TV home screen (promos), INTERNET	
+org.droidtv.recommendation	8	0	its headless backend; disable the row above first or you get a live tile with no data source	
+org.droidtv.sticker	2	0	e-sticker and shop banners, reacts to USB and inactivity events, ~32 MB	
+org.droidtv.tv.frameworklogger	4	0	"FrameworkLogger": hands reboot reasons and firmware-install records to the Philips logger	
+org.droidtv.usagelogger	9	0	boot stats, remote keypress counts, panel/eMMC telemetry forwarded to the above	
+org.droidtv.xtv	0	1		do NOT disable org.droidtv.eum or org.droidtv.aurora (org.droidtv.xtv retries forever without them).
+org.liskovsoft.androidtv.rukeyboard	1	0	Russian soft keyboard, not used	
+org.mozilla.tv.firefox	1	0		
+org.obs.mhegservice	2	0	UK MHEG interactive TV, unused with US ATSC	
+org.pbskids.video	1	0		
+org.videolan.vlc	4	0	VLC	
+paskov.biz.happyfruits	1	0		
+pl.tvn.player.tv	1	0	player.pl	
+ro.pontes.forinaline	1	0		
+rocks.funkykarts	1	0		
+ru.sberdevices.bugreporter	1	0	StarBugReporter	
+ru.sberdevices.gamepad.service	1	0	gamepad service stub	
+ru.sberdevices.huaweicast	1	0	Huawei Cast Plus	
+ru.sberdevices.music	1	0	Zvuk music; its ~100 MB update stays in /data while disabled	
+ru.sberdevices.openbeta	1	0	beta programme	
+ru.sberdevices.parentcontrol	1	0	parental control	
+ru.sberdevices.rcfupdater	1	0	remote control firmware updater; the paired remote keeps working	
+ru.sberdevices.sberplay	1	0	SberPlay games	
+ru.sberdevices.smarthome.promo	1	0	smart home promo	
+ru.sberdevices.starbrowser	1	0	Salute browser	
+ru.sberdevices.starcleaner	1	0	StarCleaner, the "Очистка памяти" screen	
+ru.sberdevices.starkidsroom.prod	1	0	"Детская комната" (kids room); installed itself after a reboot	
+ru.sberdevices.starlauncher	1	0		
+ru.sberdevices.starlivetv	1	0	StarLiveTv, Sber's online channels	
+ru.sberdevices.starmarket	1	0	Sber app catalogue; re-enable to install apps or apps.sber.ru/my APKs from it	
+ru.sberdevices.starprofile	1	0	user profiles; the voice assistant still worked without it	
+ru.sberdevices.starscreensaver	1	0	~220 MB of cached artwork	
+ru.sberdevices.startube	1	0	Sber's own "YouTube" wrapper; installed itself after a reboot	
+ru.sberdevices.subscriptions	1	0	SberPrime subscriptions	
+ru.sberdevices.survey	1	0	surveys	
+ru.sberdevices.tv	1	0	"Настройка провайдеров", TV provider setup for Sber's channel guide; HDMI unaffected	
+ru.sberdevices.videos	1	0	"Видео" catalogue	
+ru.vk.store.tv	1	0		
+screnmirroring.com	4	0	Screen mirroring (Miracast)	
+tunein.player	3	0	TuneIn	
+tv.airtel.xstream.tvapp	2	0	Airtel Xstream Play	
+tv.alphonso.alphonso_eula	3	0	Alphonso automatic content recognition (viewing tracking)	
+tv.anoki.acr.anokiacroptin	15	0	Anoki content-recognition opt-in; starts at boot, network/storage receivers	
+tv.anoki.acr.controller	7	0	Anoki automatic content recognition (boot receiver, opt-in activity)	
+tv.arte.plus7	2	0		
+tv.inscape.tvclient.inscapeacr	1	0	"Inscape" ACR client: identifies what is on screen, HDMI included	
+tv.mopa.ginga	3	1	Brazilian Ginga interactive TV, unused with US ATSC	MASTER_CLEAR, CHANGE_COMPONENT_ENABLED_STATE permissions - do not disable), tv.mopa.ginga (broadcast
+tv.okko.androidtv	1	0		
+tv.pluto.android	10	0	Pluto TV	
+tv.sabcplus.vod	1	0		
+tv.samba.ssm	27	0	"Samba Services Manager": Samba TV ACR (identifies what is on screen), Firebase + Mixpanel	
+tv.samba.ssm.ui	13	0	Samba TV ACR viewing tracking (enabled at the factory here)	
+tv.sweet.tvplayer	1	0	Sweet TV (Ukrainian IPTV)	
+tv.twitch.android.app	5	0	Twitch	
+tv.wuaki.apptv	13	0	Rakuten TV / Wuaki	
+uk.co.powgames.gamecondiag	1	0		
+umc.com.emanual	1	0	on-screen manual	
+uz.allplay.apptv	1	0	Allplay	
+uz.i_tv.player	1	0	i-TV	
+video.laminar.tv.chaupal.android	1	0	Chaupal	
+zeasn.open.technical.tv.store	1	0	Zeasn app store; Google Play stays	
+zeasn.open.technical.tv.store.stellamore.tv	1	0	"App Store" home tile - ships Google Ads (doubleclick)	

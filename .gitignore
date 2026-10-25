@@ -1,0 +1,8 @@
+build/
+app/build/
+.gradle/
+local.properties
+app/src/main/assets/tvhome.apk
+keystore.properties
+*.jks
+*.keystore
