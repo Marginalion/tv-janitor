@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.9.1-beta (unreleased)
+## 0.9.1-beta (2026-10-25)
 
 - Fix: Apply could be lost when the new home screen was installed just before it (the app closed itself
   while a job was still queued). Jobs are now counted and the app waits for the last one.
