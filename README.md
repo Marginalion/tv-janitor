@@ -32,12 +32,12 @@ undoes everything with one button. — *Marginalion*
 |---|---|---|
 | Screen | one button | three modes + "For experts" with the whole list |
 | Switches off | only packages someone knows about (described, in CleanYourTV's base, or a feature you said you don't use) | also guesses by name, and anything you pick by hand |
-| Internet | never used (the built-in base only) | updates the base from GitHub, can install an app store |
+| Internet | never used (the built-in base only) | updates the base from GitHub |
 | Undo | "Restore everything" | the same, plus per-app control |
 
 Both are the same app (`io.github.marginalion.tvjanitor`), so one installs over the other and keeps your choices.
 Android still lists the INTERNET permission for Lite: it is needed for the app's own connection to the TV's
-ADB at 127.0.0.1. Lite never goes online: its build switches off the base update and the store installer.
+ADB at 127.0.0.1. Lite never goes online: its build switches off the base update.
 
 ## What it does
 
@@ -59,8 +59,6 @@ ADB at 127.0.0.1. Lite never goes online: its build switches off the base update
   put back by itself.
 - **Restore everything** to the snapshot taken at first start; a report after every boot.
 - **New home screen**: CleanYourTV's launcher, checked against its SHA-256 before install.
-- **Install an app store** (Full): Aurora Store or F-Droid, downloaded from the developer and installed only
-  if it is signed by that developer (pinned certificate).
 - **Share your experience** (opt-in, off by default): a report in CleanYourTV's `debloat.txt` format. Nothing
   is sent anywhere by the app.
 - Leaves nothing behind: about 0 MB when closed.
@@ -121,8 +119,7 @@ to program it. Data and the home screen come from [CleanYourTV](https://github.c
 ## Licence and credits
 
 MIT, see [LICENSE](LICENSE). The bundled launcher (modified) and the hint base come from
-[CleanYourTV](https://github.com/Gathin23/cleanyourtv), MIT, see [NOTICE](NOTICE). Aurora Store and F-Droid
-are separate projects of their own authors; TV Janitor only downloads them from their official sources.
+[CleanYourTV](https://github.com/Gathin23/cleanyourtv), MIT, see [NOTICE](NOTICE).
 
 ---
 
@@ -144,8 +141,7 @@ are separate projects of their own authors; TV Janitor only downloads them from 
 
 **Две версии.** **Lite** — одна кнопка, отключает только то, про что точно известно, что оно лишнее, и
 ничего не скачивает из интернета. **Full** — три режима («Бережно», «Оптимально», «Максимум»), экран «Для
-опытных» со всем списком, обновление базы и установка магазина приложений (Aurora Store или F-Droid,
-только с подписью разработчика). Это одно приложение: одна версия ставится поверх другой.
+опытных» со всем списком, обновление базы. Это одно приложение: одна версия ставится поверх другой.
 
 **Возможности:** вопросы «Чем вы пользуетесь?»; перед применением видно, что изменится; предупреждения, если
 не стоит новая оболочка или не останется ни одного магазина; автоопределение важного (входы, клавиатура,

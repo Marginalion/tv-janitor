@@ -583,6 +583,7 @@ final class Ops {
                 if (r.contains("UPDATE_INCOMPATIBLE")) { note(T.t("Уже стоит другая сборка ") + app.name + T.t(" с другой подписью: удалите её и попробуйте снова")); return false; }
                 if (r.contains("VERIFICATION_FAILURE") || r.contains("INSTALL_FAILED_ABORTED")) { note(T.t("Эта прошивка не принимает сторонние приложения (") + firstLine(r) + ")"); return false; }
                 if (!r.contains("Success")) { note(T.t("Установка не удалась: ") + firstLine(r)); return false; }
+                storePermissions(adb, app.pkg);
                 note(app.name + T.t(" установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин»."));
                 note(T.t("Готово"));
                 return true;
@@ -593,6 +594,28 @@ final class Ops {
                 priv.delete();
                 save();
             }
+        }
+    }
+
+    /** An app store needs a few special permissions that Android TV's Settings often has no screen for, so the
+     *  store's own "grant it" buttons lead nowhere. Granted over ADB, only for a store the owner chose to install. */
+    private void storePermissions(Adb adb, String pkg) throws Exception {
+        note(T.t("Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище"));
+        sh(adb, "appops set " + pkg + " REQUEST_INSTALL_PACKAGES allow");
+        if (android.os.Build.VERSION.SDK_INT >= 30) sh(adb, "appops set " + pkg + " MANAGE_EXTERNAL_STORAGE allow");
+        sh(adb, "cmd deviceidle whitelist +" + pkg);
+        if (android.os.Build.VERSION.SDK_INT >= 33) sh(adb, "pm grant " + pkg + " android.permission.POST_NOTIFICATIONS");
+        if (android.os.Build.VERSION.SDK_INT >= 31) sh(adb, "pm set-app-links-user-selection --user 0 --package " + pkg + " true all");
+    }
+
+    /** For a store installed earlier (or by hand): grant the same permissions again. */
+    boolean grantStore(String pkg) {
+        synchronized (LOCK) {
+            Adb adb = connect(2);
+            if (adb == null) { save(); return false; }
+            try { storePermissions(adb, pkg); note(T.t("Готово")); return true; }
+            catch (Exception e) { note(T.t("Ошибка: ") + e.getMessage()); return false; }
+            finally { adb.close(); save(); }
         }
     }
 

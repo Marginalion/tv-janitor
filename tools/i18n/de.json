@@ -524,5 +524,7 @@
 "Neu installieren",
 "Öffnen",
 "kein APK im Release",
-"installiert ✔ Ich öffne es. Fehlt es auf dem Startbildschirm, öffnen Sie es über „📦 App-Store installieren“."
+"installiert ✔ Ich öffne es. Fehlt es auf dem Startbildschirm, öffnen Sie es über „📦 App-Store installieren“.",
+"Gebe dem Store die nötigen Rechte: Apps installieren, Downloads im Hintergrund, Speicher",
+"Außerdem gibt TV Janitor dem Store die Rechte, ohne die er nicht funktioniert: Apps installieren, im Hintergrund laden, Dateien speichern."
 ]

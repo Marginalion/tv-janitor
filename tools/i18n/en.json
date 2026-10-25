@@ -524,5 +524,7 @@
 "Reinstall",
 "Open",
 "no APK in the release",
-"installed ✔ Opening it. If it isn't on the home screen, open it with \"📦 Install an app store\"."
+"installed ✔ Opening it. If it isn't on the home screen, open it with \"📦 Install an app store\".",
+"Granting the store what it needs: installing apps, background downloads, storage",
+"TV Janitor also grants the store the permissions it can't work without: installing apps, downloading in the background, storing files."
 ]

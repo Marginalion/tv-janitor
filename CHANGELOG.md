@@ -10,8 +10,9 @@
   waits until the app is opened. The new home screen is no longer pushed over live TV either.
 - Memory: longer wait for slow TVs (Philips), a fallback to the kernel's numbers, and an honest message when
   the TV is busy instead of "no ADB connection".
-- App stores: Aurora Store's new release layout and GitLab's upload paths; a download progress bar; the store
-  opens right after install and can be opened from the app later (phone apps have no TV icon on Home).
+- App store installer (Aurora Store, F-Droid) reworked: new Aurora release layout, GitLab upload paths, download
+  progress, store permissions granted over ADB (TV Settings lack those screens), open from the app. Hidden for
+  now until it has more road testing.
 - The log names the real reason a command failed and which packages the firmware switched back on.
 - "What I use" now wins over a package that was already off before TV Janitor (for example Chromecast
   disabled by hand earlier): the modes switch it back on.
@@ -30,7 +31,7 @@ First public beta.
 - "❔ Unknown" group: packages without a description or statistics; modes never touch them.
 - Firmware overlays (RRO) are recognised as important.
 - "App store" answer in "What do you use?"; stores are found by who opens `market://` links.
-- Install Aurora Store or F-Droid from their developers, with a pinned signing certificate (Full).
+- App store installer with pinned signing certificates (Full; hidden from 0.9.1 until it is road-tested).
 - Apply in batches of five with a progress bar and automatic rollback on crash loops.
 - Re-applies choices after every boot and reports what the firmware switched back on.
 - New home screen from CleanYourTV, checked by SHA-256.

@@ -524,5 +524,7 @@
 "Reinstalar",
 "Abrir",
 "no hay APK en la versión",
-"instalada ✔ La abro. Si no aparece en la pantalla de inicio, ábrela con «📦 Instalar una tienda»."
+"instalada ✔ La abro. Si no aparece en la pantalla de inicio, ábrela con «📦 Instalar una tienda».",
+"Dando a la tienda los permisos que necesita: instalar apps, descargas en segundo plano, almacenamiento",
+"TV Janitor también dará a la tienda los permisos sin los que no funciona: instalar apps, descargar en segundo plano, guardar archivos."
 ]

@@ -524,5 +524,7 @@
 "Yeniden kur",
 "Aç",
 "sürümde APK yok",
-"kuruldu ✔ Açılıyor. Ana ekranda görünmüyorsa «📦 Uygulama mağazası kur» ile aç."
+"kuruldu ✔ Açılıyor. Ana ekranda görünmüyorsa «📦 Uygulama mağazası kur» ile aç.",
+"Mağazaya gereken izinler veriliyor: uygulama kurma, arka planda indirme, depolama",
+"TV Janitor mağazaya çalışması için gereken izinleri de verir: uygulama kurma, arka planda indirme, dosya saklama."
 ]

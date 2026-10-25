@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
         Button toExpert = button(T.t("Для опытных  ›")), sStore = button(T.t("📦 Поставить магазин"));
         Button sRestore = button(T.t("Вернуть всё как было"));
         LinearLayout sb2 = row();
-        if (Edition.LITE) add(sb2, sRestore); else { add(sb2, sStore); add(sb2, toExpert); }
+        if (Edition.LITE) add(sb2, sRestore); else { if (STORES) add(sb2, sStore); add(sb2, toExpert); }
         simple.addView(sb2);
         root.addView(simple);
 
@@ -119,7 +119,7 @@ public class MainActivity extends Activity {
         full.setOrientation(LinearLayout.VERTICAL);
         root.addView(full);
         Button toSimple = button(T.t("‹  Простой режим")), eStore = button(T.t("📦 Поставить магазин"));
-        LinearLayout bar0 = row(); add(bar0, toSimple); add(bar0, eStore); full.addView(bar0);
+        LinearLayout bar0 = row(); add(bar0, toSimple); if (STORES) add(bar0, eStore); full.addView(bar0);
         LinearLayout root0 = root; root = full;
 
         LinearLayout bar = row();
@@ -267,6 +267,9 @@ public class MainActivity extends Activity {
             + T.t("Надёжнее сначала поставить новую оболочку.");
 
     /** Pick an app store to install; each one is checked against its developer's signature. */
+    /** The app store installer works but needs more road testing (Aurora on TVs); hidden until then. */
+    static final boolean STORES = false;
+
     private void chooseStore() {
         if (busy()) return;
         Ops.StoreApp[] all = Ops.STORES;
@@ -288,14 +291,15 @@ public class MainActivity extends Activity {
                                 .setMessage(T.t("Уже установлен. На главном экране телевизора его может не быть: это приложение для телефонов, у него нет значка для ТВ. Открывайте его отсюда."))
                                 .setNegativeButton(T.t("Отмена"), null)
                                 .setNeutralButton(T.t("Переустановить"), (d2, w2) -> installStore(app))
-                                .setPositiveButton(T.t("Открыть"), (d2, w2) -> openApp(app.pkg))
+                                .setPositiveButton(T.t("Открыть"), (d2, w2) -> { openAfterJob = app.pkg; run(T.t("Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище"), () -> new Ops(this, this::say).grantStore(app.pkg)); })
                                 .show();
                         return;
                     }
                     new android.app.AlertDialog.Builder(this)
                             .setTitle(app.name)
                             .setMessage(app.about + T.t(".\n\nУборщик скачает его с официального сайта разработчика и поставит, только если ")
-                                    + T.t("файл подписан самим разработчиком. Это стороннее приложение: за его работу отвечают его авторы."))
+                                    + T.t("файл подписан самим разработчиком. Это стороннее приложение: за его работу отвечают его авторы.")
+                                    + T.t("\n\nЕщё Уборщик выдаст магазину разрешения, без которых он не работает: ставить приложения, загружать в фоне, хранить файлы."))
                             .setNegativeButton(T.t("Отмена"), null)
                             .setPositiveButton(T.t("Скачать и поставить"), (d2, w2) -> installStore(app))
                             .show();
