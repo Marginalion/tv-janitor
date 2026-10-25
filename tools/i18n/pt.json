@@ -526,5 +526,12 @@
 "não há APK na versão",
 "instalado ✔ Abrindo. Se não aparecer na tela inicial, abra por «📦 Instalar uma loja».",
 "Dando à loja as permissões necessárias: instalar apps, downloads em segundo plano, armazenamento",
-"O TV Janitor também dará à loja as permissões sem as quais ela não funciona: instalar apps, baixar em segundo plano, guardar arquivos."
+"O TV Janitor também dará à loja as permissões sem as quais ela não funciona: instalar apps, baixar em segundo plano, guardar arquivos.",
+"⚠ Não voltou:",
+". Prima «Repor tudo» outra vez; se não resultar, o firmware não deixa ativá-los.",
+"⚠ Não foi desativado:",
+". Tento de novo depois de reiniciar.",
+"⚠ Não foi ativado:",
+"Início abriu:",
+"⚠ Início não abriu o novo ecrã inicial, por isso o de fábrica fica. Pode abrir o novo na lista de aplicações."
 ]

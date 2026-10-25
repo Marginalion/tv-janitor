@@ -526,5 +526,12 @@
 "kein APK im Release",
 "installiert ✔ Ich öffne es. Fehlt es auf dem Startbildschirm, öffnen Sie es über „📦 App-Store installieren“.",
 "Gebe dem Store die nötigen Rechte: Apps installieren, Downloads im Hintergrund, Speicher",
-"Außerdem gibt TV Janitor dem Store die Rechte, ohne die er nicht funktioniert: Apps installieren, im Hintergrund laden, Dateien speichern."
+"Außerdem gibt TV Janitor dem Store die Rechte, ohne die er nicht funktioniert: Apps installieren, im Hintergrund laden, Dateien speichern.",
+"⚠ Nicht zurückgekommen:",
+". Drücken Sie noch einmal „Alles wiederherstellen“; hilft das nicht, lässt die Firmware sie nicht einschalten.",
+"⚠ Nicht ausgeschaltet:",
+". Nach einem Neustart versuche ich es noch einmal.",
+"⚠ Nicht eingeschaltet:",
+"„Home“ hat geöffnet:",
+"⚠ „Home“ hat den neuen Startbildschirm nicht geöffnet, daher bleibt der ab Werk. Den neuen können Sie aus der App-Liste öffnen."
 ]

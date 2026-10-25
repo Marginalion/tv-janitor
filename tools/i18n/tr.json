@@ -526,5 +526,12 @@
 "sürümde APK yok",
 "kuruldu ✔ Açılıyor. Ana ekranda görünmüyorsa «📦 Uygulama mağazası kur» ile aç.",
 "Mağazaya gereken izinler veriliyor: uygulama kurma, arka planda indirme, depolama",
-"TV Janitor mağazaya çalışması için gereken izinleri de verir: uygulama kurma, arka planda indirme, dosya saklama."
+"TV Janitor mağazaya çalışması için gereken izinleri de verir: uygulama kurma, arka planda indirme, dosya saklama.",
+"⚠ Geri gelmedi:",
+". \"Her şeyi geri al\"a bir kez daha basın; işe yaramazsa yazılım bunların açılmasına izin vermiyor.",
+"⚠ Kapatılamadı:",
+". Yeniden başlatmadan sonra tekrar deneyeceğim.",
+"⚠ Açılamadı:",
+"Ana ekran tuşu şunu açtı:",
+"⚠ Ana ekran tuşu yeni ana ekranı açmadı, bu yüzden fabrika ana ekranı yerinde kaldı. Yenisini uygulama listesinden açabilirsiniz."
 ]

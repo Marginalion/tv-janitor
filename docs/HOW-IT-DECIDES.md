@@ -71,6 +71,11 @@ base, seen on the same TV, or a feature you don't use. No guessing by name.
    marked "do not disable on this model".
 4. Apply "doesn't start on its own", then the optional settings (animations, cached-app limit, DNS).
 5. Write down what Android **really** reports as disabled. This is what counts as "was off" at the next boot.
+6. The summary counts the same way: "switched off 28 of 30", with the names of what didn't change.
+
+**New home screen.** It is checked against its SHA-256 and installed. Google's stock launcher outranks it, so
+that one is switched off; then the app presses Home (twice if needed). If the new home screen did not open,
+the stock launcher is switched back on at once and stays the Home screen.
 
 ## 7. After every boot
 
@@ -88,7 +93,9 @@ Some firmware (Yandex TV, Philips' Play-Fi) switches packages back on at boot. S
 ## 8. Restore everything
 
 Switches back on everything that is off now but was not off in the snapshot, wakes the sleeping apps, puts
-back the snapshot's settings and the stock home screen. Then reboot.
+back the snapshot's settings and the stock home screen. Then it asks Android again: what is still off is
+named, with a hint to press the button once more (if it still stays off, the firmware won't allow it). Then
+reboot.
 
 ## 9. Memory
 
@@ -145,7 +152,12 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 1. при первом запуске — снимок «как было»;
 2. отключение порциями по пять, с подсчётом сбоев до и после каждой порции;
 3. если сбоев стало на два и больше, порция возвращается и помечается «на этой модели не отключать»;
-4. в конце записывается, что Android **на самом деле** показывает отключённым.
+4. в конце записывается, что Android **на самом деле** показывает отключённым, и итог считается так же:
+   «отключено 28 из 30» и что именно не поддалось.
+
+**Новая оболочка** проверяется по SHA-256 и ставится. Заводская оболочка Google главнее, поэтому её
+приходится выключить; затем Уборщик нажимает «Домой» (если нужно, дважды). Не открылась новая, и заводская
+тут же включается обратно и остаётся главным экраном.
 
 **7. После каждой загрузки** (через 15 секунд):
 1. сверка с реально отключённым: «прошивка вернула» — только про то, что точно было выключено;
@@ -154,7 +166,8 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 4. отчёт ждёт, пока вы сами откроете приложение, если на экране что-то смотрят.
 
 **8. «Вернуть всё как было»** — включает всё, чего не было в снимке, будит «уснувшие» приложения, возвращает
-настройки и заводскую оболочку.
+настройки и заводскую оболочку, а потом перепроверяет: что не вернулось, называется по имени с подсказкой
+нажать ещё раз (если не помогает, прошивка не даёт это включить).
 
 **9. Память** — «Used RAM» из `dumpsys meminfo` с ожиданием до 40 секунд, запасной вариант — цифры ядра с
 проверкой на бред. Часть занятой памяти — ядро и видеобуферы, их не освободить, поэтому сравнивать стоит ТВ

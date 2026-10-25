@@ -528,3 +528,11 @@ Live Channels	Live Channels
  установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 kuruldu ✔ Açılıyor. Ana ekranda görünmüyorsa «📦 Uygulama mağazası kur» ile aç.
 Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище	Mağazaya gereken izinler veriliyor: uygulama kurma, arka planda indirme, depolama
 \n\nЕщё Уборщик выдаст магазину разрешения, без которых он не работает: ставить приложения, загружать в фоне, хранить файлы.	\n\nTV Janitor mağazaya çalışması için gereken izinleri de verir: uygulama kurma, arka planda indirme, dosya saklama.
+⚠ Не вернулось: 	⚠ Geri gelmedi: 
+. Нажмите «Вернуть всё как было» ещё раз; если не помогает, прошивка не даёт их включить.	. "Her şeyi geri al"a bir kez daha basın; işe yaramazsa yazılım bunların açılmasına izin vermiyor.
+Прошивка вернула сама 	Yazılım kendiliğinden geri açtı: 
+⚠ Не отключилось: 	⚠ Kapatılamadı: 
+. Попробую ещё раз после перезагрузки.	. Yeniden başlatmadan sonra tekrar deneyeceğim.
+⚠ Не включилось: 	⚠ Açılamadı: 
+По «Домой» открылось: 	Ana ekran tuşu şunu açtı: 
+⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ Ana ekran tuşu yeni ana ekranı açmadı, bu yüzden fabrika ana ekranı yerinde kaldı. Yenisini uygulama listesinden açabilirsiniz.

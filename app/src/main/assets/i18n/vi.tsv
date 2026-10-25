@@ -528,3 +528,11 @@ Live Channels	Live Channels
  установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 đã được cài ✔ Đang mở. Nếu không thấy trên màn hình chính, hãy mở bằng «📦 Cài cửa hàng ứng dụng».
 Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище	Đang cấp cho cửa hàng các quyền cần thiết: cài ứng dụng, tải trong nền, bộ nhớ
 \n\nЕщё Уборщик выдаст магазину разрешения, без которых он не работает: ставить приложения, загружать в фоне, хранить файлы.	\n\nTV Janitor cũng sẽ cấp cho cửa hàng các quyền cần thiết: cài ứng dụng, tải trong nền, lưu tệp.
+⚠ Не вернулось: 	⚠ Chưa khôi phục được: 
+. Нажмите «Вернуть всё как было» ещё раз; если не помогает, прошивка не даёт их включить.	. Nhấn "Khôi phục tất cả" một lần nữa; nếu vẫn không được, firmware không cho bật lại chúng.
+Прошивка вернула сама 	Firmware đã tự bật lại 
+⚠ Не отключилось: 	⚠ Chưa tắt được: 
+. Попробую ещё раз после перезагрузки.	. Sẽ thử lại sau khi khởi động lại.
+⚠ Не включилось: 	⚠ Chưa bật được: 
+По «Домой» открылось: 	Nút Home mở ra: 
+⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ Nút Home không mở màn hình chính mới, nên màn hình gốc được giữ nguyên. Có thể mở màn hình mới từ danh sách ứng dụng.

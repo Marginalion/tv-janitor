@@ -176,13 +176,15 @@ final class Ops {
             if (adb == null) { save(); return false; }
             try {
                 java.util.Set<String> factory = store.set("snap_disabled");
-                int n = 0;
+                java.util.Set<String> tried = new java.util.TreeSet<>();
                 for (String l : adb.shell("pm list packages -d").split("\n")) {
                     l = l.trim();
                     if (!l.startsWith("package:")) continue;
                     String p = l.substring(8);
-                    if (!factory.contains(p)) { sh(adb, "pm enable " + p); n++; }
+                    if (!factory.contains(p)) { sh(adb, "pm enable " + p); tried.add(p); }
                 }
+                // Check with Android, not with our own count: what is still off has not come back.
+                java.util.Set<String> still = reallyOff(adb, tried);
                 wakeAll(adb, store.sleeping());
                 for (String k : new String[]{"window_animation_scale", "transition_animation_scale", "animator_duration_scale",
                         "activity_manager_constants", "private_dns_mode", "private_dns_specifier"}) {
@@ -202,7 +204,14 @@ final class Ops {
                 store.setFlag("launcher", false);
                 store.setFlag("dns", false); store.setFlag("dnsWasOn", false);
                 sh(adb, "am start -a android.intent.action.MAIN -c android.intent.category.HOME");
-                note(T.t("Итог: ") + T.t("включено обратно ") + n + T.t(". Перезагрузите телевизор, чтобы всё встало на места."));
+                if (!still.isEmpty()) {
+                    note(T.t("⚠ Не вернулось: ") + still.size() + "  (" + String.join(", ", still) + ")"
+                            + T.t(". Нажмите «Вернуть всё как было» ещё раз; если не помогает, прошивка не даёт их включить."));
+                    note(T.t("Итог: ") + T.t("включено обратно ") + (tried.size() - still.size()) + T.t(" из ") + tried.size()
+                            + T.t(". Перезагрузите телевизор, чтобы всё встало на места."));
+                    return false;
+                }
+                note(T.t("Итог: ") + T.t("включено обратно ") + tried.size() + T.t(". Перезагрузите телевизор, чтобы всё встало на места."));
                 return true;
             } catch (Exception e) {
                 note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
@@ -380,11 +389,19 @@ final class Ops {
                 sleepAll(adb, sleep);
                 store.setSet("appliedOff", reallyOff(adb, store.disabled()));
                 Report.saveIfConsented(c);
-                note(T.t("Итог: ") + T.t("отключено ") + disable.size() + T.t(", включено ") + enable.size() + T.t(", не запускаются сами ") + sleep.size());
                 tweaks(adb);
                 note(usedLine(adb));
+                // The summary counts what Android reports, not what was asked for.
+                Set<String> off = reallyOff(adb, disable);
+                Set<String> notOff = new java.util.TreeSet<>(disable); notOff.removeAll(off);
+                Set<String> notOn = new java.util.TreeSet<>(reallyOff(adb, enable));
+                if (!notOff.isEmpty()) note(T.t("⚠ Не отключилось: ") + notOff.size() + "  (" + String.join(", ", notOff) + ")"
+                        + T.t(". Попробую ещё раз после перезагрузки."));
+                if (!notOn.isEmpty()) note(T.t("⚠ Не включилось: ") + notOn.size() + "  (" + String.join(", ", notOn) + ")");
                 if (prog != null) prog.progress(total, total, T.t("Готово"));
-                note(T.t("Готово"));
+                note(T.t("Итог: ") + T.t("отключено ") + off.size() + (notOff.isEmpty() ? "" : T.t(" из ") + disable.size())
+                        + T.t(", включено ") + (enable.size() - notOn.size()) + (notOn.isEmpty() ? "" : T.t(" из ") + enable.size())
+                        + T.t(", не запускаются сами ") + sleep.size());
                 return true;
             } catch (Exception e) {
                 note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
@@ -452,23 +469,41 @@ final class Ops {
                             ? T.t("⚠ Мастер настройки Google владеет вашей сетью Wi-Fi: его не трогаю, иначе Android удалит сеть. Если «Домой» откроет не нас — забудьте сеть и подключитесь заново в Настройках.")
                             : T.t("Мастер настройки Google тоже претендует на «Домой» — проверяю, что победили мы."));
                 }
+                // Google's stock Home outranks ours, so it has to be switched off for "Home" to reach us. It stays
+                // off only once "Home" has really opened our launcher; otherwise it is switched back on at once.
                 String s = store.str("stockHome");
+                boolean stockOff = false;
                 if (s != null) for (String safe : BuildInfo.SAFE_TO_DISABLE_HOME) {
-                    if (safe.equals(s)) {
-                        sh(adb, "pm disable-user --user 0 " + s);
-                        Set<String> d = store.disabled(); d.add(s); store.setDisabled(d);
-                    }
+                    if (safe.equals(s)) { sh(adb, "pm disable-user --user 0 " + s); stockOff = true; }
                 }
                 sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
-                store.setFlag("launcher", true);
                 String now = homePackage(adb);
-                sh(adb, "input keyevent KEYCODE_HOME");
-                Thread.sleep(2500);
-                String top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
-                boolean onScreen = top.contains(BuildInfo.LAUNCHER);
-                note(T.t("Главный экран теперь: ") + now + (onScreen ? T.t(" — и он на экране ✔") : T.t(" — но по «Домой» открылось другое: ") + firstLine(top.trim())));
+                boolean onScreen = false;
+                String top = "";
+                for (int i = 0; i < 2 && !onScreen; i++) {
+                    sh(adb, "input keyevent KEYCODE_HOME");
+                    Thread.sleep(2500);
+                    top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
+                    onScreen = top.contains(BuildInfo.LAUNCHER);
+                }
+                if (!onScreen) {
+                    note(T.t("По «Домой» открылось: ") + firstLine(top.trim()));
+                    if (s != null) {
+                        if (stockOff) sh(adb, "pm enable " + s);
+                        String[] l = adb.shell("cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.HOME " + s).trim().split("\n");
+                        String comp = l[l.length - 1].trim();
+                        if (comp.startsWith(s + "/")) sh(adb, "cmd package set-home-activity --user 0 " + comp);
+                    }
+                    store.setFlag("launcher", false);
+                    sh(adb, "input keyevent KEYCODE_HOME");
+                    note(T.t("⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений."));
+                    return false;
+                }
+                if (stockOff) { Set<String> d = store.disabled(); d.add(s); store.setDisabled(d); }
+                store.setFlag("launcher", true);
+                note(T.t("Главный экран теперь: ") + now + T.t(" — и он на экране ✔"));
                 note(T.t("Готово"));
-                return onScreen;
+                return true;
             } catch (Exception e) {
                 note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
                 return false;

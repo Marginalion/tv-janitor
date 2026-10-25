@@ -526,5 +526,12 @@
 "no hay APK en la versión",
 "instalada ✔ La abro. Si no aparece en la pantalla de inicio, ábrela con «📦 Instalar una tienda».",
 "Dando a la tienda los permisos que necesita: instalar apps, descargas en segundo plano, almacenamiento",
-"TV Janitor también dará a la tienda los permisos sin los que no funciona: instalar apps, descargar en segundo plano, guardar archivos."
+"TV Janitor también dará a la tienda los permisos sin los que no funciona: instalar apps, descargar en segundo plano, guardar archivos.",
+"⚠ No se ha restaurado:",
+". Pulse «Restaurarlo todo» otra vez; si no sirve, el firmware no permite activarlos.",
+"⚠ No se desactivó:",
+". Lo intentaré de nuevo tras reiniciar.",
+"⚠ No se activó:",
+"Inicio abrió:",
+"⚠ Inicio no abrió la nueva pantalla de inicio, así que se queda la de fábrica. Puede abrir la nueva desde la lista de aplicaciones."
 ]

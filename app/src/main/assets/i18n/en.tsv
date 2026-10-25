@@ -528,3 +528,11 @@ Live Channels	Live Channels
  установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 installed ✔ Opening it. If it isn't on the home screen, open it with "📦 Install an app store".
 Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище	Granting the store what it needs: installing apps, background downloads, storage
 \n\nЕщё Уборщик выдаст магазину разрешения, без которых он не работает: ставить приложения, загружать в фоне, хранить файлы.	\n\nTV Janitor also grants the store the permissions it can't work without: installing apps, downloading in the background, storing files.
+⚠ Не вернулось: 	⚠ Did not come back: 
+. Нажмите «Вернуть всё как было» ещё раз; если не помогает, прошивка не даёт их включить.	. Press "Restore everything" again; if that doesn't help, the firmware won't let them be switched on.
+Прошивка вернула сама 	The firmware switched back on 
+⚠ Не отключилось: 	⚠ Not switched off: 
+. Попробую ещё раз после перезагрузки.	. I'll try again after a reboot.
+⚠ Не включилось: 	⚠ Not switched on: 
+По «Домой» открылось: 	Home opened: 
+⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ Home didn't open the new home screen, so the stock one stays in place. You can open the new one from the app list.

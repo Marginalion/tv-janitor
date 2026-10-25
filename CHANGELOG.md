@@ -8,6 +8,13 @@
   error, e.g. org.droidtv.freeviewplayers on Philips).
 - The hint about the developers' test script appears only in debug builds.
 - docs/HOW-IT-DECIDES.md: every rule the app follows, in English and Russian.
+- New home screen: Google's stock launcher is kept switched off only if Home really opens the new one (checked
+  twice); otherwise it is switched back on at once and stays the Home screen. Before, it could be left off
+  even when the check failed.
+- Honest summaries: "Apply" counts what Android reports as disabled and enabled ("28 of 30") and names what
+  didn't change; "Restore everything" checks afterwards and names what didn't come back, instead of counting
+  attempts.
+- README: "My TV. My rules." and how it came about (an outside review by ChatGPT).
 
 ## 0.9.1-beta (2026-10-25)
 

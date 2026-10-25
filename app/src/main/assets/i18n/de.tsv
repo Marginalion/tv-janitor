@@ -528,3 +528,11 @@ Live Channels	Live Channels
  установлен ✔ Открываю его. Если на главном экране его не видно, открывайте через «📦 Поставить магазин».	 installiert ✔ Ich öffne es. Fehlt es auf dem Startbildschirm, öffnen Sie es über „📦 App-Store installieren“.
 Выдаю магазину нужные разрешения: установка приложений, фоновые загрузки, хранилище	Gebe dem Store die nötigen Rechte: Apps installieren, Downloads im Hintergrund, Speicher
 \n\nЕщё Уборщик выдаст магазину разрешения, без которых он не работает: ставить приложения, загружать в фоне, хранить файлы.	\n\nAußerdem gibt TV Janitor dem Store die Rechte, ohne die er nicht funktioniert: Apps installieren, im Hintergrund laden, Dateien speichern.
+⚠ Не вернулось: 	⚠ Nicht zurückgekommen: 
+. Нажмите «Вернуть всё как было» ещё раз; если не помогает, прошивка не даёт их включить.	. Drücken Sie noch einmal „Alles wiederherstellen“; hilft das nicht, lässt die Firmware sie nicht einschalten.
+Прошивка вернула сама 	Die Firmware hat wieder eingeschaltet 
+⚠ Не отключилось: 	⚠ Nicht ausgeschaltet: 
+. Попробую ещё раз после перезагрузки.	. Nach einem Neustart versuche ich es noch einmal.
+⚠ Не включилось: 	⚠ Nicht eingeschaltet: 
+По «Домой» открылось: 	„Home“ hat geöffnet: 
+⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ „Home“ hat den neuen Startbildschirm nicht geöffnet, daher bleibt der ab Werk. Den neuen können Sie aus der App-Liste öffnen.

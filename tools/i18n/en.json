@@ -526,5 +526,12 @@
 "no APK in the release",
 "installed ✔ Opening it. If it isn't on the home screen, open it with \"📦 Install an app store\".",
 "Granting the store what it needs: installing apps, background downloads, storage",
-"TV Janitor also grants the store the permissions it can't work without: installing apps, downloading in the background, storing files."
+"TV Janitor also grants the store the permissions it can't work without: installing apps, downloading in the background, storing files.",
+"⚠ Did not come back:",
+". Press \"Restore everything\" again; if that doesn't help, the firmware won't let them be switched on.",
+"⚠ Not switched off:",
+". I'll try again after a reboot.",
+"⚠ Not switched on:",
+"Home opened:",
+"⚠ Home didn't open the new home screen, so the stock one stays in place. You can open the new one from the app list."
 ]

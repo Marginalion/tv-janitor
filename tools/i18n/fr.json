@@ -526,5 +526,12 @@
 "pas d'APK dans la version",
 "installé ✔ Je l'ouvre. S'il n'est pas sur l'écran d'accueil, ouvrez-le avec « 📦 Installer une boutique ».",
 "J'accorde à la boutique ce dont elle a besoin : installer des applis, téléchargements en arrière-plan, stockage",
-"TV Janitor accordera aussi à la boutique les autorisations sans lesquelles elle ne fonctionne pas : installer des applis, télécharger en arrière-plan, stocker des fichiers."
+"TV Janitor accordera aussi à la boutique les autorisations sans lesquelles elle ne fonctionne pas : installer des applis, télécharger en arrière-plan, stocker des fichiers.",
+"⚠ Non rétabli :",
+". Appuyez de nouveau sur « Tout rétablir » ; si cela ne suffit pas, le micrologiciel refuse de les réactiver.",
+"⚠ Non désactivé :",
+". Je réessaierai après un redémarrage.",
+"⚠ Non réactivé :",
+"Accueil a ouvert :",
+"⚠ Accueil n'a pas ouvert le nouvel écran d'accueil : celui d'origine reste en place. Vous pouvez ouvrir le nouveau depuis la liste des applis."
 ]

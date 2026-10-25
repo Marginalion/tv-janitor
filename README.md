@@ -31,6 +31,26 @@ So the cleaner moved onto the TV itself. It remembers what you chose and puts it
 then it grew into something that works on any Android TV: it asks what you use, knows what not to touch, and
 undoes everything with one button. — *Marginalion*
 
+## My TV. My rules.
+
+> I bought a TV, not the right to live with someone else's settings.
+>
+> I decide which apps I need, which services run and which features to switch off.
+>
+> The maker can recommend. The app can warn. The last word is mine.
+>
+> TV Janitor doesn't decide for the owner what they need. It gives them the tools to decide.
+
+**How this came about.** Before showing TV Janitor to anyone, I asked another AI, ChatGPT, for an outside
+opinion, without telling it the project was mine. It read the code like a reviewer who owes us nothing. Some of
+what it found was real, and 0.9.2-test.2 fixes it: the stock home screen now stays off only once Home has really
+opened the new one, and the summaries count what Android reports, not what was asked for. Other points we
+argued about. It called the freedom to switch off something important a flaw; I said that is the whole point.
+Somewhere in that argument it put the project into four words better than I had: *my TV, my rules*.
+
+The irony isn't lost on me: a tool of one corporation helped me get away from the tools of others. And for
+the record, the Janitor doesn't delete anything. The only thing it really cleans up is memory. — *Marginalion*
+
 ## Two editions
 
 | | **Lite** | **Full** |
@@ -102,7 +122,7 @@ debug key; such a build can't update the official release in place.
   To take the app's access away: Developer options → Revoke USB debugging authorisations.
 - Android 8.0 (API 26) or newer. Not for LG webOS, Samsung Tizen, Hisense VIDAA or Fire TV.
 - Tested on: Novex NVX-32H219MSY (Yandex TV, Android 9, HiSilicon, 1 GB), Novex NWX-32H171MSY (Yandex TV,
-  Android 9, MediaTek, 1 GB), Xiaomi Mi TV 4A (Android 11, 2 GB). Philips is next.
+  Android 9, MediaTek, 1 GB), Xiaomi Mi TV 4A (Android 11, 2 GB), Philips 50PUS8505 (Android 12).
 - "Nearly the same" TVs can differ a lot inside: compare a TV with itself before and after, not with another TV.
 - You use it at your own risk (see the warnings in the app and [LICENSE](LICENSE)).
 
@@ -147,6 +167,26 @@ MIT, see [LICENSE](LICENSE). The bundled launcher (modified) and the hint base c
 с этим не поспорит. Поэтому уборщик переехал на сам телевизор: он помнит твой выбор и возвращает его после
 каждой загрузки. А потом вырос в приложение для любого Android TV: спрашивает, чем ты пользуешься, знает,
 что трогать нельзя, и всё отменяет одной кнопкой. — *Marginalion*
+
+**Мой телевизор. Мои правила.**
+
+> Я купил телевизор, а не право пользоваться чужими настройками.
+>
+> Я сам решаю, какие приложения мне нужны, какие службы должны работать и какие функции стоит отключить.
+>
+> Производитель может рекомендовать. Программа может предупреждать. Но окончательное решение остаётся за мной.
+>
+> TV Janitor не решает за владельца, что ему нужно. Он даёт инструменты для осознанного управления устройством.
+
+**Как появился манифест.** Прежде чем кому-то показывать Уборщика, я попросил другой ИИ, ChatGPT, оценить его
+со стороны и не сказал, что проект мой. Он читал код как ревьюер, который нам ничего не должен. Часть
+замечаний оказалась по делу, и в 0.9.2-test.2 они исправлены: заводская оболочка теперь остаётся выключенной,
+только если «Домой» действительно открыл новую, а итоги считают то, что показывает Android, а не то, что
+собирались сделать. О другом мы спорили. Свободу отключить даже важное он назвал недостатком, а я ответил,
+что в этом весь смысл. Где-то в этом споре он сформулировал проект лучше меня: *мой телевизор — мои правила*.
+
+Ирония не ускользнула: инструмент одной корпорации помог мне уйти от инструментов других. И для протокола:
+Уборщик ничего не удаляет. По-настоящему он убирает только память. — *Marginalion*
 
 **Чистит любой телевизор на Android TV или Google TV прямо на нём самом, после установки компьютер не
 нужен.** Спрашивает, чем вы пользуетесь, отключает лишнее, может поставить чистую оболочку и повторяет всё
