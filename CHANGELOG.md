@@ -7,6 +7,7 @@
 - After boot, packages the firmware itself keeps disabled are no longer "disabled" again (that only threw an
   error, e.g. org.droidtv.freeviewplayers on Philips).
 - The hint about the developers' test script appears only in debug builds.
+- docs/HOW-IT-DECIDES.md: every rule the app follows, in English and Russian.
 
 ## 0.9.1-beta (2026-10-25)
 

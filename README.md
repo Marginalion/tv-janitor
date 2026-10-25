@@ -68,6 +68,8 @@ ADB at 127.0.0.1. Lite never goes online: its build switches off the base update
   is sent anywhere by the app.
 - Leaves nothing behind: about 0 MB when closed.
 
+How every decision is made, rule by rule: **[docs/HOW-IT-DECIDES.md](docs/HOW-IT-DECIDES.md)**.
+
 ## Install
 
 **Ready-made APK:** download `TVJanitor-0.9-beta-lite.apk` or `TVJanitor-0.9-beta-full.apk` from
@@ -160,6 +162,8 @@ MIT, see [LICENSE](LICENSE). The bundled launcher (modified) and the hint base c
 пульт, системные службы, оверлеи прошивки); ядро Android не трогается никогда; база CleanYourTV примерно на
 300 телевизоров; применение порциями с автооткатом; «Вернуть всё как было»; отчёт после загрузки; новая
 оболочка с проверкой SHA-256; «Поделиться опытом» только по вашему согласию.
+
+**Как Уборщик решает, что трогать:** по шагам и по-русски — в [docs/HOW-IT-DECIDES.md](docs/HOW-IT-DECIDES.md#как-уборщик-принимает-решения).
 
 **Установка:** скачайте APK со страницы [Releases](../../releases) и сверьте с `SHA256SUMS.txt`, затем
 команды из раздела «Install» выше. Или вставьте [PROMPT.ru.md](PROMPT.ru.md) в ИИ-помощника.
