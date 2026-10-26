@@ -536,3 +536,18 @@ Live Channels	Live Channels
 ⚠ Не включилось: 	⚠ Açılamadı: 
 По «Домой» открылось: 	Ana ekran tuşu şunu açtı: 
 ⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ Ana ekran tuşu yeni ana ekranı açmadı, bu yüzden fabrika ana ekranı yerinde kaldı. Yenisini uygulama listesinden açabilirsiniz.
+Держать отладку по сети включённой	Ağ üzerinden hata ayıklamayı açık tut
+Проверяю, умеет ли Уборщик сам включать отладку…	TV Janitor'ın hata ayıklamayı kendisi açıp açamadığını kontrol ediyorum…
+Закрыть телевизор от чужих?	Televizyonu yabancılara kapatalım mı?
+Сейчас отладка по сети включена всегда: любой в вашей сети может попросить доступ к телевизору. 	Şu anda ağ üzerinden hata ayıklama hep açık: ağınızdaki herkes televizyona erişim isteyebilir. 
+Уборщик может включать её только на время своей работы (после загрузки — около минуты) и выключать сам. 	TV Janitor onu yalnızca çalışırken açıp (açılıştan sonra yaklaşık bir dakika) sonra kendisi kapatabilir. 
+Сначала проверю, что на этом телевизоре она включается обратно. Если вы подключаетесь к телевизору с компьютера, выберите «Оставить как есть».	Önce bu televizyonda yeniden açıldığını kontrol edeceğim. Televizyona bilgisayardan bağlanıyorsanız "Olduğu gibi bırak"ı seçin.
+Проверить и закрыть	Kontrol et ve kapat
+Оставить как есть	Olduğu gibi bırak
+нужно, только если вы подключаетесь к телевизору с компьютера. Иначе Уборщик включает её лишь на время работы, и чужие в сети до телевизора не достучатся	yalnızca televizyona bilgisayardan bağlanıyorsanız gerekir. Aksi halde TV Janitor onu yalnızca çalışırken açar ve ağdaki yabancılar televizyona ulaşamaz
+Включаю отладку на время работы	Çalışırken hata ayıklamayı açıyorum
+Получил право самому включать и выключать отладку	Hata ayıklamayı kendim açıp kapatma iznini aldım
+⚠ Нет права включать отладку: откройте Уборщика ещё раз, пока отладка включена	⚠ Hata ayıklamayı değiştirme izni yok: hata ayıklama açıkken TV Janitor'ı yeniden açın
+Проверяю: выключаю отладку и включаю обратно…	Kontrol ediyorum: hata ayıklamayı kapatıp yeniden açıyorum…
+✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ Tamam: hata ayıklama artık yalnızca TV Janitor çalışırken açık
+⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ Kapattıktan sonra ağ üzerinden hata ayıklama kendiliğinden geri gelmedi. Geliştirici seçeneklerinde "Ağ üzerinden hata ayıklama"yı açın: TV Janitor onu artık kapatmayacak.

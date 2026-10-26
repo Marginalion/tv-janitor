@@ -533,5 +533,20 @@
 ". Nach einem Neustart versuche ich es noch einmal.",
 "⚠ Nicht eingeschaltet:",
 "„Home“ hat geöffnet:",
-"⚠ „Home“ hat den neuen Startbildschirm nicht geöffnet, daher bleibt der ab Werk. Den neuen können Sie aus der App-Liste öffnen."
+"⚠ „Home“ hat den neuen Startbildschirm nicht geöffnet, daher bleibt der ab Werk. Den neuen können Sie aus der App-Liste öffnen.",
+"Netzwerk-Debugging eingeschaltet lassen",
+"Prüfe, ob TV Janitor das Debugging selbst einschalten kann…",
+"Den Fernseher für Fremde schließen?",
+"Netzwerk-Debugging ist jetzt ständig an: Jeder in Ihrem Netz kann Zugriff auf den Fernseher anfragen.",
+"TV Janitor kann es nur einschalten, während es arbeitet (etwa eine Minute nach dem Start), und danach selbst wieder ausschalten.",
+"Zuerst prüfe ich, dass es sich auf diesem Fernseher wieder einschalten lässt. Wenn Sie sich vom Computer mit dem Fernseher verbinden, wählen Sie „So lassen“.",
+"Prüfen und schließen",
+"So lassen",
+"nur nötig, wenn Sie sich vom Computer mit dem Fernseher verbinden. Sonst schaltet TV Janitor es nur während der Arbeit ein, und Fremde im Netz erreichen den Fernseher nicht",
+"Schalte Debugging für die Dauer der Arbeit ein",
+"Habe das Recht erhalten, Debugging selbst ein- und auszuschalten",
+"⚠ Kein Recht, Debugging zu schalten: Öffnen Sie TV Janitor erneut, solange Debugging an ist",
+"Prüfe: schalte Debugging aus und wieder ein…",
+"✔ Geschafft: Debugging ist jetzt nur an, während TV Janitor arbeitet",
+"⚠ Nach dem Ausschalten kam Netzwerk-Debugging nicht von selbst zurück. Schalten Sie „Netzwerk-Debugging“ in den Entwickleroptionen ein: TV Janitor schaltet es nicht mehr aus."
 ]

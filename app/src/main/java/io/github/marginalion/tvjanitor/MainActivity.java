@@ -37,11 +37,11 @@ public class MainActivity extends Activity {
     private Button launcherBtn, applyBtn;
     private final List<Row> rows = new ArrayList<>();
     private Map<String, Long> mem = new HashMap<>();
-    private CheckBox anim, cache, killbg, dns, expert;
+    private CheckBox anim, cache, killbg, dns, expert, keepS, keepE;
     /** Jobs started and not finished yet. A counter, not a flag: two jobs can overlap (Home screen install,
      *  then Apply), and the process must not end while any of them still has work queued. */
     private static final java.util.concurrent.atomic.AtomicInteger jobs = new java.util.concurrent.atomic.AtomicInteger();
-    private static boolean busy() { return jobs.get() > 0; }
+    static boolean busy() { return jobs.get() > 0; }
     private boolean openingLog;
 
     @Override protected void onCreate(Bundle b) {
@@ -113,6 +113,8 @@ public class MainActivity extends Activity {
         LinearLayout sb2 = row();
         if (Edition.LITE) add(sb2, sRestore); else { if (STORES) add(sb2, sStore); add(sb2, toExpert); }
         simple.addView(sb2);
+        keepS = keepAdbBox();
+        simple.addView(keepS);
         root.addView(simple);
 
         LinearLayout full = new LinearLayout(this);
@@ -159,6 +161,8 @@ public class MainActivity extends Activity {
         root.addView(anim); root.addView(cache); root.addView(killbg);
         if (android.os.Build.VERSION.SDK_INT >= 28) root.addView(dns);
         root.addView(expert);
+        keepE = keepAdbBox();
+        root.addView(keepE);
 
         list = new LinearLayout(this);
         list.setOrientation(LinearLayout.VERTICAL);
@@ -381,6 +385,7 @@ public class MainActivity extends Activity {
                         : "");
                 show(status, "");
                 buildList();
+                if (m.containsKey("_connected")) offerCloseAdb();
             });
         }).start();
     }
@@ -597,7 +602,7 @@ public class MainActivity extends Activity {
             finishAndRemoveTask();
             new Thread(() -> {
                 while (busy()) { try { Thread.sleep(500); } catch (InterruptedException ignored) {} }
-                synchronized (Ops.LOCK) { android.os.Process.killProcess(android.os.Process.myPid()); }
+                synchronized (Ops.LOCK) { AdbGate.close(this); android.os.Process.killProcess(android.os.Process.myPid()); }
             }).start();
         }
     }
@@ -672,6 +677,48 @@ public class MainActivity extends Activity {
         String mark = r.state == 0 ? T.t("✅ Работает") : r.state == 1 ? T.t("💤 Не запускается само") : T.t("⛔ Отключено");
         String warn = r.level.equals(IMPORTANT) ? "⚠ " : "";
         r.box.setText(Style.twoLines(mark + "   " + warn + r.label + (r.kb > 0 ? "  ·  " + r.kb / 1024 + T.t(" МБ") : ""), r.sub));
+    }
+
+    private static final String KEEP_SUB = "нужно, только если вы подключаетесь к телевизору с компьютера. Иначе Уборщик включает её лишь на время работы, и чужие в сети до телевизора не достучатся";
+
+    /** "Keep network debugging on": the same flag on both screens. Unticking it the first time runs the test. */
+    private CheckBox keepAdbBox() {
+        CheckBox b = check(T.t("Держать отладку по сети включённой"), T.t(KEEP_SUB), store.flag("keepAdb", true));
+        b.setOnCheckedChangeListener((v, on) -> {
+            if (on == store.flag("keepAdb", true) && store.has("keepAdb")) return;
+            store.setFlag("keepAdb", on);
+            syncKeep();
+            if (!on && !store.flag("adbCycleOk", false)) testAdb();
+        });
+        return b;
+    }
+
+    private void syncKeep() {
+        boolean on = store.flag("keepAdb", true);
+        if (keepS != null && keepS.isChecked() != on) keepS.setChecked(on);
+        if (keepE != null && keepE.isChecked() != on) keepE.setChecked(on);
+    }
+
+    private void testAdb() {
+        run(T.t("Проверяю, умеет ли Уборщик сам включать отладку…"), () -> {
+            boolean ok = new Ops(this, this::say).testAdbCycle();
+            runOnUiThread(this::syncKeep);
+            return ok;
+        });
+    }
+
+    /** Once, after the app may switch debugging itself: offer to keep the TV closed while the app isn't working. */
+    private void offerCloseAdb() {
+        if (store.has("keepAdb") || !AdbGate.can(this) || busy()) return;
+        store.setFlag("keepAdb", true);
+        new android.app.AlertDialog.Builder(this)
+                .setTitle(T.t("Закрыть телевизор от чужих?"))
+                .setMessage(T.t("Сейчас отладка по сети включена всегда: любой в вашей сети может попросить доступ к телевизору. ")
+                        + T.t("Уборщик может включать её только на время своей работы (после загрузки — около минуты) и выключать сам. ")
+                        + T.t("Сначала проверю, что на этом телевизоре она включается обратно. Если вы подключаетесь к телевизору с компьютера, выберите «Оставить как есть»."))
+                .setPositiveButton(T.t("Проверить и закрыть"), (d, w) -> { store.setFlag("keepAdb", false); syncKeep(); testAdb(); })
+                .setNegativeButton(T.t("Оставить как есть"), (d, w) -> syncKeep())
+                .show();
     }
 
     private CheckBox check(String label, String sub, boolean checked) {

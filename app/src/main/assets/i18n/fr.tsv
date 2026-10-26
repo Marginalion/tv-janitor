@@ -536,3 +536,18 @@ Live Channels	Live Channels
 ⚠ Не включилось: 	⚠ Non réactivé : 
 По «Домой» открылось: 	Accueil a ouvert : 
 ⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ Accueil n'a pas ouvert le nouvel écran d'accueil : celui d'origine reste en place. Vous pouvez ouvrir le nouveau depuis la liste des applis.
+Держать отладку по сети включённой	Laisser le débogage réseau activé
+Проверяю, умеет ли Уборщик сам включать отладку…	Je vérifie si TV Janitor peut activer le débogage lui-même…
+Закрыть телевизор от чужих?	Fermer le téléviseur aux inconnus ?
+Сейчас отладка по сети включена всегда: любой в вашей сети может попросить доступ к телевизору. 	Le débogage réseau est actuellement toujours activé : n'importe qui sur votre réseau peut demander l'accès au téléviseur. 
+Уборщик может включать её только на время своей работы (после загрузки — около минуты) и выключать сам. 	TV Janitor peut l'activer seulement pendant son travail (environ une minute après le démarrage) et la désactiver lui-même. 
+Сначала проверю, что на этом телевизоре она включается обратно. Если вы подключаетесь к телевизору с компьютера, выберите «Оставить как есть».	D'abord je vérifie qu'il se réactive sur ce téléviseur. Si vous vous connectez au téléviseur depuis un ordinateur, choisissez « Laisser tel quel ».
+Проверить и закрыть	Vérifier et fermer
+Оставить как есть	Laisser tel quel
+нужно, только если вы подключаетесь к телевизору с компьютера. Иначе Уборщик включает её лишь на время работы, и чужие в сети до телевизора не достучатся	utile seulement si vous vous connectez au téléviseur depuis un ordinateur. Sinon TV Janitor ne l'active que pendant son travail et les inconnus du réseau ne peuvent pas joindre le téléviseur
+Включаю отладку на время работы	J'active le débogage le temps du travail
+Получил право самому включать и выключать отладку	Droit obtenu d'activer et désactiver le débogage moi-même
+⚠ Нет права включать отладку: откройте Уборщика ещё раз, пока отладка включена	⚠ Pas le droit de changer le débogage : rouvrez TV Janitor pendant que le débogage est activé
+Проверяю: выключаю отладку и включаю обратно…	Vérification : je désactive le débogage puis le réactive…
+✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ C'est fait : le débogage n'est désormais activé que pendant le travail de TV Janitor
+⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ Après désactivation, le débogage réseau n'est pas revenu tout seul. Activez « Débogage réseau » dans les options pour les développeurs : TV Janitor ne le désactivera plus.

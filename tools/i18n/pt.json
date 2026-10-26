@@ -533,5 +533,20 @@
 ". Tento de novo depois de reiniciar.",
 "⚠ Não foi ativado:",
 "Início abriu:",
-"⚠ Início não abriu o novo ecrã inicial, por isso o de fábrica fica. Pode abrir o novo na lista de aplicações."
+"⚠ Início não abriu o novo ecrã inicial, por isso o de fábrica fica. Pode abrir o novo na lista de aplicações.",
+"Manter a depuração por rede ligada",
+"A verificar se o TV Janitor consegue ligar a depuração sozinho…",
+"Fechar a TV a estranhos?",
+"Agora a depuração por rede está sempre ligada: qualquer pessoa na sua rede pode pedir acesso à TV.",
+"O TV Janitor pode ligá-la só enquanto trabalha (cerca de um minuto após o arranque) e desligá-la sozinho.",
+"Primeiro verifico que nesta TV volta a ligar. Se se liga à TV a partir de um computador, escolha «Deixar como está».",
+"Verificar e fechar",
+"Deixar como está",
+"só é preciso se se ligar à TV a partir de um computador. Caso contrário, o TV Janitor liga-a só enquanto trabalha e estranhos na rede não chegam à TV",
+"Ligo a depuração enquanto trabalho",
+"Obtida a permissão para ligar e desligar a depuração sozinho",
+"⚠ Sem permissão para mudar a depuração: abra o TV Janitor outra vez com a depuração ligada",
+"A verificar: desligo a depuração e volto a ligá-la…",
+"✔ Feito: a depuração agora só fica ligada enquanto o TV Janitor trabalha",
+"⚠ Depois de desligada, a depuração por rede não voltou sozinha. Ligue «Depuração por rede» nas Opções de programador: o TV Janitor não a desligará mais."
 ]

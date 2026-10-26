@@ -41,8 +41,18 @@ final class Ops {
     }
 
     Adb connect(int attempts) {
+        // Debugging may be switched off while the app is not working (AdbGate): open it and give adbd a moment.
+        if (AdbGate.open(c)) { note(T.t("Включаю отладку на время работы")); try { Thread.sleep(3000); } catch (InterruptedException ignored) {} }
         for (int i = 1; i <= attempts; i++) {
-            try { return Adb.connect("127.0.0.1", 5555, c.getFilesDir(), 90000); }
+            try {
+                Adb adb = Adb.connect("127.0.0.1", 5555, c.getFilesDir(), 90000);
+                if (!AdbGate.can(c)) {
+                    // Once: lets the app switch debugging on and off itself. Shell may grant this "development" permission.
+                    adb.shell("pm grant " + BuildInfo.SELF + " " + AdbGate.PERM);
+                    if (AdbGate.can(c)) note(T.t("Получил право самому включать и выключать отладку"));
+                }
+                return adb;
+            }
             catch (Exception e) {
                 note(T.t("Нет связи с ADB (") + i + "/" + attempts + "): " + e.getClass().getSimpleName() + " " + e.getMessage());
                 try { Thread.sleep(5000); } catch (InterruptedException ignored) {}
@@ -203,6 +213,8 @@ final class Ops {
                 store.setSleeping(new java.util.HashSet<>());
                 store.setFlag("launcher", false);
                 store.setFlag("dns", false); store.setFlag("dnsWasOn", false);
+                // "As it was" includes debugging: before TV Janitor it was on all the time.
+                store.setFlag("keepAdb", true);
                 sh(adb, "am start -a android.intent.action.MAIN -c android.intent.category.HOME");
                 if (!still.isEmpty()) {
                     note(T.t("⚠ Не вернулось: ") + still.size() + "  (" + String.join(", ", still) + ")"
@@ -217,6 +229,35 @@ final class Ops {
                 note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
                 return false;
             } finally { adb.close(); save(); }
+        }
+    }
+
+    /**
+     * Once, with the owner watching: switch debugging off, on again, and reconnect. Only if that works on this TV
+     * does the app close debugging when it is done. If it doesn't, debugging is left on and the owner is told.
+     */
+    boolean testAdbCycle() {
+        synchronized (LOCK) {
+            if (!AdbGate.can(c)) { note(T.t("⚠ Нет права включать отладку: откройте Уборщика ещё раз, пока отладка включена")); save(); return false; }
+            if (store.flag("adbCycleOk", false)) return true;
+            note(T.t("Проверяю: выключаю отладку и включаю обратно…"));
+            AdbGate.forceOff(c);
+            try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
+            AdbGate.open(c);
+            try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
+            for (int i = 0; i < 6; i++) {
+                try {
+                    Adb.connect("127.0.0.1", 5555, c.getFilesDir(), 20000).close();
+                    store.setFlag("adbCycleOk", true); store.setFlag("adbCycleFail", false);
+                    note(T.t("✔ Получилось: отладка теперь включается, только пока Уборщик работает"));
+                    save();
+                    return true;
+                } catch (Exception e) { try { Thread.sleep(5000); } catch (InterruptedException ignored) {} }
+            }
+            store.setFlag("adbCycleFail", true); store.setFlag("keepAdb", true);
+            note(T.t("⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать."));
+            save();
+            return false;
         }
     }
 

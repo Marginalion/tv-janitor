@@ -536,3 +536,18 @@ Live Channels	Live Channels
 ⚠ Не включилось: 	⚠ Nicht eingeschaltet: 
 По «Домой» открылось: 	„Home“ hat geöffnet: 
 ⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ „Home“ hat den neuen Startbildschirm nicht geöffnet, daher bleibt der ab Werk. Den neuen können Sie aus der App-Liste öffnen.
+Держать отладку по сети включённой	Netzwerk-Debugging eingeschaltet lassen
+Проверяю, умеет ли Уборщик сам включать отладку…	Prüfe, ob TV Janitor das Debugging selbst einschalten kann…
+Закрыть телевизор от чужих?	Den Fernseher für Fremde schließen?
+Сейчас отладка по сети включена всегда: любой в вашей сети может попросить доступ к телевизору. 	Netzwerk-Debugging ist jetzt ständig an: Jeder in Ihrem Netz kann Zugriff auf den Fernseher anfragen. 
+Уборщик может включать её только на время своей работы (после загрузки — около минуты) и выключать сам. 	TV Janitor kann es nur einschalten, während es arbeitet (etwa eine Minute nach dem Start), und danach selbst wieder ausschalten. 
+Сначала проверю, что на этом телевизоре она включается обратно. Если вы подключаетесь к телевизору с компьютера, выберите «Оставить как есть».	Zuerst prüfe ich, dass es sich auf diesem Fernseher wieder einschalten lässt. Wenn Sie sich vom Computer mit dem Fernseher verbinden, wählen Sie „So lassen“.
+Проверить и закрыть	Prüfen und schließen
+Оставить как есть	So lassen
+нужно, только если вы подключаетесь к телевизору с компьютера. Иначе Уборщик включает её лишь на время работы, и чужие в сети до телевизора не достучатся	nur nötig, wenn Sie sich vom Computer mit dem Fernseher verbinden. Sonst schaltet TV Janitor es nur während der Arbeit ein, und Fremde im Netz erreichen den Fernseher nicht
+Включаю отладку на время работы	Schalte Debugging für die Dauer der Arbeit ein
+Получил право самому включать и выключать отладку	Habe das Recht erhalten, Debugging selbst ein- und auszuschalten
+⚠ Нет права включать отладку: откройте Уборщика ещё раз, пока отладка включена	⚠ Kein Recht, Debugging zu schalten: Öffnen Sie TV Janitor erneut, solange Debugging an ist
+Проверяю: выключаю отладку и включаю обратно…	Prüfe: schalte Debugging aus und wieder ein…
+✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ Geschafft: Debugging ist jetzt nur an, während TV Janitor arbeitet
+⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ Nach dem Ausschalten kam Netzwerk-Debugging nicht von selbst zurück. Schalten Sie „Netzwerk-Debugging“ in den Entwickleroptionen ein: TV Janitor schaltet es nicht mehr aus.

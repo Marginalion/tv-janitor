@@ -536,3 +536,18 @@ Live Channels	Live Channels
 ⚠ Не включилось: 	⚠ Chưa bật được: 
 По «Домой» открылось: 	Nút Home mở ra: 
 ⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ Nút Home không mở màn hình chính mới, nên màn hình gốc được giữ nguyên. Có thể mở màn hình mới từ danh sách ứng dụng.
+Держать отладку по сети включённой	Luôn bật gỡ lỗi qua mạng
+Проверяю, умеет ли Уборщик сам включать отладку…	Đang kiểm tra TV Janitor có tự bật gỡ lỗi được không…
+Закрыть телевизор от чужих?	Đóng TV trước người lạ?
+Сейчас отладка по сети включена всегда: любой в вашей сети может попросить доступ к телевизору. 	Hiện gỡ lỗi qua mạng luôn bật: bất kỳ ai trong mạng của bạn đều có thể xin quyền truy cập TV. 
+Уборщик может включать её только на время своей работы (после загрузки — около минуты) и выключать сам. 	TV Janitor có thể chỉ bật nó khi đang làm việc (khoảng một phút sau khi khởi động) và tự tắt. 
+Сначала проверю, что на этом телевизоре она включается обратно. Если вы подключаетесь к телевизору с компьютера, выберите «Оставить как есть».	Trước tiên tôi sẽ kiểm tra nó có bật lại được trên TV này không. Nếu bạn kết nối TV từ máy tính, hãy chọn "Để nguyên".
+Проверить и закрыть	Kiểm tra và đóng
+Оставить как есть	Để nguyên
+нужно, только если вы подключаетесь к телевизору с компьютера. Иначе Уборщик включает её лишь на время работы, и чужие в сети до телевизора не достучатся	chỉ cần nếu bạn kết nối TV từ máy tính. Nếu không, TV Janitor chỉ bật nó khi làm việc và người lạ trong mạng không thể truy cập TV
+Включаю отладку на время работы	Bật gỡ lỗi trong lúc làm việc
+Получил право самому включать и выключать отладку	Đã có quyền tự bật và tắt gỡ lỗi
+⚠ Нет права включать отладку: откройте Уборщика ещё раз, пока отладка включена	⚠ Không có quyền bật/tắt gỡ lỗi: hãy mở lại TV Janitor khi gỡ lỗi đang bật
+Проверяю: выключаю отладку и включаю обратно…	Đang kiểm tra: tắt gỡ lỗi rồi bật lại…
+✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ Xong: giờ gỡ lỗi chỉ bật khi TV Janitor làm việc
+⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ Sau khi tắt, gỡ lỗi qua mạng không tự bật lại. Hãy bật "Gỡ lỗi qua mạng" trong Tùy chọn nhà phát triển: TV Janitor sẽ không tắt nó nữa.

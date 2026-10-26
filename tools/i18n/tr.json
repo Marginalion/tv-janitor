@@ -533,5 +533,20 @@
 ". Yeniden başlatmadan sonra tekrar deneyeceğim.",
 "⚠ Açılamadı:",
 "Ana ekran tuşu şunu açtı:",
-"⚠ Ana ekran tuşu yeni ana ekranı açmadı, bu yüzden fabrika ana ekranı yerinde kaldı. Yenisini uygulama listesinden açabilirsiniz."
+"⚠ Ana ekran tuşu yeni ana ekranı açmadı, bu yüzden fabrika ana ekranı yerinde kaldı. Yenisini uygulama listesinden açabilirsiniz.",
+"Ağ üzerinden hata ayıklamayı açık tut",
+"TV Janitor'ın hata ayıklamayı kendisi açıp açamadığını kontrol ediyorum…",
+"Televizyonu yabancılara kapatalım mı?",
+"Şu anda ağ üzerinden hata ayıklama hep açık: ağınızdaki herkes televizyona erişim isteyebilir.",
+"TV Janitor onu yalnızca çalışırken açıp (açılıştan sonra yaklaşık bir dakika) sonra kendisi kapatabilir.",
+"Önce bu televizyonda yeniden açıldığını kontrol edeceğim. Televizyona bilgisayardan bağlanıyorsanız \"Olduğu gibi bırak\"ı seçin.",
+"Kontrol et ve kapat",
+"Olduğu gibi bırak",
+"yalnızca televizyona bilgisayardan bağlanıyorsanız gerekir. Aksi halde TV Janitor onu yalnızca çalışırken açar ve ağdaki yabancılar televizyona ulaşamaz",
+"Çalışırken hata ayıklamayı açıyorum",
+"Hata ayıklamayı kendim açıp kapatma iznini aldım",
+"⚠ Hata ayıklamayı değiştirme izni yok: hata ayıklama açıkken TV Janitor'ı yeniden açın",
+"Kontrol ediyorum: hata ayıklamayı kapatıp yeniden açıyorum…",
+"✔ Tamam: hata ayıklama artık yalnızca TV Janitor çalışırken açık",
+"⚠ Kapattıktan sonra ağ üzerinden hata ayıklama kendiliğinden geri gelmedi. Geliştirici seçeneklerinde \"Ağ üzerinden hata ayıklama\"yı açın: TV Janitor onu artık kapatmayacak."
 ]

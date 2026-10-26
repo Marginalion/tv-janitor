@@ -24,6 +24,8 @@ public class CleanerService extends Service {
             new Thread(() -> {
                 if (reason.endsWith("BOOT_COMPLETED")) { try { Thread.sleep(15000); } catch (InterruptedException ignored) {} }
                 new Ops(this, null).bootRun(reason);
+                // Done: close debugging again, unless the app has just been opened on screen with the report.
+                if (App.visible() == 0) AdbGate.close(this);
                 running = false;
                 stopForeground(true);
                 stopSelf();

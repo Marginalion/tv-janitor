@@ -536,3 +536,18 @@ Live Channels	Live Channels
 ⚠ Не включилось: 	⚠ Não foi ativado: 
 По «Домой» открылось: 	Início abriu: 
 ⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ Início não abriu o novo ecrã inicial, por isso o de fábrica fica. Pode abrir o novo na lista de aplicações.
+Держать отладку по сети включённой	Manter a depuração por rede ligada
+Проверяю, умеет ли Уборщик сам включать отладку…	A verificar se o TV Janitor consegue ligar a depuração sozinho…
+Закрыть телевизор от чужих?	Fechar a TV a estranhos?
+Сейчас отладка по сети включена всегда: любой в вашей сети может попросить доступ к телевизору. 	Agora a depuração por rede está sempre ligada: qualquer pessoa na sua rede pode pedir acesso à TV. 
+Уборщик может включать её только на время своей работы (после загрузки — около минуты) и выключать сам. 	O TV Janitor pode ligá-la só enquanto trabalha (cerca de um minuto após o arranque) e desligá-la sozinho. 
+Сначала проверю, что на этом телевизоре она включается обратно. Если вы подключаетесь к телевизору с компьютера, выберите «Оставить как есть».	Primeiro verifico que nesta TV volta a ligar. Se se liga à TV a partir de um computador, escolha «Deixar como está».
+Проверить и закрыть	Verificar e fechar
+Оставить как есть	Deixar como está
+нужно, только если вы подключаетесь к телевизору с компьютера. Иначе Уборщик включает её лишь на время работы, и чужие в сети до телевизора не достучатся	só é preciso se se ligar à TV a partir de um computador. Caso contrário, o TV Janitor liga-a só enquanto trabalha e estranhos na rede não chegam à TV
+Включаю отладку на время работы	Ligo a depuração enquanto trabalho
+Получил право самому включать и выключать отладку	Obtida a permissão para ligar e desligar a depuração sozinho
+⚠ Нет права включать отладку: откройте Уборщика ещё раз, пока отладка включена	⚠ Sem permissão para mudar a depuração: abra o TV Janitor outra vez com a depuração ligada
+Проверяю: выключаю отладку и включаю обратно…	A verificar: desligo a depuração e volto a ligá-la…
+✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ Feito: a depuração agora só fica ligada enquanto o TV Janitor trabalha
+⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ Depois de desligada, a depuração por rede não voltou sozinha. Ligue «Depuração por rede» nas Opções de programador: o TV Janitor não a desligará mais.

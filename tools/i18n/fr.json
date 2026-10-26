@@ -533,5 +533,20 @@
 ". Je réessaierai après un redémarrage.",
 "⚠ Non réactivé :",
 "Accueil a ouvert :",
-"⚠ Accueil n'a pas ouvert le nouvel écran d'accueil : celui d'origine reste en place. Vous pouvez ouvrir le nouveau depuis la liste des applis."
+"⚠ Accueil n'a pas ouvert le nouvel écran d'accueil : celui d'origine reste en place. Vous pouvez ouvrir le nouveau depuis la liste des applis.",
+"Laisser le débogage réseau activé",
+"Je vérifie si TV Janitor peut activer le débogage lui-même…",
+"Fermer le téléviseur aux inconnus ?",
+"Le débogage réseau est actuellement toujours activé : n'importe qui sur votre réseau peut demander l'accès au téléviseur.",
+"TV Janitor peut l'activer seulement pendant son travail (environ une minute après le démarrage) et la désactiver lui-même.",
+"D'abord je vérifie qu'il se réactive sur ce téléviseur. Si vous vous connectez au téléviseur depuis un ordinateur, choisissez « Laisser tel quel ».",
+"Vérifier et fermer",
+"Laisser tel quel",
+"utile seulement si vous vous connectez au téléviseur depuis un ordinateur. Sinon TV Janitor ne l'active que pendant son travail et les inconnus du réseau ne peuvent pas joindre le téléviseur",
+"J'active le débogage le temps du travail",
+"Droit obtenu d'activer et désactiver le débogage moi-même",
+"⚠ Pas le droit de changer le débogage : rouvrez TV Janitor pendant que le débogage est activé",
+"Vérification : je désactive le débogage puis le réactive…",
+"✔ C'est fait : le débogage n'est désormais activé que pendant le travail de TV Janitor",
+"⚠ Après désactivation, le débogage réseau n'est pas revenu tout seul. Activez « Débogage réseau » dans les options pour les développeurs : TV Janitor ne le désactivera plus."
 ]

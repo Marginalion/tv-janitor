@@ -533,5 +533,20 @@
 ". I'll try again after a reboot.",
 "⚠ Not switched on:",
 "Home opened:",
-"⚠ Home didn't open the new home screen, so the stock one stays in place. You can open the new one from the app list."
+"⚠ Home didn't open the new home screen, so the stock one stays in place. You can open the new one from the app list.",
+"Keep network debugging on",
+"Checking whether TV Janitor can switch debugging on by itself…",
+"Close the TV to strangers?",
+"Network debugging is on all the time now: anyone on your network can ask for access to the TV.",
+"TV Janitor can switch it on only while it works (about a minute after boot) and off again by itself.",
+"First I'll check that it comes back on with this TV. If you connect to the TV from a computer, choose \"Leave as it is\".",
+"Check and close",
+"Leave as it is",
+"needed only if you connect to the TV from a computer. Otherwise TV Janitor switches it on only while it works, and strangers on the network can't reach the TV",
+"Switching debugging on while I work",
+"Got the right to switch debugging on and off by itself",
+"⚠ No right to switch debugging: open TV Janitor again while debugging is on",
+"Checking: switching debugging off and on again…",
+"✔ Done: debugging is now on only while TV Janitor works",
+"⚠ After switching off, network debugging didn't come back by itself. Turn \"Network debugging\" on in Developer options: TV Janitor won't switch it off any more."
 ]

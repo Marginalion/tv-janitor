@@ -536,3 +536,18 @@ Live Channels	Live Channels
 ⚠ Не включилось: 	⚠ Not switched on: 
 По «Домой» открылось: 	Home opened: 
 ⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений.	⚠ Home didn't open the new home screen, so the stock one stays in place. You can open the new one from the app list.
+Держать отладку по сети включённой	Keep network debugging on
+Проверяю, умеет ли Уборщик сам включать отладку…	Checking whether TV Janitor can switch debugging on by itself…
+Закрыть телевизор от чужих?	Close the TV to strangers?
+Сейчас отладка по сети включена всегда: любой в вашей сети может попросить доступ к телевизору. 	Network debugging is on all the time now: anyone on your network can ask for access to the TV. 
+Уборщик может включать её только на время своей работы (после загрузки — около минуты) и выключать сам. 	TV Janitor can switch it on only while it works (about a minute after boot) and off again by itself. 
+Сначала проверю, что на этом телевизоре она включается обратно. Если вы подключаетесь к телевизору с компьютера, выберите «Оставить как есть».	First I'll check that it comes back on with this TV. If you connect to the TV from a computer, choose "Leave as it is".
+Проверить и закрыть	Check and close
+Оставить как есть	Leave as it is
+нужно, только если вы подключаетесь к телевизору с компьютера. Иначе Уборщик включает её лишь на время работы, и чужие в сети до телевизора не достучатся	needed only if you connect to the TV from a computer. Otherwise TV Janitor switches it on only while it works, and strangers on the network can't reach the TV
+Включаю отладку на время работы	Switching debugging on while I work
+Получил право самому включать и выключать отладку	Got the right to switch debugging on and off by itself
+⚠ Нет права включать отладку: откройте Уборщика ещё раз, пока отладка включена	⚠ No right to switch debugging: open TV Janitor again while debugging is on
+Проверяю: выключаю отладку и включаю обратно…	Checking: switching debugging off and on again…
+✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ Done: debugging is now on only while TV Janitor works
+⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ After switching off, network debugging didn't come back by itself. Turn "Network debugging" on in Developer options: TV Janitor won't switch it off any more.

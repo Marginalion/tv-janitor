@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- **Debugging open only while TV Janitor works.** Over its own ADB the app grants itself
+  WRITE_SECURE_SETTINGS once; with it, it switches Android's debugging on before it connects and off when it is
+  done: after boot the port is open for about a minute, not all the time. It closes debugging only after a test
+  on that TV has shown it comes back by itself (off, on, reconnect), and never if "Keep network debugging on" is
+  ticked. Asked once, with the owner watching. "Restore everything" puts debugging back to always on.
+
 ## 0.9.2-beta (unreleased)
 
 - The experience report is always in English (app names and features), whatever the TV's language: it is

@@ -533,5 +533,20 @@
 ". Sẽ thử lại sau khi khởi động lại.",
 "⚠ Chưa bật được:",
 "Nút Home mở ra:",
-"⚠ Nút Home không mở màn hình chính mới, nên màn hình gốc được giữ nguyên. Có thể mở màn hình mới từ danh sách ứng dụng."
+"⚠ Nút Home không mở màn hình chính mới, nên màn hình gốc được giữ nguyên. Có thể mở màn hình mới từ danh sách ứng dụng.",
+"Luôn bật gỡ lỗi qua mạng",
+"Đang kiểm tra TV Janitor có tự bật gỡ lỗi được không…",
+"Đóng TV trước người lạ?",
+"Hiện gỡ lỗi qua mạng luôn bật: bất kỳ ai trong mạng của bạn đều có thể xin quyền truy cập TV.",
+"TV Janitor có thể chỉ bật nó khi đang làm việc (khoảng một phút sau khi khởi động) và tự tắt.",
+"Trước tiên tôi sẽ kiểm tra nó có bật lại được trên TV này không. Nếu bạn kết nối TV từ máy tính, hãy chọn \"Để nguyên\".",
+"Kiểm tra và đóng",
+"Để nguyên",
+"chỉ cần nếu bạn kết nối TV từ máy tính. Nếu không, TV Janitor chỉ bật nó khi làm việc và người lạ trong mạng không thể truy cập TV",
+"Bật gỡ lỗi trong lúc làm việc",
+"Đã có quyền tự bật và tắt gỡ lỗi",
+"⚠ Không có quyền bật/tắt gỡ lỗi: hãy mở lại TV Janitor khi gỡ lỗi đang bật",
+"Đang kiểm tra: tắt gỡ lỗi rồi bật lại…",
+"✔ Xong: giờ gỡ lỗi chỉ bật khi TV Janitor làm việc",
+"⚠ Sau khi tắt, gỡ lỗi qua mạng không tự bật lại. Hãy bật \"Gỡ lỗi qua mạng\" trong Tùy chọn nhà phát triển: TV Janitor sẽ không tắt nó nữa."
 ]

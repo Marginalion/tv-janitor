@@ -533,5 +533,20 @@
 ". Lo intentaré de nuevo tras reiniciar.",
 "⚠ No se activó:",
 "Inicio abrió:",
-"⚠ Inicio no abrió la nueva pantalla de inicio, así que se queda la de fábrica. Puede abrir la nueva desde la lista de aplicaciones."
+"⚠ Inicio no abrió la nueva pantalla de inicio, así que se queda la de fábrica. Puede abrir la nueva desde la lista de aplicaciones.",
+"Mantener activada la depuración por red",
+"Comprobando si TV Janitor puede activar la depuración por sí mismo…",
+"¿Cerrar el televisor a extraños?",
+"Ahora la depuración por red está siempre activada: cualquiera en su red puede pedir acceso al televisor.",
+"TV Janitor puede activarla solo mientras trabaja (cerca de un minuto tras el arranque) y desactivarla por sí mismo.",
+"Primero compruebo que en este televisor vuelve a activarse. Si se conecta al televisor desde un ordenador, elija «Dejar como está».",
+"Comprobar y cerrar",
+"Dejar como está",
+"solo hace falta si se conecta al televisor desde un ordenador. Si no, TV Janitor la activa solo mientras trabaja y nadie en la red puede llegar al televisor",
+"Activo la depuración mientras trabajo",
+"Obtenido el permiso para activar y desactivar la depuración por sí mismo",
+"⚠ Sin permiso para cambiar la depuración: abra TV Janitor otra vez con la depuración activada",
+"Comprobando: desactivo la depuración y la vuelvo a activar…",
+"✔ Listo: la depuración ahora solo está activa mientras TV Janitor trabaja",
+"⚠ Tras desactivarla, la depuración por red no volvió sola. Active «Depuración por red» en Opciones de desarrollador: TV Janitor ya no la desactivará."
 ]
