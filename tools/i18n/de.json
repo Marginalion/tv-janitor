@@ -557,5 +557,7 @@
 "Angewendet",
 "Min. nach dem Einschalten: Die Firmware lässt TV Janitor nicht von selbst starten.",
 "🔒 Diese Firmware erlaubt kein Abschalten von:",
-". Das ist der Schutz der Firmware selbst, kein Fehler; ich versuche es nicht erneut."
+". Das ist der Schutz der Firmware selbst, kein Fehler; ich versuche es nicht erneut.",
+"Fernseher neu starten?",
+"Nach dem Neustart prüft TV Janitor, dass alles an seinem Platz ist."
 ]

@@ -557,5 +557,7 @@
 "Đã áp dụng sau",
 "phút sau khi bật: firmware không cho TV Janitor tự khởi động.",
 "🔒 Firmware này không cho tắt:",
-". Đây là cơ chế bảo vệ của chính firmware, không phải lỗi; tôi sẽ không thử lại."
+". Đây là cơ chế bảo vệ của chính firmware, không phải lỗi; tôi sẽ không thử lại.",
+"Khởi động lại TV?",
+"Sau khi khởi động lại, TV Janitor sẽ kiểm tra mọi thứ vẫn đúng chỗ."
 ]

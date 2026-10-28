@@ -557,5 +557,7 @@
 "Appliqué",
 "min après l'allumage : le micrologiciel empêche TV Janitor de démarrer seul.",
 "🔒 Ce micrologiciel refuse de désactiver :",
-". C'est une protection du micrologiciel lui-même, pas une erreur ; je ne réessaierai pas."
+". C'est une protection du micrologiciel lui-même, pas une erreur ; je ne réessaierai pas.",
+"Redémarrer le téléviseur ?",
+"Après le redémarrage, TV Janitor vérifiera que tout est en place."
 ]

@@ -557,5 +557,7 @@
 "Applied",
 "min after power-on: the firmware doesn't let TV Janitor start on its own.",
 "🔒 This firmware won't allow disabling:",
-". That is the firmware's own protection, not an error; I won't try again."
+". That is the firmware's own protection, not an error; I won't try again.",
+"Restart the TV?",
+"After the restart TV Janitor will check that everything is in place."
 ]

@@ -560,3 +560,5 @@ Live Channels	Live Channels
  мин после включения: прошивка не пускает Уборщика в автозапуск.	 min après l'allumage : le micrologiciel empêche TV Janitor de démarrer seul.
 🔒 Эта прошивка не даёт отключить: 	🔒 Ce micrologiciel refuse de désactiver : 
 . Это защита самой прошивки, не ошибка; пробовать снова не буду.	. C'est une protection du micrologiciel lui-même, pas une erreur ; je ne réessaierai pas.
+Перезагрузить телевизор?	Redémarrer le téléviseur ?
+После загрузки Уборщик проверит, что всё на месте.	Après le redémarrage, TV Janitor vérifiera que tout est en place.

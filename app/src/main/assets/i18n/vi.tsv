@@ -560,3 +560,5 @@ Live Channels	Live Channels
  мин после включения: прошивка не пускает Уборщика в автозапуск.	 phút sau khi bật: firmware không cho TV Janitor tự khởi động.
 🔒 Эта прошивка не даёт отключить: 	🔒 Firmware này không cho tắt: 
 . Это защита самой прошивки, не ошибка; пробовать снова не буду.	. Đây là cơ chế bảo vệ của chính firmware, không phải lỗi; tôi sẽ không thử lại.
+Перезагрузить телевизор?	Khởi động lại TV?
+После загрузки Уборщик проверит, что всё на месте.	Sau khi khởi động lại, TV Janitor sẽ kiểm tra mọi thứ vẫn đúng chỗ.

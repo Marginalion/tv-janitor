@@ -560,3 +560,5 @@ Live Channels	Live Channels
  мин после включения: прошивка не пускает Уборщика в автозапуск.	 dk sonra uygulandı: yazılım TV Janitor'ın kendiliğinden başlamasına izin vermiyor.
 🔒 Эта прошивка не даёт отключить: 	🔒 Bu yazılım şunların kapatılmasına izin vermiyor: 
 . Это защита самой прошивки, не ошибка; пробовать снова не буду.	. Bu yazılımın kendi koruması, hata değil; tekrar denemeyeceğim.
+Перезагрузить телевизор?	Televizyon yeniden başlatılsın mı?
+После загрузки Уборщик проверит, что всё на месте.	Yeniden başlatmadan sonra TV Janitor her şeyin yerinde olduğunu kontrol edecek.

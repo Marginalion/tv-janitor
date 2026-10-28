@@ -77,6 +77,8 @@ public class MainActivity extends Activity {
         quirk.setVisibility(store.flag("bootBlocked", false) ? android.view.View.VISIBLE : android.view.View.GONE);
         root.addView(quirk);
         if (Edition.LITE) { store.setFlag("expertUi", false); store.setFlag("expert", false); }
+        // Every fresh start opens the simple screen; "For experts" lasts until the app is closed (recreate keeps it).
+        if (b == null && !getIntent().getBooleanExtra("expert", false)) store.setFlag("expertUi", false);
         boolean simpleUi = !store.flag("expertUi", false);
         if (getIntent().getBooleanExtra("fromFeatures", false))
             root.addView(text(simpleUi ? T.t("✔ Ответы сохранены. Выберите, насколько чистить — обычно хватает «Оптимально».")
@@ -117,9 +119,10 @@ public class MainActivity extends Activity {
         add(sb, simpleLauncher); add(sb, sFeat); add(sb, sShare);
         simple.addView(sb);
         Button toExpert = button(T.t("Для опытных  ›")), sStore = button(T.t("📦 Поставить магазин"));
-        Button sRestore = button(T.t("Вернуть всё как было"));
+        Button sRestore = button(T.t("Вернуть всё как было")), sReboot = button(T.t("Перезагрузить"));
         LinearLayout sb2 = row();
-        if (Edition.LITE) add(sb2, sRestore); else { if (STORES) add(sb2, sStore); add(sb2, toExpert); }
+        add(sb2, sReboot); add(sb2, sRestore);
+        if (!Edition.LITE) { if (STORES) add(sb2, sStore); add(sb2, toExpert); }
         simple.addView(sb2);
         keepS = keepAdbBox();
         simple.addView(keepS);
@@ -190,6 +193,12 @@ public class MainActivity extends Activity {
                 .setMessage(T.t("Уборщик включит обратно всё, что отключал, и вернёт заводские настройки, которые менял. Потом лучше перезагрузить телевизор."))
                 .setNegativeButton(T.t("Отмена"), null)
                 .setPositiveButton(T.t("Вернуть"), (d, w) -> run(T.t("Возвращаю всё как было…"), () -> new Ops(this, this::say).restoreAll()))
+                .show());
+        sReboot.setOnClickListener(v -> new android.app.AlertDialog.Builder(this)
+                .setTitle(T.t("Перезагрузить телевизор?"))
+                .setMessage(T.t("После загрузки Уборщик проверит, что всё на месте."))
+                .setNegativeButton(T.t("Отмена"), null)
+                .setPositiveButton(T.t("Перезагрузить"), (d, w) -> run(T.t("Перезагружаю…"), () -> new Ops(this, this::say).reboot()))
                 .show());
         simpleLauncher.setOnClickListener(v -> toggleLauncher());
         sStore.setOnClickListener(v -> chooseStore());
