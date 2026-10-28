@@ -579,3 +579,6 @@ Live Channels	Live Channels
 ⚠ Заводской «Домой» пока не включился, попробую при следующем запуске.	⚠ Màn hình chính gốc chưa bật lại, sẽ thử lại lần khởi động sau.
 ⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».	⚠ Màn hình chính mới không giữ được — khôi phục màn hình gốc.
 ✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка	✔ Đã tắt màn hình chính gốc; nút Home mở màn hình của chúng tôi
+🧊 заморожено: 	🧊 đã đóng băng: 
+🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: 	🛡 firmware không cho tắt, đóng băng hay dừng: 
+💤 не заморозить, но в фоне не работает: 	💤 không đóng băng được, nhưng không chạy nền: 

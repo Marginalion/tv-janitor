@@ -576,5 +576,8 @@
 "Je désactive l'écran d'accueil d'origine, avec vérification :",
 "⚠ L'écran d'accueil d'origine n'est pas encore réactivé ; nouvel essai au prochain démarrage.",
 "⚠ Le nouvel écran d'accueil n'est pas resté affiché — je rétablis celui d'origine.",
-"✔ Écran d'accueil d'origine désactivé ; Accueil ouvre le nôtre"
+"✔ Écran d'accueil d'origine désactivé ; Accueil ouvre le nôtre",
+"🧊 gelé :",
+"🛡 le firmware n'autorise ni désactivation, ni gel, ni arrêt :",
+"💤 impossible à geler, mais ne tourne plus en arrière-plan :"
 ]

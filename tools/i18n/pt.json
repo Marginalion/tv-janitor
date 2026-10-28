@@ -576,5 +576,8 @@
 "Desativando a tela inicial original, com verificação:",
 "⚠ A tela inicial original ainda não voltou; tento de novo no próximo início.",
 "⚠ A nova tela inicial não ficou na tela — restaurando a original.",
-"✔ Tela inicial original desativada; Início abre a nossa"
+"✔ Tela inicial original desativada; Início abre a nossa",
+"🧊 congelado:",
+"🛡 o firmware não permite desativar, congelar nem parar:",
+"💤 não dá para congelar, mas não roda em segundo plano:"
 ]

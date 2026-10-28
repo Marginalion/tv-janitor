@@ -576,5 +576,8 @@
 "Schalte den Original-Startbildschirm mit Prüfung aus:",
 "⚠ Der Original-Startbildschirm ist noch nicht an; nächster Versuch beim nächsten Start.",
 "⚠ Der neue Startbildschirm blieb nicht — stelle den Original wieder her.",
-"✔ Original-Startbildschirm aus; die Home-Taste öffnet unseren"
+"✔ Original-Startbildschirm aus; die Home-Taste öffnet unseren",
+"🧊 eingefroren:",
+"🛡 die Firmware erlaubt weder Ausschalten, Einfrieren noch Stoppen:",
+"💤 nicht einfrierbar, läuft aber nicht im Hintergrund:"
 ]

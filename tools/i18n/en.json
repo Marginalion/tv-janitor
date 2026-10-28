@@ -576,5 +576,8 @@
 "Switching the stock Home off, with a check:",
 "⚠ The stock Home hasn't come back on yet; I'll try again at the next start.",
 "⚠ The new home screen didn't stay on screen — putting the stock Home back.",
-"✔ The stock Home is off; Home opens our home screen"
+"✔ The stock Home is off; Home opens our home screen",
+"🧊 frozen:",
+"🛡 the firmware allows neither disabling, freezing nor stopping:",
+"💤 can't be frozen, but kept out of the background:"
 ]

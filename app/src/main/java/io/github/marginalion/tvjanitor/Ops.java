@@ -202,6 +202,7 @@ final class Ops {
                 // Check with Android, not with our own count: what is still off has not come back.
                 java.util.Set<String> still = reallyOff(adb, tried);
                 wakeAll(adb, store.sleeping());
+                releaseHeld(adb, null);
                 for (String k : new String[]{"window_animation_scale", "transition_animation_scale", "animator_duration_scale",
                         "activity_manager_constants", "private_dns_mode", "private_dns_specifier"}) {
                     String v = store.str("snap_" + k);
@@ -326,6 +327,57 @@ final class Ops {
         return guilty;
     }
 
+    /**
+     * The firmware refused to disable these (protected). The next best thing, tried in order: freeze them
+     * (pm suspend: installed and enabled, but nothing of theirs runs), else keep them out of the background
+     * (appops, the strictest standby bucket, force-stop). What each one allowed is remembered for the report and
+     * for "Restore everything"; a process the firmware keeps alive whatever we do is named, not hidden.
+     */
+    private void holdBack(Adb adb, Collection<String> pkgs) throws Exception {
+        Set<String> frozen = store.set("frozenPkgs"), held = store.set("heldPkgs"), immortal = store.set("immortalPkgs");
+        for (String p : pkgs) {
+            if (!frozen.contains(p) && adb.shell("pm suspend --user 0 " + p + " 2>&1").contains("new suspended state: true")) {
+                frozen.add(p); held.remove(p); immortal.remove(p);
+                note(T.t("🧊 заморожено: ") + p);
+                continue;
+            }
+            if (frozen.contains(p)) continue;
+            adb.shell("cmd appops set " + p + " RUN_ANY_IN_BACKGROUND ignore 2>&1");
+            adb.shell("cmd appops set " + p + " RUN_IN_BACKGROUND ignore 2>&1");
+            adb.shell("am set-standby-bucket " + p + (android.os.Build.VERSION.SDK_INT >= 30 ? " restricted" : " rare") + " 2>&1");
+            String before = adb.shell("pidof " + p).trim();
+            adb.shell("am force-stop " + p);
+            Thread.sleep(1500);
+            String after = adb.shell("pidof " + p).trim();
+            held.add(p);
+            if (!after.isEmpty() && after.equals(before)) {
+                immortal.add(p);
+                note(T.t("🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: ") + p);
+            } else {
+                immortal.remove(p);
+                note(T.t("💤 не заморозить, но в фоне не работает: ") + p);
+            }
+        }
+        store.setSet("frozenPkgs", frozen); store.setSet("heldPkgs", held); store.setSet("immortalPkgs", immortal);
+    }
+
+    /** Undo holdBack for these packages (all of them when null): the owner unticked them, or "Restore everything". */
+    private void releaseHeld(Adb adb, Collection<String> only) throws Exception {
+        Set<String> frozen = store.set("frozenPkgs"), held = store.set("heldPkgs"), immortal = store.set("immortalPkgs");
+        for (String p : new java.util.TreeSet<>(frozen)) {
+            if (only != null && !only.contains(p)) continue;
+            sh(adb, "pm unsuspend --user 0 " + p); frozen.remove(p);
+        }
+        for (String p : new java.util.TreeSet<>(held)) {
+            if (only != null && !only.contains(p)) continue;
+            sh(adb, "cmd appops set " + p + " RUN_ANY_IN_BACKGROUND allow");
+            sh(adb, "cmd appops set " + p + " RUN_IN_BACKGROUND allow");
+            adb.shell("am set-standby-bucket " + p + " active 2>&1");
+            held.remove(p); immortal.remove(p);
+        }
+        store.setSet("frozenPkgs", frozen); store.setSet("heldPkgs", held); store.setSet("immortalPkgs", immortal);
+    }
+
     /** Of the chosen packages, the ones Android really reports as disabled right now. */
     private static Set<String> reallyOff(Adb adb, Set<String> chosen) throws Exception {
         Set<String> off = new java.util.HashSet<>();
@@ -389,6 +441,9 @@ final class Ops {
                 java.util.Set<String> todo = new java.util.TreeSet<>(store.disabled()); todo.removeAll(nowOff);
                 todo.removeAll(store.set("protectedPkgs"));
                 disableAll(adb, todo);
+                // Protected ones the owner chose: the freeze survives a reboot, the background limits get renewed.
+                java.util.Set<String> held = new java.util.TreeSet<>(store.disabled()); held.retainAll(store.set("heldPkgs"));
+                if (!held.isEmpty()) holdBack(adb, held);
                 store.setSet("appliedOff", reallyOff(adb, store.disabled()));
                 if (!store.disabled().isEmpty()) {
                     String first = store.disabled().iterator().next();
@@ -453,6 +508,7 @@ final class Ops {
                 total = enable.size() + disable.size() + batches * 2 + 3 * sleep.size() + 2 * wake.size() + 7;
                 done = 0;
                 for (String p : enable) sh(adb, "pm enable " + p);
+                releaseHeld(adb, enable);
                 // CleanYourTV: small batches, check between them. A batch that starts a crash loop is put back.
                 Set<String> prot = store.set("protectedPkgs");
                 List<String> todo = new ArrayList<>(disable);
@@ -509,8 +565,11 @@ final class Ops {
                 Set<String> notOff = new java.util.TreeSet<>(disable); notOff.removeAll(off);
                 Set<String> refused = new java.util.TreeSet<>(notOff); refused.retainAll(store.set("protectedPkgs"));
                 notOff.removeAll(refused);
-                if (!refused.isEmpty()) note(T.t("🔒 Эта прошивка не даёт отключить: ") + refused.size() + "  (" + String.join(", ", refused) + ")"
-                        + T.t(". Это защита самой прошивки, не ошибка; пробовать снова не буду."));
+                if (!refused.isEmpty()) {
+                    note(T.t("🔒 Эта прошивка не даёт отключить: ") + refused.size() + "  (" + String.join(", ", refused) + ")"
+                            + T.t(". Это защита самой прошивки, не ошибка; пробовать снова не буду."));
+                    holdBack(adb, refused);
+                }
                 Set<String> notOn = new java.util.TreeSet<>(reallyOff(adb, enable));
                 if (!notOff.isEmpty()) note(T.t("⚠ Не отключилось: ") + notOff.size() + "  (" + String.join(", ", notOff) + ")"
                         + T.t(". Попробую ещё раз после перезагрузки."));

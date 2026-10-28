@@ -576,5 +576,8 @@
 "Fabrika ana ekranını kontrollü kapatıyorum:",
 "⚠ Fabrika ana ekranı henüz açılmadı, bir sonraki başlangıçta yeniden deneyeceğim.",
 "⚠ Yeni ana ekran ekranda kalmadı — fabrika ana ekranını geri getiriyorum.",
-"✔ Fabrika ana ekranı kapalı; Ana Sayfa bizimkini açıyor"
+"✔ Fabrika ana ekranı kapalı; Ana Sayfa bizimkini açıyor",
+"🧊 donduruldu:",
+"🛡 yazılım kapatmaya, dondurmaya ve durdurmaya izin vermiyor:",
+"💤 dondurulamıyor ama arka planda çalışmıyor:"
 ]

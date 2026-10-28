@@ -48,6 +48,9 @@ final class Report {
         if (s.flag("bootBlocked", false)) q.append("#   BOOT_COMPLETED is not delivered to third-party apps: re-applied by a scheduled job a few minutes after boot.\n");
         Set<String> prot = system(pm, s.set("protectedPkgs"));
         if (!prot.isEmpty()) q.append("#   Protected packages (pm disable-user refused by the firmware): ").append(String.join(" ", prot)).append('\n');
+        Set<String> frozen = system(pm, s.set("frozenPkgs")), immortal = system(pm, s.set("immortalPkgs"));
+        if (!frozen.isEmpty()) q.append("#   Protected, but pm suspend works (frozen instead): ").append(String.join(" ", frozen)).append('\n');
+        if (!immortal.isEmpty()) q.append("#   Persistent: can't be disabled, suspended or force-stopped over ADB (needs root): ").append(String.join(" ", immortal)).append('\n');
         if (s.flag("rebootPowersOff", false)) q.append("#   \"reboot\" powers the TV off instead of restarting it: it has to be switched on with the remote.\n");
         if (s.flag("adbInsecure", false)) q.append("#   ro.adb.secure=0: debugging accepts any computer without asking.\n");
         if (q.length() > 0) r.append("#\n# Firmware quirks seen by TV Janitor:\n").append(q);

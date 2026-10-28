@@ -576,5 +576,8 @@
 "Đang tắt màn hình chính gốc, có kiểm tra:",
 "⚠ Màn hình chính gốc chưa bật lại, sẽ thử lại lần khởi động sau.",
 "⚠ Màn hình chính mới không giữ được — khôi phục màn hình gốc.",
-"✔ Đã tắt màn hình chính gốc; nút Home mở màn hình của chúng tôi"
+"✔ Đã tắt màn hình chính gốc; nút Home mở màn hình của chúng tôi",
+"🧊 đã đóng băng:",
+"🛡 firmware không cho tắt, đóng băng hay dừng:",
+"💤 không đóng băng được, nhưng không chạy nền:"
 ]

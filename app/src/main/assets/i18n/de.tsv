@@ -579,3 +579,6 @@ Live Channels	Live Channels
 ⚠ Заводской «Домой» пока не включился, попробую при следующем запуске.	⚠ Der Original-Startbildschirm ist noch nicht an; nächster Versuch beim nächsten Start.
 ⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».	⚠ Der neue Startbildschirm blieb nicht — stelle den Original wieder her.
 ✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка	✔ Original-Startbildschirm aus; die Home-Taste öffnet unseren
+🧊 заморожено: 	🧊 eingefroren: 
+🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: 	🛡 die Firmware erlaubt weder Ausschalten, Einfrieren noch Stoppen: 
+💤 не заморозить, но в фоне не работает: 	💤 nicht einfrierbar, läuft aber nicht im Hintergrund: 

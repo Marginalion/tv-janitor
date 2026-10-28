@@ -576,5 +576,8 @@
 "Desactivo la pantalla de inicio original, con comprobación:",
 "⚠ La pantalla de inicio original aún no se activó; lo intentaré en el próximo inicio.",
 "⚠ La nueva pantalla de inicio no se mantuvo — restauro la original.",
-"✔ Pantalla de inicio original desactivada; Inicio abre la nuestra"
+"✔ Pantalla de inicio original desactivada; Inicio abre la nuestra",
+"🧊 congelado:",
+"🛡 el firmware no permite desactivar, congelar ni detener:",
+"💤 no se puede congelar, pero no funciona en segundo plano:"
 ]

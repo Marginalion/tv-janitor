@@ -579,3 +579,6 @@ Live Channels	Live Channels
 ⚠ Заводской «Домой» пока не включился, попробую при следующем запуске.	⚠ La pantalla de inicio original aún no se activó; lo intentaré en el próximo inicio.
 ⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».	⚠ La nueva pantalla de inicio no se mantuvo — restauro la original.
 ✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка	✔ Pantalla de inicio original desactivada; Inicio abre la nuestra
+🧊 заморожено: 	🧊 congelado: 
+🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: 	🛡 el firmware no permite desactivar, congelar ni detener: 
+💤 не заморозить, но в фоне не работает: 	💤 no se puede congelar, pero no funciona en segundo plano: 

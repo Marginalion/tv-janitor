@@ -29,6 +29,10 @@
   must open the new home screen and still show it 3 seconds later (the exact component, not a name somewhere in
   the line). Otherwise, or if anything fails or the power goes halfway, the stock Home is switched back on and
   checked, at once or at the next start. It is never switched off in a crash-check batch.
+- Packages the firmware won't let anyone disable (protected) are frozen instead (`pm suspend`) when the firmware
+  allows that; otherwise they are kept out of the background (appops, the strictest standby bucket, force-stop),
+  renewed after every boot. A process the firmware keeps alive whatever is done (Sunwind: the Yandex updater) is
+  named in the log and in the report as needing root. Unticking it or "Restore everything" undoes all of this.
 - After boot, packages the firmware protects are no longer reported as "choices not applied yet".
 - The experience report no longer lists protected packages as disabled: the owner chose them, but the firmware
   keeps them on.
