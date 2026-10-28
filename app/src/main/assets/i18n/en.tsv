@@ -642,3 +642,19 @@ Live Channels	Live Channels
 Включено вручную (перезагрузки не было) — оставляю включённым и снимаю отметку: 	Turned on by hand (there was no restart), so it stays on and its tick is removed:  
 Снимок «как было» сохранён: отключено до Уборщика 	Snapshot "as it was" saved: disabled before TV Janitor:  
 Из них не с завода, а отключено кем-то раньше (вернутся при «Вернуть всё как было»): 	Of these, not from the factory but disabled by someone earlier (they come back with "Restore everything"):  
+Включаю…	Turning on…
+Включить	Turn on
+Включить и это?	Turn these on too?
+Включить и их, как с завода?	Turn them on too, as from the factory?
+Оставить отключённым	Leave disabled
+Всё вернулось к снимку «как было». Но ещё до Уборщика на телевизоре было отключено вот это, похоже, другим чистильщиком:	Everything is back to the "as it was" snapshot. But even before TV Janitor these were disabled on the TV, probably by another cleaner:
+Из них, похоже, отключено другим чистильщиком (после «Вернуть всё как было» Уборщик спросит, включить ли их): 	Of these, probably disabled by another cleaner (after "Restore everything" TV Janitor will ask whether to turn them on):  
+Включено отключённое до Уборщика: 	Turned on what was disabled before TV Janitor:  
+. Не включилось: 	. Did not turn on:  
+Включено не Уборщиком (перезагрузки не было) — оставляю включённым и снимаю отметку: 	Turned on by something other than TV Janitor (there was no restart), so it stays on and its tick is removed:  
+♻ Падали снова и снова (10 раз и больше) с момента загрузки, хотя отмечены на отключение — включил обратно: 	♻ Crashed again and again (10 times or more) since boot although ticked to be disabled, turned back on:  
+⚠ Телевизор не перезагрузился. Попробуйте другой способ или перезагрузите его кнопкой питания на пульте (подержите 5 секунд).	⚠ The TV did not restart. Try the other way, or restart it with the remote's power button (hold it for 5 seconds).
+Телевизор не перезагрузился	The TV did not restart
+Эта прошивка, похоже, не слушается такого способа. Попробовать другой? Если он сработает, Уборщик запомнит его для этого телевизора.	This firmware seems to ignore this way. Try the other one? If it works, TV Janitor will remember it for this TV.
+На некоторых телевизорах другой способ выключает их вместо перезагрузки: тогда включите телевизор пультом.	On some TVs the other way switches them off instead of restarting: then switch the TV on with the remote.
+Попробовать другой способ	Try the other way

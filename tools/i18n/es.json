@@ -639,5 +639,21 @@
 "⚠ El televisor no se reinició. Reinícielo con el botón de encendido del mando (manténgalo 5 segundos) o desenchúfelo 10 segundos.",
 "Activado a mano (no hubo reinicio): se queda activado y se quita la marca: ",
 "Instantánea «como estaba» guardada: desactivados antes de TV Janitor: ",
-"De ellos, no de fábrica sino desactivados antes por alguien (vuelven con «Restaurar todo»): "
+"De ellos, no de fábrica sino desactivados antes por alguien (vuelven con «Restaurar todo»): ",
+"Activando…",
+"Activar",
+"¿Activar también estos?",
+"¿Activarlos también, como de fábrica?",
+"Dejar desactivado",
+"Todo ha vuelto a la instantánea «como estaba». Pero ya antes de TV Janitor esto estaba desactivado, probablemente por otro limpiador:",
+"De ellos, probablemente desactivados por otro limpiador (tras «Restaurar todo» TV Janitor preguntará si activarlos): ",
+"Activado lo desactivado antes de TV Janitor: ",
+". No se activó: ",
+"Activado por algo que no es TV Janitor (no hubo reinicio): se queda activado y se quita la marca: ",
+"♻ Fallaron una y otra vez (10 veces o más) desde el arranque aunque marcados para desactivar; reactivados: ",
+"⚠ El televisor no se reinició. Pruebe la otra forma o reinícielo con el botón de encendido del mando (manténgalo 5 segundos).",
+"El televisor no se reinició",
+"Este firmware parece ignorar esta forma. ¿Probar la otra? Si funciona, TV Janitor la recordará para este televisor.",
+"En algunos televisores la otra forma los apaga en vez de reiniciarlos: entonces enciéndalo con el mando.",
+"Probar la otra forma"
 ]

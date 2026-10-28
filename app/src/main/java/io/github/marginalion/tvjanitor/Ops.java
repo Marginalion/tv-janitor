@@ -223,14 +223,14 @@ final class Ops {
                 "activity_manager_constants", "private_dns_mode", "private_dns_specifier"})
             store.setStr("snap_" + k, adb.shell("settings get global " + k).trim());
         store.setStr("snap_home", homeComponent(adb));
-        // Yandex never ships its own parts switched off, so a disabled com.yandex.* means another cleaner got here
-        // first (Novex Cleaner had 23 off, the Yandex home and the HDMI player among them). Those are not the
-        // factory's: "restore everything" brings them back.
+        // A disabled com.yandex.* most likely means another cleaner got here first (Novex Cleaner had 23 off, the
+        // Yandex home and the HDMI player among them). The snapshot keeps them off all the same ("restore" = the
+        // snapshot); after restoring, the owner is asked whether to switch these on too.
         java.util.Set<String> foreign = new java.util.TreeSet<>();
         for (String p : d) if (p.startsWith("com.yandex.") || p.startsWith("ru.yandex.")) foreign.add(p);
         store.setSet("snap_foreign", foreign);
         note(T.t("Снимок «как было» сохранён: отключено до Уборщика ") + d.size() + T.t(" пакетов"));
-        if (!foreign.isEmpty()) note(T.t("Из них не с завода, а отключено кем-то раньше (вернутся при «Вернуть всё как было»): ")
+        if (!foreign.isEmpty()) note(T.t("Из них, похоже, отключено другим чистильщиком (после «Вернуть всё как было» Уборщик спросит, включить ли их): ")
                 + String.join(", ", foreign));
     }
 
@@ -242,7 +242,6 @@ final class Ops {
             if (adb == null) { save(); return false; }
             try {
                 java.util.Set<String> factory = store.set("snap_disabled");
-                factory.removeAll(store.set("snap_foreign"));
                 java.util.Set<String> tried = new java.util.TreeSet<>();
                 for (String l : adb.shell("pm list packages -d").split("\n")) {
                     l = l.trim();
@@ -284,6 +283,38 @@ final class Ops {
                 }
                 note(T.t("Итог: ") + T.t("включено обратно ") + tried.size() + T.t(". Перезагрузите телевизор, чтобы всё встало на места."));
                 return true;
+            } catch (Exception e) {
+                note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
+                return false;
+            } finally { adb.close(); save(); }
+        }
+    }
+
+    /** Disabled before TV Janitor and probably by another cleaner (snap_foreign), still off now. */
+    java.util.Set<String> foreignOff() {
+        java.util.Set<String> f = new java.util.TreeSet<>();
+        android.content.pm.PackageManager pm = c.getPackageManager();
+        for (String p : store.set("snap_foreign")) {
+            try {
+                int st = pm.getApplicationEnabledSetting(p);
+                if (st == android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                        || st == android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER) f.add(p);
+            } catch (IllegalArgumentException notInstalled) {}
+        }
+        return f;
+    }
+
+    /** After "restore everything", and only if the owner said yes: switch on what another cleaner had switched off. */
+    boolean enableForeign(java.util.Set<String> pkgs) {
+        synchronized (LOCK) {
+            Adb adb = connect(3);
+            if (adb == null) { save(); return false; }
+            try {
+                for (String p : pkgs) sh(adb, "pm enable " + p);
+                java.util.Set<String> still = reallyOff(adb, pkgs);
+                note(T.t("Включено отключённое до Уборщика: ") + (pkgs.size() - still.size()) + T.t(" из ") + pkgs.size()
+                        + (still.isEmpty() ? "" : T.t(". Не включилось: ") + String.join(", ", new java.util.TreeSet<>(still))));
+                return still.isEmpty();
             } catch (Exception e) {
                 note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
                 return false;
@@ -362,30 +393,43 @@ final class Ops {
     }
 
     /** Reboot; after boot the Cleaner re-applies, checks what the firmware put back, and opens with a report. */
-    boolean reboot() {
+    boolean reboot() { return reboot(false); }
+
+    /**
+     * Two ways to restart: "svc power reboot" goes through Android (plain "reboot" powers some TVs off: Sunwind),
+     * plain "reboot" is the only one some firmware obeys (Novex accepts svc and does nothing). The one that worked
+     * on this TV is remembered at the next boot; {@code other} tries the one not remembered, at the owner's word.
+     * Never both on a timer: a slow svc followed by "reboot" could power a Sunwind off.
+     */
+    boolean reboot(boolean other) {
         synchronized (LOCK) {
             Adb adb = connect(2);
             if (adb == null) { save(); return false; }
+            String usual = "reboot".equals(store.str("rebootMethod")) ? "reboot" : "svc";
+            String way = other ? (usual.equals("svc") ? "reboot" : "svc") : usual;
             try {
                 store.setFlag("openAfterBoot", true);
                 store.setStr("rebootAskedAt", String.valueOf(System.currentTimeMillis()));
+                store.setStr("rebootAskedBoot", String.valueOf(Boot.count(c)));
+                store.setStr("rebootTrying", way);
                 note(T.t("Перезагружаю телевизор…"));
                 save();
                 Boot.afterRestart(c);
-                // "svc power reboot" goes through Android's own restart; plain "reboot" powers some TVs off
-                // (Sunwind). Some firmwares accept svc and do nothing (Novex): if we are still alive 15 s later,
-                // the plain one; if that does nothing either, say so instead of "done".
-                String r = adb.shell("svc power reboot").toLowerCase(java.util.Locale.ROOT);
-                boolean refused = r.contains("not found") || r.contains("unknown") || r.contains("usage") || r.contains("error");
-                if (!refused) { android.os.SystemClock.sleep(15000); dbg("svc power reboot: still running after 15 s, trying reboot"); }
-                adb.shell("reboot");
-                android.os.SystemClock.sleep(15000);
-                store.setFlag("openAfterBoot", false);
-                Boot.cancelAfterRestart(c);
-                note(T.t("⚠ Телевизор не перезагрузился. Перезагрузите его кнопкой питания на пульте (подержите 5 секунд) или выньте вилку на 10 секунд."));
-                save();
-                return false;
-            } catch (Exception e) { return true; } finally { adb.close(); }
+                adb.shell(way.equals("svc") ? "svc power reboot" : "reboot");
+                android.os.SystemClock.sleep(20000);
+            } catch (Exception e) {
+                // The connection drops when the TV goes down, but also without that: alive 20 s later = no restart.
+                android.os.SystemClock.sleep(20000);
+            } finally { adb.close(); }
+            store.setFlag("openAfterBoot", false);
+            store.setStr("rebootAskedBoot", null);
+            store.setStr("rebootTrying", null);
+            Boot.cancelAfterRestart(c);
+            if (way.equals(store.str("rebootMethod"))) store.setStr("rebootMethod", null);
+            store.setFlag("rebootOfferOther", true);
+            note(T.t("⚠ Телевизор не перезагрузился. Попробуйте другой способ или перезагрузите его кнопкой питания на пульте (подержите 5 секунд)."));
+            save();
+            return false;
         }
     }
 
@@ -573,14 +617,20 @@ final class Ops {
         }
     }
 
-    /** When Uborshchik last put the TV in order, to tell a real reboot from a run on the same boot. */
-    private void markRun() { store.setStr("lastRunAt", String.valueOf(System.currentTimeMillis())); }
+    /** When and on which boot Uborshchik last put the TV in order, to tell a real reboot from a run on the same boot. */
+    private void markRun() {
+        store.setStr("lastRunAt", String.valueOf(System.currentTimeMillis()));
+        store.setStr("lastRunBoot", String.valueOf(Boot.count(c)));
+    }
 
+    /**
+     * By Android's boot counter, not the clock (the clock jumps: NTP, a hand-set time). Not known (no counter, no
+     * mark) counts as a reboot: the cautious side, where the owner's choices are kept and applied again.
+     */
     private boolean rebootedSinceLastRun() {
-        String s = store.str("lastRunAt");
-        if (s == null) return true;
-        try { return System.currentTimeMillis() - Long.parseLong(s) > android.os.SystemClock.elapsedRealtime(); }
-        catch (NumberFormatException e) { return true; }
+        int n = Boot.count(c);
+        String s = store.str("lastRunBoot");
+        return n < 0 || s == null || !s.equals(String.valueOf(n));
     }
 
     /** After boot: put every choice back (some firmware re-enables packages at each boot). */
@@ -626,7 +676,7 @@ final class Ops {
                 if (!back.isEmpty() && !rebootedSinceLastRun()) {
                     Set<String> d = store.disabled(); d.removeAll(back); store.setDisabled(d);
                     Set<String> a = store.set("appliedOff"); a.removeAll(back); store.setSet("appliedOff", a);
-                    note(T.t("Включено вручную (перезагрузки не было) — оставляю включённым и снимаю отметку: ")
+                    note(T.t("Включено не Уборщиком (перезагрузки не было) — оставляю включённым и снимаю отметку: ")
                             + String.join(", ", new java.util.TreeSet<>(back)));
                     back.clear();
                 }
@@ -955,7 +1005,12 @@ final class Ops {
                 String s = store.str("stockHome");
                 boolean stockOff = false;
                 if (s != null) for (String safe : BuildInfo.SAFE_TO_DISABLE_HOME) {
-                    if (safe.equals(s)) { sh(adb, "pm disable-user --user 0 " + s); stockOff = true; }
+                    if (!safe.equals(s)) continue;
+                    // Marker on disk first: whatever happens next (an error, a power cut), the stock Home comes back.
+                    if (!store.commitStr("homeTx", s)) { note(T.t("Не смог записать отметку на диск — заводской «Домой» не трогаю.")); break; }
+                    sh(adb, "pm disable-user --user 0 " + s);
+                    stockOff = !reallyOff(adb, java.util.Collections.singleton(s)).isEmpty();
+                    if (!stockOff) store.commitStr("homeTx", null);
                 }
                 sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
                 String now = homePackage(adb);
@@ -965,12 +1020,12 @@ final class Ops {
                     sh(adb, "input keyevent KEYCODE_HOME");
                     Thread.sleep(2500);
                     top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
-                    onScreen = top.contains(BuildInfo.LAUNCHER);
+                    onScreen = top.contains(BuildInfo.LAUNCHER + "/");
                 }
                 if (!onScreen) {
                     note(T.t("По «Домой» открылось: ") + firstLine(top.trim()));
-                    if (s != null) {
-                        if (stockOff) sh(adb, "pm enable " + s);
+                    if (stockOff) rollbackStockHome(adb);
+                    else if (s != null) {
                         String[] l = adb.shell("cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.HOME " + s).trim().split("\n");
                         String comp = l[l.length - 1].trim();
                         if (comp.startsWith(s + "/")) sh(adb, "cmd package set-home-activity --user 0 " + comp);
@@ -980,7 +1035,7 @@ final class Ops {
                     note(T.t("⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений."));
                     return false;
                 }
-                if (stockOff) { Set<String> d = store.disabled(); d.add(s); store.setDisabled(d); }
+                if (stockOff) { Set<String> d = store.disabled(); d.add(s); store.setDisabled(d); store.commitStr("homeTx", null); }
                 store.setFlag("launcher", true);
                 launcherConfig(adb);
                 note(T.t("Главный экран теперь: ") + now + T.t(" — и он на экране ✔"));
@@ -988,6 +1043,8 @@ final class Ops {
                 return true;
             } catch (Exception e) {
                 note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
+                // Stock Home already off and something broke before the check: put it back now, or at the next run.
+                try { if (store.str("homeTx") != null) rollbackStockHome(adb); } catch (Exception ignored) {}
                 return false;
             } finally { adb.close(); save(); }
         }
@@ -1079,18 +1136,23 @@ final class Ops {
             try { since = new java.text.SimpleDateFormat("MM-dd HH:mm:ss.000", java.util.Locale.US)
                     .format(new java.util.Date(Long.parseLong(store.str("lastRunAt")))); } catch (Exception ignored) {}
         }
+        // One crash of a service can be logged twice (its "Process:" line and Android's "Scheduling restart"): count
+        // each kind apart and take the larger, never the sum.
+        Map<String, Integer> restarts = new HashMap<>();
         for (String[] f : crashes(adb, since)) {
             String pkg = f[0].contains(":") ? f[0].substring(0, f[0].indexOf(':')) : f[0];
-            if (off.contains(pkg)) n.merge(pkg, 1, Integer::sum);
+            if (off.contains(pkg)) (f[1].contains("Scheduling restart") ? restarts : n).merge(pkg, 1, Integer::sum);
         }
+        for (Map.Entry<String, Integer> e : restarts.entrySet()) n.merge(e.getKey(), e.getValue(), Math::max);
         Set<String> loop = new java.util.TreeSet<>();
-        // A real loop restarts every few seconds (Sunwind: 676 times); a handful at boot is not one.
+        // A real loop restarts every few seconds (Sunwind: 676 times); a handful at boot is not one. One look, not a
+        // watch: a slow loop below 10 at this moment is not caught.
         for (Map.Entry<String, Integer> e : n.entrySet()) if (e.getValue() >= 10) loop.add(e.getKey());
         if (loop.isEmpty()) return;
         for (String p : loop) sh(adb, "pm enable " + p);
         off.removeAll(loop); store.setDisabled(off);
         Set<String> cr = store.set("crashers"); cr.addAll(loop); store.setSet("crashers", cr);
-        note(T.t("♻ Падали по кругу, пока были отключены — включил обратно: ") + String.join(", ", loop));
+        note(T.t("♻ Падали снова и снова (10 раз и больше) с момента загрузки, хотя отмечены на отключение — включил обратно: ") + String.join(", ", loop));
     }
 
     /** LeanKey: a light keyboard made for the remote, bundled with the full edition (MIT, built from source). */

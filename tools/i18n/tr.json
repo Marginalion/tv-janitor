@@ -639,5 +639,21 @@
 "⚠ TV yeniden başlamadı. Kumandanın güç tuşuyla yeniden başlatın (5 saniye basılı tutun) ya da fişi 10 saniye çekin.",
 "Elle açıldı (yeniden başlatma olmadı), açık kalıyor ve işareti kaldırılıyor: ",
 "\"Önceki hal\" anlık görüntüsü kaydedildi: TV Janitor öncesi devre dışı ",
-"Bunlardan fabrikadan değil, daha önce biri tarafından kapatılanlar (\"Her şeyi geri yükle\" ile geri gelir): "
+"Bunlardan fabrikadan değil, daha önce biri tarafından kapatılanlar (\"Her şeyi geri yükle\" ile geri gelir): ",
+"Açılıyor…",
+"Aç",
+"Bunlar da açılsın mı?",
+"Bunlar da fabrikadaki gibi açılsın mı?",
+"Kapalı bırak",
+"Her şey \"önceki hal\" anlık görüntüsüne döndü. Ama TV Janitor'dan önce bile şunlar kapatılmıştı, muhtemelen başka bir temizleyici tarafından:",
+"Bunlardan muhtemelen başka bir temizleyicinin kapattıkları (\"Her şeyi geri yükle\"den sonra TV Janitor açılıp açılmayacağını soracak): ",
+"TV Janitor öncesi kapatılanlar açıldı: ",
+". Açılmadı: ",
+"TV Janitor dışında bir şey tarafından açıldı (yeniden başlatma olmadı), açık kalıyor ve işareti kaldırılıyor: ",
+"♻ Kapatılmak üzere işaretli olduğu halde açılıştan beri tekrar tekrar çöktü (10 kez veya daha fazla), yeniden açıldı: ",
+"⚠ TV yeniden başlamadı. Diğer yolu deneyin ya da kumandanın güç tuşuyla yeniden başlatın (5 saniye basılı tutun).",
+"TV yeniden başlamadı",
+"Bu yazılım bu yolu dinlemiyor gibi. Diğerini deneyelim mi? İşe yararsa TV Janitor bu TV için onu hatırlar.",
+"Bazı TV'lerde diğer yol yeniden başlatmak yerine kapatır: o zaman TV'yi kumandayla açın.",
+"Diğer yolu dene"
 ]

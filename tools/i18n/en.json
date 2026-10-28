@@ -639,5 +639,21 @@
 "⚠ The TV did not restart. Restart it with the remote's power button (hold it for 5 seconds) or unplug it for 10 seconds.",
 "Turned on by hand (there was no restart), so it stays on and its tick is removed: ",
 "Snapshot \"as it was\" saved: disabled before TV Janitor: ",
-"Of these, not from the factory but disabled by someone earlier (they come back with \"Restore everything\"): "
+"Of these, not from the factory but disabled by someone earlier (they come back with \"Restore everything\"): ",
+"Turning on…",
+"Turn on",
+"Turn these on too?",
+"Turn them on too, as from the factory?",
+"Leave disabled",
+"Everything is back to the \"as it was\" snapshot. But even before TV Janitor these were disabled on the TV, probably by another cleaner:",
+"Of these, probably disabled by another cleaner (after \"Restore everything\" TV Janitor will ask whether to turn them on): ",
+"Turned on what was disabled before TV Janitor: ",
+". Did not turn on: ",
+"Turned on by something other than TV Janitor (there was no restart), so it stays on and its tick is removed: ",
+"♻ Crashed again and again (10 times or more) since boot although ticked to be disabled, turned back on: ",
+"⚠ The TV did not restart. Try the other way, or restart it with the remote's power button (hold it for 5 seconds).",
+"The TV did not restart",
+"This firmware seems to ignore this way. Try the other one? If it works, TV Janitor will remember it for this TV.",
+"On some TVs the other way switches them off instead of restarting: then switch the TV on with the remote.",
+"Try the other way"
 ]

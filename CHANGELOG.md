@@ -4,20 +4,28 @@
 
 - **Ticks survive the other buttons.** Ticking packages and then pressing the keyboard, launcher or refresh
   button no longer resets the list: the rebuild carries over what was ticked but not applied yet. Apply and
-  Restore still start from the TV as it is.
-- **"Restart" checks that the TV really restarted.** Some firmware (Novex) accepts `svc power reboot` and does
-  nothing. TV Janitor now waits 15 s; if it is still running, it tries plain `reboot`, and if that does nothing
-  either it says so and asks for the power button, instead of reporting success. The after-restart job is
-  cancelled then, so it no longer runs on a TV that never restarted.
-- **A package switched on by hand stays on.** Without a restart since the last run, a package that came back on
-  was put back by a person (adb, Settings), not by the firmware: its tick comes off instead of it being
-  switched off again.
-- **No false crash loops at boot.** "Crashed in a loop while disabled" now needs 10 crashes, and on the same boot
-  as the last run only crashes after that run count. The Yandex keyboard crashes three times at every boot on
-  Novex, on or off, and was switched back on for that.
-- **Another cleaner's work is not the factory's.** At the first snapshot, disabled Yandex packages are recorded
-  as "disabled before TV Janitor", not as factory state: "Restore everything" brings them back (Novex Cleaner had
-  the Yandex home and the HDMI player off). Older snapshots are sorted the same way.
+  Restore still start from the TV as it is, and a tick goes if its package changed meanwhile (rolled back,
+  switched on from outside).
+- **"Restart" checks that the TV really restarted, and never fires a second way on a timer.** Some firmware
+  (Novex) accepts `svc power reboot` and does nothing; on Sunwind plain `reboot` powers the TV off. TV Janitor
+  uses one way; if the TV is still running 20 s later it says so and offers "Try the other way". The way that
+  restarted this TV is remembered (by the boot number) and used next time. The after-restart job is cancelled
+  then, and also does nothing if it ever runs on the same boot it was asked on. An ADB error during the command
+  is no longer taken for success.
+- **Was there a restart? By Android's boot counter, not the clock** (the clock jumps: NTP, a hand-set time).
+  Unknown counts as a restart, the side where choices are kept.
+- **A package switched on from outside stays on.** Without a restart since the last run, a package that came
+  back on was put back by something other than TV Janitor (a person with adb, Settings, another app): its tick
+  comes off instead of it being switched off again.
+- **No false crash loops at boot.** "Crashed again and again" now needs 10 crashes, one crash logged twice (its
+  "Process:" line and Android's restart line) counts once, and on the same boot as the last run only crashes
+  after that run count. The Yandex keyboard crashes three times at every boot on Novex, on or off.
+- **"Restore everything" is the snapshot, exactly.** What was disabled before TV Janitor stays disabled. Then,
+  separately, if Yandex packages were disabled before TV Janitor (probably another cleaner: Novex Cleaner had
+  the Yandex home and the HDMI player off), the app lists them and asks whether to switch them on too.
+- **New launcher: the stock Home comes back whatever happens.** A marker is written to disk before the stock
+  Home is switched off; an error before the check puts it back at once, a power cut at the next run. The stock
+  Home counts as off only if Android says so, and "our launcher is on screen" means its exact component.
 - The launcher restart after writing its config is no longer logged as "💤 doesn't start by itself".
 - **Plain-language descriptions for 344 packages** met on Novex, Sunwind, Philips and Xiaomi: what each does and
   what happens if it is disabled, each readable on its own. Russian in describe.txt, English in describe.en.txt

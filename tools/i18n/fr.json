@@ -639,5 +639,21 @@
 "⚠ Le téléviseur n'a pas redémarré. Redémarrez-le avec la touche marche/arrêt de la télécommande (maintenez 5 secondes) ou débranchez-le 10 secondes.",
 "Activé à la main (pas de redémarrage) : il reste activé et sa coche est retirée : ",
 "Instantané « tel quel » enregistré : désactivés avant TV Janitor : ",
-"Parmi eux, pas d'usine mais désactivés plus tôt par quelqu'un (ils reviennent avec « Tout rétablir ») : "
+"Parmi eux, pas d'usine mais désactivés plus tôt par quelqu'un (ils reviennent avec « Tout rétablir ») : ",
+"Activation…",
+"Activer",
+"Activer aussi ceux-ci ?",
+"Les activer aussi, comme à la sortie d'usine ?",
+"Laisser désactivé",
+"Tout est revenu à l'instantané « tel quel ». Mais avant TV Janitor, ceci était déjà désactivé, sans doute par un autre nettoyeur :",
+"Parmi eux, sans doute désactivés par un autre nettoyeur (après « Tout rétablir », TV Janitor demandera s'il faut les activer) : ",
+"Activé ce qui était désactivé avant TV Janitor : ",
+". Non activé : ",
+"Activé par autre chose que TV Janitor (pas de redémarrage) : il reste activé et sa coche est retirée : ",
+"♻ Plantages répétés (10 fois ou plus) depuis le démarrage bien que cochés pour désactivation, réactivés : ",
+"⚠ Le téléviseur n'a pas redémarré. Essayez l'autre méthode ou redémarrez-le avec la touche marche/arrêt de la télécommande (maintenez 5 secondes).",
+"Le téléviseur n'a pas redémarré",
+"Ce firmware semble ignorer cette méthode. Essayer l'autre ? Si elle marche, TV Janitor la retiendra pour ce téléviseur.",
+"Sur certains téléviseurs, l'autre méthode les éteint au lieu de les redémarrer : rallumez alors avec la télécommande.",
+"Essayer l'autre méthode"
 ]

@@ -639,5 +639,21 @@
 "⚠ TV chưa khởi động lại. Hãy khởi động lại bằng nút nguồn trên điều khiển (giữ 5 giây) hoặc rút phích cắm 10 giây.",
 "Được bật thủ công (không có khởi động lại), nên giữ bật và bỏ đánh dấu: ",
 "Đã lưu ảnh chụp \"như cũ\": đã tắt trước TV Janitor ",
-"Trong đó không phải từ nhà máy mà do ai đó tắt trước (sẽ trở lại khi \"Khôi phục tất cả\"): "
+"Trong đó không phải từ nhà máy mà do ai đó tắt trước (sẽ trở lại khi \"Khôi phục tất cả\"): ",
+"Đang bật…",
+"Bật",
+"Bật cả những cái này?",
+"Bật cả chúng như khi xuất xưởng?",
+"Để tắt",
+"Mọi thứ đã trở về ảnh chụp \"như cũ\". Nhưng ngay trước TV Janitor, những thứ này đã bị tắt, có lẽ bởi một trình dọn dẹp khác:",
+"Trong đó, có lẽ do trình dọn dẹp khác tắt (sau \"Khôi phục tất cả\", TV Janitor sẽ hỏi có bật chúng không): ",
+"Đã bật những gì bị tắt trước TV Janitor: ",
+". Không bật được: ",
+"Được bật không phải bởi TV Janitor (không có khởi động lại), nên giữ bật và bỏ đánh dấu: ",
+"♻ Bị lỗi liên tục (10 lần trở lên) kể từ khi khởi động dù đã đánh dấu tắt, đã bật lại: ",
+"⚠ TV chưa khởi động lại. Hãy thử cách khác hoặc khởi động lại bằng nút nguồn trên điều khiển (giữ 5 giây).",
+"TV chưa khởi động lại",
+"Firmware này có vẻ không nghe theo cách này. Thử cách khác? Nếu được, TV Janitor sẽ nhớ cách đó cho TV này.",
+"Trên một số TV, cách khác sẽ tắt TV thay vì khởi động lại: khi đó hãy bật TV bằng điều khiển.",
+"Thử cách khác"
 ]

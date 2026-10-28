@@ -639,5 +639,21 @@
 "⚠ Der Fernseher hat nicht neu gestartet. Starten Sie ihn mit der Ein/Aus-Taste der Fernbedienung neu (5 Sekunden halten) oder ziehen Sie den Stecker für 10 Sekunden.",
 "Von Hand eingeschaltet (kein Neustart), bleibt also an, Häkchen entfernt: ",
 "Schnappschuss „wie es war\" gespeichert: vor TV Janitor deaktiviert: ",
-"Davon nicht ab Werk, sondern früher von jemandem deaktiviert (kommen mit „Alles wiederherstellen\" zurück): "
+"Davon nicht ab Werk, sondern früher von jemandem deaktiviert (kommen mit „Alles wiederherstellen\" zurück): ",
+"Schalte ein…",
+"Einschalten",
+"Auch diese einschalten?",
+"Auch diese einschalten, wie ab Werk?",
+"Deaktiviert lassen",
+"Alles ist wieder wie im Schnappschuss „wie es war\". Aber schon vor TV Janitor war Folgendes deaktiviert, wohl von einem anderen Cleaner:",
+"Davon wohl von einem anderen Cleaner deaktiviert (nach „Alles wiederherstellen\" fragt TV Janitor, ob sie eingeschaltet werden sollen): ",
+"Vor TV Janitor Deaktiviertes eingeschaltet: ",
+". Nicht eingeschaltet: ",
+"Nicht von TV Janitor eingeschaltet (kein Neustart), bleibt also an, Häkchen entfernt: ",
+"♻ Seit dem Start immer wieder abgestürzt (10-mal oder öfter), obwohl zum Deaktivieren markiert, wieder eingeschaltet: ",
+"⚠ Der Fernseher hat nicht neu gestartet. Versuchen Sie den anderen Weg oder starten Sie ihn mit der Ein/Aus-Taste der Fernbedienung neu (5 Sekunden halten).",
+"Der Fernseher hat nicht neu gestartet",
+"Diese Firmware scheint diesen Weg zu ignorieren. Den anderen versuchen? Wenn er klappt, merkt sich TV Janitor ihn für diesen Fernseher.",
+"Bei manchen Fernsehern schaltet der andere Weg sie aus statt neu zu starten: dann mit der Fernbedienung einschalten.",
+"Anderen Weg versuchen"
 ]

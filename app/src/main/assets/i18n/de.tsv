@@ -642,3 +642,19 @@ Live Channels	Live Channels
 Включено вручную (перезагрузки не было) — оставляю включённым и снимаю отметку: 	Von Hand eingeschaltet (kein Neustart), bleibt also an, Häkchen entfernt:  
 Снимок «как было» сохранён: отключено до Уборщика 	Schnappschuss „wie es war" gespeichert: vor TV Janitor deaktiviert:  
 Из них не с завода, а отключено кем-то раньше (вернутся при «Вернуть всё как было»): 	Davon nicht ab Werk, sondern früher von jemandem deaktiviert (kommen mit „Alles wiederherstellen" zurück):  
+Включаю…	Schalte ein…
+Включить	Einschalten
+Включить и это?	Auch diese einschalten?
+Включить и их, как с завода?	Auch diese einschalten, wie ab Werk?
+Оставить отключённым	Deaktiviert lassen
+Всё вернулось к снимку «как было». Но ещё до Уборщика на телевизоре было отключено вот это, похоже, другим чистильщиком:	Alles ist wieder wie im Schnappschuss „wie es war". Aber schon vor TV Janitor war Folgendes deaktiviert, wohl von einem anderen Cleaner:
+Из них, похоже, отключено другим чистильщиком (после «Вернуть всё как было» Уборщик спросит, включить ли их): 	Davon wohl von einem anderen Cleaner deaktiviert (nach „Alles wiederherstellen" fragt TV Janitor, ob sie eingeschaltet werden sollen):  
+Включено отключённое до Уборщика: 	Vor TV Janitor Deaktiviertes eingeschaltet:  
+. Не включилось: 	. Nicht eingeschaltet:  
+Включено не Уборщиком (перезагрузки не было) — оставляю включённым и снимаю отметку: 	Nicht von TV Janitor eingeschaltet (kein Neustart), bleibt also an, Häkchen entfernt:  
+♻ Падали снова и снова (10 раз и больше) с момента загрузки, хотя отмечены на отключение — включил обратно: 	♻ Seit dem Start immer wieder abgestürzt (10-mal oder öfter), obwohl zum Deaktivieren markiert, wieder eingeschaltet:  
+⚠ Телевизор не перезагрузился. Попробуйте другой способ или перезагрузите его кнопкой питания на пульте (подержите 5 секунд).	⚠ Der Fernseher hat nicht neu gestartet. Versuchen Sie den anderen Weg oder starten Sie ihn mit der Ein/Aus-Taste der Fernbedienung neu (5 Sekunden halten).
+Телевизор не перезагрузился	Der Fernseher hat nicht neu gestartet
+Эта прошивка, похоже, не слушается такого способа. Попробовать другой? Если он сработает, Уборщик запомнит его для этого телевизора.	Diese Firmware scheint diesen Weg zu ignorieren. Den anderen versuchen? Wenn er klappt, merkt sich TV Janitor ihn für diesen Fernseher.
+На некоторых телевизорах другой способ выключает их вместо перезагрузки: тогда включите телевизор пультом.	Bei manchen Fernsehern schaltet der andere Weg sie aus statt neu zu starten: dann mit der Fernbedienung einschalten.
+Попробовать другой способ	Anderen Weg versuchen

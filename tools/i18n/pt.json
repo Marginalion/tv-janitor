@@ -639,5 +639,21 @@
 "⚠ A TV não reiniciou. Reinicie-a com o botão de ligar do controle (segure 5 segundos) ou tire da tomada por 10 segundos.",
 "Ativado à mão (não houve reinício): fica ativado e a marcação é retirada: ",
 "Instantâneo \"como estava\" salvo: desativados antes do TV Janitor: ",
-"Destes, não de fábrica, mas desativados antes por alguém (voltam com \"Restaurar tudo\"): "
+"Destes, não de fábrica, mas desativados antes por alguém (voltam com \"Restaurar tudo\"): ",
+"Ativando…",
+"Ativar",
+"Ativar estes também?",
+"Ativá-los também, como de fábrica?",
+"Deixar desativado",
+"Tudo voltou ao instantâneo \"como estava\". Mas já antes do TV Janitor isto estava desativado, provavelmente por outro limpador:",
+"Destes, provavelmente desativados por outro limpador (após \"Restaurar tudo\" o TV Janitor perguntará se deve ativá-los): ",
+"Ativado o que estava desativado antes do TV Janitor: ",
+". Não ativou: ",
+"Ativado por algo que não é o TV Janitor (não houve reinício): fica ativado e a marcação é retirada: ",
+"♻ Travaram de novo e de novo (10 vezes ou mais) desde a inicialização, embora marcados para desativar; reativados: ",
+"⚠ A TV não reiniciou. Tente a outra forma ou reinicie-a com o botão de ligar do controle (segure 5 segundos).",
+"A TV não reiniciou",
+"Este firmware parece ignorar esta forma. Tentar a outra? Se funcionar, o TV Janitor vai lembrá-la para esta TV.",
+"Em algumas TVs a outra forma desliga em vez de reiniciar: então ligue a TV pelo controle.",
+"Tentar a outra forma"
 ]

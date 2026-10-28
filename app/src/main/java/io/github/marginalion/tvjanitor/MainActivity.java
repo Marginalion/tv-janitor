@@ -206,13 +206,13 @@ public class MainActivity extends Activity {
                 .setTitle(T.t("Вернуть всё как было?"))
                 .setMessage(T.t("Уборщик включит обратно всё, что отключал, и вернёт заводские настройки, которые менял. Потом лучше перезагрузить телевизор."))
                 .setNegativeButton(T.t("Отмена"), null)
-                .setPositiveButton(T.t("Вернуть"), (d, w) -> { keepTicks = false; run(T.t("Возвращаю всё как было…"), () -> new Ops(this, this::say).restoreAll()); })
+                .setPositiveButton(T.t("Вернуть"), (d, w) -> restore())
                 .show());
         sReboot.setOnClickListener(v -> new android.app.AlertDialog.Builder(this)
                 .setTitle(T.t("Перезагрузить телевизор?"))
                 .setMessage(T.t("После загрузки Уборщик проверит, что всё на месте.") + rebootNote())
                 .setNegativeButton(T.t("Отмена"), null)
-                .setPositiveButton(T.t("Перезагрузить"), (d, w) -> run(T.t("Перезагружаю…"), () -> new Ops(this, this::say).reboot()))
+                .setPositiveButton(T.t("Перезагрузить"), (d, w) -> reboot(false))
                 .show());
         simpleLauncher.setOnClickListener(v -> toggleLauncher());
         sStore.setOnClickListener(v -> chooseStore());
@@ -221,7 +221,7 @@ public class MainActivity extends Activity {
         sShare.setOnClickListener(v -> { openingLog = true; startActivity(new Intent(this, ReportActivity.class)); });
 
         applyBtn.setOnClickListener(v -> apply());
-        rebootBtn.setOnClickListener(v -> { saveFlags(); run(T.t("Перезагружаю…"), () -> new Ops(this, this::say).reboot()); });
+        rebootBtn.setOnClickListener(v -> { saveFlags(); reboot(false); });
         launcherBtn.setOnClickListener(v -> toggleLauncher());
         kbBtn.setOnClickListener(v -> {
             boolean ours = leanKeyInUse();
@@ -232,7 +232,7 @@ public class MainActivity extends Activity {
                 return ok;
             });
         });
-        restoreBtn.setOnClickListener(v -> { keepTicks = false; run(T.t("Возвращаю всё как было…"), () -> new Ops(this, this::say).restoreAll()); });
+        restoreBtn.setOnClickListener(v -> restore());
         removeBtn.setOnClickListener(v -> new android.app.AlertDialog.Builder(this)
                 .setTitle(T.t("Удалить Уборщика начисто?"))
                 .setMessage(T.t("Если просто удалить Уборщика, всё отключённое так и останется отключённым: Android хранит это сам. ")
@@ -387,8 +387,56 @@ public class MainActivity extends Activity {
                 .setTitle(T.t("Готово ✔"))
                 .setMessage(T.t("Чтобы память освободилась полностью, телевизор лучше перезагрузить. После загрузки Уборщик проверит, что всё на месте.") + rebootNote())
                 .setNegativeButton(T.t("Позже"), null)
-                .setPositiveButton(T.t("Перезагрузить"), (d, w) -> { saveFlags(); run(T.t("Перезагружаю…"), () -> new Ops(this, this::say).reboot()); })
+                .setPositiveButton(T.t("Перезагрузить"), (d, w) -> { saveFlags(); reboot(false); })
                 .show();
+    }
+
+    /** Back to the snapshot, exactly; then, separately, an offer for what another cleaner had switched off. */
+    private void restore() {
+        keepTicks = false;
+        run(T.t("Возвращаю всё как было…"), () -> {
+            Ops ops = new Ops(this, this::say);
+            boolean ok = ops.restoreAll();
+            Set<String> f = ops.foreignOff();
+            if (!f.isEmpty()) runOnUiThread(() -> offerForeign(f));
+            return ok;
+        });
+    }
+
+    private void offerForeign(Set<String> f) {
+        StringBuilder names = new StringBuilder();
+        PackageManager pm = getPackageManager();
+        for (String p : f) {
+            Describe.D d = Describe.get(this, p);
+            String l = d != null ? d.label : p;
+            try { if (d == null) l = String.valueOf(pm.getApplicationInfo(p, PackageManager.MATCH_DISABLED_COMPONENTS).loadLabel(pm)); } catch (Exception ignored) {}
+            names.append("\n• ").append(l);
+        }
+        new android.app.AlertDialog.Builder(this)
+                .setTitle(T.t("Включить и это?"))
+                .setMessage(T.t("Всё вернулось к снимку «как было». Но ещё до Уборщика на телевизоре было отключено вот это, похоже, другим чистильщиком:") + names
+                        + "\n\n" + T.t("Включить и их, как с завода?"))
+                .setNegativeButton(T.t("Оставить отключённым"), null)
+                .setPositiveButton(T.t("Включить"), (d, w) -> run(T.t("Включаю…"), () -> new Ops(this, this::say).enableForeign(f)))
+                .show();
+    }
+
+    /** The way that worked on this TV; if it does nothing, the owner may try the other one (never on a timer). */
+    private void reboot(boolean other) {
+        run(T.t("Перезагружаю…"), () -> {
+            boolean ok = new Ops(this, this::say).reboot(other);
+            if (!ok && store.flag("rebootOfferOther", false)) runOnUiThread(() -> {
+                store.setFlag("rebootOfferOther", false);
+                new android.app.AlertDialog.Builder(this)
+                        .setTitle(T.t("Телевизор не перезагрузился"))
+                        .setMessage(T.t("Эта прошивка, похоже, не слушается такого способа. Попробовать другой? Если он сработает, Уборщик запомнит его для этого телевизора.")
+                                + "\n\n" + T.t("На некоторых телевизорах другой способ выключает их вместо перезагрузки: тогда включите телевизор пультом."))
+                        .setNegativeButton(T.t("Отмена"), null)
+                        .setPositiveButton(T.t("Попробовать другой способ"), (d, w) -> reboot(!other))
+                        .show();
+            });
+            return ok;
+        });
     }
 
     /** Seen on this TV: a restart switches it off (Boot.checkReboot). */
@@ -444,12 +492,12 @@ public class MainActivity extends Activity {
         }).start();
     }
 
-    private static Set<String> minus(Set<String> a, Set<String> b) { a.removeAll(b); return a; }
-
     private void buildList() {
         // Ticks not yet applied survive a rebuild (after the keyboard, launcher or refresh buttons).
-        Map<String, Integer> ticks = new HashMap<>();
-        if (keepTicks) for (Row r : rows) if (r.state != r.base) ticks.put(r.pkg, r.state);
+        // A tick is kept only while the package is where it was: if it changed meanwhile (rolled back, switched on
+        // from outside), the tick goes and the row shows the TV as it is now.
+        Map<String, int[]> ticks = new HashMap<>();
+        if (keepTicks) for (Row r : rows) if (r.state != r.base) ticks.put(r.pkg, new int[]{r.state, r.base});
         keepTicks = true;
         list.removeAllViews();
         rows.clear();
@@ -459,7 +507,7 @@ public class MainActivity extends Activity {
         Map<String, String> imp = Detector.important(this);
         String ime = Settings.Secure.getString(getContentResolver(), Settings.Secure.DEFAULT_INPUT_METHOD);
         if (ime != null && ime.contains("/")) ime = ime.substring(0, ime.indexOf('/'));
-        Set<String> chosen = store.disabled(), sleepy = store.sleeping(), factory = minus(store.set("snap_disabled"), store.set("snap_foreign")),
+        Set<String> chosen = store.disabled(), sleepy = store.sleeping(), factory = store.set("snap_disabled"),
                 rolled = store.set("rolledBack"), back = store.set("firmwareBack");
         Map<String, Community.Stat> com = Community.stats(this);
         Community.Match same = Community.device(this);
@@ -527,7 +575,8 @@ public class MainActivity extends Activity {
             r.factoryOff = !r.enabled && factory.contains(pkg);
             r.kb = mem.getOrDefault(pkg, 0L);
             r.base = (chosen.contains(pkg) || !r.enabled) ? 2 : sleepy.contains(pkg) ? 1 : 0;
-            r.state = ticks.getOrDefault(pkg, r.base);
+            int[] t = ticks.get(pkg);
+            r.state = t != null && t[1] == r.base ? t[0] : r.base;
             r.sub = (r.note.isEmpty() ? "" : r.note + "  ·  ") + pkg;
             r.system = system; r.launchable = launchable;
             rows.add(r);

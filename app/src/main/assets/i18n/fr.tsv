@@ -642,3 +642,19 @@ Live Channels	Live Channels
 Включено вручную (перезагрузки не было) — оставляю включённым и снимаю отметку: 	Activé à la main (pas de redémarrage) : il reste activé et sa coche est retirée :  
 Снимок «как было» сохранён: отключено до Уборщика 	Instantané « tel quel » enregistré : désactivés avant TV Janitor :  
 Из них не с завода, а отключено кем-то раньше (вернутся при «Вернуть всё как было»): 	Parmi eux, pas d'usine mais désactivés plus tôt par quelqu'un (ils reviennent avec « Tout rétablir ») :  
+Включаю…	Activation…
+Включить	Activer
+Включить и это?	Activer aussi ceux-ci ?
+Включить и их, как с завода?	Les activer aussi, comme à la sortie d'usine ?
+Оставить отключённым	Laisser désactivé
+Всё вернулось к снимку «как было». Но ещё до Уборщика на телевизоре было отключено вот это, похоже, другим чистильщиком:	Tout est revenu à l'instantané « tel quel ». Mais avant TV Janitor, ceci était déjà désactivé, sans doute par un autre nettoyeur :
+Из них, похоже, отключено другим чистильщиком (после «Вернуть всё как было» Уборщик спросит, включить ли их): 	Parmi eux, sans doute désactivés par un autre nettoyeur (après « Tout rétablir », TV Janitor demandera s'il faut les activer) :  
+Включено отключённое до Уборщика: 	Activé ce qui était désactivé avant TV Janitor :  
+. Не включилось: 	. Non activé :  
+Включено не Уборщиком (перезагрузки не было) — оставляю включённым и снимаю отметку: 	Activé par autre chose que TV Janitor (pas de redémarrage) : il reste activé et sa coche est retirée :  
+♻ Падали снова и снова (10 раз и больше) с момента загрузки, хотя отмечены на отключение — включил обратно: 	♻ Plantages répétés (10 fois ou plus) depuis le démarrage bien que cochés pour désactivation, réactivés :  
+⚠ Телевизор не перезагрузился. Попробуйте другой способ или перезагрузите его кнопкой питания на пульте (подержите 5 секунд).	⚠ Le téléviseur n'a pas redémarré. Essayez l'autre méthode ou redémarrez-le avec la touche marche/arrêt de la télécommande (maintenez 5 secondes).
+Телевизор не перезагрузился	Le téléviseur n'a pas redémarré
+Эта прошивка, похоже, не слушается такого способа. Попробовать другой? Если он сработает, Уборщик запомнит его для этого телевизора.	Ce firmware semble ignorer cette méthode. Essayer l'autre ? Si elle marche, TV Janitor la retiendra pour ce téléviseur.
+На некоторых телевизорах другой способ выключает их вместо перезагрузки: тогда включите телевизор пультом.	Sur certains téléviseurs, l'autre méthode les éteint au lieu de les redémarrer : rallumez alors avec la télécommande.
+Попробовать другой способ	Essayer l'autre méthode

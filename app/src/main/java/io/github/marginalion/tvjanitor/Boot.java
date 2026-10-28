@@ -37,6 +37,11 @@ final class Boot {
      */
     static void checkReboot(Context c) {
         Store s = new Store(c);
+        // The way asked for last time did restart the TV (a new boot number): use it from now on.
+        String way = s.str("rebootTrying"), from = s.str("rebootAskedBoot");
+        int n = count(c);
+        if (way != null && from != null && n >= 0 && !from.equals(String.valueOf(n))) s.setStr("rebootMethod", way);
+        s.setStr("rebootTrying", null); s.setStr("rebootAskedBoot", null);
         String asked = s.str("rebootAskedAt");
         if (asked == null) return;
         s.setStr("rebootAskedAt", null);
