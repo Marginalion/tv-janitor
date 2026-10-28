@@ -36,13 +36,14 @@ final class Catalog {
     /** Packages that are part of the TV itself. The catalog can still mark a few of them safe or ask. */
     static boolean lockedByPattern(String pkg, String ime) {
         if (pkg.equals("android") || pkg.equals(BuildInfo.SELF) || pkg.equals(BuildInfo.LAUNCHER)) return true;
+        // Only the keyboard in use is locked: once another one is the default, the old one may go.
         if (ime != null && pkg.equals(ime)) return true;
         String[] prefixes = {"com.android.", "android.", "com.google.android.gms", "com.google.android.gsf",
                 "com.google.android.ext.", "com.google.android.overlay", "com.google.android.permissioncontroller",
                 "com.google.android.packageinstaller", "com.google.android.webview", "com.google.android.tungsten",
-                "com.google.android.tv.remote", "com.google.android.inputmethod", "com.mediatek.", "mediatek.",
+                "com.google.android.tv.remote", "com.mediatek.", "mediatek.",
                 "com.mstar.", "com.cvte.", "com.yandex_uni.", "org.droidtv.", "com.xiaomi.android.tvsetup",
-                "ru.yandex.androidkeyboard", "com.google.android.modulemetadata", "com.google.android.onetimeinitializer",
+                "com.google.android.modulemetadata", "com.google.android.onetimeinitializer",
                 "com.google.android.partnersetup", "com.google.android.syncadapters", "com.google.android.tts",
                 "com.google.android.boot", "com.google.android.sss"};
         for (String p : prefixes) if (pkg.startsWith(p)) return true;
