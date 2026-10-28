@@ -422,6 +422,16 @@ final class Ops {
                 List<String> todo = new ArrayList<>(disable);
                 todo.removeAll(prot);
                 java.util.Set<String> rolled = new java.util.HashSet<>();
+                // How often this TV falls over on its own: some (Sunwind, load average 65) crash every few seconds,
+                // and a batch must not be blamed for that. Measure the same 8 s window with nothing changed.
+                int noise = 0;
+                if (!todo.isEmpty()) {
+                    int q0 = trouble(adb);
+                    step(T.t("Смотрю, как часто телевизор падает сам…"));
+                    Thread.sleep(8000);
+                    noise = Math.max(0, trouble(adb) - q0);
+                    if (noise > 0) note(T.t("Телевизор и сам по себе падает: ") + noise + T.t(" сбоев за 8 с. Учту это, чтобы не винить ваш выбор."));
+                }
                 for (int i = 0; i < todo.size(); i += 5) {
                     List<String> batch = todo.subList(i, Math.min(i + 5, todo.size()));
                     int before = trouble(adb);
@@ -432,7 +442,7 @@ final class Ops {
                     Thread.sleep(8000);
                     step(T.t("Порция ") + n + T.t(" из ") + batches + T.t(" проверена"));
                     int after = trouble(adb);
-                    if (after - before >= 2) {
+                    if (after - before >= 2 + 2 * noise) {
                         // Only what this batch really switched off can be to blame (not what Android refused).
                         List<String> blame = new ArrayList<>(reallyOff(adb, new java.util.HashSet<>(batch)));
                         if (!blame.isEmpty()) {

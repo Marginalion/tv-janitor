@@ -32,6 +32,7 @@ final class Report {
         if (!back.isEmpty()) r.append("#\n# This firmware re-enables these at every boot; the cleaner turns them off again after boot:\n#   ")
                 .append(String.join(" ", back)).append('\n');
         Set<String> rolled = system(pm, s.set("rolledAll"));
+        rolled.removeAll(s.set("protectedPkgs"));       // refused by Android, never disabled: nothing to blame
         if (!rolled.isEmpty()) {
             r.append("#\n# DO NOT DISABLE on this model: something started crashing right after they were disabled, so they were put back:\n");
             for (String p : rolled) r.append("#   ").append(pad(p)).append(label(pm, p)).append('\n');

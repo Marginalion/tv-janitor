@@ -560,5 +560,8 @@
 ". C'est une protection du micrologiciel lui-même, pas une erreur ; je ne réessaierai pas.",
 "Redémarrer le téléviseur ?",
 "Après le redémarrage, TV Janitor vérifiera que tout est en place.",
-"⚠ Sur ce téléviseur, un redémarrage l'éteint : au bout d'une minute, rallumez-le avec la télécommande."
+"⚠ Sur ce téléviseur, un redémarrage l'éteint : au bout d'une minute, rallumez-le avec la télécommande.",
+"Je regarde à quelle fréquence le téléviseur plante tout seul…",
+"Le téléviseur plante aussi tout seul :",
+"plantages en 8 s. J'en tiens compte pour ne pas accuser vos choix."
 ]

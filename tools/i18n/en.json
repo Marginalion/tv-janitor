@@ -560,5 +560,8 @@
 ". That is the firmware's own protection, not an error; I won't try again.",
 "Restart the TV?",
 "After the restart TV Janitor will check that everything is in place.",
-"⚠ On this TV a restart switches it off: after a minute, switch it on with the remote."
+"⚠ On this TV a restart switches it off: after a minute, switch it on with the remote.",
+"Checking how often the TV falls over on its own…",
+"The TV falls over on its own too:",
+"crashes in 8 s. I'll allow for that so your choices aren't blamed."
 ]

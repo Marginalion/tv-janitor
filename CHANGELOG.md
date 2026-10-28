@@ -17,6 +17,9 @@
 - Protected packages: when Android refuses `disable-user` ("protected package"), the app says so (🔒), doesn't
   retry after every boot and doesn't count it as a failure. Crash-loop rollback now blames only what the batch
   really switched off.
+- Crash-loop check allows for TVs that crash on their own: before the first batch it measures the same 8-second
+  window with nothing changed, and a batch is put back only for clearly more than that (Sunwind falsely blamed
+  Alice, the setup wizard and factory apps). Protected packages never appear as "do not disable".
 - Experience report: a "Firmware quirks" section (boot signal blocked, protected packages, ro.adb.secure=0).
 - Notices firmware where "restart" powers the TV off (Sunwind): if the TV came up minutes after the restart it
   asked for, the restart dialog says to switch it on with the remote, and the report lists it as a quirk.
