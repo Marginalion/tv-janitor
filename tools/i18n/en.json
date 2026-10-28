@@ -607,5 +607,21 @@
 "The TV doesn't work without these, turning them on and leaving them alone:",
 "♻ Crashed over and over while disabled, turned back on:",
 "♾ Android always starts it: it will be held back, not disabled  ·",
-"⚠ Ticked to disable, but you need it. If the feature doesn't work, untick it  ·"
+"⚠ Ticked to disable, but you need it. If the feature doesn't work, untick it  ·",
+"Groups: by risk  ·  show by purpose",
+"Groups: by purpose  ·  show by risk",
+"📊 Analytics, ads and tracking",
+"🎤 Voice and assistants",
+"🎮 Remote and control",
+"📺 HDMI, broadcast TV and inputs",
+"🎬 Streaming, video and media",
+"📦 Stores and updates",
+"📱 Other apps",
+"🖼 Other features",
+"⚙ System services",
+"🔴 on a row means important: you can change it at your own risk, TV Janitor will ask to confirm.",
+"🔵 safe · 🔶 your choice · 🔴 important · ⚪ unknown.",
+"⛔ to disable:",
+"💤 not starting on their own:",
+"all running"
 ]

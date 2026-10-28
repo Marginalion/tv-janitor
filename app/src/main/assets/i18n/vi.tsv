@@ -610,3 +610,19 @@ Live Channels	Live Channels
 ♻ Падали по кругу, пока были отключены — включил обратно: 	♻ Lỗi liên tục khi bị tắt, đã bật lại: 
 ♾ Android запускает его всегда: будет усыплён, а не отключён  ·  	♾ Android luôn khởi động nó: sẽ cho ngủ, không tắt  ·  
 ⚠ Отмечен на отключение, а нужен вам. Не работает функция — снимите галочку  ·  	⚠ Đã chọn để tắt, nhưng bạn cần nó. Nếu chức năng không hoạt động, hãy bỏ chọn  ·  
+Группы: по риску  ·  показать по назначению	Nhóm: theo rủi ro  ·  hiện theo chức năng
+Группы: по назначению  ·  показать по риску	Nhóm: theo chức năng  ·  hiện theo rủi ro
+📊 Метрики, реклама и слежка	📊 Thống kê, quảng cáo và theo dõi
+🎤 Голос и ассистенты	🎤 Giọng nói và trợ lý
+🎮 Пульт и управление	🎮 Điều khiển từ xa
+📺 HDMI, эфир и источники	📺 HDMI, truyền hình và nguồn vào
+🎬 Кинотеатры, видео и медиа	🎬 Phim, video và đa phương tiện
+📦 Магазины и обновления	📦 Cửa hàng và cập nhật
+📱 Другие приложения	📱 Ứng dụng khác
+🖼 Прочие функции	🖼 Chức năng khác
+⚙ Системные службы	⚙ Dịch vụ hệ thống
+🔴 на строке — важное: менять можно, но на свой риск, Уборщик попросит подтверждения.	🔴 trên dòng nghĩa là quan trọng: có thể đổi nhưng tự chịu rủi ro, TV Janitor sẽ hỏi xác nhận.
+🔵 смело · 🔶 на ваш выбор · 🔴 важное · ⚪ неизвестное. 	🔵 an toàn · 🔶 tùy bạn · 🔴 quan trọng · ⚪ chưa rõ. 
+⛔ отключить: 	⛔ tắt: 
+💤 не запускаются сами: 	💤 không tự khởi động: 
+всё работает	tất cả đang chạy

@@ -607,5 +607,21 @@
 "TV không hoạt động nếu thiếu những thứ này, bật lại và không động vào nữa:",
 "♻ Lỗi liên tục khi bị tắt, đã bật lại:",
 "♾ Android luôn khởi động nó: sẽ cho ngủ, không tắt  ·",
-"⚠ Đã chọn để tắt, nhưng bạn cần nó. Nếu chức năng không hoạt động, hãy bỏ chọn  ·"
+"⚠ Đã chọn để tắt, nhưng bạn cần nó. Nếu chức năng không hoạt động, hãy bỏ chọn  ·",
+"Nhóm: theo rủi ro  ·  hiện theo chức năng",
+"Nhóm: theo chức năng  ·  hiện theo rủi ro",
+"📊 Thống kê, quảng cáo và theo dõi",
+"🎤 Giọng nói và trợ lý",
+"🎮 Điều khiển từ xa",
+"📺 HDMI, truyền hình và nguồn vào",
+"🎬 Phim, video và đa phương tiện",
+"📦 Cửa hàng và cập nhật",
+"📱 Ứng dụng khác",
+"🖼 Chức năng khác",
+"⚙ Dịch vụ hệ thống",
+"🔴 trên dòng nghĩa là quan trọng: có thể đổi nhưng tự chịu rủi ro, TV Janitor sẽ hỏi xác nhận.",
+"🔵 an toàn · 🔶 tùy bạn · 🔴 quan trọng · ⚪ chưa rõ.",
+"⛔ tắt:",
+"💤 không tự khởi động:",
+"tất cả đang chạy"
 ]

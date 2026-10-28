@@ -607,5 +607,21 @@
 "A TV não funciona sem isto, ativo e não mexo mais:",
 "♻ Falhavam sem parar desativados, reativados:",
 "♾ O Android sempre o inicia: será posto para dormir, não desativado  ·",
-"⚠ Marcado para desativar, mas você precisa dele. Se a função não funcionar, desmarque  ·"
+"⚠ Marcado para desativar, mas você precisa dele. Se a função não funcionar, desmarque  ·",
+"Grupos: por risco  ·  mostrar por função",
+"Grupos: por função  ·  mostrar por risco",
+"📊 Métricas, anúncios e rastreio",
+"🎤 Voz e assistentes",
+"🎮 Controle remoto e comando",
+"📺 HDMI, TV aberta e entradas",
+"🎬 Streaming, vídeo e mídia",
+"📦 Lojas e atualizações",
+"📱 Outros aplicativos",
+"🖼 Outras funções",
+"⚙ Serviços do sistema",
+"🔴 numa linha significa importante: pode mudar por sua conta e risco, o TV Janitor pedirá confirmação.",
+"🔵 seguro · 🔶 à sua escolha · 🔴 importante · ⚪ desconhecido.",
+"⛔ desativar:",
+"💤 não iniciam sozinhos:",
+"tudo funcionando"
 ]

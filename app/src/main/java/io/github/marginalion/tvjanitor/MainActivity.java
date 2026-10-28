@@ -26,8 +26,16 @@ public class MainActivity extends Activity {
     private static final String SAFE = Catalog.SAFE, ASK = Catalog.ASK, IMPORTANT = "important", UNKNOWN = "unknown";
 
     private static final class Row {
-        String pkg, label, note, level, sub; boolean enabled, tele, userApp, factoryOff; long kb; int state; Button box;
-        Features.F feature; boolean needed, known;
+        String pkg, label, note, level, sub; boolean enabled, tele, userApp, factoryOff, system, launchable; long kb; int state; Button box;
+        Features.F feature; boolean needed, known; Group group;
+    }
+
+    /** A fold in the list: rows are made only while it is open, so a closed list costs next to nothing. */
+    private final class Group {
+        final String title, about; final List<Row> rows = new ArrayList<>();
+        final LinearLayout box = new LinearLayout(MainActivity.this), body = new LinearLayout(MainActivity.this);
+        Button head; boolean open;
+        Group(String title, String about) { this.title = title; this.about = about; }
     }
 
     private Store store;
@@ -440,7 +448,6 @@ public class MainActivity extends Activity {
                 ? T.t("Ваш телевизор есть в базе CleanYourTV (") + baseInfo() + "): " + same.tv + T.t(". Подсказки ниже — с такого же телевизора.")
                 : T.t("Вашей модели нет в базе CleanYourTV (") + baseInfo() + T.t(") — Уборщик сам определит важное, а подсказки собраны со всех телевизоров."), 14, DIM));
         stores = Features.stores(this);
-        List<Row> safe = new ArrayList<>(), ask = new ArrayList<>(), important = new ArrayList<>(), unknown = new ArrayList<>();
         for (ApplicationInfo ai : pm.getInstalledApplications(PackageManager.MATCH_DISABLED_COMPONENTS)) {
             String pkg = ai.packageName;
             if (Detector.core(pkg) || pkg.equals(BuildInfo.LAUNCHER) || pkg.equals(Ops.KEYBOARD)) continue;
@@ -502,28 +509,101 @@ public class MainActivity extends Activity {
             r.kb = mem.getOrDefault(pkg, 0L);
             r.state = (chosen.contains(pkg) || !r.enabled) ? 2 : sleepy.contains(pkg) ? 1 : 0;
             r.sub = (r.note.isEmpty() ? "" : r.note + "  ·  ") + pkg;
-            r.box = rowButton();
-            paint(r);
-            r.box.setOnClickListener(v -> { r.state = (r.state + 1) % 3; paint(r); });
-            (level.equals(SAFE) ? safe : level.equals(IMPORTANT) ? important : level.equals(UNKNOWN) ? unknown : ask).add(r);
+            r.system = system; r.launchable = launchable;
             rows.add(r);
         }
-        java.util.Comparator<Row> byMem = (x, y) -> Long.compare(y.kb, x.kb);
-        safe.sort(byMem); ask.sort(byMem); important.sort(byMem); unknown.sort(byMem);
-        if (!safe.isEmpty()) { list.addView(header(T.t("✅ Рекомендуем отключить"))); for (Row r : safe) list.addView(r.box); }
-        if (!ask.isEmpty()) { list.addView(header(T.t("❓ На ваш выбор"))); for (Row r : ask) list.addView(r.box); }
-        if (!unknown.isEmpty()) {
-            list.addView(header(T.t("❔ Неизвестное")));
-            list.addView(text(T.t("Про эти пакеты никто ничего не знает: ни описания, ни опыта других владельцев. Режимы их не трогают."), 14, DIM));
-            for (Row r : unknown) list.addView(r.box);
+        boolean byRisk = store.flag("groupByRisk", false);
+        Button mode = button(byRisk ? T.t("Группы: по риску  ·  показать по назначению") : T.t("Группы: по назначению  ·  показать по риску"));
+        mode.setOnClickListener(v -> { store.setFlag("groupByRisk", !byRisk); buildList(); });
+        list.addView(mode);
+        Map<String, Group> groups = new java.util.LinkedHashMap<>();
+        if (byRisk) {
+            groups.put(SAFE, new Group(T.t("✅ Рекомендуем отключить"), ""));
+            groups.put(ASK, new Group(T.t("❓ На ваш выбор"), ""));
+            groups.put(UNKNOWN, new Group(T.t("❔ Неизвестное"), T.t("Про эти пакеты никто ничего не знает: ни описания, ни опыта других владельцев. Режимы их не трогают.")));
+            groups.put(IMPORTANT, new Group(T.t("⚠ Важное — без этого телевизор может работать неправильно"),
+                    T.t("Менять можно, но на свой риск: Уборщик попросит подтверждения. Ядро Android, без которого телевизор не загрузится, сюда не попадает и не меняется никогда.")));
+        } else {
+            groups.put("tele", new Group(T.t("📊 Метрики, реклама и слежка"), ""));
+            groups.put("voice", new Group(T.t("🎤 Голос и ассистенты"), ""));
+            groups.put("remote", new Group(T.t("🎮 Пульт и управление"), ""));
+            groups.put("inputs", new Group(T.t("📺 HDMI, эфир и источники"), ""));
+            groups.put("video", new Group(T.t("🎬 Кинотеатры, видео и медиа"), ""));
+            groups.put("stores", new Group(T.t("📦 Магазины и обновления"), ""));
+            groups.put("apps", new Group(T.t("📱 Другие приложения"), ""));
+            groups.put("other", new Group(T.t("🖼 Прочие функции"), ""));
+            groups.put("system", new Group(T.t("⚙ Системные службы"), T.t("🔴 на строке — важное: менять можно, но на свой риск, Уборщик попросит подтверждения.")));
+            groups.put(UNKNOWN, new Group(T.t("❔ Неизвестное"), T.t("Про эти пакеты никто ничего не знает: ни описания, ни опыта других владельцев. Режимы их не трогают.")));
         }
-        if (!important.isEmpty()) {
-            list.addView(header(T.t("⚠ Важное — без этого телевизор может работать неправильно")));
-            list.addView(text(T.t("Менять можно, но на свой риск: Уборщик попросит подтверждения. Ядро Android, без которого телевизор не загрузится, сюда не попадает и не меняется никогда."), 14, DIM));
-            for (Row r : important) list.addView(r.box);
+        for (Row r : rows) { r.group = groups.get(byRisk ? r.level : purpose(r)); r.group.rows.add(r); }
+        // Within a group: the risky last, the biggest first.
+        java.util.Comparator<Row> order = (x, y) -> x.level.equals(y.level) ? Long.compare(y.kb, x.kb) : risk(x.level) - risk(y.level);
+        for (Group g : groups.values()) {
+            if (g.rows.isEmpty()) continue;
+            g.rows.sort(order);
+            g.box.setOrientation(LinearLayout.VERTICAL); g.body.setOrientation(LinearLayout.VERTICAL);
+            g.head = rowButton(); g.head.setTextSize(21);
+            g.head.setOnClickListener(v -> fold(g, !g.open));
+            g.box.addView(g.head); g.box.addView(g.body);
+            list.addView(g.box);
+            fold(g, openGroups.contains(g.title));
         }
-        list.addView(text(T.t("OK на строке: ✅ работает → 💤 не запускается само (открывается вручную как обычно) → ⛔ отключено. Потом «Применить». ")
+        list.addView(text(T.t("🔵 смело · 🔶 на ваш выбор · 🔴 важное · ⚪ неизвестное. ")
+                + T.t("OK на строке: ✅ работает → 💤 не запускается само (открывается вручную как обычно) → ⛔ отключено. Потом «Применить». ")
                 + T.t("Уборщик отключает порциями по 5 и, если после порции что-то начинает падать, сам её возвращает."), 14, DIM));
+    }
+
+    private final Set<String> openGroups = new HashSet<>();
+
+    private static int risk(String level) { return level.equals(SAFE) ? 0 : level.equals(ASK) ? 1 : level.equals(UNKNOWN) ? 2 : 3; }
+
+    private static final java.util.regex.Pattern REMOTE = java.util.regex.Pattern.compile(
+            "remote|\\.cec|hotkey|keymap|keypad|\\.rcu|inputdevices|bluetooth|\\.ir\\b|irservice", java.util.regex.Pattern.CASE_INSENSITIVE);
+    private static final java.util.regex.Pattern VIDEO = java.util.regex.Pattern.compile(
+            "kinopoisk|youtube|\\.ivi|okko|netflix|wink|start\\.|premier|kion|megogo|\\.video|player|media|gallery", java.util.regex.Pattern.CASE_INSENSITIVE);
+
+    /** What a package is for, in the owner's words: the group it goes to when the list is sorted by purpose. */
+    private String purpose(Row r) {
+        if (r.level.equals(UNKNOWN)) return UNKNOWN;
+        if (r.tele) return "tele";
+        if (r.feature != null) switch (r.feature.id) {
+            case "voice": return "voice";
+            case "tv": case "hdmi": return "inputs";
+            case "usb": case "cast": case "mirror": case "music": return "video";
+            case "stores": case "updates": return "stores";
+            default: return "other";
+        }
+        if (REMOTE.matcher(r.pkg).find()) return "remote";
+        if (VIDEO.matcher(r.pkg).find()) return "video";
+        if (r.system && !r.launchable) return "system";
+        return r.launchable ? "apps" : "system";
+    }
+
+    /** Open or close a fold. Closed, its rows' buttons are dropped; the choices live on in the rows. */
+    private void fold(Group g, boolean open) {
+        g.open = open;
+        if (open) openGroups.add(g.title); else openGroups.remove(g.title);
+        g.body.removeAllViews();
+        for (Row r : g.rows) r.box = null;
+        if (open) {
+            if (!g.about.isEmpty()) g.body.addView(text(g.about, 14, DIM));
+            for (Row r : g.rows) {
+                r.box = rowButton();
+                r.box.setOnClickListener(v -> { r.state = (r.state + 1) % 3; paint(r); head(r.group); });
+                paint(r);
+                g.body.addView(r.box);
+            }
+        }
+        head(g);
+    }
+
+    private void head(Group g) {
+        if (g == null || g.head == null) return;
+        int off = 0, sleep = 0;
+        for (Row r : g.rows) if (r.state == 2) off++; else if (r.state == 1) sleep++;
+        g.head.setText(Style.twoLines((g.open ? "▾  " : "▸  ") + g.title + "  ·  " + g.rows.size(),
+                (off > 0 ? T.t("⛔ отключить: ") + off : "") + (sleep > 0 ? (off > 0 ? "   " : "") + T.t("💤 не запускаются сами: ") + sleep : "")
+                        + (off + sleep == 0 ? T.t("всё работает") : "")));
     }
 
     /** 0 safe, 1 recommended, 2 maximum: only sets the switches, "Apply" does the rest. */
@@ -548,8 +628,9 @@ public class MainActivity extends Activity {
             if (safeHit && mode > 0) s = Math.max(s, 2);
             if (r.feature != null && mode >= 1) s = r.userApp ? Math.max(s, 1) : 2;
             r.state = s;
-            if (r.box.isEnabled()) paint(r);
+            if (r.box == null || r.box.isEnabled()) paint(r);
         }
+        for (Row r : rows) head(r.group);
         show(status, mode == 0 ? T.t("🛡 Бережно: проверьте список и нажмите «Применить»")
                 : mode == 1 ? T.t("👍 Оптимально: проверьте список и нажмите «Применить»")
                 : T.t("🔥 Максимум: проверьте особенно внимательно, потом «Применить»"));
@@ -716,8 +797,9 @@ public class MainActivity extends Activity {
     }
 
     private void paint(Row r) {
+        if (r.box == null) return;
         String mark = r.state == 0 ? T.t("✅ Работает") : r.state == 1 ? T.t("💤 Не запускается само") : T.t("⛔ Отключено");
-        String warn = r.level.equals(IMPORTANT) ? "⚠ " : "";
+        String warn = r.level.equals(SAFE) ? "🔵 " : r.level.equals(ASK) ? "🔶 " : r.level.equals(UNKNOWN) ? "⚪ " : "🔴 ";
         r.box.setText(Style.twoLines(mark + "   " + warn + r.label + (r.kb > 0 ? "  ·  " + r.kb / 1024 + T.t(" МБ") : ""), r.sub));
     }
 

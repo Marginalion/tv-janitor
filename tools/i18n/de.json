@@ -607,5 +607,21 @@
 "Ohne diese funktioniert der Fernseher nicht, aktiviere sie und lasse sie in Ruhe:",
 "♻ Stürzten deaktiviert ständig ab, wieder aktiviert:",
 "♾ Android startet es immer: wird ruhiggestellt, nicht deaktiviert  ·",
-"⚠ Zum Deaktivieren markiert, aber Sie brauchen es. Funktioniert die Funktion nicht, Häkchen entfernen  ·"
+"⚠ Zum Deaktivieren markiert, aber Sie brauchen es. Funktioniert die Funktion nicht, Häkchen entfernen  ·",
+"Gruppen: nach Risiko  ·  nach Zweck zeigen",
+"Gruppen: nach Zweck  ·  nach Risiko zeigen",
+"📊 Analyse, Werbung und Tracking",
+"🎤 Sprache und Assistenten",
+"🎮 Fernbedienung und Steuerung",
+"📺 HDMI, TV-Empfang und Quellen",
+"🎬 Streaming, Video und Medien",
+"📦 Stores und Updates",
+"📱 Andere Apps",
+"🖼 Weitere Funktionen",
+"⚙ Systemdienste",
+"🔴 in einer Zeile heißt wichtig: Ändern auf eigenes Risiko, TV Janitor fragt nach.",
+"🔵 sicher · 🔶 Ihre Wahl · 🔴 wichtig · ⚪ unbekannt.",
+"⛔ deaktivieren:",
+"💤 starten nicht von selbst:",
+"alles läuft"
 ]

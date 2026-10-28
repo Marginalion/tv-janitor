@@ -610,3 +610,19 @@ Live Channels	Live Channels
 ♻ Падали по кругу, пока были отключены — включил обратно: 	♻ Falhavam sem parar desativados, reativados: 
 ♾ Android запускает его всегда: будет усыплён, а не отключён  ·  	♾ O Android sempre o inicia: será posto para dormir, não desativado  ·  
 ⚠ Отмечен на отключение, а нужен вам. Не работает функция — снимите галочку  ·  	⚠ Marcado para desativar, mas você precisa dele. Se a função não funcionar, desmarque  ·  
+Группы: по риску  ·  показать по назначению	Grupos: por risco  ·  mostrar por função
+Группы: по назначению  ·  показать по риску	Grupos: por função  ·  mostrar por risco
+📊 Метрики, реклама и слежка	📊 Métricas, anúncios e rastreio
+🎤 Голос и ассистенты	🎤 Voz e assistentes
+🎮 Пульт и управление	🎮 Controle remoto e comando
+📺 HDMI, эфир и источники	📺 HDMI, TV aberta e entradas
+🎬 Кинотеатры, видео и медиа	🎬 Streaming, vídeo e mídia
+📦 Магазины и обновления	📦 Lojas e atualizações
+📱 Другие приложения	📱 Outros aplicativos
+🖼 Прочие функции	🖼 Outras funções
+⚙ Системные службы	⚙ Serviços do sistema
+🔴 на строке — важное: менять можно, но на свой риск, Уборщик попросит подтверждения.	🔴 numa linha significa importante: pode mudar por sua conta e risco, o TV Janitor pedirá confirmação.
+🔵 смело · 🔶 на ваш выбор · 🔴 важное · ⚪ неизвестное. 	🔵 seguro · 🔶 à sua escolha · 🔴 importante · ⚪ desconhecido. 
+⛔ отключить: 	⛔ desativar: 
+💤 не запускаются сами: 	💤 não iniciam sozinhos: 
+всё работает	tudo funcionando

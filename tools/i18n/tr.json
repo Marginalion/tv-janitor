@@ -607,5 +607,21 @@
 "TV bunlar olmadan çalışmaz, açıyorum ve bir daha dokunmuyorum:",
 "♻ Kapalıyken sürekli çöktü, yeniden açtım:",
 "♾ Android onu her zaman başlatır: kapatılmayacak, uyutulacak  ·",
-"⚠ Kapatmak için işaretli ama ihtiyacınız var. Özellik çalışmıyorsa işareti kaldırın  ·"
+"⚠ Kapatmak için işaretli ama ihtiyacınız var. Özellik çalışmıyorsa işareti kaldırın  ·",
+"Gruplar: riske göre  ·  amaca göre göster",
+"Gruplar: amaca göre  ·  riske göre göster",
+"📊 Ölçüm, reklam ve izleme",
+"🎤 Ses ve asistanlar",
+"🎮 Kumanda ve kontrol",
+"📺 HDMI, yayın ve kaynaklar",
+"🎬 Dizi-film, video ve medya",
+"📦 Mağazalar ve güncellemeler",
+"📱 Diğer uygulamalar",
+"🖼 Diğer özellikler",
+"⚙ Sistem hizmetleri",
+"Satırdaki 🔴 önemli demek: değiştirebilirsiniz ama risk sizde, TV Janitor onay ister.",
+"🔵 güvenli · 🔶 size kalmış · 🔴 önemli · ⚪ bilinmiyor.",
+"⛔ kapatılacak:",
+"💤 kendiliğinden başlamaz:",
+"hepsi çalışıyor"
 ]

@@ -75,6 +75,10 @@
 - After boot, anything disabled that crashes again and again since boot is switched back on and left alone.
 - CVTE's tvapi-service is never touched: Android asks it about every remote key, and without it only the power
   button works after a reboot (Sunwind).
+- **The list folds into groups by purpose** (tracking and ads, voice, remote, HDMI and inputs, video, stores and
+  updates, other apps and features, system services, unknown), or by risk with one button. Groups start closed
+  and show how many rows are set to be switched off; a closed group builds no rows, which keeps the app light.
+  Each row carries its risk: 🔵 safe, 🔶 your choice, 🔴 important, ⚪ unknown.
 - What the owner said they use is no longer switched off behind their back: a ticked one is flagged in the list
   and in the log, and one switched back on from outside stays on after the next boot.
 - Dev builds keep a second, detailed log (debug.txt): every crash line with its verdict, memory, the biggest

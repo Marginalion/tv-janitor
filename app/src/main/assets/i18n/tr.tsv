@@ -610,3 +610,19 @@ Live Channels	Live Channels
 ♻ Падали по кругу, пока были отключены — включил обратно: 	♻ Kapalıyken sürekli çöktü, yeniden açtım: 
 ♾ Android запускает его всегда: будет усыплён, а не отключён  ·  	♾ Android onu her zaman başlatır: kapatılmayacak, uyutulacak  ·  
 ⚠ Отмечен на отключение, а нужен вам. Не работает функция — снимите галочку  ·  	⚠ Kapatmak için işaretli ama ihtiyacınız var. Özellik çalışmıyorsa işareti kaldırın  ·  
+Группы: по риску  ·  показать по назначению	Gruplar: riske göre  ·  amaca göre göster
+Группы: по назначению  ·  показать по риску	Gruplar: amaca göre  ·  riske göre göster
+📊 Метрики, реклама и слежка	📊 Ölçüm, reklam ve izleme
+🎤 Голос и ассистенты	🎤 Ses ve asistanlar
+🎮 Пульт и управление	🎮 Kumanda ve kontrol
+📺 HDMI, эфир и источники	📺 HDMI, yayın ve kaynaklar
+🎬 Кинотеатры, видео и медиа	🎬 Dizi-film, video ve medya
+📦 Магазины и обновления	📦 Mağazalar ve güncellemeler
+📱 Другие приложения	📱 Diğer uygulamalar
+🖼 Прочие функции	🖼 Diğer özellikler
+⚙ Системные службы	⚙ Sistem hizmetleri
+🔴 на строке — важное: менять можно, но на свой риск, Уборщик попросит подтверждения.	Satırdaki 🔴 önemli demek: değiştirebilirsiniz ama risk sizde, TV Janitor onay ister.
+🔵 смело · 🔶 на ваш выбор · 🔴 важное · ⚪ неизвестное. 	🔵 güvenli · 🔶 size kalmış · 🔴 önemli · ⚪ bilinmiyor. 
+⛔ отключить: 	⛔ kapatılacak: 
+💤 не запускаются сами: 	💤 kendiliğinden başlamaz: 
+всё работает	hepsi çalışıyor

@@ -607,5 +607,21 @@
 "Le téléviseur ne fonctionne pas sans cela, je l'active et n'y touche plus :",
 "♻ Plantaient en boucle une fois désactivés, réactivés :",
 "♾ Android le lance toujours : il sera endormi, pas désactivé  ·",
-"⚠ Coché pour désactivation, mais vous en avez besoin. Si la fonction ne marche pas, décochez-le  ·"
+"⚠ Coché pour désactivation, mais vous en avez besoin. Si la fonction ne marche pas, décochez-le  ·",
+"Groupes : par risque  ·  afficher par usage",
+"Groupes : par usage  ·  afficher par risque",
+"📊 Statistiques, publicité et pistage",
+"🎤 Voix et assistants",
+"🎮 Télécommande et contrôle",
+"📺 HDMI, TNT et sources",
+"🎬 Streaming, vidéo et médias",
+"📦 Boutiques et mises à jour",
+"📱 Autres applications",
+"🖼 Autres fonctions",
+"⚙ Services système",
+"🔴 sur une ligne signifie important : modifiable à vos risques, TV Janitor demandera confirmation.",
+"🔵 sans risque · 🔶 à votre choix · 🔴 important · ⚪ inconnu.",
+"⛔ à désactiver :",
+"💤 ne démarrent pas seuls :",
+"tout fonctionne"
 ]

@@ -607,5 +607,21 @@
 "El televisor no funciona sin esto, lo activo y no lo vuelvo a tocar:",
 "♻ Se caían una y otra vez desactivados, reactivados:",
 "♾ Android siempre lo inicia: se dormirá, no se desactivará  ·",
-"⚠ Marcado para desactivar, pero lo necesita. Si la función no va, desmárquelo  ·"
+"⚠ Marcado para desactivar, pero lo necesita. Si la función no va, desmárquelo  ·",
+"Grupos: por riesgo  ·  mostrar por función",
+"Grupos: por función  ·  mostrar por riesgo",
+"📊 Métricas, publicidad y rastreo",
+"🎤 Voz y asistentes",
+"🎮 Mando y control",
+"📺 HDMI, TDT y fuentes",
+"🎬 Streaming, vídeo y multimedia",
+"📦 Tiendas y actualizaciones",
+"📱 Otras aplicaciones",
+"🖼 Otras funciones",
+"⚙ Servicios del sistema",
+"🔴 en una fila significa importante: puede cambiarlo bajo su riesgo, TV Janitor pedirá confirmación.",
+"🔵 seguro · 🔶 a su elección · 🔴 importante · ⚪ desconocido.",
+"⛔ desactivar:",
+"💤 no se inician solos:",
+"todo funciona"
 ]
