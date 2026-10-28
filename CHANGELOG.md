@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.9.3-beta (2026-10-28)
 
 - **Ticks survive the other buttons.** Ticking packages and then pressing the keyboard, launcher or refresh
   button no longer resets the list: the rebuild carries over what was ticked but not applied yet. Apply and
@@ -117,7 +117,7 @@
 - Dev builds keep a second, detailed log (debug.txt): every crash line with its verdict, memory, the biggest
   processes and the screen before and after changes. The test kit's option 4 pulls it too.
 
-## 0.9.2-beta (unreleased)
+## 0.9.2-test.2 (2026-10-25)
 
 - The experience report is always in English (app names and features), whatever the TV's language: it is
   meant for the shared CleanYourTV base.
