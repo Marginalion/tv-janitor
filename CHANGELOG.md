@@ -10,6 +10,14 @@
 - Firmware that switches Developer options off at every boot (so debugging stays off): after boot the app
   switches them on itself (with the same permission, no ADB needed for that), applies the choices, and switches
   them off again if it was the one that switched them on.
+- Firmware that keeps the boot signal from third-party apps (Sunwind on CVTE/MediaTek with Yandex TV): a
+  persisted job Android restores by itself checks every 15 minutes whether this boot was handled, and if not,
+  re-applies the choices; opening the app does it at once. The app notices this (Android's boot counter) and says
+  so on screen and in the boot report, instead of failing silently.
+- Protected packages: when Android refuses `disable-user` ("protected package"), the app says so (🔒), doesn't
+  retry after every boot and doesn't count it as a failure. Crash-loop rollback now blames only what the batch
+  really switched off.
+- Experience report: a "Firmware quirks" section (boot signal blocked, protected packages, ro.adb.secure=0).
 
 ## 0.9.2-beta (unreleased)
 

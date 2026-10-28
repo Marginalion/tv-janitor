@@ -548,5 +548,14 @@
 "⚠ Sin permiso para cambiar la depuración: abra TV Janitor otra vez con la depuración activada",
 "Comprobando: desactivo la depuración y la vuelvo a activar…",
 "✔ Listo: la depuración ahora solo está activa mientras TV Janitor trabaja",
-"⚠ Tras desactivarla, la depuración por red no volvió sola. Active «Depuración por red» en Opciones de desarrollador: TV Janitor ya no la desactivará."
+"⚠ Tras desactivarla, la depuración por red no volvió sola. Active «Depuración por red» en Opciones de desarrollador: TV Janitor ya no la desactivará.",
+"⚠ Este firmware no deja que TV Janitor arranque solo tras encender. Su elección se aplica igualmente, pero más tarde: en los 15 minutos siguientes al encendido o en cuanto abra TV Janitor.",
+"Aplicando su elección tras el encendido…",
+"🔒 el firmware no permite desactivar:",
+", a los",
+"min del encendido",
+"Aplicado a los",
+"min del encendido: el firmware no deja que TV Janitor arranque solo.",
+"🔒 Este firmware no permite desactivar:",
+". Es una protección del propio firmware, no un error; no lo volveré a intentar."
 ]

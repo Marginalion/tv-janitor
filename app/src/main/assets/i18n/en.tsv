@@ -551,3 +551,12 @@ Live Channels	Live Channels
 Проверяю: выключаю отладку и включаю обратно…	Checking: switching debugging off and on again…
 ✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ Done: debugging is now on only while TV Janitor works
 ⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ After switching off, network debugging didn't come back by itself. Turn "Network debugging" on in Developer options: TV Janitor won't switch it off any more.
+⚠ Эта прошивка не пускает Уборщика в автозапуск после включения. Ваш выбор всё равно применяется, но позже: в течение 15 минут после включения или сразу, как откроете Уборщика.	⚠ This firmware doesn't let TV Janitor start on its own after power-on. Your choices are still applied, only later: within 15 minutes of power-on, or as soon as you open TV Janitor.
+Применяю ваш выбор после включения…	Applying your choices after power-on…
+🔒 прошивка не даёт отключить: 	🔒 the firmware won't allow disabling: 
+, через 	, after 
+ мин после включения	 min since power-on
+ Применено через 	 Applied 
+ мин после включения: прошивка не пускает Уборщика в автозапуск.	 min after power-on: the firmware doesn't let TV Janitor start on its own.
+🔒 Эта прошивка не даёт отключить: 	🔒 This firmware won't allow disabling: 
+. Это защита самой прошивки, не ошибка; пробовать снова не буду.	. That is the firmware's own protection, not an error; I won't try again.

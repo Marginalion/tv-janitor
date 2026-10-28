@@ -68,6 +68,14 @@ public class MainActivity extends Activity {
         warning = text("", 16, WARN);
         warning.setVisibility(android.view.View.GONE);
         root.addView(warning);
+        // Opened after a boot nobody handled: the firmware kept the boot signal away. Apply now and say so.
+        boolean missed = Boot.setUp(this) && Boot.count(this) >= 0 && !Boot.done(this) && Boot.upMinutes() >= 2;
+        if (missed && !Boot.receiverCame(this)) store.setFlag("bootBlocked", true);
+        TextView quirk = text(store.flag("bootBlocked", false)
+                ? T.t("⚠ Эта прошивка не пускает Уборщика в автозапуск после включения. Ваш выбор всё равно применяется, но позже: в течение 15 минут после включения или сразу, как откроете Уборщика.")
+                : "", 15, WARN);
+        quirk.setVisibility(store.flag("bootBlocked", false) ? android.view.View.VISIBLE : android.view.View.GONE);
+        root.addView(quirk);
         if (Edition.LITE) { store.setFlag("expertUi", false); store.setFlag("expert", false); }
         boolean simpleUi = !store.flag("expertUi", false);
         if (getIntent().getBooleanExtra("fromFeatures", false))
@@ -212,6 +220,7 @@ public class MainActivity extends Activity {
         expert.setOnCheckedChangeListener((v, on) -> { store.setFlag("expert", on); buildList(); });
         buildList();
         (Edition.LITE ? tOne : simpleUi ? tRec : applyBtn).requestFocus();
+        if (missed) run(T.t("Применяю ваш выбор после включения…"), () -> new Ops(this, this::say).bootRun("open"));
         scan();
     }
 

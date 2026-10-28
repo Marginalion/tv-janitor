@@ -551,3 +551,12 @@ Live Channels	Live Channels
 Проверяю: выключаю отладку и включаю обратно…	Đang kiểm tra: tắt gỡ lỗi rồi bật lại…
 ✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ Xong: giờ gỡ lỗi chỉ bật khi TV Janitor làm việc
 ⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ Sau khi tắt, gỡ lỗi qua mạng không tự bật lại. Hãy bật "Gỡ lỗi qua mạng" trong Tùy chọn nhà phát triển: TV Janitor sẽ không tắt nó nữa.
+⚠ Эта прошивка не пускает Уборщика в автозапуск после включения. Ваш выбор всё равно применяется, но позже: в течение 15 минут после включения или сразу, как откроете Уборщика.	⚠ Firmware này không cho TV Janitor tự khởi động sau khi bật TV. Lựa chọn của bạn vẫn được áp dụng, chỉ muộn hơn: trong vòng 15 phút sau khi bật, hoặc ngay khi bạn mở TV Janitor.
+Применяю ваш выбор после включения…	Đang áp dụng lựa chọn của bạn sau khi bật…
+🔒 прошивка не даёт отключить: 	🔒 firmware không cho tắt: 
+, через 	, sau 
+ мин после включения	 phút kể từ khi bật
+ Применено через 	 Đã áp dụng sau 
+ мин после включения: прошивка не пускает Уборщика в автозапуск.	 phút sau khi bật: firmware không cho TV Janitor tự khởi động.
+🔒 Эта прошивка не даёт отключить: 	🔒 Firmware này không cho tắt: 
+. Это защита самой прошивки, не ошибка; пробовать снова не буду.	. Đây là cơ chế bảo vệ của chính firmware, không phải lỗi; tôi sẽ không thử lại.

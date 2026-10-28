@@ -548,5 +548,14 @@
 "⚠ Kein Recht, Debugging zu schalten: Öffnen Sie TV Janitor erneut, solange Debugging an ist",
 "Prüfe: schalte Debugging aus und wieder ein…",
 "✔ Geschafft: Debugging ist jetzt nur an, während TV Janitor arbeitet",
-"⚠ Nach dem Ausschalten kam Netzwerk-Debugging nicht von selbst zurück. Schalten Sie „Netzwerk-Debugging“ in den Entwickleroptionen ein: TV Janitor schaltet es nicht mehr aus."
+"⚠ Nach dem Ausschalten kam Netzwerk-Debugging nicht von selbst zurück. Schalten Sie „Netzwerk-Debugging“ in den Entwickleroptionen ein: TV Janitor schaltet es nicht mehr aus.",
+"⚠ Diese Firmware lässt TV Janitor nach dem Einschalten nicht von selbst starten. Ihre Auswahl wird trotzdem angewendet, nur später: innerhalb von 15 Minuten nach dem Einschalten oder sobald Sie TV Janitor öffnen.",
+"Wende Ihre Auswahl nach dem Einschalten an…",
+"🔒 Firmware erlaubt kein Abschalten:",
+", nach",
+"Min. nach dem Einschalten",
+"Angewendet",
+"Min. nach dem Einschalten: Die Firmware lässt TV Janitor nicht von selbst starten.",
+"🔒 Diese Firmware erlaubt kein Abschalten von:",
+". Das ist der Schutz der Firmware selbst, kein Fehler; ich versuche es nicht erneut."
 ]

@@ -41,6 +41,12 @@ final class Report {
             r.append("#\n# Kept enabled but not allowed to start on their own (appops RUN_ANY_IN_BACKGROUND ignore + am force-stop after boot):\n");
             for (String p : sleep) r.append("#   ").append(pad(p)).append(label(pm, p)).append('\n');
         }
+        StringBuilder q = new StringBuilder();
+        if (s.flag("bootBlocked", false)) q.append("#   BOOT_COMPLETED is not delivered to third-party apps: re-applied by a scheduled job a few minutes after boot.\n");
+        Set<String> prot = system(pm, s.set("protectedPkgs"));
+        if (!prot.isEmpty()) q.append("#   Protected packages (pm disable-user refused by the firmware): ").append(String.join(" ", prot)).append('\n');
+        if (s.flag("adbInsecure", false)) q.append("#   ro.adb.secure=0: debugging accepts any computer without asking.\n");
+        if (q.length() > 0) r.append("#\n# Firmware quirks seen by TV Janitor:\n").append(q);
         Set<String> used = s.set("features");
         StringBuilder kept = new StringBuilder();
         for (Features.F f : Features.ALL) if (used.contains(f.id)) kept.append(kept.length() == 0 ? "" : ", ").append(T.en(c, f.ru).replaceAll("^\\S+\\s+", ""));

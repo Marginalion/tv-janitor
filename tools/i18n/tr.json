@@ -548,5 +548,14 @@
 "⚠ Hata ayıklamayı değiştirme izni yok: hata ayıklama açıkken TV Janitor'ı yeniden açın",
 "Kontrol ediyorum: hata ayıklamayı kapatıp yeniden açıyorum…",
 "✔ Tamam: hata ayıklama artık yalnızca TV Janitor çalışırken açık",
-"⚠ Kapattıktan sonra ağ üzerinden hata ayıklama kendiliğinden geri gelmedi. Geliştirici seçeneklerinde \"Ağ üzerinden hata ayıklama\"yı açın: TV Janitor onu artık kapatmayacak."
+"⚠ Kapattıktan sonra ağ üzerinden hata ayıklama kendiliğinden geri gelmedi. Geliştirici seçeneklerinde \"Ağ üzerinden hata ayıklama\"yı açın: TV Janitor onu artık kapatmayacak.",
+"⚠ Bu yazılım TV Janitor'ın açılıştan sonra kendiliğinden başlamasına izin vermiyor. Seçimleriniz yine de uygulanır, yalnızca daha geç: açılıştan sonraki 15 dakika içinde ya da TV Janitor'ı açtığınız anda.",
+"Açılıştan sonra seçimlerinizi uyguluyorum…",
+"🔒 yazılım kapatmaya izin vermiyor:",
+",",
+"dk sonra (açılıştan)",
+"Açılıştan",
+"dk sonra uygulandı: yazılım TV Janitor'ın kendiliğinden başlamasına izin vermiyor.",
+"🔒 Bu yazılım şunların kapatılmasına izin vermiyor:",
+". Bu yazılımın kendi koruması, hata değil; tekrar denemeyeceğim."
 ]

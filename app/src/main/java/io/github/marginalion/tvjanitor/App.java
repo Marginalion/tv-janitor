@@ -12,6 +12,7 @@ public final class App extends Application {
     @Override public void onCreate() {
         super.onCreate();
         T.init(this);
+        Boot.schedule(this);
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override public void onActivityStarted(Activity a) { started++; }
             @Override public void onActivityStopped(Activity a) {

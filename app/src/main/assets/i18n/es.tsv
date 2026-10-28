@@ -551,3 +551,12 @@ Live Channels	Live Channels
 Проверяю: выключаю отладку и включаю обратно…	Comprobando: desactivo la depuración y la vuelvo a activar…
 ✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ Listo: la depuración ahora solo está activa mientras TV Janitor trabaja
 ⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ Tras desactivarla, la depuración por red no volvió sola. Active «Depuración por red» en Opciones de desarrollador: TV Janitor ya no la desactivará.
+⚠ Эта прошивка не пускает Уборщика в автозапуск после включения. Ваш выбор всё равно применяется, но позже: в течение 15 минут после включения или сразу, как откроете Уборщика.	⚠ Este firmware no deja que TV Janitor arranque solo tras encender. Su elección se aplica igualmente, pero más tarde: en los 15 minutos siguientes al encendido o en cuanto abra TV Janitor.
+Применяю ваш выбор после включения…	Aplicando su elección tras el encendido…
+🔒 прошивка не даёт отключить: 	🔒 el firmware no permite desactivar: 
+, через 	, a los 
+ мин после включения	 min del encendido
+ Применено через 	 Aplicado a los 
+ мин после включения: прошивка не пускает Уборщика в автозапуск.	 min del encendido: el firmware no deja que TV Janitor arranque solo.
+🔒 Эта прошивка не даёт отключить: 	🔒 Este firmware no permite desactivar: 
+. Это защита самой прошивки, не ошибка; пробовать снова не буду.	. Es una protección del propio firmware, no un error; no lo volveré a intentar.

@@ -64,6 +64,11 @@ final class Ops {
 
     String sh(Adb adb, String cmd) throws Exception {
         String r = adb.shell(cmd + " 2>&1").trim();
+        if (cmd.startsWith("pm disable-user") && r.contains("protected package")) {
+            // The firmware's own list: Android refuses, whatever we do. Remember it, never retry, never blame.
+            String[] w = cmd.split(" ");
+            Set<String> pr = store.set("protectedPkgs"); pr.add(w[w.length - 1]); store.setSet("protectedPkgs", pr);
+        }
         String line = shortLine(cmd, r);
         if (line != null) note(line);
         step(line == null ? "" : line);
@@ -85,7 +90,8 @@ final class Ops {
         String[] w = cmd.split(" ");
         String pkg = w[w.length - 1];
         if (cmd.startsWith("pm disable-user"))
-            return r.contains("disabled") ? T.t("− отключено: ") + pkg : r.contains("Unknown package") ? T.t("· нет на ТВ: ") + pkg : "✗ " + pkg + ": " + why(r);
+            return r.contains("disabled") ? T.t("− отключено: ") + pkg : r.contains("Unknown package") ? T.t("· нет на ТВ: ") + pkg
+                    : r.contains("protected package") ? T.t("🔒 прошивка не даёт отключить: ") + pkg : "✗ " + pkg + ": " + why(r);
         if (cmd.startsWith("cmd appops set")) return r.isEmpty() ? null : "✗ " + pkgOf(cmd) + ": " + firstLine(r);
         if (cmd.startsWith("am force-stop")) return r.isEmpty() ? T.t("💤 не запускается само: ") + pkg : "✗ " + pkg + ": " + firstLine(r);
         if (cmd.startsWith("pm enable"))
@@ -323,7 +329,10 @@ final class Ops {
     /** After boot: put every choice back (some firmware re-enables packages at each boot). */
     boolean bootRun(String reason) {
         synchronized (LOCK) {
-            note(T.t("Старт (") + reason + ")");
+            boolean receiver = reason.endsWith("BOOT_COMPLETED");
+            if (receiver) { store.setStr("bootTried", String.valueOf(Boot.count(c))); store.setFlag("bootBlocked", false); }
+            if (Boot.done(c)) return true;
+            note(T.t("Старт (") + reason + ")" + (receiver ? "" : T.t(", через ") + Boot.upMinutes() + T.t(" мин после включения")));
             Adb adb = connect(12);
             if (adb == null) { save(); return false; }
             try {
@@ -345,6 +354,7 @@ final class Ops {
                 // Only what is on now: some packages are disabled by the firmware itself, and disable-user on
                 // those only throws (org.droidtv.freeviewplayers on Philips).
                 java.util.Set<String> todo = new java.util.TreeSet<>(store.disabled()); todo.removeAll(nowOff);
+                todo.removeAll(store.set("protectedPkgs"));
                 disableAll(adb, todo);
                 store.setSet("appliedOff", reallyOff(adb, store.disabled()));
                 if (!store.disabled().isEmpty()) {
@@ -368,9 +378,13 @@ final class Ops {
                 note(used);
                 store.setStr("bootReport", T.t("После перезагрузки: ") + (used.isEmpty() ? "" : used + ". ")
                         + (back.isEmpty() ? T.t("Прошивка ничего не вернула сама.") : T.t("Прошивка вернула сама ") + back.size() + T.t(", Уборщик отключил снова."))
-                        + T.t(" Отключено: ") + store.disabled().size() + T.t(", не запускаются сами: ") + store.sleeping().size() + ".");
+                        + T.t(" Отключено: ") + store.disabled().size() + T.t(", не запускаются сами: ") + store.sleeping().size() + "."
+                        + (receiver ? "" : T.t(" Применено через ") + Boot.upMinutes() + T.t(" мин после включения: прошивка не пускает Уборщика в автозапуск.")));
                 Report.saveIfConsented(c);
                 store.setFlag("reportUnseen", true);
+                store.setStr("bootDone", String.valueOf(Boot.count(c)));
+                // Late (scheduled) runs never pop the app up: minutes have passed, the owner is watching something.
+                if (!receiver) store.setFlag("openAfterBoot", false);
                 if (store.flag("openAfterBoot", false)) {
                     store.setFlag("openAfterBoot", false);
                     // Be polite: open with the report only over the Home screen. If the TV came up in live TV, an
@@ -402,7 +416,9 @@ final class Ops {
                 done = 0;
                 for (String p : enable) sh(adb, "pm enable " + p);
                 // CleanYourTV: small batches, check between them. A batch that starts a crash loop is put back.
+                Set<String> prot = store.set("protectedPkgs");
                 List<String> todo = new ArrayList<>(disable);
+                todo.removeAll(prot);
                 java.util.Set<String> rolled = new java.util.HashSet<>();
                 for (int i = 0; i < todo.size(); i += 5) {
                     List<String> batch = todo.subList(i, Math.min(i + 5, todo.size()));
@@ -415,9 +431,13 @@ final class Ops {
                     step(T.t("Порция ") + n + T.t(" из ") + batches + T.t(" проверена"));
                     int after = trouble(adb);
                     if (after - before >= 2) {
-                        note(T.t("⚠ После этой порции что-то начало падать (") + (after - before) + T.t(" сбоев) — возвращаю её: ") + String.join(", ", batch));
-                        for (String p : batch) sh(adb, "pm enable " + p);
-                        rolled.addAll(batch);
+                        // Only what this batch really switched off can be to blame (not what Android refused).
+                        List<String> blame = new ArrayList<>(reallyOff(adb, new java.util.HashSet<>(batch)));
+                        if (!blame.isEmpty()) {
+                            note(T.t("⚠ После этой порции что-то начало падать (") + (after - before) + T.t(" сбоев) — возвращаю её: ") + String.join(", ", blame));
+                            for (String p : blame) sh(adb, "pm enable " + p);
+                            rolled.addAll(blame);
+                        }
                     }
                 }
                 if (!rolled.isEmpty()) {
@@ -435,6 +455,10 @@ final class Ops {
                 // The summary counts what Android reports, not what was asked for.
                 Set<String> off = reallyOff(adb, disable);
                 Set<String> notOff = new java.util.TreeSet<>(disable); notOff.removeAll(off);
+                Set<String> refused = new java.util.TreeSet<>(notOff); refused.retainAll(store.set("protectedPkgs"));
+                notOff.removeAll(refused);
+                if (!refused.isEmpty()) note(T.t("🔒 Эта прошивка не даёт отключить: ") + refused.size() + "  (" + String.join(", ", refused) + ")"
+                        + T.t(". Это защита самой прошивки, не ошибка; пробовать снова не буду."));
                 Set<String> notOn = new java.util.TreeSet<>(reallyOff(adb, enable));
                 if (!notOff.isEmpty()) note(T.t("⚠ Не отключилось: ") + notOff.size() + "  (" + String.join(", ", notOff) + ")"
                         + T.t(". Попробую ещё раз после перезагрузки."));
@@ -459,7 +483,9 @@ final class Ops {
                 Map<String, Long> m = new HashMap<>();
                 try { m = memory(adb); } catch (Exception ignored) {}
                 m.put("_connected", 1L);
-                m.put("_insecure", adbInsecure(adb) ? 1L : 0L);
+                boolean insecure = adbInsecure(adb);
+                m.put("_insecure", insecure ? 1L : 0L);
+                store.setFlag("adbInsecure", insecure);
                 try { snapshot(adb); } catch (Exception ignored) {}
                 return m;
             } catch (Exception e) { Map<String, Long> m = new HashMap<>(); m.put("_connected", 1L); return m; } finally { adb.close(); save(); }

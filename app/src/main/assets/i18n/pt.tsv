@@ -551,3 +551,12 @@ Live Channels	Live Channels
 Проверяю: выключаю отладку и включаю обратно…	A verificar: desligo a depuração e volto a ligá-la…
 ✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ Feito: a depuração agora só fica ligada enquanto o TV Janitor trabalha
 ⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ Depois de desligada, a depuração por rede não voltou sozinha. Ligue «Depuração por rede» nas Opções de programador: o TV Janitor não a desligará mais.
+⚠ Эта прошивка не пускает Уборщика в автозапуск после включения. Ваш выбор всё равно применяется, но позже: в течение 15 минут после включения или сразу, как откроете Уборщика.	⚠ Este firmware não deixa o TV Janitor arrancar sozinho depois de ligar. A sua escolha é aplicada na mesma, só mais tarde: até 15 minutos depois de ligar, ou assim que abrir o TV Janitor.
+Применяю ваш выбор после включения…	A aplicar a sua escolha depois de ligar…
+🔒 прошивка не даёт отключить: 	🔒 o firmware não deixa desativar: 
+, через 	, após 
+ мин после включения	 min depois de ligar
+ Применено через 	 Aplicado 
+ мин после включения: прошивка не пускает Уборщика в автозапуск.	 min depois de ligar: o firmware não deixa o TV Janitor arrancar sozinho.
+🔒 Эта прошивка не даёт отключить: 	🔒 Este firmware não deixa desativar: 
+. Это защита самой прошивки, не ошибка; пробовать снова не буду.	. É uma proteção do próprio firmware, não um erro; não vou tentar de novo.

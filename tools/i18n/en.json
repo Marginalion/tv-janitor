@@ -548,5 +548,14 @@
 "⚠ No right to switch debugging: open TV Janitor again while debugging is on",
 "Checking: switching debugging off and on again…",
 "✔ Done: debugging is now on only while TV Janitor works",
-"⚠ After switching off, network debugging didn't come back by itself. Turn \"Network debugging\" on in Developer options: TV Janitor won't switch it off any more."
+"⚠ After switching off, network debugging didn't come back by itself. Turn \"Network debugging\" on in Developer options: TV Janitor won't switch it off any more.",
+"⚠ This firmware doesn't let TV Janitor start on its own after power-on. Your choices are still applied, only later: within 15 minutes of power-on, or as soon as you open TV Janitor.",
+"Applying your choices after power-on…",
+"🔒 the firmware won't allow disabling:",
+", after",
+"min since power-on",
+"Applied",
+"min after power-on: the firmware doesn't let TV Janitor start on its own.",
+"🔒 This firmware won't allow disabling:",
+". That is the firmware's own protection, not an error; I won't try again."
 ]

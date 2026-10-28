@@ -31,5 +31,6 @@
         <activity android:name=".FeaturesActivity" android:exported="false" />
         <activity android:name=".ReportActivity" android:exported="false" />
         <service android:name=".CleanerService" android:exported="false" />
+        <service android:name=".BootJob" android:exported="false" android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 </manifest>

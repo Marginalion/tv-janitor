@@ -548,5 +548,14 @@
 "⚠ Sem permissão para mudar a depuração: abra o TV Janitor outra vez com a depuração ligada",
 "A verificar: desligo a depuração e volto a ligá-la…",
 "✔ Feito: a depuração agora só fica ligada enquanto o TV Janitor trabalha",
-"⚠ Depois de desligada, a depuração por rede não voltou sozinha. Ligue «Depuração por rede» nas Opções de programador: o TV Janitor não a desligará mais."
+"⚠ Depois de desligada, a depuração por rede não voltou sozinha. Ligue «Depuração por rede» nas Opções de programador: o TV Janitor não a desligará mais.",
+"⚠ Este firmware não deixa o TV Janitor arrancar sozinho depois de ligar. A sua escolha é aplicada na mesma, só mais tarde: até 15 minutos depois de ligar, ou assim que abrir o TV Janitor.",
+"A aplicar a sua escolha depois de ligar…",
+"🔒 o firmware não deixa desativar:",
+", após",
+"min depois de ligar",
+"Aplicado",
+"min depois de ligar: o firmware não deixa o TV Janitor arrancar sozinho.",
+"🔒 Este firmware não deixa desativar:",
+". É uma proteção do próprio firmware, não um erro; não vou tentar de novo."
 ]

@@ -551,3 +551,12 @@ Live Channels	Live Channels
 Проверяю: выключаю отладку и включаю обратно…	Vérification : je désactive le débogage puis le réactive…
 ✔ Получилось: отладка теперь включается, только пока Уборщик работает	✔ C'est fait : le débogage n'est désormais activé que pendant le travail de TV Janitor
 ⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать.	⚠ Après désactivation, le débogage réseau n'est pas revenu tout seul. Activez « Débogage réseau » dans les options pour les développeurs : TV Janitor ne le désactivera plus.
+⚠ Эта прошивка не пускает Уборщика в автозапуск после включения. Ваш выбор всё равно применяется, но позже: в течение 15 минут после включения или сразу, как откроете Уборщика.	⚠ Ce micrologiciel empêche TV Janitor de démarrer seul après l'allumage. Vos choix sont quand même appliqués, mais plus tard : dans les 15 minutes après l'allumage, ou dès que vous ouvrez TV Janitor.
+Применяю ваш выбор после включения…	J'applique vos choix après l'allumage…
+🔒 прошивка не даёт отключить: 	🔒 le micrologiciel refuse la désactivation : 
+, через 	, après 
+ мин после включения	 min après l'allumage
+ Применено через 	 Appliqué 
+ мин после включения: прошивка не пускает Уборщика в автозапуск.	 min après l'allumage : le micrologiciel empêche TV Janitor de démarrer seul.
+🔒 Эта прошивка не даёт отключить: 	🔒 Ce micrologiciel refuse de désactiver : 
+. Это защита самой прошивки, не ошибка; пробовать снова не буду.	. C'est une protection du micrologiciel lui-même, pas une erreur ; je ne réessaierai pas.

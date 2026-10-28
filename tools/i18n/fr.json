@@ -548,5 +548,14 @@
 "⚠ Pas le droit de changer le débogage : rouvrez TV Janitor pendant que le débogage est activé",
 "Vérification : je désactive le débogage puis le réactive…",
 "✔ C'est fait : le débogage n'est désormais activé que pendant le travail de TV Janitor",
-"⚠ Après désactivation, le débogage réseau n'est pas revenu tout seul. Activez « Débogage réseau » dans les options pour les développeurs : TV Janitor ne le désactivera plus."
+"⚠ Après désactivation, le débogage réseau n'est pas revenu tout seul. Activez « Débogage réseau » dans les options pour les développeurs : TV Janitor ne le désactivera plus.",
+"⚠ Ce micrologiciel empêche TV Janitor de démarrer seul après l'allumage. Vos choix sont quand même appliqués, mais plus tard : dans les 15 minutes après l'allumage, ou dès que vous ouvrez TV Janitor.",
+"J'applique vos choix après l'allumage…",
+"🔒 le micrologiciel refuse la désactivation :",
+", après",
+"min après l'allumage",
+"Appliqué",
+"min après l'allumage : le micrologiciel empêche TV Janitor de démarrer seul.",
+"🔒 Ce micrologiciel refuse de désactiver :",
+". C'est une protection du micrologiciel lui-même, pas une erreur ; je ne réessaierai pas."
 ]

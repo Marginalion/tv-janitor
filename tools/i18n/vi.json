@@ -548,5 +548,14 @@
 "⚠ Không có quyền bật/tắt gỡ lỗi: hãy mở lại TV Janitor khi gỡ lỗi đang bật",
 "Đang kiểm tra: tắt gỡ lỗi rồi bật lại…",
 "✔ Xong: giờ gỡ lỗi chỉ bật khi TV Janitor làm việc",
-"⚠ Sau khi tắt, gỡ lỗi qua mạng không tự bật lại. Hãy bật \"Gỡ lỗi qua mạng\" trong Tùy chọn nhà phát triển: TV Janitor sẽ không tắt nó nữa."
+"⚠ Sau khi tắt, gỡ lỗi qua mạng không tự bật lại. Hãy bật \"Gỡ lỗi qua mạng\" trong Tùy chọn nhà phát triển: TV Janitor sẽ không tắt nó nữa.",
+"⚠ Firmware này không cho TV Janitor tự khởi động sau khi bật TV. Lựa chọn của bạn vẫn được áp dụng, chỉ muộn hơn: trong vòng 15 phút sau khi bật, hoặc ngay khi bạn mở TV Janitor.",
+"Đang áp dụng lựa chọn của bạn sau khi bật…",
+"🔒 firmware không cho tắt:",
+", sau",
+"phút kể từ khi bật",
+"Đã áp dụng sau",
+"phút sau khi bật: firmware không cho TV Janitor tự khởi động.",
+"🔒 Firmware này không cho tắt:",
+". Đây là cơ chế bảo vệ của chính firmware, không phải lỗi; tôi sẽ không thử lại."
 ]
