@@ -635,5 +635,9 @@
 "⚠ Não há outra tela inicial, então a nova fica; senão a TV ficaria sem Início.",
 "⚠ Início ainda abre a nova tela, então ela fica. Escolha a tela original e tente de novo.",
 "⚠ O teclado leve ainda é o padrão, então fica.",
-"Desinstalando o TV Janitor. Obrigado por usar!"
+"Desinstalando o TV Janitor. Obrigado por usar!",
+"⚠ A TV não reiniciou. Reinicie-a com o botão de ligar do controle (segure 5 segundos) ou tire da tomada por 10 segundos.",
+"Ativado à mão (não houve reinício): fica ativado e a marcação é retirada: ",
+"Instantâneo \"como estava\" salvo: desativados antes do TV Janitor: ",
+"Destes, não de fábrica, mas desativados antes por alguém (voltam com \"Restaurar tudo\"): "
 ]

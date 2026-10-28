@@ -638,3 +638,7 @@ Live Channels	Live Channels
 ⚠ «Домой» всё ещё ведёт в новую оболочку — её оставляю. Выберите заводской главный экран и повторите.	⚠ Home still opens the new home screen, so it stays. Choose the stock home screen and try again.
 ⚠ Лёгкая клавиатура всё ещё основная — её оставляю.	⚠ The light keyboard is still the default, so it stays.
 Удаляю Уборщика. Спасибо, что пользовались!	Uninstalling TV Janitor. Thanks for using it!
+⚠ Телевизор не перезагрузился. Перезагрузите его кнопкой питания на пульте (подержите 5 секунд) или выньте вилку на 10 секунд.	⚠ The TV did not restart. Restart it with the remote's power button (hold it for 5 seconds) or unplug it for 10 seconds.
+Включено вручную (перезагрузки не было) — оставляю включённым и снимаю отметку: 	Turned on by hand (there was no restart), so it stays on and its tick is removed:  
+Снимок «как было» сохранён: отключено до Уборщика 	Snapshot "as it was" saved: disabled before TV Janitor:  
+Из них не с завода, а отключено кем-то раньше (вернутся при «Вернуть всё как было»): 	Of these, not from the factory but disabled by someone earlier (they come back with "Restore everything"):  

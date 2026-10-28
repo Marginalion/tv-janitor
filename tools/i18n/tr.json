@@ -635,5 +635,9 @@
 "⚠ Başka ana ekran yok, yenisi kalıyor; yoksa TV'de Ana ekran olmazdı.",
 "⚠ Ana ekran tuşu hâlâ yenisini açıyor, kalıyor. Fabrika ana ekranını seçip tekrar deneyin.",
 "⚠ Hafif klavye hâlâ varsayılan, kalıyor.",
-"TV Janitor kaldırılıyor. Kullandığınız için teşekkürler!"
+"TV Janitor kaldırılıyor. Kullandığınız için teşekkürler!",
+"⚠ TV yeniden başlamadı. Kumandanın güç tuşuyla yeniden başlatın (5 saniye basılı tutun) ya da fişi 10 saniye çekin.",
+"Elle açıldı (yeniden başlatma olmadı), açık kalıyor ve işareti kaldırılıyor: ",
+"\"Önceki hal\" anlık görüntüsü kaydedildi: TV Janitor öncesi devre dışı ",
+"Bunlardan fabrikadan değil, daha önce biri tarafından kapatılanlar (\"Her şeyi geri yükle\" ile geri gelir): "
 ]

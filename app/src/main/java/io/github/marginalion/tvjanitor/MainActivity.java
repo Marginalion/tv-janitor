@@ -27,8 +27,11 @@ public class MainActivity extends Activity {
 
     private static final class Row {
         String pkg, label, note, level, sub; boolean enabled, tele, userApp, factoryOff, system, launchable; long kb; int state; Button box;
-        Features.F feature; boolean needed, known; Group group;
+        Features.F feature; boolean needed, known; Group group; int base;
     }
+
+    /** False after Apply or Restore: the next rebuild shows the TV as it is, not the ticks from before. */
+    private boolean keepTicks = true;
 
     /** A fold in the list: rows are made only while it is open, so a closed list costs next to nothing. */
     private final class Group {
@@ -203,7 +206,7 @@ public class MainActivity extends Activity {
                 .setTitle(T.t("Вернуть всё как было?"))
                 .setMessage(T.t("Уборщик включит обратно всё, что отключал, и вернёт заводские настройки, которые менял. Потом лучше перезагрузить телевизор."))
                 .setNegativeButton(T.t("Отмена"), null)
-                .setPositiveButton(T.t("Вернуть"), (d, w) -> run(T.t("Возвращаю всё как было…"), () -> new Ops(this, this::say).restoreAll()))
+                .setPositiveButton(T.t("Вернуть"), (d, w) -> { keepTicks = false; run(T.t("Возвращаю всё как было…"), () -> new Ops(this, this::say).restoreAll()); })
                 .show());
         sReboot.setOnClickListener(v -> new android.app.AlertDialog.Builder(this)
                 .setTitle(T.t("Перезагрузить телевизор?"))
@@ -229,7 +232,7 @@ public class MainActivity extends Activity {
                 return ok;
             });
         });
-        restoreBtn.setOnClickListener(v -> run(T.t("Возвращаю всё как было…"), () -> new Ops(this, this::say).restoreAll()));
+        restoreBtn.setOnClickListener(v -> { keepTicks = false; run(T.t("Возвращаю всё как было…"), () -> new Ops(this, this::say).restoreAll()); });
         removeBtn.setOnClickListener(v -> new android.app.AlertDialog.Builder(this)
                 .setTitle(T.t("Удалить Уборщика начисто?"))
                 .setMessage(T.t("Если просто удалить Уборщика, всё отключённое так и останется отключённым: Android хранит это сам. ")
@@ -441,7 +444,13 @@ public class MainActivity extends Activity {
         }).start();
     }
 
+    private static Set<String> minus(Set<String> a, Set<String> b) { a.removeAll(b); return a; }
+
     private void buildList() {
+        // Ticks not yet applied survive a rebuild (after the keyboard, launcher or refresh buttons).
+        Map<String, Integer> ticks = new HashMap<>();
+        if (keepTicks) for (Row r : rows) if (r.state != r.base) ticks.put(r.pkg, r.state);
+        keepTicks = true;
         list.removeAllViews();
         rows.clear();
         boolean exp = store.flag("expert", false);
@@ -450,7 +459,7 @@ public class MainActivity extends Activity {
         Map<String, String> imp = Detector.important(this);
         String ime = Settings.Secure.getString(getContentResolver(), Settings.Secure.DEFAULT_INPUT_METHOD);
         if (ime != null && ime.contains("/")) ime = ime.substring(0, ime.indexOf('/'));
-        Set<String> chosen = store.disabled(), sleepy = store.sleeping(), factory = store.set("snap_disabled"),
+        Set<String> chosen = store.disabled(), sleepy = store.sleeping(), factory = minus(store.set("snap_disabled"), store.set("snap_foreign")),
                 rolled = store.set("rolledBack"), back = store.set("firmwareBack");
         Map<String, Community.Stat> com = Community.stats(this);
         Community.Match same = Community.device(this);
@@ -517,7 +526,8 @@ public class MainActivity extends Activity {
             r.enabled = ai.enabled && st != PackageManager.COMPONENT_ENABLED_STATE_DISABLED && st != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
             r.factoryOff = !r.enabled && factory.contains(pkg);
             r.kb = mem.getOrDefault(pkg, 0L);
-            r.state = (chosen.contains(pkg) || !r.enabled) ? 2 : sleepy.contains(pkg) ? 1 : 0;
+            r.base = (chosen.contains(pkg) || !r.enabled) ? 2 : sleepy.contains(pkg) ? 1 : 0;
+            r.state = ticks.getOrDefault(pkg, r.base);
             r.sub = (r.note.isEmpty() ? "" : r.note + "  ·  ") + pkg;
             r.system = system; r.launchable = launchable;
             rows.add(r);
@@ -690,6 +700,7 @@ public class MainActivity extends Activity {
 
     private void doApply() {
         saveFlags();
+        keepTicks = false;
         Set<String> chosen = new HashSet<>(), disable = new HashSet<>(), enable = new HashSet<>();
         Set<String> sleep = new HashSet<>(), wake = new HashSet<>();
         Set<String> before = store.disabled(), sleptBefore = store.sleeping();

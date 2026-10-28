@@ -1,0 +1,345 @@
+# English twin of describe.txt, for TVs not set to Russian. pkg | plain name | what it does and what happens if disabled
+android|Android system|Android itself: windows, memory, starting apps. Cannot be disabled
+android.ext.services|System services (notifications)|ranks notifications, smart replies, suggestions. If disabled: notifications and some dialogs break
+android.ext.shared|Shared Android library|a library other system packages load. Does nothing by itself and uses no memory
+com.google.android.ext.services|System services (notifications)|ranks notifications, smart replies, suggestions (build with Google services). If disabled: notifications and some dialogs break. Leave it
+com.google.android.ext.shared|Shared Android library (Google)|a library other system packages load; never runs by itself
+com.android.systemui|System UI|notifications, volume, "No signal" windows. If disabled: black screen
+com.android.providers.settings|Settings storage|every setting of the TV. Android does not boot without it
+com.android.shell|Command line (adb)|debugging and TV Janitor itself work through it. Disabling it cuts TV Janitor off
+com.android.inputdevices|Keyboard layouts|layouts for connected keyboards and remotes. Uses no memory
+com.android.keychain|Certificate store|keys for password Wi-Fi, HTTPS and VPN. If disabled: secure networks and sites may stop working
+com.android.location.fused|Location|on a TV, by Wi-Fi. On some TVs (TCL) disabling it causes an endless reboot. Leave it
+com.android.se|Secure Element|for bank cards and NFC; hardly used on a TV, but it is a system part. Better leave it
+com.android.externalstorage|USB drive access|shows USB drives and storage to apps. If disabled: files on a USB drive won't open
+com.android.providers.media|Media library|the list of photos, videos and music on the TV and USB drives. File browsers and players need it
+com.android.providers.media.module|Media library (Android 11+)|the list of photos, videos and music on the TV and USB drives. File browsers and players need it. Leave it
+com.android.providers.downloads|Downloads|downloads files for apps and updates. If disabled: updates and downloads stop
+com.android.providers.downloads.ui|"Downloads" window|the list of downloaded files. Can be disabled: downloads work without it
+com.android.providers.tv|Channel database (TV Provider)|channels and the programme guide. Live TV, HDMI inputs and many launchers need it
+com.android.packageinstaller|App installer|the "Install?" window and uninstalling. If disabled: no APK can be installed
+com.google.android.packageinstaller|App installer|the "Install?" window and uninstalling (build with Google). If disabled: no APK can be installed
+com.android.permissioncontroller|App permissions|the "allow access to…" windows. Leave it
+com.google.android.permissioncontroller|App permissions|the "allow access to…" windows (build with Google). Leave it
+com.android.defcontainer|Install helper (Android 9)|checks APKs and free space when installing. Apps don't install without it
+com.android.storagemanager|Storage manager|freeing space in Settings > Storage. Can stay: it only runs when asked
+com.android.mtp|File transfer over USB (MTP)|lets a computer see the TV as a device. Rarely needed, does no harm
+com.android.modulemetadata|System module info|service data for Android updates. Does not run by itself
+com.google.android.modulemetadata|System module info|service data for Android updates (build with Google). Does not run, uses no memory
+com.android.networkstack.inprocess|Network stack|gets an address by DHCP, checks the internet. No network without it
+com.android.networkstack.permissionconfig|Network stack permissions|a service part of the network. Leave it
+com.android.networkstack.tethering.inprocess|Internet sharing|hotspot and USB tethering. Rarely needed on a TV, but part of the network core. Leave it
+com.android.connectivity.resources|Network settings (resources)|service parameters of the network core
+com.android.wifi.resources|Wi-Fi settings (resources)|the maker's parameters for the Wi-Fi module. Leave it: Wi-Fi may disappear
+com.android.bluetooth|Bluetooth|Bluetooth remotes, headphones, speakers. Disabling it may kill the remote
+com.android.webview|Built-in browser (WebView)|web pages inside apps: sign-ins, help, some streaming apps. Leave it
+com.google.android.webview|Built-in browser (Google)|web pages inside apps: sign-ins, help, some streaming apps. Leave it
+com.android.tv.settings|TV settings|the Settings menu. On many TVs also the fallback Home. Leave it
+com.android.vending|Google Play|the app store. Without it apps from Play don't install or update
+com.google.android.gms|Google Play services|YouTube, Google sign-in and Chromecast rely on it. Leave it
+com.google.android.gsf|Google services framework|the Google account and push messages. Leave it
+android.auto_generated_rro_product__|Android look overlay|the maker's system settings (colours, texts, parameters). Never runs; no reason to touch it
+android.auto_generated_rro_vendor__|Android look overlay|the chip maker's system settings (colours, texts, parameters). Never runs; no reason to touch it
+com.android.bluetooth.auto_generated_rro_product__|Bluetooth overlay|the maker's Bluetooth parameters. Leave it
+com.android.bluetooth.auto_generated_rro_vendor__|Bluetooth overlay|the chip maker's Bluetooth parameters. Never runs. Leave it
+com.android.providers.contacts.auto_generated_rro_product__|Contacts overlay|parameters of the contacts store
+com.android.providers.settings.auto_generated_rro_product__|Default settings overlay|factory values of the settings. Disabling it may reset settings. Leave it
+com.android.providers.settings.auto_generated_rro_vendor__|Default settings overlay|the chip maker's factory values of the settings. Disabling it may reset settings. Leave it
+com.android.networkstack.tethering.inprocess.rro|Internet sharing overlay|hotspot parameters
+com.android.networkstack.tethering.rro|Internet sharing overlay|hotspot and tethering parameters. Never runs
+com.android.connectivity.resources.tpvcustom|Philips network overlay (TPV)|network parameters from Philips
+com.android.wifi.resources.rro|Wi-Fi overlay|the maker's Wi-Fi parameters. Leave it
+com.android.tv.overlay.networkstack.inprocess|TV network overlay|network stack parameters for TVs
+com.android.tv.overlay.settingsprovider|TV settings overlay|factory settings values for TVs
+com.android.tv.overlay.wifi.resources|TV Wi-Fi overlay|Wi-Fi parameters for TVs
+com.android.tv.settings.gms.resoverlay|Google overlay for Settings|adds Google entries to Settings
+com.android.systemui.theme.dark|Dark UI theme|a look variant. Uses no memory
+com.android.internal.display.cutout.emulation.corner|Screen cutout emulation|for phone developers: draws a corner camera notch. Useless on a TV, uses no memory
+com.android.internal.display.cutout.emulation.double|Screen cutout emulation|for phone developers: draws a double camera notch. Useless on a TV, uses no memory
+com.android.internal.display.cutout.emulation.tall|Screen cutout emulation|for phone developers: draws a tall camera notch. Useless on a TV, uses no memory
+com.google.android.overlay.googlewebview|WebView setting|picks Google's built-in browser
+com.google.android.overlay.gtvsconfig|Google TV overlay|parameters of Google TV services
+com.google.android.overlay.modules.ext.services|System services overlay|a service part for Android updates
+com.google.android.overlay.modules.modulemetadata.forframework|Modules overlay|a service part
+com.google.android.overlay.modules.permissioncontroller|Permissions overlay|a service part
+com.google.android.overlay.modules.permissioncontroller.forframework|Permissions overlay|a service part
+com.android.tv.frameworkpackagestubs|Stubs (Android TV)|empty "no such app" windows so other apps don't crash. Often off from the factory
+com.google.android.tv.frameworkpackagestubs|Stubs (Google TV)|empty "no such app" windows so other apps don't crash. Often off from the factory
+com.android.backupconfirm|Backup confirmation|the "allow backup" window for adb backup. Not needed in daily use
+com.android.bips|Printing (built-in)|printing to network printers. Not needed on a TV
+com.android.bluetoothmidiservice|Bluetooth MIDI|music keyboards over Bluetooth. Hardly anyone needs it
+com.android.bookmarkprovider|Bookmarks|bookmarks of the old browser. Hardly anyone needs it
+com.android.calendar|Calendar|the Calendar app. Not needed on a TV
+com.android.captiveportallogin|Wi-Fi sign-in page|sign-in for guest networks (hotels, cafés). Not needed at home, does no harm
+com.android.certinstaller|Certificate installer|installs certificates for corporate Wi-Fi and VPN. Rarely needed at home
+com.android.companiondevicemanager|Companion devices|helps apps pair watches and bands. Rarely needed on a TV
+com.android.contacts|Contacts|the Contacts app. Not needed on a TV
+com.android.cts.ctsshim|Test stub (CTS)|an empty package for Google compatibility tests. Never runs, uses no memory
+com.android.cts.priv.ctsshim|Test stub (CTS)|an empty package for Google compatibility tests. Never runs, uses no memory
+com.android.dreams.basic|Basic screensaver|Android's simple colour screensaver
+com.android.dynsystem|Temporary system (DSU)|for developers: booting a test system
+com.android.hotspot2.osulogin|Passpoint Wi-Fi sign-in|auto sign-up to operator Wi-Fi. Not needed at home
+com.android.htmlviewer|HTML viewer|shows licences and help. Without it "Legal information" won't open
+com.android.localtransport|Local backup|a service "transport" for backups
+com.android.managedprovisioning|Work setup|for devices managed by an organisation
+com.android.onetimeinitializer|One-time init|runs once after a reset. Not needed afterwards
+com.android.pacprocessor|Proxy auto-config (PAC)|only for networks with a proxy. Almost never at home
+com.android.printspooler|Printing|the print queue
+com.android.providers.blockednumber|Blocked numbers|for phones
+com.android.providers.calendar|Calendar store|hardly needed on a TV
+com.android.providers.contacts|Contacts store|hardly needed on a TV; some video-call apps use it
+com.android.providers.userdictionary|Keyboard dictionary|words the keyboard has learned
+com.android.proxyhandler|Proxy|proxy server support. Not needed at home
+com.android.settings.intelligence|Search in Settings|the search box and tips; Settings work without it
+com.android.sharedstoragebackup|Shared storage backup|part of file backup
+com.android.soundpicker|Sound picker|the ringtone picker. Not needed on a TV
+com.android.statementservice|App link verification|checks which app opens which links. Hardly matters on a TV
+com.android.vpndialogs|VPN dialogs|the permission prompt when a VPN starts. Keep it if you use a VPN
+com.android.wallpaperbackup|Wallpaper backup|saves the wallpaper to the cloud; nearly useless on a TV
+com.android.wallpaperpicker|Wallpaper picker|picks the home screen picture. Our launcher doesn't need it
+com.google.android.apps.mediashell|Chromecast|casting from a phone with the Cast button. If disabled: YouTube can't be sent from the phone
+com.google.android.backdrop|Google photo screensaver|photos when idle. Up to ~200 MB while showing; without it the screen simply goes dark
+com.google.android.boot.appsplashscreen|Boot splash|the picture while the TV starts
+com.google.android.feedback|Google feedback|sends feedback and error reports
+com.google.android.inputmethod.latin|Gboard keyboard|the on-screen keyboard. Disable only if another one (LeanKey) is installed
+com.google.android.katniss|Google voice search|the remote's mic button and the Assistant
+com.google.android.marvin.talkback|TalkBack|screen reader for blind users
+com.google.android.onetimeinitializer|Google first setup|runs once after a reset
+com.google.android.partnersetup|Google partner setup|the maker's service settings for Google services
+com.google.android.play.games|Google Play Games|gaming profile and achievements
+com.google.android.sss.authbridge|Google sign-in bridge|account sign-in for some services
+com.google.android.syncadapters.calendar|Calendar sync|Google Calendar
+com.google.android.tts|Google text-to-speech|the voice for read-aloud and accessibility
+com.google.android.tungsten.setupwraith|Google TV setup|first setup; sometimes grabs Home and owns the Wi-Fi network. Careful
+com.google.android.tv.remote.service|Phone as remote|control from the Google TV phone app. On some TVs the remote works through it too. Careful
+com.google.android.tvlauncher|Google home screen|the stock Android TV launcher
+com.google.android.tvrecommendations|Google recommendations|suggestion rows on the Google home screen
+com.google.android.videos|Google TV movies|Google's movie store
+com.google.android.youtube.tv|YouTube|the YouTube app
+com.google.android.youtube.tvmusic|YouTube Music|the music app
+com.yandex.tv.services|Yandex TV core|account, settings, link to Yandex. The firmware won't let it be disabled and restarts it. ~250 MB with its analytics
+com.yandex.tv.services.platform|Yandex TV platform (persistent)|Android always starts it. If disabled it crash-loops ~4 times a second (Sunwind). Never disable
+com.yandex.tv.services.privileged|Yandex privileged services|service actions with system rights (installing, settings). Leave it
+com.yandex.tv.vendor.config|Yandex TV config (RetailConfig)|settings the TV maker handed to Yandex. Leave it
+com.yandex.tv.settings|Yandex TV settings|the settings menu in Yandex style. Leave it
+com.yandex.tv.home|Yandex home screen|the stock launcher. Disable only if another (ours) is installed and the fallback Home is on
+com.example.user.myapplication|Fallback Home|the black screen until the launcher loads. The TV may not boot without it. Never disable
+com.yandex.tv.live|Yandex TV and HDMI player|plays live TV and HDMI inputs. If disabled on Yandex TV: "not available on this TV" when choosing HDMI
+com.yandex.tv.input.efir|Live TV source (antenna)|the input service for antenna/cable. On Novex it is the only Android TV input service; HDMI opens from the remote's menu
+com.yandex.tv.alice|Alice|the voice assistant. Without it voice search on the remote stops; its services "crash" once when disabled, that's normal
+com.yandex.io.sdk|Alice engine|speech recognition and smart home, ~75–125 MB. Protected by the firmware on Sunwind, disabled without trouble on Novex
+com.yandex.tv.music|Yandex Music|the music app
+com.yandex.browser.tv|Yandex Browser|the TV browser
+com.yandex.tv.daydream|Yandex screensaver|pictures and ads when idle
+com.yandex.android.advid|Yandex advertising ID|gives apps an advertising ID. Safe to disable
+com.yandex.tv.bugreportsender|Yandex bug reports|sends crash logs to Yandex
+com.yandex.launcher.updaterapp|Yandex TV updates|downloads and installs launcher and app updates. Protected by the firmware on Sunwind, can be disabled on Novex
+com.yandex.tv.setupwizard|Yandex setup|first setup of the TV. Not needed afterwards, needed again after a reset
+com.yandex.tv.videoplayer|Yandex video player|the built-in player for videos from Yandex picks. Streaming apps usually have their own
+com.yandex.tv.webplayer|Yandex web player|plays videos from websites in Yandex picks
+com.yandex.tv.youtubeplayer|Yandex YouTube player|opens YouTube clips from Yandex picks
+com.yandex.tv.ytplayer|YouTube (Yandex)|Yandex's YouTube.com shortcut and player
+com.yandex.prebuiltstub|Yandex stub|an empty service package; does nothing and never runs
+com.yandex.devices.farm.companion|Device farm helper|Yandex's service app for remote device testing. Owners don't need it (not checked)
+com.yandex_uni.rro.globalui|Yandex overlay for the source menu|restyles the stock source/volume menu for Yandex. Never runs
+com.yandex_uni.rro.livetvglobal|Yandex overlay for live TV|look of the live TV player. Never runs
+com.yandex_uni.rro.media|Yandex overlay for the media player|look of the USB browser and player
+com.yandex_uni.rro.settings|Yandex overlay for settings|look of the settings menu
+ru.yandex.androidkeyboard.tv|Yandex Keyboard|the on-screen keyboard. Can be disabled if LeanKey is installed. On Novex it crashes 3 times at every boot, even when on
+ru.kinopoisk.yandex.tv|Kinopoisk|Yandex's streaming service
+ru.kinopoisk.tv|Kinopoisk (old package)|streaming service
+com.cvte.tv.api.impl|Remote key service (tvapi-service)|every remote key press goes through it. If disabled: after a reboot the remote is dead except power (Sunwind)
+com.cvte.tvservice|CVTE TV service|the base of live TV and HDMI. Leave it
+com.cvte.tv.globalui|Source and volume menu|the HDMI/AV/antenna picker on the remote's key. Leave it
+com.cvte.tv.setting|Live TV player and quick menu|channel switching, channel number, picture menu. Leave it
+com.cvte.tv.customer.settings|Maker settings|picture and sound menus from CVTE/the brand. Leave it (not checked)
+com.cvte.tv.ucservice|CVTE "User Center" service|starts at boot, purpose unclear. Persistent on Novex: can't be disabled, only put to sleep
+com.cvte.tv.remotedebug|CVTE remote debugging|the maker's service tool. Persistent on Novex; everything works without it, TV Janitor puts it to sleep
+com.cvte.tv.media|Media player (USB)|opens photos, videos and music from a USB drive. Keep it if you watch from USB
+com.cvte.dssshare.dlna|DLNA (network casting)|receives video from a phone over DLNA. Can be disabled if unused
+com.cvte.tv.bluetoothguide|Remote pairing guide|Bluetooth remote pairing prompt at first start (not checked)
+com.cvte.black_screem|"Black screen" mode|turns the picture off but keeps sound (radio/music) (not checked)
+com.cvte.tv.tools|CVTE service tools|for technicians; never run in daily use
+com.cvte.fac.menu|Factory menu|service menu. Don't open it: it may switch on factory mode
+com.cvte.factory.service|CVTE factory service|listens for factory key codes; always running. Better leave it
+com.cvte.factory.at|Factory auto-test|for the assembly line. Can be disabled
+com.cvte.license.at|Factory licence test|for the assembly line. Can be disabled
+com.cvte.tv.burn|Factory screen test|screen burn-in run on the line. Can be disabled
+com.customer.rro.media|Brand overlay for the media player|look of the USB player (logo, colours). Never runs
+com.customer.rro.settings|Brand overlay for settings|look of the settings menu. Novex Cleaner disabled it without harm
+com.customer.rro.tvglobalui|Brand overlay for the source menu|look of the source menu
+com.customer.rro.tvsetting|Brand overlay for the TV menu|look of the quick menu
+com.stb.factorymenu|Set-top box factory menu|service menu. Don't open it (not checked)
+com.mediatek.tvinput|HDMI/AV/antenna inputs|MediaTek's input service. If disabled: HDMI and live TV disappear
+com.mediatek.tv.service|MediaTek TV service|remote keys, the Netflix key, hardware link. Leave it
+com.mediatek.tv.agent|MediaTek TV agent|power, timers, remote keys. Leave it
+com.mediatek.tunerservice|MediaTek tuner|antenna and satellite reception. Leave it
+com.mediatek.tvinputservice.arbitratorservice|Input arbitrator|decides which input is shown. Leave it
+com.mediatek.hotkey.dispatcher|Remote hot keys|Netflix, YouTube and source keys. Leave it
+com.mediatek.network|MediaTek network monitor|persistent service. Disabling it is pointless
+com.mediatek.wwtv.tvcenter|MediaTek live TV player|channels and HDMI. Leave it
+com.mediatek.wwtv.setupwizard|Channel setup|first setup and channel scan
+com.mediatek.wwtv.webview|MediaTek built-in browser|web pages inside the stock menus
+com.mediatek.androidbox|Miracast receiver|phone screen mirroring. Can be disabled if unused
+com.mediatek.backgrounddetection|MediaTek background service|hosts the USB debugging service. Leave it
+com.mediatek.TimeMeasurementAgent|Boot timing|for developers. Safe to disable (but persistent: Android starts it anyway)
+com.mediatek.loadingequalizer|MediaTek load balancer|spreads the load at start-up (not checked). Better leave it
+com.mediatek.android.leanbacklauncher.partnercustomizer|Partner rows on the stock home|partner ads on the home screen. Can be disabled
+mediatek.factorymenu.ui|MediaTek factory menu|don't open it: it may switch on factory mode
+com.hisilicon.rmservice|HiSilicon remote service|receives remote keys. Persistent, never disable
+com.hisilicon.miracast|Miracast receiver|phone screen mirroring. Can be disabled if unused (disabled on Novex without harm)
+com.hisilicon.higallery|HiSilicon gallery / file browser|opens when a USB drive is plugged in, shows photos and videos. Keep it if you watch from USB
+mitv.service|Xiaomi system service|remote keys, Bluetooth remote. Leave it
+com.mi.bluetooth|Xiaomi remote|pairing and running the Bluetooth remote. Leave it
+com.mitv.overseaservice|Xiaomi remote service|the Netflix key and Bluetooth remote. Persistent. Leave it
+com.xiaomi.mitv.smartshare|Xiaomi Miracast|phone screen mirroring and MiPlay
+com.xiaomi.wfdsinkhelperservice|Xiaomi Miracast helper|part of screen mirroring
+com.mitv.milinkservice|MiLink|Xiaomi casting; Chromecast works separately
+com.xiaomi.mitv.tvmanager|Xiaomi "TV Manager"|memory cleaner; voice "open app" goes through it. Better leave it
+com.xiaomi.tvqs.overseas|Xiaomi stats and quick panel|collects and uploads quality stats. Careful: on some TVs it is also quick settings
+com.mitv.tvlock|Xiaomi lock|parental password
+com.mitv.livetv.ci_mediatek|Xiaomi live TV / CI module|pay channels through a CAM module. Leave it
+com.miui.tv.analytics|Xiaomi analytics|uploads statistics. Safe
+com.xiaomi.statistic|Xiaomi statistics|uploads logs. Safe
+fusion.android.tv.demo|Xiaomi demo mode|shop window videos
+com.xiaomi.mimusic2|Mi Music|Xiaomi music
+com.mitv.tvhome.atv|PatchWall|Xiaomi launcher with trailers and ads
+com.mitv.tvhome.michannel|PatchWall rows|picks on the home screen
+com.mitv.tvhome.mitvplus|Mi TV+|free channels with ads
+com.xiaomi.mitv.updateservice|Xiaomi updates|firmware and PatchWall. Turn it on when you want to update
+com.mitv.dream|Xiaomi screensaver|before disabling, pick another screensaver, or the screen won't go dark
+com.mitv.gallery|Xiaomi gallery|photos from USB (the file browser opens them anyway)
+com.xiaomi.mitv.mediaexplorer|Xiaomi file browser|files and videos from USB
+com.mitv.videoplayer|Xiaomi video player|videos from USB and MiLink
+com.xiaomi.android.tvsetup.partnercustomizer|Xiaomi partner setup|preinstalled apps and remote keys at first start
+com.xiaomi.amazon.alexa|Alexa|bridge to Amazon Alexa
+android.autoinstalls.config.xiaomi.amelie|Xiaomi auto-install|what to install at first start
+com.xiaomo.tv.milegal|Xiaomi legal documents|agreements and privacy policy
+com.xm.webcontent|Xiaomi promo content|loads ads and picks for the screensaver
+com.mstar.android.tv.disclaimercustomization|Legal screen at start-up|the maker's text
+org.droidtv.playtv|Philips TV viewing|live TV and HDMI. Leave it
+org.droidtv.xtv|Philips TV core|persistent base; without its helpers it restarts forever. Leave it
+org.droidtv.GlobalKey|Philips remote keys|handles every remote key. Leave it
+org.droidtv.channels|Channels and source menu|the channel list and the SOURCES menu. Leave it
+org.droidtv.fastip|Philips sources (FAST channels)|the SOURCES menu doesn't open without it. Leave it
+org.droidtv.philipstvdrawer|Philips source drawer|slide-out menu. Can go, better kept
+org.droidtv.settings|Philips settings|all menus. Leave it
+org.droidtv.tvsystemui|Philips UI|volume, windows. Leave it
+org.droidtv.tvpowermanagerservice|Philips power|on, sleep, timers. Leave it
+org.droidtv.tv.tptvservice|Philips TV service|screen timeouts, network folders. Leave it
+org.droidtv.homeintentresolver|Philips Home chooser|decides what Home opens
+org.droidtv.nettv_launcherapp|Philips launcher|NetTV shortcut in the menu
+org.droidtv.icp|Philips ICP service|persistent core service. Leave it
+org.droidtv.eum|Electronic manual|the built-in user manual. The Philips core calls it: hide it rather than disable
+org.droidtv.ambiair|Ambilight|the light. Leave it if the TV has it
+org.droidtv.ambihuecommon|Ambilight + Hue (shared part)|links the light to Hue lamps. Leave it
+org.droidtv.alhuewizard|Philips Hue wizard|setting up Hue lamps
+org.droidtv.contentexplorer|Media (USB)|photos and videos from USB
+org.droidtv.exoplayerservice|Philips media player|plays files from USB
+org.droidtv.dlna|Philips DLNA|network video; "Media" relies on it
+org.droidtv.dropboxprovider|Dropbox in Media|Dropbox files
+org.droidtv.nettvbrowser|Philips browser|and the HbbTV "red button"; needed for Freeview on UK sets
+org.droidtv.nettvregistration|Philips registration|Smart TV account; needed for firmware updates
+org.droidtv.nettvapps|Philips preload installer|silently installs gallery apps
+org.droidtv.nettv.market|Philips store|"Philips TV Collection". Play Store stays
+org.droidtv.nettvrecommender|"Top Picks"|ad row on the home screen, ~35 MB
+org.droidtv.recommendation|Philips recommendations|the back end of the row above; disable after it
+org.droidtv.candeebug|Philips analytics ("DAC")|collects what you watch, ~40–55 MB. Safe
+org.droidtv.gel|Philips metrics|stats collector. Safe
+org.droidtv.usagelogger|Philips statistics|boots, key presses. Safe
+org.droidtv.tv.frameworklogger|Philips reboot log|passes reboot reasons to the Philips logger
+org.droidtv.demome|Philips demo mode|shop window videos, ~33 MB
+org.droidtv.sticker|Shop stickers|store banners, ~32 MB
+org.droidtv.android.fitness|Philips fitness|workout app
+org.droidtv.amazonalexa|Alexa|bridge to Amazon Alexa, ~33 MB
+org.droidtv.oad|Over-the-air firmware update|turn it on when you want to update
+org.droidtv.freeviewplayers|Freeview Play|UK catch-up players; not needed outside the UK
+org.droidtv.nettvapp1814|ARTE|app
+org.droidtv.nettvapp20004410|Couchplay Games|games
+org.droidtv.nettvapp4046|Philips preinstalled app (4046)|a NetTV gallery app, name unknown
+org.droidtv.nettvapp4546|MEGOGO|streaming service
+org.droidtv.nettvapp5326|Toon Goggles|kids' videos
+org.droidtv.nettvapp5512|Fishing TV|fishing videos
+org.droidtv.sam|Philips service menu (SAM)|for technicians. Don't open it
+org.droidtv.csm|Philips service menu (CSM)|for technicians. Don't open it
+org.droidtv.dukservice|Philips service mode|for technicians
+org.droidtv.factory|Philips factory service|for the assembly line
+org.droidtv.usbbreakin|USB service entry|for technicians: starting from a USB drive
+org.droidtv.ci|CI module|pay channels through a CAM card. Can go if unused
+org.droidtv.teletext|Teletext|text pages of live TV
+org.droidtv.epgdata|Programme guide|guide data for live TV
+org.droidtv.euinstallersat|Satellite channel scan|satellite setup wizard
+org.droidtv.euinstallertc|Antenna/cable channel scan|antenna/cable setup wizard
+org.droidtv.devicesetup|Philips first setup|first-start wizard
+org.droidtv.networkwizard|Philips network wizard|connecting to Wi-Fi/cable
+org.droidtv.sunrise|"Sunrise" wake-up|turns the TV on with a soft Ambilight glow (alarm) (not checked)
+org.droidtv.lkb|Philips keyboard|on-screen keyboard (not checked)
+org.droidtv.menudataapp|Philips menu data|service store for the menus. Leave it
+org.droidtv.leanbackcustomizer|Philips home customiser|partner rows on the stock launcher
+org.droidtv.ui.strings|Philips UI texts|menu translations. Leave it
+org.droidtv.ui.tvwidget2k15|Philips UI widgets|shared menu widgets. Leave it
+org.droidtv.common.accesshiddenapi|Philips service library|access to hidden Android features for other packages. Leave it
+org.droidtv.tv.inactivityservice|Auto-off when idle|turns the TV off after long inactivity (EU rule). Leave it
+org.droidtv.tv.packageinfo|Philips package info|service part. Leave it
+org.droidtv.tv.permissions|Philips permissions|service part. Leave it
+android.autoinstalls.config.tpv.device|Philips auto-install|what to install at first start
+com.easy.oad|Remote firmware update|"RC FW Update"
+com.phorus.playfi.softap|DTS Play-Fi (hotspot)|sound to Play-Fi speakers
+com.phorus.playfi.tv|DTS Play-Fi|sound to Play-Fi speakers
+com.vewd.core.browserui|Vewd browser|browser and HbbTV
+com.zeasn.whalelive|Whale Live|TV channels over the internet
+uk.co.freeview.explore|Freeview Play|UK guide; not needed outside the UK (off from the factory)
+uk.co.freeview.onnow|Freeview "On now"|UK service
+uk.co.freeview.mdsclient|Freeview data client|service part of Freeview Play
+uk.co.freeview.tifbridge|Freeview bridge to Android channels|service part of Freeview Play
+uk.co.freeview.fvpconfigauth|Freeview Play settings|service part
+uk.co.freeview.bbc|BBC iPlayer|UK streaming
+uk.co.freeview.bbc_sounds|BBC Sounds|UK radio
+uk.co.freeview.itv|ITVX|UK streaming
+uk.co.freeview.ch4_vod|Channel 4|UK streaming
+uk.co.freeview.ch5|My5|UK streaming
+uk.co.freeview.stv|STV Player|UK streaming
+uk.co.freeview.uktv|UKTV Play|UK streaming
+uk.co.freeview.amc_catchup|AMC|UK streaming
+uk.co.freeview.amc_horror|AMC Horror|UK streaming
+uk.co.freeview.sony_kids_vod|Sony Kids|UK kids' streaming
+com.amazon.amazonvideo.livingroom|Prime Video|Amazon's streaming service
+com.netflix.ninja|Netflix|streaming service
+com.apple.atve.androidtv.appletv|Apple TV|Apple's streaming service
+com.boosteroidtv.streaming|Boosteroid|cloud gaming
+ru.mts.mtstv|KION (MTS)|streaming service
+ru.more.play|more.tv|streaming service
+com.ctcmediagroup.videomore|more.tv (old package)|streaming service
+ru.ivi.client|ivi|streaming service
+ru.rt.video.app.tv|Wink|Rostelecom's streaming service
+ru.rutube.app|Rutube|video hosting
+com.vk.tv|VK Video|VKontakte videos
+gpm.tnt_premier|Premier|streaming service
+tv.okko.androidtv|Okko|streaming service
+ru.start.androidmobile|START|streaming service
+mobi.zona|Zona|streaming app
+io.lift.app|Lift|app
+com.ted.android.tv|TED|talks
+ch.protonvpn.android|Proton VPN|VPN, installed by the owner
+com.v2raytun.android|v2RayTun|VPN client, installed by the owner
+com.alphainventor.filemanager|File Manager+|file browser, installed by the owner
+com.lonelycatgames.Xplore|X-plore|file browser, installed by the owner
+com.omshyapps.airdefence|Air Defence|game
+io.github.marginalion.tvjanitor|TV Janitor|that's us 🙂 ~22–25 MB
+com.gathin.tvhome|New launcher (CleanYourTV)|light home screen, ~14 MB
+com.liskovsoft.leankeyboard|Light keyboard (LeanKey)|on-screen keyboard, ~9 MB
+com.android.calllogbackup|Call log backup|for phones; useless on a TV
+com.android.emergency|Emergency info|for phones
+com.android.traceur|System tracing|developer tool for speed debugging
+com.android.egg|Android easter egg|a toy in "Android version"
+com.android.simappdialog|SIM dialogs|for phones
+com.android.stk|SIM toolkit|for phones
+com.google.android.tv.bugreportsender|Google TV bug reports|sends reports to Google
+com.google.android.syncadapters.contacts|Contacts sync|Google contacts
+com.google.android.backuptransport|Google backup|saves settings to the Google account
+com.google.android.leanbacklauncher.recommendations|Old home screen recommendations|picks for the old Android TV launcher
+com.google.android.apps.tachyon|Google Meet / Duo|video calls
+com.google.android.apps.tv.launcherx|Google TV home screen|the stock Google TV launcher
+com.google.android.gms.policy_sidecar_aps|Google policy service|a service part of Google services
+com.google.android.configupdater|Google config updater|updates lists and certificates
+com.google.android.tv|Live Channels|the Channels app for live and online TV

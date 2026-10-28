@@ -635,5 +635,9 @@
 "⚠ There is no other home screen, so the new one stays; otherwise the TV would be left without Home.",
 "⚠ Home still opens the new home screen, so it stays. Choose the stock home screen and try again.",
 "⚠ The light keyboard is still the default, so it stays.",
-"Uninstalling TV Janitor. Thanks for using it!"
+"Uninstalling TV Janitor. Thanks for using it!",
+"⚠ The TV did not restart. Restart it with the remote's power button (hold it for 5 seconds) or unplug it for 10 seconds.",
+"Turned on by hand (there was no restart), so it stays on and its tick is removed: ",
+"Snapshot \"as it was\" saved: disabled before TV Janitor: ",
+"Of these, not from the factory but disabled by someone earlier (they come back with \"Restore everything\"): "
 ]

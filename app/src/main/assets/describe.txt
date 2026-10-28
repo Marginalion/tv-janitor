@@ -1,75 +1,360 @@
-# pkg | понятное название | что это (только объясняет, на группу не влияет)
-com.android.backupconfirm|Подтверждение резервной копии|окно «разрешить резервную копию» при adb backup; в обычной жизни не нужно
-com.android.pacprocessor|Автонастройка прокси (PAC)|нужно только в сетях с прокси по PAC-файлу, дома почти никогда
-com.android.wallpaperbackup|Резервная копия обоев|сохраняет обои в облако; на телевизоре почти бесполезно
-com.android.sharedstoragebackup|Резервная копия общей памяти|участвует в резервном копировании файлов
-com.android.localtransport|Локальное резервное копирование|служебный «транспорт» для резервных копий
-com.android.printspooler|Печать|очередь печати на принтер
-com.android.htmlviewer|Просмотр HTML|показывает лицензии и справку в виде веб-страниц
-com.android.captiveportallogin|Вход в Wi-Fi с авторизацией|страница входа в гостевые сети (отели, кафе); дома не нужна, но и не мешает
-com.android.certinstaller|Установка сертификатов|ставит сертификаты для корпоративного Wi-Fi и VPN
-com.android.companiondevicemanager|Сопряжение устройств|помогает приложениям подключать часы, браслеты и прочее
-com.android.dreams.basic|Базовая заставка|простая заставка Android (цвета)
+# pkg | понятное название | что это и что будет, если отключить (только объясняет, на группу не влияет)
+# Каждая строка видна в списке сама по себе: никаких «то же» и ссылок на соседей.
+# Английский вариант: describe.en.txt (для ТВ не на русском). Проверено: см. /tests и CleanYourTV examples/.
+# ==================== Ядро Android (не трогать) ====================
+android|Система Android|сам Android: окна, память, запуск приложений. Отключить нельзя
+android.ext.services|Системные службы (уведомления)|ранжирует уведомления, умные ответы, подсказки. Если отключить: ломаются уведомления и часть окон
+android.ext.shared|Общая библиотека Android|библиотека, которую подгружают другие системные пакеты. Отключать бессмысленно: сам ничего не делает, памяти не ест
+com.google.android.ext.services|Системные службы (вариант Google)|ранжирует уведомления, умные ответы, подсказки (сборка с сервисами Google). Если отключить: ломаются уведомления и часть окон. Не трогать
+com.google.android.ext.shared|Общая библиотека (вариант Google)|библиотека для других пакетов, сама не запускается
+com.android.systemui|Системный интерфейс|уведомления, громкость, окна «Нет сигнала». Если отключить: чёрный экран
+com.android.providers.settings|Хранилище настроек|все настройки телевизора. Без него Android не загрузится
+com.android.shell|Командная строка (adb)|через неё работает отладка и сам Уборщик. Отключить = Уборщик потеряет связь
+com.android.inputdevices|Раскладки клавиатур|описания раскладок для подключённых клавиатур и пультов. Памяти не ест
+com.android.keychain|Хранилище сертификатов|ключи для Wi-Fi с паролем, HTTPS и VPN. Если отключить: могут перестать работать защищённые сети и сайты
+com.android.location.fused|Определение местоположения|на телевизоре по Wi-Fi. На некоторых ТВ (TCL) отключение даёт бесконечную перезагрузку — не трогать
+com.android.se|Защищённый элемент (Secure Element)|для банковских карт и NFC; на ТВ почти не используется, но системный — лучше не трогать
+com.android.externalstorage|Доступ к флешкам|показывает приложениям USB-флешки и память. Если отключить: файлы с флешки не откроются
+com.android.providers.media|Медиатека|список фото, видео и музыки на ТВ и флешках. Нужен проводникам и плеерам
+com.android.providers.media.module|Медиатека (новая, Android 11+)|список фото, видео и музыки на ТВ и флешках (Android 11 и новее). Нужен проводникам и плеерам. Не трогать
+com.android.providers.downloads|Загрузки|скачивает файлы для приложений и обновлений. Если отключить: перестанут ставиться обновления и скачиваться файлы
+com.android.providers.downloads.ui|Окно «Загрузки»|список скачанного. Можно отключить, загрузки сами работают без него
+com.android.providers.tv|База каналов (TV Provider)|список каналов и программа передач. Нужен эфиру, HDMI-входам и многим оболочкам
+com.android.packageinstaller|Установщик приложений|окно «Установить?» и удаление. Если отключить: ничего не поставить из APK
+com.google.android.packageinstaller|Установщик приложений (Google)|окно «Установить?» и удаление приложений (сборка с Google). Если отключить: ничего не поставить из APK
+com.android.permissioncontroller|Разрешения приложений|окна «разрешить доступ к…». Не трогать
+com.google.android.permissioncontroller|Разрешения приложений (Google)|окна «разрешить доступ к…» (сборка с Google). Не трогать
+com.android.defcontainer|Помощник установки (Android 9)|проверяет APK и место при установке. Без него приложения не ставятся
+com.android.storagemanager|Управление памятью|очистка места в «Настройки → Память». Можно оставить: работает только по запросу
+com.android.mtp|Передача файлов по USB (MTP)|чтобы компьютер видел телевизор как устройство. Обычно не нужен, но и не мешает
+com.android.modulemetadata|Сведения о системных модулях|служебные данные для обновлений Android. Сам не работает
+com.google.android.modulemetadata|Сведения о модулях (Google)|служебные данные для обновлений Android (сборка с Google). Сам не работает, памяти не ест
+com.android.networkstack.inprocess|Сетевой стек|получение адреса по DHCP, проверка интернета. Без него нет сети
+com.android.networkstack.permissionconfig|Разрешения сетевого стека|служебная часть сети. Не трогать
+com.android.networkstack.tethering.inprocess|Раздача интернета|точка доступа и USB-модем. На ТВ почти не нужна, но часть сетевого ядра — не трогать
+com.android.connectivity.resources|Настройки сети (ресурсы)|служебные параметры сетевого ядра
+com.android.wifi.resources|Настройки Wi-Fi (ресурсы)|параметры модуля Wi-Fi от производителя. Не трогать — может пропасть Wi-Fi
+com.android.bluetooth|Bluetooth|пульты с Bluetooth, наушники, колонки. Отключить = пульт может перестать работать
+com.android.webview|Встроенный браузер (WebView)|страницы внутри приложений: входы, справка, часть онлайн-кинотеатров. Не трогать
+com.google.android.webview|Встроенный браузер (Google)|страницы внутри приложений: входы, справка, часть онлайн-кинотеатров (браузер от Google). Не трогать
+com.android.tv.settings|Настройки телевизора|меню «Настройки». Ещё это запасной «Домой» на многих ТВ — не трогать
+com.android.vending|Google Play|магазин приложений. Без него не ставятся и не обновляются приложения из Play
+com.google.android.gms|Сервисы Google Play|основа для YouTube, входа в Google, Chromecast. Не трогать
+com.google.android.gsf|Сервисы Google (каркас)|аккаунт Google и push-уведомления. Не трогать
+# ==================== Оформление-накладки (RRO/overlay): сами не работают, памяти не едят ====================
+android.auto_generated_rro_product__|Накладка оформления Android|настройки системы от производителя (цвета, тексты, параметры). Сам не запускается; трогать незачем
+android.auto_generated_rro_vendor__|Накладка оформления Android|настройки системы от производителя железа (цвета, тексты, параметры). Сам не запускается; трогать незачем
+com.android.bluetooth.auto_generated_rro_product__|Накладка Bluetooth|параметры Bluetooth от производителя. Не трогать
+com.android.bluetooth.auto_generated_rro_vendor__|Накладка Bluetooth|параметры Bluetooth от производителя железа. Сам не запускается. Не трогать
+com.android.providers.contacts.auto_generated_rro_product__|Накладка контактов|параметры хранилища контактов
+com.android.providers.settings.auto_generated_rro_product__|Накладка настроек по умолчанию|заводские значения настроек. Отключение может сбить настройки — не трогать
+com.android.providers.settings.auto_generated_rro_vendor__|Накладка настроек по умолчанию|заводские значения настроек от производителя железа. Отключение может сбить настройки — не трогать
+com.android.networkstack.tethering.inprocess.rro|Накладка раздачи интернета|параметры точки доступа
+com.android.networkstack.tethering.rro|Накладка раздачи интернета|параметры точки доступа и раздачи интернета. Сам не запускается
+com.android.connectivity.resources.tpvcustom|Накладка сети Philips (TPV)|сетевые параметры от Philips
+com.android.wifi.resources.rro|Накладка Wi-Fi|параметры Wi-Fi от производителя. Не трогать
+com.android.tv.overlay.networkstack.inprocess|Накладка сети для ТВ|параметры сетевого стека для телевизоров
+com.android.tv.overlay.settingsprovider|Накладка настроек для ТВ|заводские значения настроек для ТВ
+com.android.tv.overlay.wifi.resources|Накладка Wi-Fi для ТВ|параметры Wi-Fi для ТВ
+com.android.tv.settings.gms.resoverlay|Накладка «Настроек» для Google|добавляет в «Настройки» пункты Google
+com.android.systemui.theme.dark|Тёмная тема интерфейса|вариант оформления. Памяти не ест
+com.android.internal.display.cutout.emulation.corner|Имитация выреза экрана|для разработчиков телефонов: изображает вырез под камеру в углу. На ТВ без дела, памяти не ест
+com.android.internal.display.cutout.emulation.double|Имитация выреза экрана|для разработчиков телефонов: изображает двойной вырез под камеру. На ТВ без дела, памяти не ест
+com.android.internal.display.cutout.emulation.tall|Имитация выреза экрана|для разработчиков телефонов: изображает высокий вырез под камеру. На ТВ без дела, памяти не ест
+com.google.android.overlay.googlewebview|Настройка WebView|выбирает встроенный браузер Google
+com.google.android.overlay.gtvsconfig|Накладка Google TV|параметры сервисов Google TV
+com.google.android.overlay.modules.ext.services|Накладка системных служб|служебная, для обновлений Android
+com.google.android.overlay.modules.modulemetadata.forframework|Накладка модулей|служебная
+com.google.android.overlay.modules.permissioncontroller|Накладка разрешений|служебная
+com.google.android.overlay.modules.permissioncontroller.forframework|Накладка разрешений|служебная
+com.android.tv.frameworkpackagestubs|Заглушки (Android TV)|пустые окна-заглушки «нет такого приложения», чтобы другие приложения не падали. Часто уже отключены с завода
+com.google.android.tv.frameworkpackagestubs|Заглушки Google TV|пустые окна-заглушки «нет такого приложения», чтобы другие приложения не падали. Часто уже отключены с завода
+# ==================== Android: можно отключить, если не пользуетесь ====================
+com.android.backupconfirm|Подтверждение резервной копии|окно «разрешить резервную копию» при adb backup. В жизни не нужно
+com.android.bips|Печать (встроенная служба)|печать на сетевые принтеры. На ТВ не нужна
+com.android.bluetoothmidiservice|Bluetooth MIDI|подключение музыкальных клавиатур по Bluetooth. Почти никому не нужно
+com.android.bookmarkprovider|Закладки|хранилище закладок старого браузера. Почти никому не нужно
+com.android.calendar|Календарь|приложение «Календарь». На ТВ не нужно
+com.android.captiveportallogin|Вход в Wi-Fi с авторизацией|страница входа в гостевые сети (отели, кафе). Дома не нужна, но и не мешает
+com.android.certinstaller|Установка сертификатов|ставит сертификаты для корпоративного Wi-Fi и VPN. Дома почти не нужна
+com.android.companiondevicemanager|Сопряжение устройств|помогает приложениям подключать часы и браслеты. На ТВ почти не нужно
+com.android.contacts|Контакты|приложение «Контакты». На ТВ не нужно
+com.android.cts.ctsshim|Заглушка для тестов (CTS)|пустой пакет для проверок совместимости Google. Не работает, памяти не ест
+com.android.cts.priv.ctsshim|Заглушка для тестов (CTS)|пустой пакет для проверок совместимости Google. Не работает, памяти не ест
+com.android.dreams.basic|Базовая заставка|простая заставка Android (переливы цвета)
 com.android.dynsystem|Временная прошивка (DSU)|для разработчиков: загрузка тестовой системы
-com.android.hotspot2.osulogin|Вход в Passpoint Wi-Fi|авторегистрация в операторских сетях Wi-Fi Hotspot 2.0
-com.android.proxyhandler|Прокси|работа с прокси-сервером
-com.android.soundpicker|Выбор звука|окно выбора мелодии
-com.android.statementservice|Проверка ссылок приложений|сверяет, какие ссылки открывает какое приложение
-com.android.vpndialogs|Окна VPN|запрос разрешения при включении VPN
-com.android.cts.ctsshim|Заглушка для тестов (CTS)|пустой пакет для проверок совместимости Google
-com.android.cts.priv.ctsshim|Заглушка для тестов (CTS)|пустой пакет для проверок совместимости Google
-com.android.calllogbackup|Резервная копия звонков|для телефонов; на телевизоре без дела
-com.android.providers.calendar|Хранилище календаря|календарь; на телевизоре почти не нужен
-com.android.providers.contacts|Хранилище контактов|контакты; на телевизоре почти не нужно
-com.android.providers.userdictionary|Пользовательский словарь|слова, которые выучила клавиатура
-com.android.providers.blockednumber|Заблокированные номера|для телефонов
+com.android.hotspot2.osulogin|Вход в Passpoint Wi-Fi|авторегистрация в операторских сетях Wi-Fi. Дома не нужна
+com.android.htmlviewer|Просмотр HTML|показывает лицензии и справку. Без него не откроется «Юридическая информация»
+com.android.localtransport|Локальное резервное копирование|служебный «транспорт» для резервных копий
 com.android.managedprovisioning|Корпоративная настройка|для устройств, которыми управляет организация
+com.android.onetimeinitializer|Первичная инициализация|работает один раз после сброса. Потом не нужна
+com.android.pacprocessor|Автонастройка прокси (PAC)|нужна только в сетях с прокси. Дома почти никогда
+com.android.printspooler|Печать|очередь печати на принтер
+com.android.providers.blockednumber|Заблокированные номера|для телефонов
+com.android.providers.calendar|Хранилище календаря|почти не нужно на ТВ
+com.android.providers.contacts|Хранилище контактов|почти не нужно на ТВ; некоторые видеозвонки им пользуются
+com.android.providers.userdictionary|Словарь клавиатуры|слова, которые выучила клавиатура
+com.android.proxyhandler|Прокси|работа с прокси-сервером. Дома не нужно
+com.android.settings.intelligence|Поиск в Настройках|строка поиска и советы; сами настройки работают без него
+com.android.sharedstoragebackup|Резервная копия общей памяти|участвует в резервном копировании файлов
+com.android.soundpicker|Выбор звука|окно выбора мелодии. На ТВ не нужно
+com.android.statementservice|Проверка ссылок приложений|сверяет, какие ссылки какое приложение открывает. Почти не влияет на ТВ
+com.android.vpndialogs|Окна VPN|запрос разрешения при включении VPN. Если пользуетесь VPN — оставьте
+com.android.wallpaperbackup|Резервная копия обоев|сохраняет обои в облако; на ТВ почти бесполезно
+com.android.wallpaperpicker|Выбор обоев|выбор картинки рабочего стола. Нашей оболочке не нужен
+# ==================== Google ====================
+com.google.android.apps.mediashell|Chromecast|трансляция с телефона кнопкой «Транслировать». Если отключить: YouTube с телефона на ТВ не перекинуть
+com.google.android.backdrop|Фотозаставка Google|красивые фото в простое. Пока показывает, занимает до ~200 МБ; без неё экран просто гаснет
+com.google.android.boot.appsplashscreen|Заставка при загрузке|картинка во время включения
+com.google.android.feedback|Отчёты в Google|отправка отзывов и отчётов об ошибках
+com.google.android.inputmethod.latin|Клавиатура Gboard|экранная клавиатура. Отключать только если поставлена другая (LeanKey)
+com.google.android.katniss|Голосовой поиск Google|кнопка микрофона на пульте и Ассистент
+com.google.android.marvin.talkback|TalkBack|озвучка экрана для незрячих
+com.google.android.onetimeinitializer|Первичная настройка Google|работает один раз после сброса
+com.google.android.partnersetup|Настройки партнёра Google|служебные настройки производителя для сервисов Google
+com.google.android.play.games|Google Play Игры|игровой профиль и достижения
+com.google.android.sss.authbridge|Мост авторизации Google|вход в аккаунт для некоторых сервисов
+com.google.android.syncadapters.calendar|Синхронизация календаря|календарь Google
+com.google.android.tts|Синтез речи Google|голос для озвучки и спецвозможностей
+com.google.android.tungsten.setupwraith|Мастер настройки Google TV|первая настройка; иногда перехватывает «Домой» и хранит сеть Wi-Fi — осторожно
+com.google.android.tv.remote.service|Пульт с телефона|управление из приложения Google TV на телефоне. На некоторых ТВ через него работает и пульт — осторожно
+com.google.android.tvlauncher|Главный экран Google|заводская оболочка Android TV
+com.google.android.tvrecommendations|Рекомендации Google|ряды подборок на главном экране Google
+com.google.android.videos|Google Фильмы|магазин фильмов Google (в России не работает)
+com.google.android.youtube.tv|YouTube|приложение YouTube
+com.google.android.youtube.tvmusic|YouTube Music|музыкальное приложение
+# ==================== Яндекс ТВ ====================
+com.yandex.tv.services|Ядро Яндекс ТВ|аккаунт, настройки, связь с Яндексом. Прошивка не даёт отключить и сразу запускает снова. ~250 МБ вместе с метриками
+com.yandex.tv.services.platform|Платформа Яндекс ТВ («вечная»)|Android запускает её всегда. Если отключить, падает по кругу ~4 раза в секунду (Sunwind). Никогда не отключать
+com.yandex.tv.services.privileged|Привилегированные службы Яндекса|служебные действия с системными правами (установка, настройки). Не трогать
+com.yandex.tv.vendor.config|Конфигурация Яндекс ТВ (RetailConfig)|настройки, которые производитель ТВ отдал Яндексу. Не трогать
+com.yandex.tv.settings|Настройки Яндекс ТВ|меню настроек в стиле Яндекса. Не трогать
+com.yandex.tv.home|Главный экран Яндекса|заводская оболочка. Можно отключить, только если стоит другая (наша) и включён запасной FallbackHome
+com.example.user.myapplication|Запасной «Домой» (FallbackHome)|чёрный экран, пока не загрузилась оболочка. Без него ТВ может не загрузиться — никогда не отключать
+com.yandex.tv.live|Плеер ТВ и HDMI Яндекса|открывает эфир и HDMI-входы. Если отключить на Яндекс ТВ: «недоступно на этом телевизоре» при выборе HDMI
+com.yandex.tv.input.efir|Источник эфира (антенна)|служба входа для антенны/кабеля. На Novex — единственная служба входов Android (TIF), HDMI же открывается из меню пульта
+com.yandex.tv.alice|Алиса|голосовой помощник. Без неё голосовой поиск с пульта не работает; при отключении её службы один раз «падают» — это нормально
+com.yandex.io.sdk|Движок Алисы|распознавание голоса и умный дом, ~75–125 МБ. На Sunwind защищён прошивкой, на Novex отключался без последствий
+com.yandex.tv.music|Яндекс Музыка|музыкальное приложение
+com.yandex.browser.tv|Яндекс Браузер|браузер для ТВ
+com.yandex.tv.daydream|Заставка Яндекса|картинки и реклама в простое
+com.yandex.android.advid|Рекламный ID Яндекса|выдаёт приложениям рекламный идентификатор. Безопасно
+com.yandex.tv.bugreportsender|Отчёты об ошибках Яндекса|отправляет журналы сбоев в Яндекс
+com.yandex.launcher.updaterapp|Обновления Яндекс ТВ|скачивает и ставит обновления оболочки и приложений. На Sunwind защищён прошивкой, на Novex отключается
+com.yandex.tv.setupwizard|Мастер настройки Яндекса|первая настройка ТВ. После неё не нужен, но после сброса понадобится
+com.yandex.tv.videoplayer|Видеоплеер Яндекса|встроенный плеер для видео из подборок Яндекса. Кинопоиск и онлайн-кинотеатры обычно со своим плеером
+com.yandex.tv.webplayer|Веб-плеер Яндекса|показывает видео с сайтов в подборках Яндекса
+com.yandex.tv.youtubeplayer|Плеер YouTube Яндекса|открывает YouTube-ролики из подборок Яндекса
+com.yandex.tv.ytplayer|YouTube (Яндекс)|ярлык и плеер YouTube.com от Яндекса
+com.yandex.prebuiltstub|Заглушка Яндекса|пустой служебный пакет, ничего не делает и не запускается
+com.yandex.devices.farm.companion|Помощник «фермы устройств»|служебное приложение Яндекса для удалённых тестов на устройствах. Обычному владельцу не нужно (не проверено)
+com.yandex_uni.rro.globalui|Накладка Яндекса на меню источников|меняет оформление заводского меню источников/громкости под Яндекс. Сам не работает
+com.yandex_uni.rro.livetvglobal|Накладка Яндекса на эфир|оформление плеера эфира. Сам не работает
+com.yandex_uni.rro.media|Накладка Яндекса на медиаплеер|оформление проводника и плеера флешек
+com.yandex_uni.rro.settings|Накладка Яндекса на настройки|оформление меню настроек
+ru.yandex.androidkeyboard.tv|Яндекс Клавиатура|экранная клавиатура. Можно отключить, если стоит LeanKey. На Novex сама падает при каждой загрузке (3 раза), даже включённая
+ru.kinopoisk.yandex.tv|Кинопоиск|онлайн-кинотеатр Яндекса
+ru.kinopoisk.tv|Кинопоиск (старый пакет)|онлайн-кинотеатр
+# ==================== CVTE (плата телевизора: Sunwind, Novex и многие бюджетные) ====================
+com.cvte.tv.api.impl|Служба кнопок пульта (tvapi-service)|через неё проходит каждое нажатие пульта. Если отключить: после перезагрузки пульт мёртв, кроме питания (Sunwind)
+com.cvte.tvservice|ТВ-служба CVTE|основа эфира и HDMI. Не трогать
+com.cvte.tv.globalui|Меню источников и громкости|окно выбора HDMI/AV/антенны по кнопке пульта. Не трогать
+com.cvte.tv.setting|Плеер эфира и быстрое меню|переключение каналов, номер канала, меню изображения. Не трогать
+com.cvte.tv.customer.settings|Настройки производителя|меню изображения и звука от CVTE/бренда. Не трогать (не проверено)
+com.cvte.tv.ucservice|Служба «Центр пользователя» CVTE|запускается с загрузкой, назначение неясно. «Вечная» на Novex — отключать нельзя, только усыпить
+com.cvte.tv.remotedebug|Удалённая отладка CVTE|сервисная служба производителя. «Вечная» на Novex; без неё всё работает, Уборщик её усыпляет
+com.cvte.tv.media|Медиаплеер (USB)|открывает фото, видео и музыку с флешки. Если смотрите с флешки — оставьте
+com.cvte.dssshare.dlna|DLNA (трансляция по сети)|приём видео с телефона по DLNA. Если не пользуетесь — можно отключить
+com.cvte.tv.bluetoothguide|Помощник подключения пульта|подсказка сопряжения Bluetooth-пульта при первом включении (не проверено)
+com.cvte.black_screem|Режим «чёрный экран»|выключение картинки со звуком (для радио/музыки) (не проверено)
+com.cvte.tv.tools|Сервисные инструменты CVTE|для мастера; в обычной жизни не запускаются
+com.cvte.fac.menu|Заводское меню|сервисное меню. Не открывать: может включить заводской режим
+com.cvte.factory.service|Заводская служба CVTE|слушает заводские кнопки; работает всегда. Лучше не трогать
+com.cvte.factory.at|Заводской автотест|для конвейера. Можно отключить
+com.cvte.license.at|Заводской тест лицензий|для конвейера. Можно отключить
+com.cvte.tv.burn|Заводской тест экрана|прогон экрана на конвейере. Можно отключить
+com.customer.rro.media|Накладка бренда на медиаплеер|оформление плеера флешек (логотип, цвета). Сам не работает
+com.customer.rro.settings|Накладка бренда на настройки|оформление меню настроек. Novex Cleaner их отключал без вреда
+com.customer.rro.tvglobalui|Накладка бренда на меню источников|оформление меню источников
+com.customer.rro.tvsetting|Накладка бренда на ТВ-меню|оформление быстрого меню
+com.stb.factorymenu|Заводское меню приставки|сервисное меню. Не открывать (не проверено)
+# ==================== MediaTek (процессор) ====================
+com.mediatek.tvinput|Входы HDMI/AV/антенна|служба входов MediaTek. Если отключить — пропадут HDMI и эфир
+com.mediatek.tv.service|ТВ-служба MediaTek|кнопки пульта, Netflix-кнопка, связь с железом. Не трогать
+com.mediatek.tv.agent|ТВ-агент MediaTek|питание, таймеры, кнопки пульта. Не трогать
+com.mediatek.tunerservice|Тюнер MediaTek|приём эфира и спутника. Не трогать
+com.mediatek.tvinputservice.arbitratorservice|Распределитель входов|решает, какой вход сейчас показывать. Не трогать
+com.mediatek.hotkey.dispatcher|Горячие кнопки пульта|кнопки Netflix, YouTube, источники. Не трогать
+com.mediatek.network|Монитор сети MediaTek|«вечная» служба. Отключать бесполезно
+com.mediatek.wwtv.tvcenter|Плеер эфира MediaTek|просмотр каналов и HDMI. Не трогать
+com.mediatek.wwtv.setupwizard|Мастер настройки каналов|первичная настройка и поиск каналов
+com.mediatek.wwtv.webview|Встроенный браузер MediaTek|страницы внутри заводских меню
+com.mediatek.androidbox|Приём трансляции Miracast|повтор экрана телефона. Если не пользуетесь — можно отключить
+com.mediatek.backgrounddetection|Фоновая служба MediaTek|держит в себе службу отладки по USB — не трогать
+com.mediatek.TimeMeasurementAgent|Замер скорости загрузки|для разработчиков. Безопасно отключить (но «вечная»: Android всё равно запускает)
+com.mediatek.loadingequalizer|Выравнивание загрузки MediaTek|служба распределения нагрузки при запуске (не проверено). Лучше не трогать
+com.mediatek.android.leanbacklauncher.partnercustomizer|Партнёрские ряды заводской оболочки|реклама партнёров на главном экране. Можно отключить
+mediatek.factorymenu.ui|Заводское меню MediaTek|не открывать: может включить заводской режим
+# ==================== HiSilicon (процессор, Novex 32H219) ====================
+com.hisilicon.rmservice|Служба пульта HiSilicon|принимает кнопки пульта. «Вечная», никогда не отключать
+com.hisilicon.miracast|Приём трансляции Miracast|повтор экрана телефона. Если не пользуетесь — можно отключить (на Novex отключён без вреда)
+com.hisilicon.higallery|Галерея / проводник HiSilicon|открывается при подключении флешки, показывает фото и видео. Если смотрите с флешки — оставьте
+# ==================== Xiaomi ====================
+mitv.service|Системная служба Xiaomi|кнопки пульта, Bluetooth-пульт. Не трогать
+com.mi.bluetooth|Пульт Xiaomi|сопряжение и работа Bluetooth-пульта. Не трогать
+com.mitv.overseaservice|Служба Xiaomi для пульта|кнопка Netflix и Bluetooth-пульт. «Вечная». Не трогать
+com.xiaomi.mitv.smartshare|Miracast Xiaomi|повтор экрана телефона и MiPlay
+com.xiaomi.wfdsinkhelperservice|Помощник Miracast Xiaomi|часть приёма трансляции
+com.mitv.milinkservice|MiLink|трансляция Xiaomi; Chromecast работает отдельно
+com.xiaomi.mitv.tvmanager|«Менеджер ТВ» Xiaomi|чистильщик памяти; через него голосовое «открой приложение». Лучше не трогать
+com.xiaomi.tvqs.overseas|Статистика и быстрая панель Xiaomi|сбор статистики качества и отправка. Осторожно: на части ТВ это и быстрые настройки
+com.mitv.tvlock|Блокировка Xiaomi|родительский пароль
+com.mitv.livetv.ci_mediatek|Эфир/CI-модуль Xiaomi|платные каналы через CAM-модуль. Не трогать
+com.miui.tv.analytics|Статистика Xiaomi|отправка статистики. Безопасно
+com.xiaomi.statistic|Статистика Xiaomi|отправка журналов. Безопасно
+fusion.android.tv.demo|Демо-режим Xiaomi|ролики для витрины магазина
+com.xiaomi.mimusic2|Mi Music|музыка Xiaomi
+com.mitv.tvhome.atv|PatchWall|оболочка Xiaomi с трейлерами и рекламой
+com.mitv.tvhome.michannel|Ряды PatchWall|подборки на главном экране
+com.mitv.tvhome.mitvplus|Mi TV+|бесплатные каналы с рекламой (в России не работает)
+com.xiaomi.mitv.updateservice|Обновления Xiaomi|прошивка и PatchWall. Включите, когда захотите обновиться
+com.mitv.dream|Заставка Xiaomi|если отключить, сначала выберите другую заставку, иначе экран не гаснет
+com.mitv.gallery|Галерея Xiaomi|фото с флешки (проводник всё равно откроет)
+com.xiaomi.mitv.mediaexplorer|Проводник Xiaomi|файлы и видео с флешки
+com.mitv.videoplayer|Видеоплеер Xiaomi|видео с флешки и из MiLink
+com.xiaomi.android.tvsetup.partnercustomizer|Настройки партнёра Xiaomi|предустановка приложений и кнопки пульта при первом включении
+com.xiaomi.amazon.alexa|Alexa|мост к Amazon Alexa
+android.autoinstalls.config.xiaomi.amelie|Автоустановка Xiaomi|список, что ставить при первом включении
+com.xiaomo.tv.milegal|Документы Xiaomi|соглашения и политика конфиденциальности
+com.xm.webcontent|Промо-контент Xiaomi|подгружает рекламу и подборки для заставки
+com.mstar.android.tv.disclaimercustomization|Юридический экран при включении|текст производителя
+# ==================== Philips (TP Vision) ====================
+org.droidtv.playtv|Просмотр ТВ Philips|эфир и HDMI. Не трогать
+org.droidtv.xtv|Ядро ТВ Philips|«вечная» основа; без её помощников бесконечно перезапускается. Не трогать
+org.droidtv.GlobalKey|Кнопки пульта Philips|обработка всех кнопок пульта. Не трогать
+org.droidtv.channels|Каналы и меню источников|список каналов и меню SOURCES. Не трогать
+org.droidtv.fastip|Источники Philips (FAST-каналы)|без него не открывается меню SOURCES. Не трогать
+org.droidtv.philipstvdrawer|Меню источников Philips|выдвижное меню. Можно, но лучше оставить
+org.droidtv.settings|Настройки Philips|все меню. Не трогать
+org.droidtv.tvsystemui|Интерфейс Philips|громкость, окна. Не трогать
+org.droidtv.tvpowermanagerservice|Питание Philips|включение, сон, таймеры. Не трогать
+org.droidtv.tv.tptvservice|ТВ-служба Philips|таймауты экрана, сетевые папки. Не трогать
+org.droidtv.homeintentresolver|Выбор главного экрана Philips|решает, что открыть по «Домой»
+org.droidtv.nettv_launcherapp|Оболочка Philips|ярлык NetTV в меню
+org.droidtv.icp|Служба ICP Philips|«вечная» служба ядра Philips. Не трогать
+org.droidtv.eum|Электронное руководство|инструкция в ТВ. Ядро Philips к нему обращается — лучше спрятать, а не отключать
+org.droidtv.ambiair|Ambilight|подсветка. Не трогать, если она есть
+org.droidtv.ambihuecommon|Ambilight + Hue (общая часть)|связь подсветки с лампами Hue. Не трогать
+org.droidtv.alhuewizard|Мастер Philips Hue|настройка ламп Hue
+org.droidtv.contentexplorer|Медиа (USB)|фото и видео с флешки
+org.droidtv.exoplayerservice|Плеер медиа Philips|воспроизводит файлы с флешки
+org.droidtv.dlna|DLNA Philips|приём видео по сети; на него опирается «Медиа»
+org.droidtv.dropboxprovider|Dropbox в «Медиа»|просмотр файлов из Dropbox
+org.droidtv.nettvbrowser|Браузер Philips|и «красная кнопка» HbbTV; на британских ТВ нужен Freeview
+org.droidtv.nettvregistration|Регистрация Philips|аккаунт Smart TV; нужен для обновлений прошивки
+org.droidtv.nettvapps|Установщик предустановок Philips|тихо ставит приложения галереи
+org.droidtv.nettv.market|Магазин Philips|«Коллекция Philips TV». Play Store остаётся
+org.droidtv.nettvrecommender|«Лучшие подборки»|рекламный ряд на главном экране, ~35 МБ
+org.droidtv.recommendation|Рекомендации Philips|фон для ряда выше; отключать после него
+org.droidtv.candeebug|Аналитика Philips («DAC»)|собирает, что смотрите, ~40–55 МБ. Безопасно
+org.droidtv.gel|Метрики Philips|сборщик статистики. Безопасно
+org.droidtv.usagelogger|Статистика Philips|загрузки, нажатия кнопок. Безопасно
+org.droidtv.tv.frameworklogger|Журнал перезагрузок Philips|передаёт причины перезагрузок в журнал Philips
+org.droidtv.demome|Демо-режим Philips|ролики для витрины, ~33 МБ
+org.droidtv.sticker|Витринные наклейки|баннеры магазина, ~32 МБ
+org.droidtv.android.fitness|Фитнес Philips|приложение тренировок
+org.droidtv.amazonalexa|Alexa|мост к Amazon Alexa, ~33 МБ
+org.droidtv.oad|Обновление прошивки по эфиру|включите, когда захотите обновиться
+org.droidtv.freeviewplayers|Freeview Play|британские онлайн-плееры; вне Британии не нужен
+org.droidtv.nettvapp1814|ARTE|приложение
+org.droidtv.nettvapp20004410|Couchplay Games|игры
+org.droidtv.nettvapp4046|Предустановленное приложение Philips (4046)|приложение галереи NetTV, название не установлено
+org.droidtv.nettvapp4546|MEGOGO|онлайн-кинотеатр
+org.droidtv.nettvapp5326|Toon Goggles|детское видео
+org.droidtv.nettvapp5512|Fishing TV|видео о рыбалке
+org.droidtv.sam|Сервисное меню Philips (SAM)|для мастера. Не открывать
+org.droidtv.csm|Сервисное меню Philips (CSM)|для мастера. Не открывать
+org.droidtv.dukservice|Служба сервисного режима Philips|для мастера
+org.droidtv.factory|Заводская служба Philips|для конвейера
+org.droidtv.usbbreakin|Сервисный вход через USB|для мастера: запуск по флешке
+org.droidtv.ci|CI-модуль|платные каналы через CAM-карту. Если не пользуетесь — можно
+org.droidtv.teletext|Телетекст|текстовые страницы эфира
+org.droidtv.epgdata|Программа передач|данные телегида для эфира
+org.droidtv.euinstallersat|Поиск спутниковых каналов|мастер настройки спутника
+org.droidtv.euinstallertc|Поиск эфирных и кабельных каналов|мастер настройки антенны/кабеля
+org.droidtv.devicesetup|Первичная настройка Philips|мастер первого включения
+org.droidtv.networkwizard|Мастер сети Philips|подключение к Wi-Fi/кабелю
+org.droidtv.sunrise|Пробуждение «Восход»|включение ТВ с плавным светом Ambilight (будильник) (не проверено)
+org.droidtv.lkb|Клавиатура Philips|экранная клавиатура (не проверено)
+org.droidtv.menudataapp|Данные меню Philips|служебная база для меню. Не трогать
+org.droidtv.leanbackcustomizer|Настройка главного экрана Philips|партнёрские ряды на заводской оболочке
+org.droidtv.ui.strings|Тексты интерфейса Philips|переводы меню. Не трогать
+org.droidtv.ui.tvwidget2k15|Элементы интерфейса Philips|общие виджеты меню. Не трогать
+org.droidtv.common.accesshiddenapi|Служебная библиотека Philips|доступ к скрытым функциям Android для других пакетов. Не трогать
+org.droidtv.tv.inactivityservice|Выключение при бездействии|гасит ТВ, если долго не нажимать кнопки (требование ЕС). Не трогать
+org.droidtv.tv.packageinfo|Сведения о пакетах Philips|служебная. Не трогать
+org.droidtv.tv.permissions|Разрешения Philips|служебная. Не трогать
+android.autoinstalls.config.tpv.device|Автоустановка Philips|список, что ставить при первом включении
+com.easy.oad|Обновление прошивки пульта|«RC FW Update»
+com.phorus.playfi.softap|DTS Play-Fi (точка доступа)|звук на колонки Play-Fi
+com.phorus.playfi.tv|DTS Play-Fi|звук на колонки Play-Fi
+com.vewd.core.browserui|Браузер Vewd|браузер и HbbTV
+com.zeasn.whalelive|Whale Live|ТВ-каналы через интернет
+uk.co.freeview.explore|Freeview Play|британский телегид; вне Британии не нужен (с завода отключён)
+uk.co.freeview.onnow|Freeview «Сейчас в эфире»|британский сервис
+uk.co.freeview.mdsclient|Клиент данных Freeview|служебная часть Freeview Play
+uk.co.freeview.tifbridge|Мост Freeview к каналам Android|служебная часть Freeview Play
+uk.co.freeview.fvpconfigauth|Настройки Freeview Play|служебная часть
+uk.co.freeview.bbc|BBC iPlayer|британский кинотеатр
+uk.co.freeview.bbc_sounds|BBC Sounds|британское радио
+uk.co.freeview.itv|ITVX|британский кинотеатр
+uk.co.freeview.ch4_vod|Channel 4|британский кинотеатр
+uk.co.freeview.ch5|My5|британский кинотеатр
+uk.co.freeview.stv|STV Player|британский кинотеатр
+uk.co.freeview.uktv|UKTV Play|британский кинотеатр
+uk.co.freeview.amc_catchup|AMC|британский кинотеатр
+uk.co.freeview.amc_horror|AMC Horror|британский кинотеатр
+uk.co.freeview.sony_kids_vod|Sony Kids|детский британский кинотеатр
+# ==================== Приложения (ставятся и удаляются, решать владельцу) ====================
+com.amazon.amazonvideo.livingroom|Prime Video|онлайн-кинотеатр Amazon
+com.netflix.ninja|Netflix|онлайн-кинотеатр
+com.apple.atve.androidtv.appletv|Apple TV|онлайн-кинотеатр Apple
+com.boosteroidtv.streaming|Boosteroid|облачные игры
+ru.mts.mtstv|KION (МТС)|онлайн-кинотеатр
+ru.more.play|more.tv|онлайн-кинотеатр
+com.ctcmediagroup.videomore|more.tv (старый пакет)|онлайн-кинотеатр
+ru.ivi.client|Иви|онлайн-кинотеатр
+ru.rt.video.app.tv|Wink|онлайн-кинотеатр Ростелекома
+ru.rutube.app|Rutube|видеохостинг
+com.vk.tv|VK Видео|видео ВКонтакте
+gpm.tnt_premier|Premier|онлайн-кинотеатр
+tv.okko.androidtv|Okko|онлайн-кинотеатр
+ru.start.androidmobile|START|онлайн-кинотеатр
+mobi.zona|Zona|онлайн-кинотеатр
+io.lift.app|Lift|приложение
+com.ted.android.tv|TED|лекции
+ch.protonvpn.android|Proton VPN|VPN, поставлен владельцем
+com.v2raytun.android|v2RayTun|VPN-клиент, поставлен владельцем
+com.alphainventor.filemanager|Файловый менеджер+|проводник, поставлен владельцем
+com.lonelycatgames.Xplore|X-plore|проводник, поставлен владельцем
+com.omshyapps.airdefence|Air Defence|игра
+# ==================== Наши ====================
+io.github.marginalion.tvjanitor|Уборщик|это мы 🙂 ~22–25 МБ
+com.gathin.tvhome|Новая оболочка (CleanYourTV)|лёгкий главный экран, ~14 МБ
+com.liskovsoft.leankeyboard|Лёгкая клавиатура (LeanKey)|экранная клавиатура, ~9 МБ
+# ==================== Прочее (на наших ТВ не встречалось) ====================
+com.android.calllogbackup|Резервная копия звонков|для телефонов; на телевизоре без дела
 com.android.emergency|Экстренная информация|для телефонов
 com.android.traceur|Запись трассировки|инструмент разработчика для отладки скорости
 com.android.egg|Пасхалка Android|игрушка в «Версии Android»
-com.android.bookmarkprovider|Закладки|хранилище закладок браузера
 com.android.simappdialog|Окна SIM-карты|для телефонов
 com.android.stk|Меню SIM-карты|для телефонов
-com.google.android.feedback|Отчёты в Google|отправка отзывов и отчётов об ошибках
 com.google.android.tv.bugreportsender|Отчёты об ошибках Google TV|отправляет отчёты в Google
-com.google.android.onetimeinitializer|Первичная настройка Google|работает один раз после сброса
-com.google.android.partnersetup|Настройки партнёра Google|служебные настройки производителя для сервисов Google
-com.google.android.syncadapters.calendar|Синхронизация календаря|календарь Google
 com.google.android.syncadapters.contacts|Синхронизация контактов|контакты Google
 com.google.android.backuptransport|Резервное копирование Google|сохраняет настройки в аккаунт Google
-com.google.android.tts|Синтез речи Google|голос для озвучки и спецвозможностей
-com.google.android.marvin.talkback|TalkBack|озвучка экрана для незрячих
-com.google.android.tvrecommendations|Рекомендации Google|ряды подборок на главном экране Google
-com.google.android.backdrop|Фотозаставка Google|красивые фото в простое; заметно ест память, пока работает
-com.google.android.katniss|Голосовой поиск Google|кнопка микрофона и Ассистент
-com.google.android.apps.mediashell|Chromecast|трансляция с телефона кнопкой «Транслировать»
-com.google.android.videos|Google Фильмы|магазин фильмов Google (в России не работает)
-com.google.android.play.games|Google Play Игры|игровой профиль и достижения
-com.google.android.youtube.tvmusic|YouTube Music|музыкальное приложение
-com.google.android.youtube.tv|YouTube|приложение YouTube
-com.google.android.tvlauncher|Главный экран Google|заводская оболочка Android TV
 com.google.android.leanbacklauncher.recommendations|Рекомендации старого главного экрана|подборки для старой оболочки Android TV
-com.google.android.tungsten.setupwraith|Мастер настройки Google TV|первая настройка; иногда перехватывает «Домой» и владеет сетью Wi-Fi
-com.google.android.sss.authbridge|Мост авторизации Google|вход в аккаунт для некоторых сервисов
-com.google.android.tv.remote.service|Пульт с телефона|управление телевизором из приложения Google TV на телефоне
-com.google.android.inputmethod.latin|Клавиатура Gboard|экранная клавиатура
 com.google.android.apps.tachyon|Google Meet / Duo|видеозвонки
 com.google.android.apps.tv.launcherx|Главный экран Google TV|заводская оболочка Google TV
-com.google.android.tv.frameworkpackagestubs|Заглушки Google TV|пустые пакеты, чтобы приложения не падали
-com.google.android.boot.appsplashscreen|Заставка при загрузке|картинка во время включения
 com.google.android.gms.policy_sidecar_aps|Служба политик Google|служебная часть сервисов Google
 com.google.android.configupdater|Обновление настроек Google|обновляет списки и сертификаты
-com.google.android.ext.services|Системные службы Google|ядро: уведомления и прочее
-com.google.android.overlay.googlewebview|Настройка WebView|оформление встроенного браузера
-com.android.settings.intelligence|Подсказки и поиск в Настройках|строка поиска и советы в меню настроек; сами настройки работают и без него
-android.autoinstalls.config.xiaomi.amelie|Автоустановка приложений Xiaomi|список, что ставить самому при первом включении
-com.xiaomo.tv.milegal|Документы Xiaomi|пользовательское соглашение и политика конфиденциальности
-com.mitv.overseaservice|Служба Xiaomi для пульта|Bluetooth-пульт и кнопка Netflix на нём
-com.mstar.android.tv.disclaimercustomization|Отказ от ответственности при включении|экран с юридическим текстом производителя
-com.mediatek.wwtv.setupwizard|Мастер настройки каналов|первичная настройка ТВ и поиск каналов
 com.google.android.tv|Live Channels|приложение «Каналы» для эфира и онлайн-ТВ
-com.xm.webcontent|Промо-контент Xiaomi|веб-контейнер для рекламы и подборок, грузит рекламу для заставки
-com.xiaomi.mitv.mediaexplorer|Проводник Xiaomi|файлы и видео с флешки
-com.mitv.videoplayer|Видеоплеер Xiaomi|открывает видео с флешки и из проводника
-com.mitv.gallery|Галерея Xiaomi|фото с флешки
-com.xiaomi.android.tvsetup.partnercustomizer|Настройки партнёра Xiaomi|служебные настройки производителя при первом включении

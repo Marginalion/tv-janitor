@@ -635,5 +635,9 @@
 "⚠ No hay otra pantalla de inicio, así que la nueva se queda; si no, el televisor quedaría sin Inicio.",
 "⚠ Inicio todavía abre la nueva pantalla, así que se queda. Elija la de fábrica e inténtelo de nuevo.",
 "⚠ El teclado ligero sigue siendo el predeterminado, así que se queda.",
-"Desinstalando TV Janitor. ¡Gracias por usarlo!"
+"Desinstalando TV Janitor. ¡Gracias por usarlo!",
+"⚠ El televisor no se reinició. Reinícielo con el botón de encendido del mando (manténgalo 5 segundos) o desenchúfelo 10 segundos.",
+"Activado a mano (no hubo reinicio): se queda activado y se quita la marca: ",
+"Instantánea «como estaba» guardada: desactivados antes de TV Janitor: ",
+"De ellos, no de fábrica sino desactivados antes por alguien (vuelven con «Restaurar todo»): "
 ]

@@ -635,5 +635,9 @@
 "⚠ Es gibt keinen anderen Startbildschirm, der neue bleibt, sonst hätte der Fernseher kein Home.",
 "⚠ Home öffnet noch den neuen Startbildschirm, er bleibt. Werks-Startbildschirm wählen und erneut versuchen.",
 "⚠ Die leichte Tastatur ist noch Standard, sie bleibt.",
-"Entferne TV Janitor. Danke fürs Benutzen!"
+"Entferne TV Janitor. Danke fürs Benutzen!",
+"⚠ Der Fernseher hat nicht neu gestartet. Starten Sie ihn mit der Ein/Aus-Taste der Fernbedienung neu (5 Sekunden halten) oder ziehen Sie den Stecker für 10 Sekunden.",
+"Von Hand eingeschaltet (kein Neustart), bleibt also an, Häkchen entfernt: ",
+"Schnappschuss „wie es war\" gespeichert: vor TV Janitor deaktiviert: ",
+"Davon nicht ab Werk, sondern früher von jemandem deaktiviert (kommen mit „Alles wiederherstellen\" zurück): "
 ]

@@ -2,6 +2,27 @@
 
 ## Unreleased
 
+- **Ticks survive the other buttons.** Ticking packages and then pressing the keyboard, launcher or refresh
+  button no longer resets the list: the rebuild carries over what was ticked but not applied yet. Apply and
+  Restore still start from the TV as it is.
+- **"Restart" checks that the TV really restarted.** Some firmware (Novex) accepts `svc power reboot` and does
+  nothing. TV Janitor now waits 15 s; if it is still running, it tries plain `reboot`, and if that does nothing
+  either it says so and asks for the power button, instead of reporting success. The after-restart job is
+  cancelled then, so it no longer runs on a TV that never restarted.
+- **A package switched on by hand stays on.** Without a restart since the last run, a package that came back on
+  was put back by a person (adb, Settings), not by the firmware: its tick comes off instead of it being
+  switched off again.
+- **No false crash loops at boot.** "Crashed in a loop while disabled" now needs 10 crashes, and on the same boot
+  as the last run only crashes after that run count. The Yandex keyboard crashes three times at every boot on
+  Novex, on or off, and was switched back on for that.
+- **Another cleaner's work is not the factory's.** At the first snapshot, disabled Yandex packages are recorded
+  as "disabled before TV Janitor", not as factory state: "Restore everything" brings them back (Novex Cleaner had
+  the Yandex home and the HDMI player off). Older snapshots are sorted the same way.
+- The launcher restart after writing its config is no longer logged as "💤 doesn't start by itself".
+- **Plain-language descriptions for 344 packages** met on Novex, Sunwind, Philips and Xiaomi: what each does and
+  what happens if it is disabled, each readable on its own. Russian in describe.txt, English in describe.en.txt
+  for every other TV language.
+
 - **Debugging open only while TV Janitor works.** Over its own ADB the app grants itself
   WRITE_SECURE_SETTINGS once; with it, it switches Android's debugging on before it connects and off when it is
   done: after boot the port is open for about a minute, not all the time. It closes debugging only after a test

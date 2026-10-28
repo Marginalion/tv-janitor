@@ -638,3 +638,7 @@ Live Channels	Live Channels
 ⚠ «Домой» всё ещё ведёт в новую оболочку — её оставляю. Выберите заводской главный экран и повторите.	⚠ Ana ekran tuşu hâlâ yenisini açıyor, kalıyor. Fabrika ana ekranını seçip tekrar deneyin.
 ⚠ Лёгкая клавиатура всё ещё основная — её оставляю.	⚠ Hafif klavye hâlâ varsayılan, kalıyor.
 Удаляю Уборщика. Спасибо, что пользовались!	TV Janitor kaldırılıyor. Kullandığınız için teşekkürler!
+⚠ Телевизор не перезагрузился. Перезагрузите его кнопкой питания на пульте (подержите 5 секунд) или выньте вилку на 10 секунд.	⚠ TV yeniden başlamadı. Kumandanın güç tuşuyla yeniden başlatın (5 saniye basılı tutun) ya da fişi 10 saniye çekin.
+Включено вручную (перезагрузки не было) — оставляю включённым и снимаю отметку: 	Elle açıldı (yeniden başlatma olmadı), açık kalıyor ve işareti kaldırılıyor:  
+Снимок «как было» сохранён: отключено до Уборщика 	"Önceki hal" anlık görüntüsü kaydedildi: TV Janitor öncesi devre dışı  
+Из них не с завода, а отключено кем-то раньше (вернутся при «Вернуть всё как было»): 	Bunlardan fabrikadan değil, daha önce biri tarafından kapatılanlar ("Her şeyi geri yükle" ile geri gelir):  

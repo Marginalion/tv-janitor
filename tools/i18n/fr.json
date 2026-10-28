@@ -635,5 +635,9 @@
 "⚠ Aucun autre écran d'accueil : le nouveau reste, sinon le téléviseur n'aurait plus d'Accueil.",
 "⚠ Accueil ouvre encore le nouvel écran, il reste. Choisissez l'écran d'origine et réessayez.",
 "⚠ Le clavier léger est encore celui par défaut, il reste.",
-"Désinstallation de TV Janitor. Merci de l'avoir utilisé !"
+"Désinstallation de TV Janitor. Merci de l'avoir utilisé !",
+"⚠ Le téléviseur n'a pas redémarré. Redémarrez-le avec la touche marche/arrêt de la télécommande (maintenez 5 secondes) ou débranchez-le 10 secondes.",
+"Activé à la main (pas de redémarrage) : il reste activé et sa coche est retirée : ",
+"Instantané « tel quel » enregistré : désactivés avant TV Janitor : ",
+"Parmi eux, pas d'usine mais désactivés plus tôt par quelqu'un (ils reviennent avec « Tout rétablir ») : "
 ]

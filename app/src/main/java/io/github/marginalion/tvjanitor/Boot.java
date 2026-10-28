@@ -69,4 +69,10 @@ final class Boot {
         js.schedule(new JobInfo.Builder(AFTER_RESTART, new ComponentName(c, BootJob.class))
                 .setMinimumLatency(90 * 1000L).setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY).setPersisted(true).build());
     }
+
+    /** The restart did not happen: without this the job would run 90 s later on a TV that never rebooted. */
+    static void cancelAfterRestart(Context c) {
+        JobScheduler js = c.getSystemService(JobScheduler.class);
+        if (js != null) js.cancel(AFTER_RESTART);
+    }
 }
