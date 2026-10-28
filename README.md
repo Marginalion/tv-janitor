@@ -10,7 +10,7 @@ the launcher of [CleanYourTV](https://github.com/Gathin23/cleanyourtv).
 **No AI agent, no subscription, no computer after setup:** install the APK once with `adb`, and the cleanup
 runs on the TV itself.
 
-> **0.9 beta.** Tested on three TVs so far. Every TV is different: read "Things to know" first.
+> **0.9.3 beta.** Tested on five TVs so far. Every TV is different: read "Things to know" first.
 > Speaks the TV's language: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Turkish, Chinese,
 > Japanese and Vietnamese (other languages fall back to English). Translations: [tools/i18n](tools/i18n).
 
@@ -74,16 +74,29 @@ ADB at 127.0.0.1. Lite never goes online: its build switches off the base update
   own). Each shows what will change before it applies, and offers a reboot afterwards.
 - **Warnings that matter**: if the new home screen isn't installed (the stock one may depend on what gets
   switched off), and if no app store would be left.
-- **For experts** (Full): every app with its memory use, three states per row (works → doesn't start on its
-  own → disabled), groups ✅ Recommended / ❓ Your choice / ❔ Unknown / ⚠ Important.
+- **For experts** (Full): every app with its memory use and a plain-language description (344 packages
+  described: what it does, what happens if it's off), three states per row (works → doesn't start on its own →
+  disabled). The list folds into groups by purpose (tracking and ads, voice, remote, HDMI and inputs, video,
+  stores…) or by risk (✅ Recommended / ❓ Your choice / ❔ Unknown / ⚠ Important); each row is marked 🔵 safe,
+  🔶 your choice, 🔴 important or ⚪ unknown.
 - **Knows what matters on any TV**: TV inputs, keyboards, accessibility services (remote keys often live
   there), persistent services, remote and Bluetooth, factory menus, setup wizards, firmware overlays. Android's
   core never appears and is never changed.
 - **CleanYourTV's base of ~300 TVs**: matches your model and shows what owners of the same TV did.
 - **Safe apply**: batches of five, a look at the crash log after each; a batch that starts a crash loop is
   put back by itself.
-- **Restore everything** to the snapshot taken at first start; a report after every boot.
-- **New home screen**: CleanYourTV's launcher, checked against its SHA-256 before install.
+- **Restore everything** to the snapshot taken at first start, exactly. If another cleaner had switched things
+  off before TV Janitor, it lists them afterwards and asks whether to switch them on too.
+- **After every boot** it puts your choice back and writes a report. Firmware that hides the boot signal from
+  apps (Sunwind) is caught by a job Android restores by itself.
+- **Restart from the app** that checks the TV really restarted. If it didn't, it offers the other way and
+  remembers the one that works on your TV.
+- **New home screen**: CleanYourTV's launcher, checked against its SHA-256 before install. The stock home
+  screen (Google's or Yandex's) is switched off only once Home really opens the new one, and comes back
+  whatever happens.
+- **Light keyboard** (Full): LeanKey, made for the remote, instead of a heavy stock keyboard.
+- **🗑 Uninstall cleanly**: puts everything back, checks that a home screen answers Home, then removes the
+  launcher, the keyboard and the app. Uninstalling the app alone would leave everything it disabled disabled.
 - **Share your experience** (opt-in, off by default): a report in CleanYourTV's `debloat.txt` format. Nothing
   is sent anywhere by the app.
 - Leaves nothing behind: about 0 MB when closed.
@@ -92,7 +105,7 @@ How every decision is made, rule by rule: **[docs/HOW-IT-DECIDES.md](docs/HOW-IT
 
 ## Install
 
-**Ready-made APK:** download `TVJanitor-0.9-beta-lite.apk` or `TVJanitor-0.9-beta-full.apk` from
+**Ready-made APK:** download `TVJanitor-0.9.3-beta-lite.apk` or `TVJanitor-0.9.3-beta-full.apk` from
 [Releases](../../releases) and check it against `SHA256SUMS.txt`. Release signing certificate SHA-256:
 `f31e30d17e8abe262c05b8fd86945fe7038e3c75b664badeec3e746e10a44580`.
 
@@ -101,7 +114,7 @@ if there is one. From a computer on the same Wi-Fi:
 
 ```sh
 adb connect <tv ip>
-adb install -r TVJanitor-0.9-beta-lite.apk
+adb install -r TVJanitor-0.9.3-beta-lite.apk
 adb shell am start -n io.github.marginalion.tvjanitor/.MainActivity
 ```
 
@@ -117,12 +130,15 @@ debug key; such a build can't update the official release in place.
 
 ## Things to know
 
-- **Network ADB stays on.** That is how the app works without a computer. Anyone who reaches port 5555 still
-  needs your approval on the screen, unless the firmware has `ro.adb.secure=0`; the app warns about that.
-  To take the app's access away: Developer options → Revoke USB debugging authorisations.
+- **Network ADB is how the app works without a computer.** By default it stays on. Untick "Keep network
+  debugging on" and, after a one-time test on your TV (off, on, reconnect), the app switches debugging on only
+  while it works: after boot the port is open for about a minute. Anyone who reaches port 5555 still needs
+  your approval on the screen, unless the firmware has `ro.adb.secure=0`; the app warns about that. To take
+  the app's access away: Developer options → Revoke USB debugging authorisations.
 - Android 8.0 (API 26) or newer. Not for LG webOS, Samsung Tizen, Hisense VIDAA or Fire TV.
 - Tested on: Novex NVX-32H219MSY (Yandex TV, Android 9, HiSilicon, 1 GB), Novex NWX-32H171MSY (Yandex TV,
-  Android 9, MediaTek, 1 GB), Xiaomi Mi TV 4A (Android 11, 2 GB), Philips 50PUS8505 (Android 12).
+  Android 9, MediaTek, 1 GB), Sunwind SUN-LED43XS301 (Yandex TV, Android 11, CVTE/MediaTek), Xiaomi Mi TV 4A
+  (Android 11, 2 GB), Philips 50PUS8505 (Android 12).
 - "Nearly the same" TVs can differ a lot inside: compare a TV with itself before and after, not with another TV.
 - You use it at your own risk (see the warnings in the app and [LICENSE](LICENSE)).
 
@@ -191,7 +207,7 @@ MIT, see [LICENSE](LICENSE). The bundled launcher (modified) and the hint base c
 **Чистит любой телевизор на Android TV или Google TV прямо на нём самом, после установки компьютер не
 нужен.** Спрашивает, чем вы пользуетесь, отключает лишнее, может поставить чистую оболочку и повторяет всё
 после каждой загрузки: некоторые прошивки сами включают пакеты обратно. В приложении оно называется
-«Уборщик». **Без ИИ, без подписки и без компьютера после установки:** один раз ставите APK через `adb`, дальше всё работает на самом телевизоре. **Версия 0.9 бета.** Говорит на языке телевизора: 11 языков, остальные — по-английски.
+«Уборщик». **Без ИИ, без подписки и без компьютера после установки:** один раз ставите APK через `adb`, дальше всё работает на самом телевизоре. **Версия 0.9.3 бета.** Проверено на пяти телевизорах: два Новекса, Sunwind, Xiaomi и Philips. Говорит на языке телевизора: 11 языков, остальные — по-английски.
 
 **Две версии.** **Lite** — одна кнопка, отключает только то, про что точно известно, что оно лишнее, и
 ничего не скачивает из интернета. **Full** — три режима («Бережно», «Оптимально», «Максимум»), экран «Для
@@ -199,9 +215,14 @@ MIT, see [LICENSE](LICENSE). The bundled launcher (modified) and the hint base c
 
 **Возможности:** вопросы «Чем вы пользуетесь?»; перед применением видно, что изменится; предупреждения, если
 не стоит новая оболочка или не останется ни одного магазина; автоопределение важного (входы, клавиатура,
-пульт, системные службы, оверлеи прошивки); ядро Android не трогается никогда; база CleanYourTV примерно на
-300 телевизоров; применение порциями с автооткатом; «Вернуть всё как было»; отчёт после загрузки; новая
-оболочка с проверкой SHA-256; «Поделиться опытом» только по вашему согласию.
+пульт, системные службы, оверлеи прошивки); ядро Android не трогается никогда; понятные описания 344 служб
+(что делает и что будет, если отключить); список по группам (по назначению или по риску, у каждой
+строки метка 🔵 смело, 🔶 на ваш выбор, 🔴 важное, ⚪ неизвестное); база CleanYourTV примерно на 300 телевизоров; применение
+порциями с автооткатом; «Вернуть всё как было» ровно к снимку, а отключённое до Уборщика другим чистильщиком —
+только по отдельному вопросу; выбор возвращается после каждой загрузки, даже на прошивках, которые прячут
+сигнал загрузки (Sunwind); «Перезагрузить» с проверкой, что телевизор правда перезагрузился; новая оболочка с
+проверкой SHA-256, в том числе вместо Яндекс-оболочки; лёгкая клавиатура для пульта; «Удалить Уборщика
+начисто»; «Поделиться опытом» только по вашему согласию.
 
 **Как Уборщик решает, что трогать:** по шагам и по-русски — в [docs/HOW-IT-DECIDES.md](docs/HOW-IT-DECIDES.md#как-уборщик-принимает-решения).
 
@@ -220,6 +241,8 @@ MIT, see [LICENSE](LICENSE). The bundled launcher (modified) and the hint base c
 которые телевизор сам даёт владельцу (режим разработчика, отладка, обычное «Отключить» из Android), ничего
 не удаляет, не взламывает и не обходит защиту. Пользуетесь на своём телевизоре и на свой риск.
 
-**Важно:** отладка по сети остаётся включённой, так приложение работает без компьютера. Нужен Android 8.0
+**Важно:** отладка по сети нужна, чтобы приложение работало без компьютера. По умолчанию она остаётся
+включённой. Если снять галочку «Держать отладку по сети включённой», Уборщик после разовой проверки включает
+её только на время работы. Нужен Android 8.0
 или новее. Не для LG webOS, Samsung Tizen, Hisense VIDAA и Fire TV. Пользуетесь на свой риск. Лицензия MIT;
 оболочка и база взяты из CleanYourTV (MIT), см. [NOTICE](NOTICE).

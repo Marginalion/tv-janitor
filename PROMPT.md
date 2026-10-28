@@ -104,5 +104,7 @@ Finish
 - If I opted in to sharing, show me the app's report (`/sdcard/Android/data/io.github.marginalion.tvjanitor/files/report.txt`)
   and ask whether I want to send it to CleanYourTV as `examples/<brand>-<model>/debloat.txt` so owners of
   the same TV benefit. Send nothing without my yes.
-- Remind me that network ADB stays on because TV Janitor needs it, what that means on my network, and
-  how to remove the app's access: Developer options → Revoke USB debugging authorisations.
+- Remind me that network ADB stays on by default because TV Janitor needs it, what that means on my
+  network, that unticking "Keep network debugging on" in the app makes it open debugging only while it
+  works (after a one-time test), and how to remove the app's access: Developer options → Revoke USB
+  debugging authorisations.
