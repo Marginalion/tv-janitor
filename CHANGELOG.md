@@ -55,6 +55,20 @@
   of waiting up to 15 minutes for the periodic one (Sunwind showed the Yandex home screen for 12 minutes).
 - The app always opens on the simple screen; "For experts" lasts until it is closed.
 - Simple screen: **Restart** (with a confirmation) and **Restore everything** buttons.
+- **Crash check judges what fell, not how many.** It reads which process crashed (app crashes, native ones and
+  services Android restarts) since the batch started. A package dying because it is being switched off is not a
+  crash: on Sunwind, Alice's own two services were counted as two crashes and she was wrongly kept on. A batch is
+  put back only when something vital falls: Android, the system UI, the home screen and keyboard in use, the TV's
+  own services (MediaTek, CVTE) and the apps behind what the owner said they use. Anything else is written to
+  the log and the report and the clean-up goes on.
+- Protected packages: a process that gets a new number after force-stop was started again by the firmware, not
+  stopped (♻), and is named as such; "💤" is said only when it stays gone.
+- When switching the stock Home off is undone, the log says what was on screen instead. Any screen of our launcher
+  counts as success, and only the stock Home or the empty FallbackHome coming back counts as failure.
+- Packages switched back on between two runs without a reboot are named in the log.
+- The light keyboard's settings tile is hidden from the home screen.
+- Dev builds keep a second, detailed log (debug.txt): every crash line with its verdict, memory, the biggest
+  processes and the screen before and after changes. The test kit's option 4 pulls it too.
 
 ## 0.9.2-beta (unreleased)
 

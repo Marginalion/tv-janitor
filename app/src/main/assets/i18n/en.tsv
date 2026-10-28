@@ -594,3 +594,10 @@ Live Channels	Live Channels
 ⚠ Прежняя клавиатура не стала основной: 	⚠ The previous keyboard didn't become the default: 
 ✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке.	✔ The light keyboard is now the default. The previous one can be switched off in the list.
 ✔ Прежняя клавиатура снова основная	✔ The previous keyboard is the default again
+⚠ Упало важное: 	⚠ Something vital crashed: 
+ — с ним падает важное. Оставляю включённым.	 — something vital crashes with it off. Leaving it on.
+⚠ После этой порции падает важное (	⚠ After this batch something vital crashes (
+ℹ Падали после отключения, но телевизору это не мешает: 	ℹ Crashed after the change, but the TV doesn't need them: 
+⚠ Кто-то включил обратно без Уборщика (не перезагрузка): 	⚠ Something turned these back on without TV Janitor (not a reboot): 
+На экране было: 	On screen was: 
+♻ останавливается, но прошивка тут же запускает снова: 	♻ stops, but the firmware starts it again at once: 

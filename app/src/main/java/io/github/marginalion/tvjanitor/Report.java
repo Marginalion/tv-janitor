@@ -36,9 +36,12 @@ final class Report {
         rolled.removeAll(s.set("protectedPkgs"));
         rolled.removeAll(s.disabled());
         if (!rolled.isEmpty()) {
-            r.append("#\n# DO NOT DISABLE on this model: something started crashing right after they were disabled, so they were put back:\n");
+            r.append("#\n# DO NOT DISABLE on this model: something vital started crashing right after they were disabled, so they were put back:\n");
             for (String p : rolled) r.append("#   ").append(pad(p)).append(label(pm, p)).append('\n');
         }
+        Set<String> minor = system(pm, s.set("minorCrashers"));
+        minor.removeAll(s.disabled());
+        if (!minor.isEmpty()) r.append("#\n# Crashed after something was disabled, nothing vital, left as is: ").append(String.join(" ", minor)).append('\n');
         Set<String> sleep = system(pm, s.sleeping());
         if (!sleep.isEmpty()) {
             r.append("#\n# Kept enabled but not allowed to start on their own (appops RUN_ANY_IN_BACKGROUND ignore + am force-stop after boot):\n");

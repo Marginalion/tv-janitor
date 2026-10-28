@@ -81,6 +81,7 @@ goto menu
 :pull
 call :connect || goto menu
 adb -s %DEV% shell cat /sdcard/Android/data/io.github.marginalion.tvjanitor/files/log.txt > %DIR%\app_log.txt
+adb -s %DEV% shell cat /sdcard/Android/data/io.github.marginalion.tvjanitor/files/debug.txt > %DIR%\debug.txt 2>nul
 adb -s %DEV% shell cat /sdcard/Android/data/io.github.marginalion.tvjanitor/files/report.txt > %DIR%\report.txt 2>nul
 adb -s %DEV% shell screencap -p /data/local/tmp/tvj.png
 adb -s %DEV% pull /data/local/tmp/tvj.png %DIR%\screen_%RANDOM%.png >nul

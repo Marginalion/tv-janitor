@@ -594,3 +594,10 @@ Live Channels	Live Channels
 ⚠ Прежняя клавиатура не стала основной: 	⚠ Önceki klavye varsayılan olmadı: 
 ✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке.	✔ Hafif klavye artık varsayılan. Öncekini listeden kapatabilirsiniz.
 ✔ Прежняя клавиатура снова основная	✔ Önceki klavye yeniden varsayılan
+⚠ Упало важное: 	⚠ Önemli bir şey çöktü: 
+ — с ним падает важное. Оставляю включённым.	 — kapalıyken önemli bir şey çöküyor. Açık bırakıyorum.
+⚠ После этой порции падает важное (	⚠ Bu gruptan sonra önemli bir şey çöküyor (
+ℹ Падали после отключения, но телевизору это не мешает: 	ℹ Değişiklikten sonra çöktü, ama TV'nin bunlara ihtiyacı yok: 
+⚠ Кто-то включил обратно без Уборщика (не перезагрузка): 	⚠ Bir şey bunları TV Janitor olmadan yeniden açtı (yeniden başlatma değil): 
+На экране было: 	Ekranda olan: 
+♻ останавливается, но прошивка тут же запускает снова: 	♻ duruyor, ama yazılım hemen yeniden başlatıyor: 

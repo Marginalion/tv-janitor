@@ -591,5 +591,12 @@
 "⚠ Klavye kuruldu ama Android varsayılan yapmadı. Önceki kalıyor.",
 "⚠ Önceki klavye varsayılan olmadı:",
 "✔ Hafif klavye artık varsayılan. Öncekini listeden kapatabilirsiniz.",
-"✔ Önceki klavye yeniden varsayılan"
+"✔ Önceki klavye yeniden varsayılan",
+"⚠ Önemli bir şey çöktü:",
+"— kapalıyken önemli bir şey çöküyor. Açık bırakıyorum.",
+"⚠ Bu gruptan sonra önemli bir şey çöküyor (",
+"ℹ Değişiklikten sonra çöktü, ama TV'nin bunlara ihtiyacı yok:",
+"⚠ Bir şey bunları TV Janitor olmadan yeniden açtı (yeniden başlatma değil):",
+"Ekranda olan:",
+"♻ duruyor, ama yazılım hemen yeniden başlatıyor:"
 ]

@@ -591,5 +591,12 @@
 "⚠ O teclado foi instalado, mas o Android não o tornou padrão. O anterior continua.",
 "⚠ O teclado anterior não virou o padrão:",
 "✔ O teclado leve agora é o padrão. O anterior pode ser desativado na lista.",
-"✔ O teclado anterior voltou a ser o padrão"
+"✔ O teclado anterior voltou a ser o padrão",
+"⚠ Algo importante falhou:",
+"— sem ele algo importante falha. Fica ativado.",
+"⚠ Após este lote algo importante falha (",
+"ℹ Falharam após a alteração, mas a TV não precisa deles:",
+"⚠ Algo os reativou sem o TV Janitor (não foi reinício):",
+"Na tela estava:",
+"♻ para, mas o firmware o inicia de novo na hora:"
 ]

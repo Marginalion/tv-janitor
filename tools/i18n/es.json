@@ -591,5 +591,12 @@
 "⚠ El teclado se instaló, pero Android no lo hizo predeterminado. Se queda el anterior.",
 "⚠ El teclado anterior no quedó como predeterminado:",
 "✔ El teclado ligero es ahora el predeterminado. El anterior se puede desactivar en la lista.",
-"✔ El teclado anterior vuelve a ser el predeterminado"
+"✔ El teclado anterior vuelve a ser el predeterminado",
+"⚠ Algo importante se ha caído:",
+"— sin él se cae algo importante. Lo dejo activado.",
+"⚠ Tras este lote se cae algo importante (",
+"ℹ Se cayeron tras el cambio, pero el televisor no los necesita:",
+"⚠ Algo los reactivó sin TV Janitor (no fue un reinicio):",
+"En pantalla había:",
+"♻ se detiene, pero el firmware lo vuelve a iniciar al instante:"
 ]

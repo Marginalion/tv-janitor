@@ -591,5 +591,12 @@
 "⚠ The keyboard is installed, but Android didn't make it the default. The previous one stays.",
 "⚠ The previous keyboard didn't become the default:",
 "✔ The light keyboard is now the default. The previous one can be switched off in the list.",
-"✔ The previous keyboard is the default again"
+"✔ The previous keyboard is the default again",
+"⚠ Something vital crashed:",
+"— something vital crashes with it off. Leaving it on.",
+"⚠ After this batch something vital crashes (",
+"ℹ Crashed after the change, but the TV doesn't need them:",
+"⚠ Something turned these back on without TV Janitor (not a reboot):",
+"On screen was:",
+"♻ stops, but the firmware starts it again at once:"
 ]

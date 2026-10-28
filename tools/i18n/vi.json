@@ -591,5 +591,12 @@
 "⚠ Bàn phím đã cài nhưng Android không đặt làm mặc định. Giữ bàn phím trước.",
 "⚠ Bàn phím trước không trở thành mặc định:",
 "✔ Bàn phím nhẹ giờ là mặc định. Có thể tắt bàn phím trước trong danh sách.",
-"✔ Bàn phím trước lại là mặc định"
+"✔ Bàn phím trước lại là mặc định",
+"⚠ Thành phần quan trọng bị lỗi:",
+"— tắt nó thì thành phần quan trọng bị lỗi. Giữ bật.",
+"⚠ Sau đợt này, thành phần quan trọng bị lỗi (",
+"ℹ Bị lỗi sau khi thay đổi, nhưng TV không cần chúng:",
+"⚠ Có thứ đã bật lại chúng mà không qua TV Janitor (không phải khởi động lại):",
+"Trên màn hình là:",
+"♻ dừng được, nhưng firmware khởi động lại ngay:"
 ]

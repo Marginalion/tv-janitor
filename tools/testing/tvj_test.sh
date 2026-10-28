@@ -72,6 +72,7 @@ while true; do
     3) snap after ;;
     4) connect && { sh_ cat /sdcard/Android/data/$PKG/files/log.txt > "$DIR/app_log.txt"
          sh_ cat /sdcard/Android/data/$PKG/files/report.txt > "$DIR/report.txt" 2>/dev/null
+         sh_ cat /sdcard/Android/data/$PKG/files/debug.txt > "$DIR/debug.txt" 2>/dev/null
          sh_ screencap -p /data/local/tmp/tvj.png; $ADB -s "$DEV" pull /data/local/tmp/tvj.png "$DIR/screen_$RANDOM.png" >/dev/null
          sh_ rm /data/local/tmp/tvj.png; echo " Copied to $DIR"; } ;;
     5) connect && { sh_ pm list packages -d > "$DIR/disabled_now.txt"

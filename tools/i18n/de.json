@@ -591,5 +591,12 @@
 "⚠ Die Tastatur ist installiert, aber Android hat sie nicht zum Standard gemacht. Die vorherige bleibt.",
 "⚠ Die vorherige Tastatur wurde nicht zum Standard:",
 "✔ Die leichte Tastatur ist jetzt Standard. Die vorherige kann in der Liste ausgeschaltet werden.",
-"✔ Die vorherige Tastatur ist wieder Standard"
+"✔ Die vorherige Tastatur ist wieder Standard",
+"⚠ Etwas Wichtiges ist abgestürzt:",
+"— ohne es stürzt Wichtiges ab. Bleibt an.",
+"⚠ Nach diesem Schub stürzt Wichtiges ab (",
+"ℹ Nach der Änderung abgestürzt, der Fernseher braucht sie aber nicht:",
+"⚠ Etwas hat diese ohne TV Janitor wieder aktiviert (kein Neustart):",
+"Auf dem Bildschirm war:",
+"♻ stoppt, aber die Firmware startet es sofort wieder:"
 ]

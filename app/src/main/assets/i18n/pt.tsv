@@ -594,3 +594,10 @@ Live Channels	Live Channels
 ⚠ Прежняя клавиатура не стала основной: 	⚠ O teclado anterior não virou o padrão: 
 ✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке.	✔ O teclado leve agora é o padrão. O anterior pode ser desativado na lista.
 ✔ Прежняя клавиатура снова основная	✔ O teclado anterior voltou a ser o padrão
+⚠ Упало важное: 	⚠ Algo importante falhou: 
+ — с ним падает важное. Оставляю включённым.	 — sem ele algo importante falha. Fica ativado.
+⚠ После этой порции падает важное (	⚠ Após este lote algo importante falha (
+ℹ Падали после отключения, но телевизору это не мешает: 	ℹ Falharam após a alteração, mas a TV não precisa deles: 
+⚠ Кто-то включил обратно без Уборщика (не перезагрузка): 	⚠ Algo os reativou sem o TV Janitor (não foi reinício): 
+На экране было: 	Na tela estava: 
+♻ останавливается, но прошивка тут же запускает снова: 	♻ para, mas o firmware o inicia de novo na hora: 

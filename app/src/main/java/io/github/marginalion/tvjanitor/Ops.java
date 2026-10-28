@@ -33,7 +33,41 @@ final class Ops {
     private final StringBuilder log = new StringBuilder();
     private final Say say;
 
-    Ops(Context c, Say say) { this.c = c; this.store = new Store(c); this.say = say; }
+    /** Dev builds keep a second, detailed log (debug.txt): every crash line, processes and memory around changes. */
+    private final boolean dev;
+    private final StringBuilder dbgLog = new StringBuilder();
+
+    Ops(Context c, Say say) {
+        this.c = c; this.store = new Store(c); this.say = say;
+        boolean d = false;
+        try { d = c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionName.contains("-dev"); } catch (Exception ignored) {}
+        this.dev = d;
+    }
+
+    private void dbg(String s) {
+        if (dev) dbgLog.append(new SimpleDateFormat("dd.MM HH:mm:ss", Locale.US).format(new Date())).append("  ").append(s).append('\n');
+    }
+
+    /** Dev log: load, what is on screen, memory and the biggest processes. */
+    private void dbgState(Adb adb, String when) {
+        if (!dev) return;
+        try {
+            dbg("=== " + when + "  load " + adb.shell("cat /proc/loadavg").trim() + "  top " + topActivity(adb));
+            Map<String, Long> m = memory(adb);
+            if (m.containsKey("_used")) dbg("used " + m.get("_used") / 1024 + " MB of " + m.getOrDefault("_total", 0L) / 1024);
+            List<Map.Entry<String, Long>> big = new ArrayList<>();
+            for (Map.Entry<String, Long> e : m.entrySet()) if (!e.getKey().startsWith("_")) big.add(e);
+            big.sort((a, b) -> Long.compare(b.getValue(), a.getValue()));
+            for (int i = 0; i < Math.min(30, big.size()); i++) dbg(String.format(Locale.US, "  %7d K  %s", big.get(i).getValue(), big.get(i).getKey()));
+        } catch (Exception e) { dbg("state: " + e); }
+    }
+
+    /** The activity in front, as "package/.Activity", or "" when Android shows none. */
+    private static String topActivity(Adb adb) throws Exception {
+        String top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
+        Matcher m = Pattern.compile("u0 (\\S+/\\S+)").matcher(top);
+        return m.find() ? m.group(1) : "";
+    }
 
     void note(String s) {
         log.append(new SimpleDateFormat("dd.MM HH:mm:ss", Locale.US).format(new Date())).append("  ").append(s).append('\n');
@@ -293,33 +327,91 @@ final class Ops {
         try { return "0".equals(adb.shell("getprop ro.adb.secure").trim()); } catch (Exception e) { return false; }
     }
 
-    private static int countLines(Adb adb, String cmd) {
-        try { String r = adb.shell(cmd).trim(); return r.isEmpty() ? 0 : Integer.parseInt(r.split("\\s+")[0]); } catch (Exception e) { return 0; }
+    /** The TV's clock in the form logcat -T takes, so that a check reads only what was logged after it. */
+    private static String now(Adb adb) {
+        try { String t = adb.shell("date '+%m-%d %H:%M:%S.000'").trim(); return t.matches("\\d\\d-\\d\\d [\\d:.]+") ? t : null; }
+        catch (Exception e) { return null; }
     }
 
-    /** Signs that something keeps falling over: crash buffer entries and services Android restarts. */
-    private static int trouble(Adb adb) {
-        return countLines(adb, "logcat -d -b crash | grep -c -E 'FATAL|Fatal signal'")
-                + countLines(adb, "logcat -d -b main -b system | grep -c 'Scheduling restart of crashed service'");
+    private static final Pattern JAVA_CRASH = Pattern.compile("Process: ([\\w.:]+), PID"),
+            NATIVE_CRASH = Pattern.compile("Fatal signal .* pid \\d+ \\(([^)]+)\\)"),
+            SERVICE_DIED = Pattern.compile("Scheduling restart of crashed service ([\\w.]+)/");
+
+    /**
+     * What fell over since {@code since}: one entry per crash, the process name and the log line that says so.
+     * App crashes (FATAL), native ones (Fatal signal) and services Android has to restart.
+     */
+    private static List<String[]> crashes(Adb adb, String since) {
+        List<String[]> out = new ArrayList<>();
+        if (since == null) return out;
+        String t = " -T '" + since + "'";
+        try {
+            String r = adb.shell("logcat -d -b crash" + t + " | grep -E 'Process: |Fatal signal'")
+                    + "\n" + adb.shell("logcat -d -b main -b system" + t + " | grep 'Scheduling restart of crashed service'");
+            for (String l : r.split("\n")) {
+                for (Pattern p : new Pattern[]{JAVA_CRASH, NATIVE_CRASH, SERVICE_DIED}) {
+                    Matcher m = p.matcher(l);
+                    if (m.find()) { out.add(new String[]{m.group(1), l.trim()}); break; }
+                }
+            }
+        } catch (Exception ignored) {}
+        return out;
+    }
+
+    /**
+     * What the TV can't do without: Android itself, its system UI, our Home and keyboard, the TV's own services
+     * (picture, inputs, sound: MediaTek, CVTE) and the apps behind what the owner said they use.
+     */
+    private Set<String> vital(Adb adb) {
+        Set<String> v = new java.util.HashSet<>(java.util.Arrays.asList("system_server", "android", "com.android.systemui",
+                "com.android.phone", "com.android.providers.settings", BuildInfo.SELF, BuildInfo.LAUNCHER));
+        try { String ime = currentIme(adb); if (ime.contains("/")) v.add(ime.substring(0, ime.indexOf('/'))); } catch (Exception ignored) {}
+        try { String h = homePackage(adb); if (h != null) v.add(h); } catch (Exception ignored) {}
+        return v;
+    }
+
+    private boolean isVital(Set<String> vital, Set<String> used, String proc) {
+        String pkg = proc.contains(":") ? proc.substring(0, proc.indexOf(':')) : proc;
+        if (vital.contains(proc) || vital.contains(pkg)) return true;
+        if (pkg.startsWith("com.mediatek.") || pkg.startsWith("com.cvte.") || pkg.startsWith("/system/") || pkg.startsWith("/vendor/")) return true;
+        Features.F f = Features.of(pkg);
+        return f != null && used.contains(f.id);
+    }
+
+    /**
+     * Sort what fell over: packages we are switching off ourselves dying is expected (Alice's own services on
+     * Sunwind, which looked like two crashes), anything vital is trouble, the rest is only written down.
+     * Returns how many vital crashes there were.
+     */
+    private int judge(List<String[]> fell, Collection<String> ours, Set<String> vital, Set<String> used, Set<String> minor) {
+        int bad = 0;
+        for (String[] f : fell) {
+            String pkg = f[0].contains(":") ? f[0].substring(0, f[0].indexOf(':')) : f[0];
+            boolean own = ours.contains(pkg), v = !own && isVital(vital, used, f[0]);
+            dbg((own ? "ours  " : v ? "VITAL " : "minor ") + f[1]);
+            if (own) continue;
+            if (v) { bad++; note(T.t("⚠ Упало важное: ") + f[0]); }
+            else minor.add(pkg);
+        }
+        return bad;
     }
 
     /**
      * A batch was put back: switch its packages off again one at a time, keeping the earlier ones off, so only the
-     * one that brings the crashes back (alone or together with those before it) is blamed and stays on. The rest
-     * were innocent neighbours (Sunwind: Alice took the setup wizard and factory apps down with her).
+     * one that brings vital crashes back (alone or together with those before it) is blamed and stays on.
      */
-    private List<String> culprits(Adb adb, List<String> batch, int noise) throws Exception {
+    private List<String> culprits(Adb adb, List<String> batch, int noise, Set<String> vital, Set<String> used, Set<String> minor) throws Exception {
         if (batch.size() == 1) return batch;
         Thread.sleep(3000);                     // what was just put back settles before the next count
         note(T.t("Ищу виновника: отключаю их снова по одному…"));
         List<String> guilty = new ArrayList<>();
         for (String p : batch) {
-            int before = trouble(adb);
+            String since = now(adb);
             sh(adb, "pm disable-user --user 0 " + p);
             Thread.sleep(8000);
-            if (trouble(adb) - before >= 2 + 2 * noise) {
+            if (judge(crashes(adb, since), java.util.Collections.singleton(p), vital, used, minor) >= 1 + 2 * noise) {
                 sh(adb, "pm enable " + p);
-                note(T.t("⚠ Виновник: ") + p + T.t(" — с ним телевизор падает. Оставляю включённым."));
+                note(T.t("⚠ Виновник: ") + p + T.t(" — с ним падает важное. Оставляю включённым."));
                 guilty.add(p);
                 Thread.sleep(3000);
             }
@@ -350,10 +442,17 @@ final class Ops {
             adb.shell("am force-stop " + p);
             Thread.sleep(1500);
             String after = adb.shell("pidof " + p).trim();
+            // A new process number is not a stop: the firmware started it again at once (the updater on Sunwind).
+            // And an empty one is checked once more a few seconds later, for the same reason.
+            if (after.isEmpty() && !before.isEmpty()) { Thread.sleep(5000); after = adb.shell("pidof " + p).trim(); }
+            dbg("hold " + p + ": pid " + before + " -> " + after);
             held.add(p);
             if (!after.isEmpty() && after.equals(before)) {
                 immortal.add(p);
                 note(T.t("🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: ") + p);
+            } else if (!after.isEmpty()) {
+                immortal.add(p);
+                note(T.t("♻ останавливается, но прошивка тут же запускает снова: ") + p);
             } else {
                 immortal.remove(p);
                 note(T.t("💤 не заморозить, но в фоне не работает: ") + p);
@@ -421,6 +520,7 @@ final class Ops {
             if (adb == null) { save(); return false; }
             try {
                 note(T.t("Подключено"));
+                dbgState(adb, "boot run, before");
                 rollbackStockHome(adb);                // only if a switch-off was cut short (power, crash)
                 boolean launcher = store.flag("launcher", false);
                 if (launcher) sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
@@ -463,6 +563,7 @@ final class Ops {
                     if (top.trim().isEmpty() || top.contains("FallbackHome") || (stock != null && top.contains(stock + "/")))
                         sh(adb, "am start -a android.intent.action.MAIN -c android.intent.category.HOME");
                 }
+                dbgState(adb, "boot run, after");
                 String used = usedLine(adb);
                 note(used);
                 store.setStr("bootReport", T.t("После перезагрузки: ") + (used.isEmpty() ? "" : used + ". ")
@@ -501,6 +602,12 @@ final class Ops {
             try {
                 snapshot(adb);
                 rollbackStockHome(adb);
+                // Sunwind, 28.10: 22 packages came back on between two runs with no reboot and nothing in our log.
+                Set<String> applied = store.set("appliedOff");
+                applied.removeAll(reallyOff(adb, applied));
+                applied.retainAll(store.disabled());
+                if (!applied.isEmpty()) note(T.t("⚠ Кто-то включил обратно без Уборщика (не перезагрузка): ") + applied.size()
+                        + "  (" + String.join(", ", new java.util.TreeSet<>(applied)) + ")");
                 // A stock Home that has no Google-style FallbackHome rule (Yandex TV) is switched off only by
                 // stockHomeOff(): checked, with a marker on disk and a rollback, never in a batch.
                 String stock = store.str("stockHome");
@@ -515,36 +622,45 @@ final class Ops {
                 List<String> todo = new ArrayList<>(disable);
                 todo.removeAll(prot);
                 java.util.Set<String> rolled = new java.util.HashSet<>();
-                // How often this TV falls over on its own: some (Sunwind, load average 65) crash every few seconds,
-                // and a batch must not be blamed for that. Measure the same 8 s window with nothing changed.
+                // How often something vital falls over on its own: some TVs (Sunwind, load average 60) crash every few
+                // seconds, and a batch must not be blamed for that. The same 8 s window with nothing changed.
+                Set<String> vital = vital(adb), used = store.set("features"), minor = new java.util.TreeSet<>();
                 int noise = 0;
                 if (!todo.isEmpty()) {
-                    int q0 = trouble(adb);
+                    String q0 = now(adb);
                     step(T.t("Смотрю, как часто телевизор падает сам…"));
                     Thread.sleep(8000);
-                    noise = Math.max(0, trouble(adb) - q0);
+                    noise = judge(crashes(adb, q0), java.util.Collections.emptySet(), vital, used, new java.util.HashSet<>());
                     if (noise > 0) note(T.t("Телевизор и сам по себе падает: ") + noise + T.t(" сбоев за 8 с. Учту это, чтобы не винить ваш выбор."));
                 }
+                dbgState(adb, "before apply");
                 for (int i = 0; i < todo.size(); i += 5) {
                     List<String> batch = todo.subList(i, Math.min(i + 5, todo.size()));
-                    int before = trouble(adb);
+                    String since = now(adb);
                     int n = i / 5 + 1;
                     step(T.t("Порция ") + n + T.t(" из ") + batches + T.t(": отключаю ") + batch.size());
                     disableAll(adb, batch);
                     if (prog != null) prog.progress(done, total, T.t("Порция ") + n + T.t(" из ") + batches + T.t(" · проверяю, всё ли в порядке…"));
                     Thread.sleep(8000);
                     step(T.t("Порция ") + n + T.t(" из ") + batches + T.t(" проверена"));
-                    int after = trouble(adb);
-                    if (after - before >= 2 + 2 * noise) {
+                    // Everything switched off in this run so far: a package dying because we switched it off is no crash.
+                    int bad = judge(crashes(adb, since), todo.subList(0, Math.min(i + 5, todo.size())), vital, used, minor);
+                    if (bad >= 1 + 2 * noise) {
                         // Only what this batch really switched off can be to blame (not what Android refused).
                         List<String> blame = new ArrayList<>(reallyOff(adb, new java.util.HashSet<>(batch)));
                         if (!blame.isEmpty()) {
-                            note(T.t("⚠ После этой порции что-то начало падать (") + (after - before) + T.t(" сбоев) — возвращаю её: ") + String.join(", ", blame));
+                            note(T.t("⚠ После этой порции падает важное (") + bad + T.t(" сбоев) — возвращаю её: ") + String.join(", ", blame));
                             for (String p : blame) sh(adb, "pm enable " + p);
-                            rolled.addAll(culprits(adb, blame, noise));
+                            rolled.addAll(culprits(adb, blame, noise, vital, used, minor));
                         }
                     }
                 }
+                if (!minor.isEmpty()) {
+                    note(T.t("ℹ Падали после отключения, но телевизору это не мешает: ") + String.join(", ", minor));
+                    Set<String> all = store.set("minorCrashers"); all.addAll(minor); store.setSet("minorCrashers", all);
+                }
+                // An earlier run's verdict was made by the old counter, which blamed Alice for her own services.
+                Set<String> cr = store.set("crashers"); cr.removeAll(todo); store.setSet("crashers", cr);
                 if (!rolled.isEmpty()) {
                     Set<String> d = store.disabled(); d.removeAll(rolled); store.setDisabled(d);
                     store.setSet("rolledBack", rolled);
@@ -575,6 +691,7 @@ final class Ops {
                 if (!notOff.isEmpty()) note(T.t("⚠ Не отключилось: ") + notOff.size() + "  (" + String.join(", ", notOff) + ")"
                         + T.t(". Попробую ещё раз после перезагрузки."));
                 if (!notOn.isEmpty()) note(T.t("⚠ Не включилось: ") + notOn.size() + "  (" + String.join(", ", notOn) + ")");
+                dbgState(adb, "after apply");
                 if (prog != null) prog.progress(total, total, T.t("Готово"));
                 note(T.t("Итог: ") + T.t("отключено ") + off.size() + (notOff.isEmpty() ? "" : T.t(" из ") + disable.size())
                         + T.t(", включено ") + (enable.size() - notOn.size()) + (notOn.isEmpty() ? "" : T.t(" из ") + enable.size())
@@ -623,13 +740,29 @@ final class Ops {
             sh(adb, "pm disable-user --user 0 " + stock);
             sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
             boolean ok = false;
+            String top = "";
             for (int i = 0; i < 2 && !ok; i++) {
                 sh(adb, "input keyevent KEYCODE_HOME");
                 Thread.sleep(2500);
-                ok = onTop(adb, BuildInfo.LAUNCHER_HOME);
+                top = topActivity(adb);
+                ok = top.startsWith(BuildInfo.LAUNCHER + "/");      // any screen of our launcher, not only the main one
+                dbg("home check " + i + ": " + top);
             }
-            if (ok) { Thread.sleep(3000); ok = onTop(adb, BuildInfo.LAUNCHER_HOME); }   // and it stays there
-            if (!ok) { note(T.t("⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».")); rollbackStockHome(adb); return false; }
+            if (ok) {
+                // And it stays there. Something else coming up over it (a permission dialog, a notice) is fine;
+                // the stock Home or the empty FallbackHome coming back is not. Sunwind 28.10 rolled back here
+                // without saying what it saw, hence the name in the note.
+                Thread.sleep(3000);
+                top = topActivity(adb);
+                dbg("home hold: " + top);
+                ok = !top.isEmpty() && !top.startsWith(stock + "/") && !top.contains("FallbackHome");
+            }
+            if (!ok) {
+                note(T.t("⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».") + " " + T.t("На экране было: ") + (top.isEmpty() ? "—" : top));
+                dbgState(adb, "home switch-off failed");
+                rollbackStockHome(adb);
+                return false;
+            }
             store.commitStr("homeTx", null);
             note(T.t("✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка"));
             return true;
@@ -657,13 +790,6 @@ final class Ops {
     }
 
     /** The exact component on screen, not just a package name somewhere in the line (audit A4). */
-    private static boolean onTop(Adb adb, String component) throws Exception {
-        String top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
-        String pkg = component.substring(0, component.indexOf('/'));
-        String full = pkg + "/" + pkg + component.substring(component.indexOf('/') + 1);
-        for (String l : top.split("\n")) if (l.contains(" " + component + " ") || l.contains(" " + full + " ")) return true;
-        return false;
-    }
 
     boolean installLauncher() {
         synchronized (LOCK) {
@@ -761,6 +887,7 @@ final class Ops {
 
     /** LeanKey: a light keyboard made for the remote, bundled with the full edition (MIT, built from source). */
     static final String KEYBOARD = "com.liskovsoft.leankeyboard", KEYBOARD_IME = KEYBOARD + "/.ime.LeanbackImeService";
+    private static final String KEYBOARD_TILE = KEYBOARD + "/.activity.settings.KbSettingsActivity2";
 
     static boolean hasKeyboard(Context c) {
         try (InputStream in = c.getAssets().open("leankey.apk")) { return true; } catch (Exception e) { return false; }
@@ -811,6 +938,9 @@ final class Ops {
                     note(T.t("⚠ Клавиатура поставилась, но Android не сделал её основной. Прежняя остаётся."));
                     return false;
                 }
+                // Its settings screen is also a launcher tile ("LeanKey Keyboard" on the Home screen): hide the tile.
+                // Layouts are switched on the keyboard itself.
+                sh(adb, "pm disable --user 0 " + KEYBOARD_TILE);
                 note(T.t("✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке."));
                 return true;
             } catch (Exception e) {
@@ -1113,6 +1243,13 @@ final class Ops {
             if (old.length() > 30000) old = old.substring(old.length() - 30000);
             try (FileOutputStream o = new FileOutputStream(lf)) { o.write((old + "\n" + log).getBytes(StandardCharsets.UTF_8)); }
             log.setLength(0);
+            if (dbgLog.length() > 0) {
+                File df = new File(lf.getParentFile(), "debug.txt");
+                String o2 = df.isFile() ? new String(readAll(df), StandardCharsets.UTF_8) : "";
+                if (o2.length() > 300000) o2 = o2.substring(o2.length() - 300000);
+                try (FileOutputStream o = new FileOutputStream(df)) { o.write((o2 + "\n" + dbgLog).getBytes(StandardCharsets.UTF_8)); }
+                dbgLog.setLength(0);
+            }
         } catch (Exception ignored) {}
     }
 

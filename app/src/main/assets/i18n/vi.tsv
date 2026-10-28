@@ -594,3 +594,10 @@ Live Channels	Live Channels
 ⚠ Прежняя клавиатура не стала основной: 	⚠ Bàn phím trước không trở thành mặc định: 
 ✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке.	✔ Bàn phím nhẹ giờ là mặc định. Có thể tắt bàn phím trước trong danh sách.
 ✔ Прежняя клавиатура снова основная	✔ Bàn phím trước lại là mặc định
+⚠ Упало важное: 	⚠ Thành phần quan trọng bị lỗi: 
+ — с ним падает важное. Оставляю включённым.	 — tắt nó thì thành phần quan trọng bị lỗi. Giữ bật.
+⚠ После этой порции падает важное (	⚠ Sau đợt này, thành phần quan trọng bị lỗi (
+ℹ Падали после отключения, но телевизору это не мешает: 	ℹ Bị lỗi sau khi thay đổi, nhưng TV không cần chúng: 
+⚠ Кто-то включил обратно без Уборщика (не перезагрузка): 	⚠ Có thứ đã bật lại chúng mà không qua TV Janitor (không phải khởi động lại): 
+На экране было: 	Trên màn hình là: 
+♻ останавливается, но прошивка тут же запускает снова: 	♻ dừng được, nhưng firmware khởi động lại ngay: 
