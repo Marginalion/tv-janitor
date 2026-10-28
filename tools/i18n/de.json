@@ -563,5 +563,9 @@
 "⚠ Auf diesem Fernseher schaltet ein Neustart ihn aus: Schalten Sie ihn nach einer Minute mit der Fernbedienung ein.",
 "Prüfe, wie oft der Fernseher von selbst abstürzt…",
 "Der Fernseher stürzt auch von selbst ab:",
-"Abstürze in 8 s. Das berücksichtige ich, damit Ihre Auswahl nicht beschuldigt wird."
+"Abstürze in 8 s. Das berücksichtige ich, damit Ihre Auswahl nicht beschuldigt wird.",
+"Suche den Schuldigen: schalte sie einzeln wieder aus…",
+"⚠ Schuldig:",
+"— ohne ihn stürzt der Fernseher ab. Bleibt eingeschaltet.",
+"Einzeln stürzte nichts ab: ein Zufall, alle sind ausgeschaltet."
 ]

@@ -20,6 +20,12 @@
 - Crash-loop check allows for TVs that crash on their own: before the first batch it measures the same 8-second
   window with nothing changed, and a batch is put back only for clearly more than that (Sunwind falsely blamed
   Alice, the setup wizard and factory apps). Protected packages never appear as "do not disable".
+- A batch that starts crashes no longer takes its innocent neighbours down: after putting it back, the app switches
+  its packages off again one at a time, and only the one that brings the crashes back stays on and goes into
+  "do not disable" (Sunwind: Alice, not the setup wizard and factory apps). Older blame that was never confirmed
+  this way is dropped from the report, as is anything that is off on the TV now.
+- The experience report no longer lists protected packages as disabled: the owner chose them, but the firmware
+  keeps them on.
 - Experience report: a "Firmware quirks" section (boot signal blocked, protected packages, ro.adb.secure=0).
 - Notices firmware where "restart" powers the TV off (Sunwind): if the TV came up minutes after the restart it
   asked for, the restart dialog says to switch it on with the remote, and the report lists it as a quirk.

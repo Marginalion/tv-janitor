@@ -31,8 +31,10 @@ final class Report {
         Set<String> back = system(pm, s.set("firmwareBack"));
         if (!back.isEmpty()) r.append("#\n# This firmware re-enables these at every boot; the cleaner turns them off again after boot:\n#   ")
                 .append(String.join(" ", back)).append('\n');
-        Set<String> rolled = system(pm, s.set("rolledAll"));
-        rolled.removeAll(s.set("protectedPkgs"));       // refused by Android, never disabled: nothing to blame
+        // Only what was found guilty on its own; not what is off on this TV right now, nor what Android refused.
+        Set<String> rolled = system(pm, s.set("crashers"));
+        rolled.removeAll(s.set("protectedPkgs"));
+        rolled.removeAll(s.disabled());
         if (!rolled.isEmpty()) {
             r.append("#\n# DO NOT DISABLE on this model: something started crashing right after they were disabled, so they were put back:\n");
             for (String p : rolled) r.append("#   ").append(pad(p)).append(label(pm, p)).append('\n');
@@ -55,6 +57,7 @@ final class Report {
         if (kept.length() > 0) r.append("#\n# The owner uses: ").append(kept).append('\n');
         r.append('\n');
         Set<String> off = system(pm, s.disabled());
+        off.removeAll(s.set("protectedPkgs"));         // chosen, but the firmware keeps them on
         Set<String> ownOff = own(pm, s.disabled()), ownSleep = own(pm, s.sleeping());
         for (String p : off) r.append(pad(p)).append("# ").append(label(pm, p)).append('\n');
         if (includeOwn) {

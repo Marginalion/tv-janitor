@@ -301,6 +301,31 @@ final class Ops {
                 + countLines(adb, "logcat -d -b main -b system | grep -c 'Scheduling restart of crashed service'");
     }
 
+    /**
+     * A batch was put back: switch its packages off again one at a time, keeping the earlier ones off, so only the
+     * one that brings the crashes back (alone or together with those before it) is blamed and stays on. The rest
+     * were innocent neighbours (Sunwind: Alice took the setup wizard and factory apps down with her).
+     */
+    private List<String> culprits(Adb adb, List<String> batch, int noise) throws Exception {
+        if (batch.size() == 1) return batch;
+        Thread.sleep(3000);                     // what was just put back settles before the next count
+        note(T.t("Ищу виновника: отключаю их снова по одному…"));
+        List<String> guilty = new ArrayList<>();
+        for (String p : batch) {
+            int before = trouble(adb);
+            sh(adb, "pm disable-user --user 0 " + p);
+            Thread.sleep(8000);
+            if (trouble(adb) - before >= 2 + 2 * noise) {
+                sh(adb, "pm enable " + p);
+                note(T.t("⚠ Виновник: ") + p + T.t(" — с ним телевизор падает. Оставляю включённым."));
+                guilty.add(p);
+                Thread.sleep(3000);
+            }
+        }
+        if (guilty.isEmpty()) note(T.t("По одному ничего не упало: сбой был случайным, всё отключено."));
+        return guilty;
+    }
+
     /** Of the chosen packages, the ones Android really reports as disabled right now. */
     private static Set<String> reallyOff(Adb adb, Set<String> chosen) throws Exception {
         Set<String> off = new java.util.HashSet<>();
@@ -452,14 +477,14 @@ final class Ops {
                         if (!blame.isEmpty()) {
                             note(T.t("⚠ После этой порции что-то начало падать (") + (after - before) + T.t(" сбоев) — возвращаю её: ") + String.join(", ", blame));
                             for (String p : blame) sh(adb, "pm enable " + p);
-                            rolled.addAll(blame);
+                            rolled.addAll(culprits(adb, blame, noise));
                         }
                     }
                 }
                 if (!rolled.isEmpty()) {
                     Set<String> d = store.disabled(); d.removeAll(rolled); store.setDisabled(d);
                     store.setSet("rolledBack", rolled);
-                    java.util.Set<String> all = store.set("rolledAll"); all.addAll(rolled); store.setSet("rolledAll", all);
+                    java.util.Set<String> all = store.set("crashers"); all.addAll(rolled); store.setSet("crashers", all);
                     disable.removeAll(rolled);
                 }
                 wakeAll(adb, wake);

@@ -563,5 +563,9 @@
 "⚠ On this TV a restart switches it off: after a minute, switch it on with the remote.",
 "Checking how often the TV falls over on its own…",
 "The TV falls over on its own too:",
-"crashes in 8 s. I'll allow for that so your choices aren't blamed."
+"crashes in 8 s. I'll allow for that so your choices aren't blamed.",
+"Looking for the culprit: switching them off again one at a time…",
+"⚠ Culprit:",
+"— with it off the TV crashes. Leaving it on.",
+"Nothing crashed one at a time: it was a one-off, all of them are off."
 ]
