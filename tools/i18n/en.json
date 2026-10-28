@@ -559,5 +559,6 @@
 "🔒 This firmware won't allow disabling:",
 ". That is the firmware's own protection, not an error; I won't try again.",
 "Restart the TV?",
-"After the restart TV Janitor will check that everything is in place."
+"After the restart TV Janitor will check that everything is in place.",
+"⚠ On this TV a restart switches it off: after a minute, switch it on with the remote."
 ]

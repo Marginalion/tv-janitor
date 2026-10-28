@@ -196,7 +196,7 @@ public class MainActivity extends Activity {
                 .show());
         sReboot.setOnClickListener(v -> new android.app.AlertDialog.Builder(this)
                 .setTitle(T.t("Перезагрузить телевизор?"))
-                .setMessage(T.t("После загрузки Уборщик проверит, что всё на месте."))
+                .setMessage(T.t("После загрузки Уборщик проверит, что всё на месте.") + rebootNote())
                 .setNegativeButton(T.t("Отмена"), null)
                 .setPositiveButton(T.t("Перезагрузить"), (d, w) -> run(T.t("Перезагружаю…"), () -> new Ops(this, this::say).reboot()))
                 .show());
@@ -354,10 +354,15 @@ public class MainActivity extends Activity {
     private void offerReboot() {
         new android.app.AlertDialog.Builder(this)
                 .setTitle(T.t("Готово ✔"))
-                .setMessage(T.t("Чтобы память освободилась полностью, телевизор лучше перезагрузить. После загрузки Уборщик проверит, что всё на месте."))
+                .setMessage(T.t("Чтобы память освободилась полностью, телевизор лучше перезагрузить. После загрузки Уборщик проверит, что всё на месте.") + rebootNote())
                 .setNegativeButton(T.t("Позже"), null)
                 .setPositiveButton(T.t("Перезагрузить"), (d, w) -> { saveFlags(); run(T.t("Перезагружаю…"), () -> new Ops(this, this::say).reboot()); })
                 .show();
+    }
+
+    /** Seen on this TV: a restart switches it off (Boot.checkReboot). */
+    private String rebootNote() {
+        return store.flag("rebootPowersOff", false) ? "\n\n" + T.t("⚠ На этом телевизоре перезагрузка выключает его: через минуту включите его пультом.") : "";
     }
 
     private Button tile(String title, String sub) {

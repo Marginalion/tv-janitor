@@ -45,6 +45,7 @@ final class Report {
         if (s.flag("bootBlocked", false)) q.append("#   BOOT_COMPLETED is not delivered to third-party apps: re-applied by a scheduled job a few minutes after boot.\n");
         Set<String> prot = system(pm, s.set("protectedPkgs"));
         if (!prot.isEmpty()) q.append("#   Protected packages (pm disable-user refused by the firmware): ").append(String.join(" ", prot)).append('\n');
+        if (s.flag("rebootPowersOff", false)) q.append("#   \"reboot\" powers the TV off instead of restarting it: it has to be switched on with the remote.\n");
         if (s.flag("adbInsecure", false)) q.append("#   ro.adb.secure=0: debugging accepts any computer without asking.\n");
         if (q.length() > 0) r.append("#\n# Firmware quirks seen by TV Janitor:\n").append(q);
         Set<String> used = s.set("features");

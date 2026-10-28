@@ -18,6 +18,8 @@
   retry after every boot and doesn't count it as a failure. Crash-loop rollback now blames only what the batch
   really switched off.
 - Experience report: a "Firmware quirks" section (boot signal blocked, protected packages, ro.adb.secure=0).
+- Notices firmware where "restart" powers the TV off (Sunwind): if the TV came up minutes after the restart it
+  asked for, the restart dialog says to switch it on with the remote, and the report lists it as a quirk.
 - The app always opens on the simple screen; "For experts" lasts until it is closed.
 - Simple screen: **Restart** (with a confirmation) and **Restore everything** buttons.
 

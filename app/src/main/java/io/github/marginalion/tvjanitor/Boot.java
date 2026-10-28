@@ -31,6 +31,22 @@ final class Boot {
         return n >= 0 && String.valueOf(n).equals(new Store(c).str("bootTried"));
     }
 
+    /**
+     * After a restart the app asked for: if the TV came up much later than a restart takes, the firmware treated
+     * "reboot" as "power off" and the owner switched it on by hand (Sunwind). Remembered for the screen and report.
+     */
+    static void checkReboot(Context c) {
+        Store s = new Store(c);
+        String asked = s.str("rebootAskedAt");
+        if (asked == null) return;
+        s.setStr("rebootAskedAt", null);
+        long bootAt = System.currentTimeMillis() - SystemClock.elapsedRealtime();
+        long gap = bootAt - Long.parseLong(asked);
+        if (gap < 0 || gap > 24L * 3600 * 1000) return;        // clock not set yet, or too long ago to tell
+        if (gap > 3 * 60 * 1000) s.setFlag("rebootPowersOff", true);
+        else if (gap < 2 * 60 * 1000) s.setFlag("rebootPowersOff", false);
+    }
+
     /** Set up at least once: there is something to re-apply. */
     static boolean setUp(Context c) { return new Store(c).has("snap_disabled"); }
 

@@ -274,6 +274,7 @@ final class Ops {
             if (adb == null) { save(); return false; }
             try {
                 store.setFlag("openAfterBoot", true);
+                store.setStr("rebootAskedAt", String.valueOf(System.currentTimeMillis()));
                 note(T.t("Перезагружаю телевизор…"));
                 save();
                 adb.shell("reboot");
@@ -332,6 +333,7 @@ final class Ops {
             boolean receiver = reason.endsWith("BOOT_COMPLETED");
             if (receiver) { store.setStr("bootTried", String.valueOf(Boot.count(c))); store.setFlag("bootBlocked", false); }
             if (Boot.done(c)) return true;
+            Boot.checkReboot(c);
             note(T.t("Старт (") + reason + ")" + (receiver ? "" : T.t(", через ") + Boot.upMinutes() + T.t(" мин после включения")));
             Adb adb = connect(12);
             if (adb == null) { save(); return false; }
