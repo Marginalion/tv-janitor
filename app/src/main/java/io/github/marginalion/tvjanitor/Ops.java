@@ -277,7 +277,11 @@ final class Ops {
                 store.setStr("rebootAskedAt", String.valueOf(System.currentTimeMillis()));
                 note(T.t("Перезагружаю телевизор…"));
                 save();
-                adb.shell("reboot");
+                Boot.afterRestart(c);
+                // "svc power reboot" goes through Android's own restart; plain "reboot" powers some TVs off
+                // (Sunwind). Only if svc itself says it can't (old firmware), the plain one.
+                String r = adb.shell("svc power reboot").toLowerCase(java.util.Locale.ROOT);
+                if (r.contains("not found") || r.contains("unknown") || r.contains("usage") || r.contains("error")) adb.shell("reboot");
                 return true;
             } catch (Exception e) { return true; } finally { adb.close(); }
         }

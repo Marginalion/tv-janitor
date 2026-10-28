@@ -23,6 +23,11 @@
 - Experience report: a "Firmware quirks" section (boot signal blocked, protected packages, ro.adb.secure=0).
 - Notices firmware where "restart" powers the TV off (Sunwind): if the TV came up minutes after the restart it
   asked for, the restart dialog says to switch it on with the remote, and the report lists it as a quirk.
+- **Restart** uses `svc power reboot` (Android's own restart) instead of plain `reboot`, which powers some TVs
+  off (Sunwind); plain `reboot` only if svc says it can't.
+- Faster start after a restart the app asked for, on firmware without the boot signal: just before restarting it
+  leaves a one-off job that Android restores after boot and runs once the network is up (about a minute), instead
+  of waiting up to 15 minutes for the periodic one (Sunwind showed the Yandex home screen for 12 minutes).
 - The app always opens on the simple screen; "For experts" lasts until it is closed.
 - Simple screen: **Restart** (with a confirmation) and **Restore everything** buttons.
 

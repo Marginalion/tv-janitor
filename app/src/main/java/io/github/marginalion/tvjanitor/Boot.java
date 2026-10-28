@@ -12,7 +12,7 @@ import android.provider.Settings;
  * from third-party apps (Sunwind/CVTE with Yandex TV): a persisted job that Android itself restores after boot.
  */
 final class Boot {
-    static final int JOB = 1;
+    static final int JOB = 1, AFTER_RESTART = 2;
 
     /** Android's own boot counter; -1 if the firmware doesn't keep it. */
     static int count(Context c) { return Settings.Global.getInt(c.getContentResolver(), Settings.Global.BOOT_COUNT, -1); }
@@ -56,5 +56,17 @@ final class Boot {
         if (js == null || js.getPendingJob(JOB) != null) return;
         js.schedule(new JobInfo.Builder(JOB, new ComponentName(c, BootJob.class))
                 .setPeriodic(15 * 60 * 1000L).setPersisted(true).build());
+    }
+
+    /**
+     * Just before a restart the app asked for: a one-off job that Android restores after boot and runs as soon as
+     * the network is up, so a firmware without the boot signal (Sunwind) waits about a minute, not up to 15.
+     * Not due for 90 s, so it can't fire before the TV goes down; after boot that time has long passed.
+     */
+    static void afterRestart(Context c) {
+        JobScheduler js = c.getSystemService(JobScheduler.class);
+        if (js == null) return;
+        js.schedule(new JobInfo.Builder(AFTER_RESTART, new ComponentName(c, BootJob.class))
+                .setMinimumLatency(90 * 1000L).setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY).setPersisted(true).build());
     }
 }
