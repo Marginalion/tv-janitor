@@ -158,9 +158,11 @@ public class MainActivity extends Activity {
         Button featBtn = button(T.t("Чем я пользуюсь"));
         Button dbBtn = button(T.t("Обновить базу"));
         Button shareBtn = button(T.t("Поделиться опытом"));
+        Button removeBtn = button(T.t("🗑 Удалить Уборщика начисто"));
         add(bar2, restoreBtn); add(bar2, featBtn); add(bar2, refresh);
         add(bar3, dbBtn); add(bar3, shareBtn); add(bar3, logBtn);
-        root.addView(bar2); root.addView(bar3);
+        LinearLayout bar4 = row(); add(bar4, removeBtn);
+        root.addView(bar2); root.addView(bar3); root.addView(bar4);
 
         root.addView(header(T.t("Режимы")));
         LinearLayout modes = row();
@@ -228,6 +230,14 @@ public class MainActivity extends Activity {
             });
         });
         restoreBtn.setOnClickListener(v -> run(T.t("Возвращаю всё как было…"), () -> new Ops(this, this::say).restoreAll()));
+        removeBtn.setOnClickListener(v -> new android.app.AlertDialog.Builder(this)
+                .setTitle(T.t("Удалить Уборщика начисто?"))
+                .setMessage(T.t("Если просто удалить Уборщика, всё отключённое так и останется отключённым: Android хранит это сам. ")
+                        + T.t("Эта кнопка сначала вернёт всё как было и проверит, что заводской главный экран на месте, ")
+                        + T.t("потом удалит новую оболочку, лёгкую клавиатуру и самого Уборщика. Если что-то не вернётся, ничего удалять не будет."))
+                .setNegativeButton(T.t("Отмена"), null)
+                .setPositiveButton(T.t("Удалить"), (d, w) -> run(T.t("Возвращаю всё и удаляю…"), () -> new Ops(this, this::say).removeEverything()))
+                .show());
         refresh.setOnClickListener(v -> scan());
         dbBtn.setOnClickListener(v -> {
             show(status, T.t("Обновляю базу CleanYourTV…"));

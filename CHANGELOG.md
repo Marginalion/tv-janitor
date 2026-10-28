@@ -79,6 +79,10 @@
   updates, other apps and features, system services, unknown), or by risk with one button. Groups start closed
   and show how many rows are set to be switched off; a closed group builds no rows, which keeps the app light.
   Each row carries its risk: 🔵 safe, 🔶 your choice, 🔴 important, ⚪ unknown.
+- **"🗑 Uninstall TV Janitor cleanly"**: uninstalling the app alone leaves everything it disabled disabled (Android
+  keeps that). This button puts everything back first, checks that another home screen of any make answers Home,
+  and only then removes the launcher, the light keyboard and the app; if anything didn't come back, it removes
+  nothing.
 - What the owner said they use is no longer switched off behind their back: a ticked one is flagged in the list
   and in the log, and one switched back on from outside stays on after the next boot.
 - Dev builds keep a second, detailed log (debug.txt): every crash line with its verdict, memory, the biggest

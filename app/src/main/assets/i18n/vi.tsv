@@ -626,3 +626,15 @@ Live Channels	Live Channels
 ⛔ отключить: 	⛔ tắt: 
 💤 не запускаются сами: 	💤 không tự khởi động: 
 всё работает	tất cả đang chạy
+🗑 Удалить Уборщика начисто	🗑 Gỡ TV Janitor sạch sẽ
+Удалить Уборщика начисто?	Gỡ TV Janitor sạch sẽ?
+Если просто удалить Уборщика, всё отключённое так и останется отключённым: Android хранит это сам. 	Nếu chỉ gỡ TV Janitor, mọi thứ đã tắt vẫn bị tắt: Android tự lưu điều này. 
+Эта кнопка сначала вернёт всё как было и проверит, что заводской главный экран на месте, 	Nút này trước tiên khôi phục mọi thứ và kiểm tra màn hình chính gốc vẫn còn, 
+потом удалит новую оболочку, лёгкую клавиатуру и самого Уборщика. Если что-то не вернётся, ничего удалять не будет.	rồi gỡ màn hình chính mới, bàn phím nhẹ và chính TV Janitor. Nếu có gì chưa khôi phục, sẽ không gỡ gì cả.
+Удалить	Gỡ
+Возвращаю всё и удаляю…	Đang khôi phục mọi thứ và gỡ…
+⚠ Не всё вернулось — удалять ничего не буду. Попробуйте ещё раз после перезагрузки.	⚠ Chưa khôi phục hết nên không gỡ gì. Hãy thử lại sau khi khởi động lại.
+⚠ Кроме новой оболочки, главного экрана нет — её оставляю, иначе телевизор останется без «Домой».	⚠ Không có màn hình chính nào khác nên giữ cái mới, nếu không TV sẽ không có Màn hình chính.
+⚠ «Домой» всё ещё ведёт в новую оболочку — её оставляю. Выберите заводской главный экран и повторите.	⚠ Nút Màn hình chính vẫn mở màn hình mới nên giữ lại. Hãy chọn màn hình gốc rồi thử lại.
+⚠ Лёгкая клавиатура всё ещё основная — её оставляю.	⚠ Bàn phím nhẹ vẫn là mặc định nên giữ lại.
+Удаляю Уборщика. Спасибо, что пользовались!	Đang gỡ TV Janitor. Cảm ơn bạn đã sử dụng!

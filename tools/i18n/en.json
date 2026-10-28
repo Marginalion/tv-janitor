@@ -623,5 +623,17 @@
 "🔵 safe · 🔶 your choice · 🔴 important · ⚪ unknown.",
 "⛔ to disable:",
 "💤 not starting on their own:",
-"all running"
+"all running",
+"🗑 Uninstall TV Janitor cleanly",
+"Uninstall TV Janitor cleanly?",
+"Simply uninstalling TV Janitor leaves everything it disabled disabled: Android keeps that itself.",
+"This button first puts everything back and checks that the stock home screen is in place,",
+"then removes the new home screen, the light keyboard and TV Janitor itself. If anything doesn't come back, nothing is removed.",
+"Uninstall",
+"Putting everything back and uninstalling…",
+"⚠ Not everything came back, so nothing is removed. Try again after a restart.",
+"⚠ There is no other home screen, so the new one stays; otherwise the TV would be left without Home.",
+"⚠ Home still opens the new home screen, so it stays. Choose the stock home screen and try again.",
+"⚠ The light keyboard is still the default, so it stays.",
+"Uninstalling TV Janitor. Thanks for using it!"
 ]

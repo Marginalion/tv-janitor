@@ -626,3 +626,15 @@ Live Channels	Live Channels
 ⛔ отключить: 	⛔ kapatılacak: 
 💤 не запускаются сами: 	💤 kendiliğinden başlamaz: 
 всё работает	hepsi çalışıyor
+🗑 Удалить Уборщика начисто	🗑 TV Janitor'ı temiz kaldır
+Удалить Уборщика начисто?	TV Janitor temiz kaldırılsın mı?
+Если просто удалить Уборщика, всё отключённое так и останется отключённым: Android хранит это сам. 	TV Janitor'ı sadece kaldırırsanız kapatılanlar kapalı kalır: bunu Android kendisi saklar. 
+Эта кнопка сначала вернёт всё как было и проверит, что заводской главный экран на месте, 	Bu düğme önce her şeyi geri alır ve fabrika ana ekranının yerinde olduğunu kontrol eder, 
+потом удалит новую оболочку, лёгкую клавиатуру и самого Уборщика. Если что-то не вернётся, ничего удалять не будет.	sonra yeni ana ekranı, hafif klavyeyi ve TV Janitor'ın kendisini kaldırır. Bir şey geri gelmezse hiçbir şey kaldırılmaz.
+Удалить	Kaldır
+Возвращаю всё и удаляю…	Her şeyi geri alıp kaldırıyorum…
+⚠ Не всё вернулось — удалять ничего не буду. Попробуйте ещё раз после перезагрузки.	⚠ Her şey geri gelmedi, hiçbir şey kaldırılmıyor. Yeniden başlattıktan sonra tekrar deneyin.
+⚠ Кроме новой оболочки, главного экрана нет — её оставляю, иначе телевизор останется без «Домой».	⚠ Başka ana ekran yok, yenisi kalıyor; yoksa TV'de Ana ekran olmazdı.
+⚠ «Домой» всё ещё ведёт в новую оболочку — её оставляю. Выберите заводской главный экран и повторите.	⚠ Ana ekran tuşu hâlâ yenisini açıyor, kalıyor. Fabrika ana ekranını seçip tekrar deneyin.
+⚠ Лёгкая клавиатура всё ещё основная — её оставляю.	⚠ Hafif klavye hâlâ varsayılan, kalıyor.
+Удаляю Уборщика. Спасибо, что пользовались!	TV Janitor kaldırılıyor. Kullandığınız için teşekkürler!

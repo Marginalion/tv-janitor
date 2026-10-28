@@ -626,3 +626,15 @@ Live Channels	Live Channels
 ⛔ отключить: 	⛔ to disable: 
 💤 не запускаются сами: 	💤 not starting on their own: 
 всё работает	all running
+🗑 Удалить Уборщика начисто	🗑 Uninstall TV Janitor cleanly
+Удалить Уборщика начисто?	Uninstall TV Janitor cleanly?
+Если просто удалить Уборщика, всё отключённое так и останется отключённым: Android хранит это сам. 	Simply uninstalling TV Janitor leaves everything it disabled disabled: Android keeps that itself. 
+Эта кнопка сначала вернёт всё как было и проверит, что заводской главный экран на месте, 	This button first puts everything back and checks that the stock home screen is in place, 
+потом удалит новую оболочку, лёгкую клавиатуру и самого Уборщика. Если что-то не вернётся, ничего удалять не будет.	then removes the new home screen, the light keyboard and TV Janitor itself. If anything doesn't come back, nothing is removed.
+Удалить	Uninstall
+Возвращаю всё и удаляю…	Putting everything back and uninstalling…
+⚠ Не всё вернулось — удалять ничего не буду. Попробуйте ещё раз после перезагрузки.	⚠ Not everything came back, so nothing is removed. Try again after a restart.
+⚠ Кроме новой оболочки, главного экрана нет — её оставляю, иначе телевизор останется без «Домой».	⚠ There is no other home screen, so the new one stays; otherwise the TV would be left without Home.
+⚠ «Домой» всё ещё ведёт в новую оболочку — её оставляю. Выберите заводской главный экран и повторите.	⚠ Home still opens the new home screen, so it stays. Choose the stock home screen and try again.
+⚠ Лёгкая клавиатура всё ещё основная — её оставляю.	⚠ The light keyboard is still the default, so it stays.
+Удаляю Уборщика. Спасибо, что пользовались!	Uninstalling TV Janitor. Thanks for using it!

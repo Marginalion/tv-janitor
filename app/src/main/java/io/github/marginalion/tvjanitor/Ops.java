@@ -275,6 +275,47 @@ final class Ops {
     }
 
     /**
+     * The clean way out. Uninstalling the app leaves everything it switched off switched off (Android keeps that,
+     * not us), and if our launcher went too with the stock Home off, the TV would sit on a black FallbackHome. So:
+     * put everything back, check that another home screen (any make: Yandex, Google, Xiaomi...) answers Home,
+     * and only then remove the launcher, the light keyboard and this app.
+     */
+    boolean removeEverything() {
+        if (!restoreAll()) { note(T.t("⚠ Не всё вернулось — удалять ничего не буду. Попробуйте ещё раз после перезагрузки.")); save(); return false; }
+        synchronized (LOCK) {
+            Adb adb = connect(3);
+            if (adb == null) { save(); return false; }
+            try {
+                String homes = adb.shell("cmd package query-activities --brief -a android.intent.action.MAIN -c android.intent.category.HOME");
+                boolean other = false;
+                for (String l : homes.split("\n")) {
+                    l = l.trim();
+                    if (l.contains("/") && !l.startsWith(BuildInfo.LAUNCHER + "/") && !l.contains("FallbackHome") && !l.startsWith("com.android.settings/")) other = true;
+                }
+                if (installed(BuildInfo.LAUNCHER)) {
+                    if (!other) { note(T.t("⚠ Кроме новой оболочки, главного экрана нет — её оставляю, иначе телевизор останется без «Домой».")); }
+                    else {
+                        String home = homePackage(adb);
+                        if (BuildInfo.LAUNCHER.equals(home)) { note(T.t("⚠ «Домой» всё ещё ведёт в новую оболочку — её оставляю. Выберите заводской главный экран и повторите.")); }
+                        else sh(adb, "pm uninstall " + BuildInfo.LAUNCHER);
+                    }
+                }
+                if (installed(KEYBOARD)) {
+                    if (isOurIme(currentIme(adb))) note(T.t("⚠ Лёгкая клавиатура всё ещё основная — её оставляю."));
+                    else sh(adb, "pm uninstall " + KEYBOARD);
+                }
+                note(T.t("Удаляю Уборщика. Спасибо, что пользовались!"));
+                save();
+                adb.shell("pm uninstall " + BuildInfo.SELF);      // ends this process
+                return true;
+            } catch (Exception e) {
+                note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
+                return false;
+            } finally { adb.close(); save(); }
+        }
+    }
+
+    /**
      * Once, with the owner watching: switch debugging off, on again, and reconnect. Only if that works on this TV
      * does the app close debugging when it is done. If it doesn't, debugging is left on and the owner is told.
      */

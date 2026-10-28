@@ -623,5 +623,17 @@
 "🔵 güvenli · 🔶 size kalmış · 🔴 önemli · ⚪ bilinmiyor.",
 "⛔ kapatılacak:",
 "💤 kendiliğinden başlamaz:",
-"hepsi çalışıyor"
+"hepsi çalışıyor",
+"🗑 TV Janitor'ı temiz kaldır",
+"TV Janitor temiz kaldırılsın mı?",
+"TV Janitor'ı sadece kaldırırsanız kapatılanlar kapalı kalır: bunu Android kendisi saklar.",
+"Bu düğme önce her şeyi geri alır ve fabrika ana ekranının yerinde olduğunu kontrol eder,",
+"sonra yeni ana ekranı, hafif klavyeyi ve TV Janitor'ın kendisini kaldırır. Bir şey geri gelmezse hiçbir şey kaldırılmaz.",
+"Kaldır",
+"Her şeyi geri alıp kaldırıyorum…",
+"⚠ Her şey geri gelmedi, hiçbir şey kaldırılmıyor. Yeniden başlattıktan sonra tekrar deneyin.",
+"⚠ Başka ana ekran yok, yenisi kalıyor; yoksa TV'de Ana ekran olmazdı.",
+"⚠ Ana ekran tuşu hâlâ yenisini açıyor, kalıyor. Fabrika ana ekranını seçip tekrar deneyin.",
+"⚠ Hafif klavye hâlâ varsayılan, kalıyor.",
+"TV Janitor kaldırılıyor. Kullandığınız için teşekkürler!"
 ]

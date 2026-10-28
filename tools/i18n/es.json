@@ -623,5 +623,17 @@
 "🔵 seguro · 🔶 a su elección · 🔴 importante · ⚪ desconocido.",
 "⛔ desactivar:",
 "💤 no se inician solos:",
-"todo funciona"
+"todo funciona",
+"🗑 Desinstalar TV Janitor por completo",
+"¿Desinstalar TV Janitor por completo?",
+"Si solo desinstala TV Janitor, todo lo desactivado seguirá desactivado: Android lo guarda por sí mismo.",
+"Este botón primero lo restaura todo y comprueba que la pantalla de inicio de fábrica esté en su sitio,",
+"luego elimina la nueva pantalla de inicio, el teclado ligero y el propio TV Janitor. Si algo no vuelve, no se elimina nada.",
+"Desinstalar",
+"Restaurando todo y desinstalando…",
+"⚠ No todo volvió, así que no se elimina nada. Inténtelo de nuevo tras reiniciar.",
+"⚠ No hay otra pantalla de inicio, así que la nueva se queda; si no, el televisor quedaría sin Inicio.",
+"⚠ Inicio todavía abre la nueva pantalla, así que se queda. Elija la de fábrica e inténtelo de nuevo.",
+"⚠ El teclado ligero sigue siendo el predeterminado, así que se queda.",
+"Desinstalando TV Janitor. ¡Gracias por usarlo!"
 ]

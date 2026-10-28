@@ -623,5 +623,17 @@
 "🔵 sicher · 🔶 Ihre Wahl · 🔴 wichtig · ⚪ unbekannt.",
 "⛔ deaktivieren:",
 "💤 starten nicht von selbst:",
-"alles läuft"
+"alles läuft",
+"🗑 TV Janitor sauber entfernen",
+"TV Janitor sauber entfernen?",
+"Wird TV Janitor einfach deinstalliert, bleibt alles Deaktivierte deaktiviert: Android speichert das selbst.",
+"Diese Taste stellt zuerst alles wieder her und prüft, dass der Werks-Startbildschirm da ist,",
+"dann entfernt sie den neuen Startbildschirm, die leichte Tastatur und TV Janitor selbst. Kommt etwas nicht zurück, wird nichts entfernt.",
+"Entfernen",
+"Stelle alles wieder her und entferne…",
+"⚠ Nicht alles kam zurück, daher wird nichts entfernt. Nach einem Neustart erneut versuchen.",
+"⚠ Es gibt keinen anderen Startbildschirm, der neue bleibt, sonst hätte der Fernseher kein Home.",
+"⚠ Home öffnet noch den neuen Startbildschirm, er bleibt. Werks-Startbildschirm wählen und erneut versuchen.",
+"⚠ Die leichte Tastatur ist noch Standard, sie bleibt.",
+"Entferne TV Janitor. Danke fürs Benutzen!"
 ]

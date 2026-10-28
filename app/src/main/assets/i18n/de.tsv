@@ -626,3 +626,15 @@ Live Channels	Live Channels
 ⛔ отключить: 	⛔ deaktivieren: 
 💤 не запускаются сами: 	💤 starten nicht von selbst: 
 всё работает	alles läuft
+🗑 Удалить Уборщика начисто	🗑 TV Janitor sauber entfernen
+Удалить Уборщика начисто?	TV Janitor sauber entfernen?
+Если просто удалить Уборщика, всё отключённое так и останется отключённым: Android хранит это сам. 	Wird TV Janitor einfach deinstalliert, bleibt alles Deaktivierte deaktiviert: Android speichert das selbst. 
+Эта кнопка сначала вернёт всё как было и проверит, что заводской главный экран на месте, 	Diese Taste stellt zuerst alles wieder her und prüft, dass der Werks-Startbildschirm da ist, 
+потом удалит новую оболочку, лёгкую клавиатуру и самого Уборщика. Если что-то не вернётся, ничего удалять не будет.	dann entfernt sie den neuen Startbildschirm, die leichte Tastatur und TV Janitor selbst. Kommt etwas nicht zurück, wird nichts entfernt.
+Удалить	Entfernen
+Возвращаю всё и удаляю…	Stelle alles wieder her und entferne…
+⚠ Не всё вернулось — удалять ничего не буду. Попробуйте ещё раз после перезагрузки.	⚠ Nicht alles kam zurück, daher wird nichts entfernt. Nach einem Neustart erneut versuchen.
+⚠ Кроме новой оболочки, главного экрана нет — её оставляю, иначе телевизор останется без «Домой».	⚠ Es gibt keinen anderen Startbildschirm, der neue bleibt, sonst hätte der Fernseher kein Home.
+⚠ «Домой» всё ещё ведёт в новую оболочку — её оставляю. Выберите заводской главный экран и повторите.	⚠ Home öffnet noch den neuen Startbildschirm, er bleibt. Werks-Startbildschirm wählen und erneut versuchen.
+⚠ Лёгкая клавиатура всё ещё основная — её оставляю.	⚠ Die leichte Tastatur ist noch Standard, sie bleibt.
+Удаляю Уборщика. Спасибо, что пользовались!	Entferne TV Janitor. Danke fürs Benutzen!
