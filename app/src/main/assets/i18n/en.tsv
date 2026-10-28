@@ -582,3 +582,15 @@ Live Channels	Live Channels
 🧊 заморожено: 	🧊 frozen: 
 🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: 	🛡 the firmware allows neither disabling, freezing nor stopping: 
 💤 не заморозить, но в фоне не работает: 	💤 can't be frozen, but kept out of the background: 
+Возвращаю прежнюю клавиатуру	Putting the previous keyboard back
+Возвращаю прежнюю клавиатуру…	Putting the previous keyboard back…
+Ставлю лёгкую клавиатуру	Installing the light keyboard
+Ставлю лёгкую клавиатуру…	Installing the light keyboard…
+Старая оболочка подписана другим ключом — ставлю заново (её настройки сбросятся)	The old home screen is signed with another key — installing it afresh (its settings will be reset)
+Файл клавиатуры не совпал с оригиналом — установка отменена	The keyboard file doesn't match the original — installation cancelled
+⌨ Вернуть прежнюю клавиатуру	⌨ Previous keyboard back
+⌨ Лёгкая клавиатура	⌨ Light keyboard
+⚠ Клавиатура поставилась, но Android не сделал её основной. Прежняя остаётся.	⚠ The keyboard is installed, but Android didn't make it the default. The previous one stays.
+⚠ Прежняя клавиатура не стала основной: 	⚠ The previous keyboard didn't become the default: 
+✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке.	✔ The light keyboard is now the default. The previous one can be switched off in the list.
+✔ Прежняя клавиатура снова основная	✔ The previous keyboard is the default again

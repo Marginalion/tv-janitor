@@ -6,3 +6,4 @@ app/src/main/assets/tvhome.apk
 keystore.properties
 *.jks
 *.keystore
+app/src/full/assets/leankey.apk

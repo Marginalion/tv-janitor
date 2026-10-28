@@ -203,6 +203,7 @@ final class Ops {
                 java.util.Set<String> still = reallyOff(adb, tried);
                 wakeAll(adb, store.sleeping());
                 releaseHeld(adb, null);
+                backToOldIme(adb);
                 for (String k : new String[]{"window_animation_scale", "transition_animation_scale", "animator_duration_scale",
                         "activity_manager_constants", "private_dns_mode", "private_dns_specifier"}) {
                     String v = store.str("snap_" + k);
@@ -692,6 +693,14 @@ final class Ops {
                     return false;
                 }
                 String r = sh(adb, "pm install -r -g " + tmp);
+                if (r.contains("INSTALL_FAILED_UPDATE_INCOMPATIBLE")) {
+                    // An older copy signed with another key (a debug build): it can only be replaced, not updated.
+                    // Home is still the stock one at this point, so removing ours leaves the TV usable.
+                    note(T.t("Старая оболочка подписана другим ключом — ставлю заново (её настройки сбросятся)"));
+                    sh(adb, "pm uninstall --user 0 " + BuildInfo.LAUNCHER);
+                    sh(adb, "pm uninstall " + BuildInfo.LAUNCHER);
+                    r = sh(adb, "pm install -r -g " + tmp);
+                }
                 sh(adb, "rm -f " + tmp);
                 if (r.contains("VERIFICATION_FAILURE") || r.contains("NO_CERTIFICATES") || r.contains("INSTALL_FAILED_ABORTED")) {
                     note(T.t("Эта прошивка не принимает сторонние приложения (") + firstLine(r) + T.t("). Новую оболочку поставить нельзя, остальное работает."));
@@ -748,6 +757,95 @@ final class Ops {
                 return false;
             } finally { adb.close(); save(); }
         }
+    }
+
+    /** LeanKey: a light keyboard made for the remote, bundled with the full edition (MIT, built from source). */
+    static final String KEYBOARD = "com.liskovsoft.leankeyboard", KEYBOARD_IME = KEYBOARD + "/.ime.LeanbackImeService";
+
+    static boolean hasKeyboard(Context c) {
+        try (InputStream in = c.getAssets().open("leankey.apk")) { return true; } catch (Exception e) { return false; }
+    }
+
+    private static String currentIme(Adb adb) throws Exception { return adb.shell("settings get secure default_input_method").trim(); }
+
+    private static boolean isOurIme(String ime) {
+        return ime.equals(KEYBOARD_IME) || ime.equals(KEYBOARD + "/com.liskovsoft.leankeyboard.ime.LeanbackImeService");
+    }
+
+    /**
+     * Put LeanKey in and make it the keyboard; the old one stays as it is, and only once LeanKey is really the
+     * default can the old one be switched off in the list (only the keyboard in use is locked).
+     */
+    boolean installKeyboard() {
+        synchronized (LOCK) {
+            note(T.t("Ставлю лёгкую клавиатуру"));
+            Adb adb = connect(3);
+            if (adb == null) { save(); return false; }
+            try {
+                snapshot(adb);
+                String was = currentIme(adb);
+                if (!isOurIme(was) && store.str("snap_ime") == null) store.setStr("snap_ime", was);
+                if (!installed(KEYBOARD)) {
+                    File apk = new File(c.getExternalFilesDir(null), "leankey.apk");
+                    try (InputStream in = c.getAssets().open("leankey.apk"); OutputStream out = new FileOutputStream(apk)) {
+                        byte[] b = new byte[65536]; int n; while ((n = in.read(b)) > 0) out.write(b, 0, n);
+                    }
+                    String tmp = "/data/local/tmp/tvj-leankey.apk";
+                    sh(adb, "rm -f " + tmp);
+                    sh(adb, "cp " + apk.getAbsolutePath() + " " + tmp);
+                    apk.delete();
+                    String got = adb.shell("sha256sum " + tmp).trim().split("\\s+")[0];
+                    if (!sha256Asset("leankey.apk").equalsIgnoreCase(got)) {
+                        sh(adb, "rm -f " + tmp);
+                        note(T.t("Файл клавиатуры не совпал с оригиналом — установка отменена"));
+                        return false;
+                    }
+                    String r = sh(adb, "pm install -r -g " + tmp);
+                    sh(adb, "rm -f " + tmp);
+                    if (!r.contains("Success")) { note(T.t("Установка не удалась")); return false; }
+                }
+                sh(adb, "pm enable " + KEYBOARD);
+                sh(adb, "ime enable " + KEYBOARD_IME);
+                sh(adb, "ime set " + KEYBOARD_IME);
+                if (!isOurIme(currentIme(adb))) {
+                    note(T.t("⚠ Клавиатура поставилась, но Android не сделал её основной. Прежняя остаётся."));
+                    return false;
+                }
+                note(T.t("✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке."));
+                return true;
+            } catch (Exception e) {
+                note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
+                return false;
+            } finally { adb.close(); save(); }
+        }
+    }
+
+    /** Back to the keyboard that was in use before LeanKey; switched back on first if it was turned off. */
+    boolean restoreKeyboard() {
+        synchronized (LOCK) {
+            note(T.t("Возвращаю прежнюю клавиатуру"));
+            Adb adb = connect(3);
+            if (adb == null) { save(); return false; }
+            try { return backToOldIme(adb); }
+            catch (Exception e) {
+                note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
+                return false;
+            } finally { adb.close(); save(); }
+        }
+    }
+
+    private boolean backToOldIme(Adb adb) throws Exception {
+        String old = store.str("snap_ime");
+        if (old == null || !old.contains("/") || !isOurIme(currentIme(adb))) return true;
+        String pkg = old.substring(0, old.indexOf('/'));
+        sh(adb, "pm enable " + pkg);
+        Set<String> d = store.disabled(); d.remove(pkg); store.setDisabled(d);
+        sh(adb, "ime enable " + old);
+        sh(adb, "ime set " + old);
+        if (!old.equals(currentIme(adb))) { note(T.t("⚠ Прежняя клавиатура не стала основной: ") + old); return false; }
+        store.setStr("snap_ime", null);
+        note(T.t("✔ Прежняя клавиатура снова основная"));
+        return true;
     }
 
     boolean restoreLauncher() {

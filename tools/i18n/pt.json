@@ -579,5 +579,17 @@
 "✔ Tela inicial original desativada; Início abre a nossa",
 "🧊 congelado:",
 "🛡 o firmware não permite desativar, congelar nem parar:",
-"💤 não dá para congelar, mas não roda em segundo plano:"
+"💤 não dá para congelar, mas não roda em segundo plano:",
+"Restaurando o teclado anterior",
+"Restaurando o teclado anterior…",
+"Instalando o teclado leve",
+"Instalando o teclado leve…",
+"A tela inicial antiga tem outra assinatura — instalando de novo (as configurações serão redefinidas)",
+"O arquivo do teclado não confere com o original — instalação cancelada",
+"⌨ Voltar ao teclado anterior",
+"⌨ Teclado leve",
+"⚠ O teclado foi instalado, mas o Android não o tornou padrão. O anterior continua.",
+"⚠ O teclado anterior não virou o padrão:",
+"✔ O teclado leve agora é o padrão. O anterior pode ser desativado na lista.",
+"✔ O teclado anterior voltou a ser o padrão"
 ]

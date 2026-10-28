@@ -579,5 +579,17 @@
 "✔ Original-Startbildschirm aus; die Home-Taste öffnet unseren",
 "🧊 eingefroren:",
 "🛡 die Firmware erlaubt weder Ausschalten, Einfrieren noch Stoppen:",
-"💤 nicht einfrierbar, läuft aber nicht im Hintergrund:"
+"💤 nicht einfrierbar, läuft aber nicht im Hintergrund:",
+"Stelle die vorherige Tastatur wieder her",
+"Stelle die vorherige Tastatur wieder her…",
+"Installiere die leichte Tastatur",
+"Installiere die leichte Tastatur…",
+"Der alte Startbildschirm hat eine andere Signatur — installiere neu (Einstellungen werden zurückgesetzt)",
+"Die Tastaturdatei stimmt nicht mit dem Original überein — Installation abgebrochen",
+"⌨ Vorherige Tastatur zurück",
+"⌨ Leichte Tastatur",
+"⚠ Die Tastatur ist installiert, aber Android hat sie nicht zum Standard gemacht. Die vorherige bleibt.",
+"⚠ Die vorherige Tastatur wurde nicht zum Standard:",
+"✔ Die leichte Tastatur ist jetzt Standard. Die vorherige kann in der Liste ausgeschaltet werden.",
+"✔ Die vorherige Tastatur ist wieder Standard"
 ]

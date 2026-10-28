@@ -579,5 +579,17 @@
 "✔ Écran d'accueil d'origine désactivé ; Accueil ouvre le nôtre",
 "🧊 gelé :",
 "🛡 le firmware n'autorise ni désactivation, ni gel, ni arrêt :",
-"💤 impossible à geler, mais ne tourne plus en arrière-plan :"
+"💤 impossible à geler, mais ne tourne plus en arrière-plan :",
+"Je rétablis le clavier précédent",
+"Je rétablis le clavier précédent…",
+"J'installe le clavier léger",
+"J'installe le clavier léger…",
+"L'ancien écran d'accueil est signé avec une autre clé — je le réinstalle (ses réglages seront réinitialisés)",
+"Le fichier du clavier ne correspond pas à l'original — installation annulée",
+"⌨ Rétablir le clavier précédent",
+"⌨ Clavier léger",
+"⚠ Le clavier est installé, mais Android ne l'a pas mis par défaut. Le précédent reste.",
+"⚠ Le clavier précédent n'est pas redevenu celui par défaut :",
+"✔ Le clavier léger est désormais celui par défaut. Le précédent peut être désactivé dans la liste.",
+"✔ Le clavier précédent est de nouveau celui par défaut"
 ]

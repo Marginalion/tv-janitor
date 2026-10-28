@@ -579,5 +579,17 @@
 "✔ Pantalla de inicio original desactivada; Inicio abre la nuestra",
 "🧊 congelado:",
 "🛡 el firmware no permite desactivar, congelar ni detener:",
-"💤 no se puede congelar, pero no funciona en segundo plano:"
+"💤 no se puede congelar, pero no funciona en segundo plano:",
+"Restauro el teclado anterior",
+"Restauro el teclado anterior…",
+"Instalo el teclado ligero",
+"Instalo el teclado ligero…",
+"La pantalla de inicio anterior tiene otra firma — la instalo de nuevo (se restablecerán sus ajustes)",
+"El archivo del teclado no coincide con el original — instalación cancelada",
+"⌨ Volver al teclado anterior",
+"⌨ Teclado ligero",
+"⚠ El teclado se instaló, pero Android no lo hizo predeterminado. Se queda el anterior.",
+"⚠ El teclado anterior no quedó como predeterminado:",
+"✔ El teclado ligero es ahora el predeterminado. El anterior se puede desactivar en la lista.",
+"✔ El teclado anterior vuelve a ser el predeterminado"
 ]

@@ -582,3 +582,15 @@ Live Channels	Live Channels
 🧊 заморожено: 	🧊 congelado: 
 🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: 	🛡 el firmware no permite desactivar, congelar ni detener: 
 💤 не заморозить, но в фоне не работает: 	💤 no se puede congelar, pero no funciona en segundo plano: 
+Возвращаю прежнюю клавиатуру	Restauro el teclado anterior
+Возвращаю прежнюю клавиатуру…	Restauro el teclado anterior…
+Ставлю лёгкую клавиатуру	Instalo el teclado ligero
+Ставлю лёгкую клавиатуру…	Instalo el teclado ligero…
+Старая оболочка подписана другим ключом — ставлю заново (её настройки сбросятся)	La pantalla de inicio anterior tiene otra firma — la instalo de nuevo (se restablecerán sus ajustes)
+Файл клавиатуры не совпал с оригиналом — установка отменена	El archivo del teclado no coincide con el original — instalación cancelada
+⌨ Вернуть прежнюю клавиатуру	⌨ Volver al teclado anterior
+⌨ Лёгкая клавиатура	⌨ Teclado ligero
+⚠ Клавиатура поставилась, но Android не сделал её основной. Прежняя остаётся.	⚠ El teclado se instaló, pero Android no lo hizo predeterminado. Se queda el anterior.
+⚠ Прежняя клавиатура не стала основной: 	⚠ El teclado anterior no quedó como predeterminado: 
+✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке.	✔ El teclado ligero es ahora el predeterminado. El anterior se puede desactivar en la lista.
+✔ Прежняя клавиатура снова основная	✔ El teclado anterior vuelve a ser el predeterminado

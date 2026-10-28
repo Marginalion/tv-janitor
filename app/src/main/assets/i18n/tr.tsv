@@ -582,3 +582,15 @@ Live Channels	Live Channels
 🧊 заморожено: 	🧊 donduruldu: 
 🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: 	🛡 yazılım kapatmaya, dondurmaya ve durdurmaya izin vermiyor: 
 💤 не заморозить, но в фоне не работает: 	💤 dondurulamıyor ama arka planda çalışmıyor: 
+Возвращаю прежнюю клавиатуру	Önceki klavyeyi geri getiriyorum
+Возвращаю прежнюю клавиатуру…	Önceki klavyeyi geri getiriyorum…
+Ставлю лёгкую клавиатуру	Hafif klavyeyi kuruyorum
+Ставлю лёгкую клавиатуру…	Hafif klavyeyi kuruyorum…
+Старая оболочка подписана другим ключом — ставлю заново (её настройки сбросятся)	Eski ana ekran başka bir anahtarla imzalı — yeniden kuruyorum (ayarları sıfırlanacak)
+Файл клавиатуры не совпал с оригиналом — установка отменена	Klavye dosyası orijinalle eşleşmiyor — kurulum iptal edildi
+⌨ Вернуть прежнюю клавиатуру	⌨ Önceki klavyeye dön
+⌨ Лёгкая клавиатура	⌨ Hafif klavye
+⚠ Клавиатура поставилась, но Android не сделал её основной. Прежняя остаётся.	⚠ Klavye kuruldu ama Android varsayılan yapmadı. Önceki kalıyor.
+⚠ Прежняя клавиатура не стала основной: 	⚠ Önceki klavye varsayılan olmadı: 
+✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке.	✔ Hafif klavye artık varsayılan. Öncekini listeden kapatabilirsiniz.
+✔ Прежняя клавиатура снова основная	✔ Önceki klavye yeniden varsayılan

@@ -132,7 +132,8 @@ public class MainActivity extends Activity {
         full.setOrientation(LinearLayout.VERTICAL);
         root.addView(full);
         Button toSimple = button(T.t("‹  Простой режим")), eStore = button(T.t("📦 Поставить магазин"));
-        LinearLayout bar0 = row(); add(bar0, toSimple); if (STORES) add(bar0, eStore); full.addView(bar0);
+        Button kbBtn = button(keyboardLabel());
+        LinearLayout bar0 = row(); add(bar0, toSimple); if (STORES) add(bar0, eStore); if (Ops.hasKeyboard(this)) add(bar0, kbBtn); full.addView(bar0);
         LinearLayout root0 = root; root = full;
 
         LinearLayout bar = row();
@@ -209,6 +210,15 @@ public class MainActivity extends Activity {
         applyBtn.setOnClickListener(v -> apply());
         rebootBtn.setOnClickListener(v -> { saveFlags(); run(T.t("Перезагружаю…"), () -> new Ops(this, this::say).reboot()); });
         launcherBtn.setOnClickListener(v -> toggleLauncher());
+        kbBtn.setOnClickListener(v -> {
+            boolean ours = leanKeyInUse();
+            run(ours ? T.t("Возвращаю прежнюю клавиатуру…") : T.t("Ставлю лёгкую клавиатуру…"), () -> {
+                Ops ops = new Ops(this, this::say);
+                boolean ok = ours ? ops.restoreKeyboard() : ops.installKeyboard();
+                runOnUiThread(() -> kbBtn.setText(keyboardLabel()));
+                return ok;
+            });
+        });
         restoreBtn.setOnClickListener(v -> run(T.t("Возвращаю всё как было…"), () -> new Ops(this, this::say).restoreAll()));
         refresh.setOnClickListener(v -> scan());
         dbBtn.setOnClickListener(v -> {
@@ -433,7 +443,7 @@ public class MainActivity extends Activity {
         List<Row> safe = new ArrayList<>(), ask = new ArrayList<>(), important = new ArrayList<>(), unknown = new ArrayList<>();
         for (ApplicationInfo ai : pm.getInstalledApplications(PackageManager.MATCH_DISABLED_COMPONENTS)) {
             String pkg = ai.packageName;
-            if (Detector.core(pkg) || pkg.equals(BuildInfo.LAUNCHER)) continue;
+            if (Detector.core(pkg) || pkg.equals(BuildInfo.LAUNCHER) || pkg.equals(Ops.KEYBOARD)) continue;
             Catalog.Entry e = cat.get(pkg);
             Community.Stat cs = com.get(pkg);
             boolean system = (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
@@ -607,6 +617,13 @@ public class MainActivity extends Activity {
             progText.setText(d * 100 / t + "%  ·  " + w);
         })).apply(disable, enable, sleep, wake));
     }
+
+    private boolean leanKeyInUse() {
+        String ime = Settings.Secure.getString(getContentResolver(), Settings.Secure.DEFAULT_INPUT_METHOD);
+        return ime != null && ime.startsWith(Ops.KEYBOARD + "/");
+    }
+
+    private String keyboardLabel() { return leanKeyInUse() ? T.t("⌨ Вернуть прежнюю клавиатуру") : T.t("⌨ Лёгкая клавиатура"); }
 
     private void toggleLauncher() {
         boolean on = store.flag("launcher", false);

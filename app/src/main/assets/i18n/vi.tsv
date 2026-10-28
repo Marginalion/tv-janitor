@@ -582,3 +582,15 @@ Live Channels	Live Channels
 🧊 заморожено: 	🧊 đã đóng băng: 
 🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: 	🛡 firmware không cho tắt, đóng băng hay dừng: 
 💤 не заморозить, но в фоне не работает: 	💤 không đóng băng được, nhưng không chạy nền: 
+Возвращаю прежнюю клавиатуру	Đang khôi phục bàn phím trước
+Возвращаю прежнюю клавиатуру…	Đang khôi phục bàn phím trước…
+Ставлю лёгкую клавиатуру	Đang cài bàn phím nhẹ
+Ставлю лёгкую клавиатуру…	Đang cài bàn phím nhẹ…
+Старая оболочка подписана другим ключом — ставлю заново (её настройки сбросятся)	Màn hình chính cũ ký bằng khóa khác — cài lại (cài đặt của nó sẽ bị đặt lại)
+Файл клавиатуры не совпал с оригиналом — установка отменена	Tệp bàn phím không khớp bản gốc — đã hủy cài đặt
+⌨ Вернуть прежнюю клавиатуру	⌨ Trả lại bàn phím trước
+⌨ Лёгкая клавиатура	⌨ Bàn phím nhẹ
+⚠ Клавиатура поставилась, но Android не сделал её основной. Прежняя остаётся.	⚠ Bàn phím đã cài nhưng Android không đặt làm mặc định. Giữ bàn phím trước.
+⚠ Прежняя клавиатура не стала основной: 	⚠ Bàn phím trước không trở thành mặc định: 
+✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке.	✔ Bàn phím nhẹ giờ là mặc định. Có thể tắt bàn phím trước trong danh sách.
+✔ Прежняя клавиатура снова основная	✔ Bàn phím trước lại là mặc định

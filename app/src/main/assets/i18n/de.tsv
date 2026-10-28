@@ -582,3 +582,15 @@ Live Channels	Live Channels
 🧊 заморожено: 	🧊 eingefroren: 
 🛡 прошивка не даёт ни отключить, ни заморозить, ни остановить: 	🛡 die Firmware erlaubt weder Ausschalten, Einfrieren noch Stoppen: 
 💤 не заморозить, но в фоне не работает: 	💤 nicht einfrierbar, läuft aber nicht im Hintergrund: 
+Возвращаю прежнюю клавиатуру	Stelle die vorherige Tastatur wieder her
+Возвращаю прежнюю клавиатуру…	Stelle die vorherige Tastatur wieder her…
+Ставлю лёгкую клавиатуру	Installiere die leichte Tastatur
+Ставлю лёгкую клавиатуру…	Installiere die leichte Tastatur…
+Старая оболочка подписана другим ключом — ставлю заново (её настройки сбросятся)	Der alte Startbildschirm hat eine andere Signatur — installiere neu (Einstellungen werden zurückgesetzt)
+Файл клавиатуры не совпал с оригиналом — установка отменена	Die Tastaturdatei stimmt nicht mit dem Original überein — Installation abgebrochen
+⌨ Вернуть прежнюю клавиатуру	⌨ Vorherige Tastatur zurück
+⌨ Лёгкая клавиатура	⌨ Leichte Tastatur
+⚠ Клавиатура поставилась, но Android не сделал её основной. Прежняя остаётся.	⚠ Die Tastatur ist installiert, aber Android hat sie nicht zum Standard gemacht. Die vorherige bleibt.
+⚠ Прежняя клавиатура не стала основной: 	⚠ Die vorherige Tastatur wurde nicht zum Standard: 
+✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке.	✔ Die leichte Tastatur ist jetzt Standard. Die vorherige kann in der Liste ausgeschaltet werden.
+✔ Прежняя клавиатура снова основная	✔ Die vorherige Tastatur ist wieder Standard

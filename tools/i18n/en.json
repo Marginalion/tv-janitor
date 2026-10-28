@@ -579,5 +579,17 @@
 "✔ The stock Home is off; Home opens our home screen",
 "🧊 frozen:",
 "🛡 the firmware allows neither disabling, freezing nor stopping:",
-"💤 can't be frozen, but kept out of the background:"
+"💤 can't be frozen, but kept out of the background:",
+"Putting the previous keyboard back",
+"Putting the previous keyboard back…",
+"Installing the light keyboard",
+"Installing the light keyboard…",
+"The old home screen is signed with another key — installing it afresh (its settings will be reset)",
+"The keyboard file doesn't match the original — installation cancelled",
+"⌨ Previous keyboard back",
+"⌨ Light keyboard",
+"⚠ The keyboard is installed, but Android didn't make it the default. The previous one stays.",
+"⚠ The previous keyboard didn't become the default:",
+"✔ The light keyboard is now the default. The previous one can be switched off in the list.",
+"✔ The previous keyboard is the default again"
 ]

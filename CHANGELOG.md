@@ -33,6 +33,13 @@
   allows that; otherwise they are kept out of the background (appops, the strictest standby bucket, force-stop),
   renewed after every boot. A process the firmware keeps alive whatever is done (Sunwind: the Yandex updater) is
   named in the log and in the report as needing root. Unticking it or "Restore everything" undoes all of this.
+- **Light keyboard** (full edition): "⌨ Light keyboard" installs LeanKey, a keyboard made for the remote (MIT,
+  built from source at a pinned commit, no internet permission), makes it the default and checks that Android
+  did. The previous keyboard can then be switched off in the list; the same button, and "Restore everything",
+  put the previous one back.
+- The bundled home screen and keyboard are signed with the release key, so a build from any machine installs
+  over the one on the TV. A home screen from an older build signed with a debug key is replaced (its own
+  settings reset) instead of failing to install.
 - Keyboards: only the one in use is locked. Yandex Keyboard, Gboard and others can be ticked in the expert list
   once another keyboard is the default.
 - After boot, packages the firmware protects are no longer reported as "choices not applied yet".
