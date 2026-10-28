@@ -7,6 +7,9 @@
   done: after boot the port is open for about a minute, not all the time. It closes debugging only after a test
   on that TV has shown it comes back by itself (off, on, reconnect), and never if "Keep network debugging on" is
   ticked. Asked once, with the owner watching. "Restore everything" puts debugging back to always on.
+- Firmware that switches Developer options off at every boot (so debugging stays off): after boot the app
+  switches them on itself (with the same permission, no ADB needed for that), applies the choices, and switches
+  them off again if it was the one that switched them on.
 
 ## 0.9.2-beta (unreleased)
 

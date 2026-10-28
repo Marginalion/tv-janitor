@@ -21,11 +21,27 @@ final class AdbGate {
         return Settings.Global.getInt(c.getContentResolver(), Settings.Global.ADB_ENABLED, 0) == 1;
     }
 
-    /** Before connecting: switch debugging on if the app may and it is off. True if it was switched on now. */
+    static boolean devOn(Context c) {
+        return Settings.Global.getInt(c.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) == 1;
+    }
+
+    /**
+     * Before connecting: switch debugging on if the app may and it is off. Some firmware switches Developer options
+     * off at every boot, and Android keeps debugging off without them: then those are switched on too, and off
+     * again by close(). True if anything was switched on now.
+     */
     static boolean open(Context c) {
-        if (!can(c) || isOn(c)) return false;
-        try { return Settings.Global.putInt(c.getContentResolver(), Settings.Global.ADB_ENABLED, 1); }
-        catch (SecurityException e) { return false; }
+        if (!can(c)) return false;
+        boolean changed = false;
+        try {
+            if (!devOn(c)) {
+                Settings.Global.putInt(c.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 1);
+                new Store(c).setFlag("devOpenedByUs", true);
+                changed = true;
+            }
+            if (!isOn(c)) changed |= Settings.Global.putInt(c.getContentResolver(), Settings.Global.ADB_ENABLED, 1);
+        } catch (SecurityException e) { return false; }
+        return changed;
     }
 
     /** Whether closing is allowed on this TV: tested, and not kept on by the owner. */
@@ -38,9 +54,15 @@ final class AdbGate {
     static void close(Context c) {
         if (!mayClose(c)) return;
         synchronized (Ops.LOCK) {
-            if (!isOn(c)) return;
-            try { Settings.Global.putInt(c.getContentResolver(), Settings.Global.ADB_ENABLED, 0); }
-            catch (SecurityException ignored) {}
+            try {
+                if (isOn(c)) Settings.Global.putInt(c.getContentResolver(), Settings.Global.ADB_ENABLED, 0);
+                // Developer options go back off only if the app switched them on (the firmware wants them off).
+                Store s = new Store(c);
+                if (s.flag("devOpenedByUs", false)) {
+                    Settings.Global.putInt(c.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0);
+                    s.setFlag("devOpenedByUs", false);
+                }
+            } catch (SecurityException ignored) {}
         }
     }
 
