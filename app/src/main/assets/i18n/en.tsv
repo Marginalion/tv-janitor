@@ -570,3 +570,12 @@ Live Channels	Live Channels
 ⚠ Виновник: 	⚠ Culprit: 
  — с ним телевизор падает. Оставляю включённым.	 — with it off the TV crashes. Leaving it on.
 По одному ничего не упало: сбой был случайным, всё отключено.	Nothing crashed one at a time: it was a one-off, all of them are off.
+Возвращаю заводской «Домой»: 	Putting the stock Home back: 
+Заводской «Домой» включён обратно.	The stock Home is back on.
+Заводской «Домой» не трогаю: на этой прошивке нет запасного (FallbackHome).	Leaving the stock Home alone: this firmware has no backup (FallbackHome).
+Заводской «Домой» не трогаю: сначала поставьте новую оболочку.	Leaving the stock Home alone: install the new home screen first.
+Не смог записать отметку на диск — заводской «Домой» не трогаю.	Couldn't write the marker to storage — leaving the stock Home alone.
+Отключаю заводской «Домой» с проверкой: 	Switching the stock Home off, with a check: 
+⚠ Заводской «Домой» пока не включился, попробую при следующем запуске.	⚠ The stock Home hasn't come back on yet; I'll try again at the next start.
+⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».	⚠ The new home screen didn't stay on screen — putting the stock Home back.
+✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка	✔ The stock Home is off; Home opens our home screen

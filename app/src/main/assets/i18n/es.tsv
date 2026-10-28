@@ -570,3 +570,12 @@ Live Channels	Live Channels
 ⚠ Виновник: 	⚠ Culpable: 
  — с ним телевизор падает. Оставляю включённым.	 — sin él el televisor falla. Lo dejo activado.
 По одному ничего не упало: сбой был случайным, всё отключено.	Uno a uno no falló nada: fue casual, todos están desactivados.
+Возвращаю заводской «Домой»: 	Restauro la pantalla de inicio original: 
+Заводской «Домой» включён обратно.	La pantalla de inicio original vuelve a estar activada.
+Заводской «Домой» не трогаю: на этой прошивке нет запасного (FallbackHome).	No toco la pantalla de inicio original: este firmware no tiene respaldo (FallbackHome).
+Заводской «Домой» не трогаю: сначала поставьте новую оболочку.	No toco la pantalla de inicio original: primero instale la nueva.
+Не смог записать отметку на диск — заводской «Домой» не трогаю.	No pude guardar la marca — no toco la pantalla de inicio original.
+Отключаю заводской «Домой» с проверкой: 	Desactivo la pantalla de inicio original, con comprobación: 
+⚠ Заводской «Домой» пока не включился, попробую при следующем запуске.	⚠ La pantalla de inicio original aún no se activó; lo intentaré en el próximo inicio.
+⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».	⚠ La nueva pantalla de inicio no se mantuvo — restauro la original.
+✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка	✔ Pantalla de inicio original desactivada; Inicio abre la nuestra

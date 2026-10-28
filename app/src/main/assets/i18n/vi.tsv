@@ -570,3 +570,12 @@ Live Channels	Live Channels
 ⚠ Виновник: 	⚠ Thủ phạm: 
  — с ним телевизор падает. Оставляю включённым.	 — tắt nó thì TV bị lỗi. Giữ nguyên bật.
 По одному ничего не упало: сбой был случайным, всё отключено.	Từng cái một thì không lỗi: chỉ là ngẫu nhiên, tất cả đã tắt.
+Возвращаю заводской «Домой»: 	Đang khôi phục màn hình chính gốc: 
+Заводской «Домой» включён обратно.	Màn hình chính gốc đã được bật lại.
+Заводской «Домой» не трогаю: на этой прошивке нет запасного (FallbackHome).	Không đụng màn hình chính gốc: firmware này không có dự phòng (FallbackHome).
+Заводской «Домой» не трогаю: сначала поставьте новую оболочку.	Không đụng màn hình chính gốc: hãy cài màn hình chính mới trước.
+Не смог записать отметку на диск — заводской «Домой» не трогаю.	Không ghi được dấu mốc — không đụng màn hình chính gốc.
+Отключаю заводской «Домой» с проверкой: 	Đang tắt màn hình chính gốc, có kiểm tra: 
+⚠ Заводской «Домой» пока не включился, попробую при следующем запуске.	⚠ Màn hình chính gốc chưa bật lại, sẽ thử lại lần khởi động sau.
+⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».	⚠ Màn hình chính mới không giữ được — khôi phục màn hình gốc.
+✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка	✔ Đã tắt màn hình chính gốc; nút Home mở màn hình của chúng tôi

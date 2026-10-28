@@ -567,5 +567,14 @@
 "Suche den Schuldigen: schalte sie einzeln wieder aus…",
 "⚠ Schuldig:",
 "— ohne ihn stürzt der Fernseher ab. Bleibt eingeschaltet.",
-"Einzeln stürzte nichts ab: ein Zufall, alle sind ausgeschaltet."
+"Einzeln stürzte nichts ab: ein Zufall, alle sind ausgeschaltet.",
+"Stelle den Original-Startbildschirm wieder her:",
+"Der Original-Startbildschirm ist wieder an.",
+"Original-Startbildschirm bleibt: diese Firmware hat keinen Ersatz (FallbackHome).",
+"Original-Startbildschirm bleibt: zuerst den neuen Startbildschirm installieren.",
+"Konnte die Markierung nicht speichern — Original-Startbildschirm bleibt.",
+"Schalte den Original-Startbildschirm mit Prüfung aus:",
+"⚠ Der Original-Startbildschirm ist noch nicht an; nächster Versuch beim nächsten Start.",
+"⚠ Der neue Startbildschirm blieb nicht — stelle den Original wieder her.",
+"✔ Original-Startbildschirm aus; die Home-Taste öffnet unseren"
 ]

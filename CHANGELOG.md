@@ -24,6 +24,12 @@
   its packages off again one at a time, and only the one that brings the crashes back stays on and goes into
   "do not disable" (Sunwind: Alice, not the setup wizard and factory apps). Older blame that was never confirmed
   this way is dropped from the report, as is anything that is off on the TV now.
+- Yandex TV's stock Home (about 180 MB with its Metrica processes) can be switched off safely: only once the new
+  home screen is in place and the firmware has its FallbackHome; a marker is written to storage first, then Home
+  must open the new home screen and still show it 3 seconds later (the exact component, not a name somewhere in
+  the line). Otherwise, or if anything fails or the power goes halfway, the stock Home is switched back on and
+  checked, at once or at the next start. It is never switched off in a crash-check batch.
+- After boot, packages the firmware protects are no longer reported as "choices not applied yet".
 - The experience report no longer lists protected packages as disabled: the owner chose them, but the firmware
   keeps them on.
 - Experience report: a "Firmware quirks" section (boot signal blocked, protected packages, ro.adb.secure=0).

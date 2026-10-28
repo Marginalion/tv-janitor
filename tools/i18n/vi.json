@@ -567,5 +567,14 @@
 "Đang tìm thủ phạm: tắt lại từng ứng dụng một…",
 "⚠ Thủ phạm:",
 "— tắt nó thì TV bị lỗi. Giữ nguyên bật.",
-"Từng cái một thì không lỗi: chỉ là ngẫu nhiên, tất cả đã tắt."
+"Từng cái một thì không lỗi: chỉ là ngẫu nhiên, tất cả đã tắt.",
+"Đang khôi phục màn hình chính gốc:",
+"Màn hình chính gốc đã được bật lại.",
+"Không đụng màn hình chính gốc: firmware này không có dự phòng (FallbackHome).",
+"Không đụng màn hình chính gốc: hãy cài màn hình chính mới trước.",
+"Không ghi được dấu mốc — không đụng màn hình chính gốc.",
+"Đang tắt màn hình chính gốc, có kiểm tra:",
+"⚠ Màn hình chính gốc chưa bật lại, sẽ thử lại lần khởi động sau.",
+"⚠ Màn hình chính mới không giữ được — khôi phục màn hình gốc.",
+"✔ Đã tắt màn hình chính gốc; nút Home mở màn hình của chúng tôi"
 ]

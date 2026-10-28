@@ -570,3 +570,12 @@ Live Channels	Live Channels
 ⚠ Виновник: 	⚠ Coupable : 
  — с ним телевизор падает. Оставляю включённым.	 — sans lui, le téléviseur plante. Je le laisse activé.
 По одному ничего не упало: сбой был случайным, всё отключено.	Un par un, rien n'a planté : c'était un hasard, tous sont désactivés.
+Возвращаю заводской «Домой»: 	Je rétablis l'écran d'accueil d'origine : 
+Заводской «Домой» включён обратно.	L'écran d'accueil d'origine est réactivé.
+Заводской «Домой» не трогаю: на этой прошивке нет запасного (FallbackHome).	Je ne touche pas à l'écran d'accueil d'origine : ce firmware n'a pas de secours (FallbackHome).
+Заводской «Домой» не трогаю: сначала поставьте новую оболочку.	Je ne touche pas à l'écran d'accueil d'origine : installez d'abord le nouveau.
+Не смог записать отметку на диск — заводской «Домой» не трогаю.	Impossible d'écrire le repère — je ne touche pas à l'écran d'accueil d'origine.
+Отключаю заводской «Домой» с проверкой: 	Je désactive l'écran d'accueil d'origine, avec vérification : 
+⚠ Заводской «Домой» пока не включился, попробую при следующем запуске.	⚠ L'écran d'accueil d'origine n'est pas encore réactivé ; nouvel essai au prochain démarrage.
+⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».	⚠ Le nouvel écran d'accueil n'est pas resté affiché — je rétablis celui d'origine.
+✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка	✔ Écran d'accueil d'origine désactivé ; Accueil ouvre le nôtre

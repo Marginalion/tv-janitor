@@ -567,5 +567,14 @@
 "Je cherche le coupable : je les désactive à nouveau un par un…",
 "⚠ Coupable :",
 "— sans lui, le téléviseur plante. Je le laisse activé.",
-"Un par un, rien n'a planté : c'était un hasard, tous sont désactivés."
+"Un par un, rien n'a planté : c'était un hasard, tous sont désactivés.",
+"Je rétablis l'écran d'accueil d'origine :",
+"L'écran d'accueil d'origine est réactivé.",
+"Je ne touche pas à l'écran d'accueil d'origine : ce firmware n'a pas de secours (FallbackHome).",
+"Je ne touche pas à l'écran d'accueil d'origine : installez d'abord le nouveau.",
+"Impossible d'écrire le repère — je ne touche pas à l'écran d'accueil d'origine.",
+"Je désactive l'écran d'accueil d'origine, avec vérification :",
+"⚠ L'écran d'accueil d'origine n'est pas encore réactivé ; nouvel essai au prochain démarrage.",
+"⚠ Le nouvel écran d'accueil n'est pas resté affiché — je rétablis celui d'origine.",
+"✔ Écran d'accueil d'origine désactivé ; Accueil ouvre le nôtre"
 ]

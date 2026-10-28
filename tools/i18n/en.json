@@ -567,5 +567,14 @@
 "Looking for the culprit: switching them off again one at a time…",
 "⚠ Culprit:",
 "— with it off the TV crashes. Leaving it on.",
-"Nothing crashed one at a time: it was a one-off, all of them are off."
+"Nothing crashed one at a time: it was a one-off, all of them are off.",
+"Putting the stock Home back:",
+"The stock Home is back on.",
+"Leaving the stock Home alone: this firmware has no backup (FallbackHome).",
+"Leaving the stock Home alone: install the new home screen first.",
+"Couldn't write the marker to storage — leaving the stock Home alone.",
+"Switching the stock Home off, with a check:",
+"⚠ The stock Home hasn't come back on yet; I'll try again at the next start.",
+"⚠ The new home screen didn't stay on screen — putting the stock Home back.",
+"✔ The stock Home is off; Home opens our home screen"
 ]

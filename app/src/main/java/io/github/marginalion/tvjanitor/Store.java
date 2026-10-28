@@ -22,4 +22,6 @@ final class Store {
     void setFlag(String key, boolean v) { p.edit().putBoolean(key, v).apply(); }
     String str(String key) { return p.getString(key, null); }
     void setStr(String key, String v) { p.edit().putString(key, v).apply(); }
+    /** Written to disk before returning: for a marker that must survive a crash or power cut right after. */
+    boolean commitStr(String key, String v) { return p.edit().putString(key, v).commit(); }
 }

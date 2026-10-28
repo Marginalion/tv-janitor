@@ -567,5 +567,14 @@
 "Busco al culpable: los desactivo de nuevo uno a uno…",
 "⚠ Culpable:",
 "— sin él el televisor falla. Lo dejo activado.",
-"Uno a uno no falló nada: fue casual, todos están desactivados."
+"Uno a uno no falló nada: fue casual, todos están desactivados.",
+"Restauro la pantalla de inicio original:",
+"La pantalla de inicio original vuelve a estar activada.",
+"No toco la pantalla de inicio original: este firmware no tiene respaldo (FallbackHome).",
+"No toco la pantalla de inicio original: primero instale la nueva.",
+"No pude guardar la marca — no toco la pantalla de inicio original.",
+"Desactivo la pantalla de inicio original, con comprobación:",
+"⚠ La pantalla de inicio original aún no se activó; lo intentaré en el próximo inicio.",
+"⚠ La nueva pantalla de inicio no se mantuvo — restauro la original.",
+"✔ Pantalla de inicio original desactivada; Inicio abre la nuestra"
 ]

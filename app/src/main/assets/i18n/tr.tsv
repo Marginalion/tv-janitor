@@ -570,3 +570,12 @@ Live Channels	Live Channels
 ⚠ Виновник: 	⚠ Suçlu: 
  — с ним телевизор падает. Оставляю включённым.	 — kapalıyken TV çöküyor. Açık bırakıyorum.
 По одному ничего не упало: сбой был случайным, всё отключено.	Tek tek hiçbir şey çökmedi: tesadüfmüş, hepsi kapalı.
+Возвращаю заводской «Домой»: 	Fabrika ana ekranını geri getiriyorum: 
+Заводской «Домой» включён обратно.	Fabrika ana ekranı yeniden açıldı.
+Заводской «Домой» не трогаю: на этой прошивке нет запасного (FallbackHome).	Fabrika ana ekranına dokunmuyorum: bu yazılımda yedek (FallbackHome) yok.
+Заводской «Домой» не трогаю: сначала поставьте новую оболочку.	Fabrika ana ekranına dokunmuyorum: önce yeni ana ekranı kurun.
+Не смог записать отметку на диск — заводской «Домой» не трогаю.	İşaret kaydedilemedi — fabrika ana ekranına dokunmuyorum.
+Отключаю заводской «Домой» с проверкой: 	Fabrika ana ekranını kontrollü kapatıyorum: 
+⚠ Заводской «Домой» пока не включился, попробую при следующем запуске.	⚠ Fabrika ana ekranı henüz açılmadı, bir sonraki başlangıçta yeniden deneyeceğim.
+⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».	⚠ Yeni ana ekran ekranda kalmadı — fabrika ana ekranını geri getiriyorum.
+✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка	✔ Fabrika ana ekranı kapalı; Ana Sayfa bizimkini açıyor

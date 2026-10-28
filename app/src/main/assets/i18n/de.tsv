@@ -570,3 +570,12 @@ Live Channels	Live Channels
 ⚠ Виновник: 	⚠ Schuldig: 
  — с ним телевизор падает. Оставляю включённым.	 — ohne ihn stürzt der Fernseher ab. Bleibt eingeschaltet.
 По одному ничего не упало: сбой был случайным, всё отключено.	Einzeln stürzte nichts ab: ein Zufall, alle sind ausgeschaltet.
+Возвращаю заводской «Домой»: 	Stelle den Original-Startbildschirm wieder her: 
+Заводской «Домой» включён обратно.	Der Original-Startbildschirm ist wieder an.
+Заводской «Домой» не трогаю: на этой прошивке нет запасного (FallbackHome).	Original-Startbildschirm bleibt: diese Firmware hat keinen Ersatz (FallbackHome).
+Заводской «Домой» не трогаю: сначала поставьте новую оболочку.	Original-Startbildschirm bleibt: zuerst den neuen Startbildschirm installieren.
+Не смог записать отметку на диск — заводской «Домой» не трогаю.	Konnte die Markierung nicht speichern — Original-Startbildschirm bleibt.
+Отключаю заводской «Домой» с проверкой: 	Schalte den Original-Startbildschirm mit Prüfung aus: 
+⚠ Заводской «Домой» пока не включился, попробую при следующем запуске.	⚠ Der Original-Startbildschirm ist noch nicht an; nächster Versuch beim nächsten Start.
+⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».	⚠ Der neue Startbildschirm blieb nicht — stelle den Original wieder her.
+✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка	✔ Original-Startbildschirm aus; die Home-Taste öffnet unseren

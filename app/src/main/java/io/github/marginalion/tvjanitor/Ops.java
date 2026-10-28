@@ -368,6 +368,7 @@ final class Ops {
             if (adb == null) { save(); return false; }
             try {
                 note(T.t("Подключено"));
+                rollbackStockHome(adb);                // only if a switch-off was cut short (power, crash)
                 boolean launcher = store.flag("launcher", false);
                 if (launcher) sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
                 java.util.Set<String> nowOff = new java.util.HashSet<>();
@@ -377,7 +378,8 @@ final class Ops {
                 // that was saved but never applied (the app was closed mid-way) is simply applied now.
                 java.util.Set<String> applied = store.set("appliedOff");
                 int pending = 0;
-                for (String p : store.disabled()) if (!nowOff.contains(p) && installed(p)) { if (applied.contains(p)) back.add(p); else pending++; }
+                java.util.Set<String> prot = store.set("protectedPkgs");
+                for (String p : store.disabled()) if (!nowOff.contains(p) && !prot.contains(p) && installed(p)) { if (applied.contains(p)) back.add(p); else pending++; }
                 if (pending > 0) note(T.t("Применяю выбор, который ещё не применялся: ") + pending);
                 store.setSet("firmwareBack", back);
                 if (!back.isEmpty()) note(T.t("Прошивка сама включила обратно при загрузке: ") + back.size() + T.t(" — отключаю снова")
@@ -442,6 +444,11 @@ final class Ops {
             if (adb == null) { save(); return false; }
             try {
                 snapshot(adb);
+                rollbackStockHome(adb);
+                // A stock Home that has no Google-style FallbackHome rule (Yandex TV) is switched off only by
+                // stockHomeOff(): checked, with a marker on disk and a rollback, never in a batch.
+                String stock = store.str("stockHome");
+                boolean homeOff = stock != null && disable.remove(stock);
                 int batches = (disable.size() + 4) / 5;
                 total = enable.size() + disable.size() + batches * 2 + 3 * sleep.size() + 2 * wake.size() + 7;
                 done = 0;
@@ -487,6 +494,10 @@ final class Ops {
                     java.util.Set<String> all = store.set("crashers"); all.addAll(rolled); store.setSet("crashers", all);
                     disable.removeAll(rolled);
                 }
+                if (homeOff) {
+                    if (stockHomeOff(adb, stock)) disable.add(stock);
+                    else { Set<String> d = store.disabled(); d.remove(stock); store.setDisabled(d); }
+                }
                 wakeAll(adb, wake);
                 sleepAll(adb, sleep);
                 store.setSet("appliedOff", reallyOff(adb, store.disabled()));
@@ -531,6 +542,67 @@ final class Ops {
                 return m;
             } catch (Exception e) { Map<String, Long> m = new HashMap<>(); m.put("_connected", 1L); return m; } finally { adb.close(); save(); }
         }
+    }
+
+    /**
+     * Switch the stock Home off (Yandex TV: about 180 MB with its Metrica processes) only when it is safe: our
+     * launcher is the Home, the firmware's FallbackHome is there to catch a failed boot, and after the switch
+     * "Home" really opens our launcher and it is still there seconds later. A marker on disk before the first change
+     * means a power cut or crash halfway is put right at the next start (rollbackStockHome).
+     */
+    private boolean stockHomeOff(Adb adb, String stock) throws Exception {
+        if (!store.flag("launcher", false)) { note(T.t("Заводской «Домой» не трогаю: сначала поставьте новую оболочку.")); return false; }
+        String homes = adb.shell("cmd package query-activities --brief -a android.intent.action.MAIN -c android.intent.category.HOME");
+        if (!homes.contains("FallbackHome") && !homes.contains("com.example.user.myapplication")) {
+            note(T.t("Заводской «Домой» не трогаю: на этой прошивке нет запасного (FallbackHome)."));
+            return false;
+        }
+        if (!store.commitStr("homeTx", stock)) { note(T.t("Не смог записать отметку на диск — заводской «Домой» не трогаю.")); return false; }
+        try {
+            note(T.t("Отключаю заводской «Домой» с проверкой: ") + stock);
+            sh(adb, "pm disable-user --user 0 " + stock);
+            sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
+            boolean ok = false;
+            for (int i = 0; i < 2 && !ok; i++) {
+                sh(adb, "input keyevent KEYCODE_HOME");
+                Thread.sleep(2500);
+                ok = onTop(adb, BuildInfo.LAUNCHER_HOME);
+            }
+            if (ok) { Thread.sleep(3000); ok = onTop(adb, BuildInfo.LAUNCHER_HOME); }   // and it stays there
+            if (!ok) { note(T.t("⚠ Новая оболочка не удержалась на экране — возвращаю заводской «Домой».")); rollbackStockHome(adb); return false; }
+            store.commitStr("homeTx", null);
+            note(T.t("✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка"));
+            return true;
+        } catch (Exception e) {
+            rollbackStockHome(adb);
+            throw e;
+        }
+    }
+
+    /** Put the stock Home back if a switch-off didn't finish; checked by asking Android, marker cleared only then. */
+    private void rollbackStockHome(Adb adb) throws Exception {
+        String stock = store.str("homeTx");
+        if (stock == null) return;
+        note(T.t("Возвращаю заводской «Домой»: ") + stock);
+        sh(adb, "pm enable " + stock);
+        String[] l = adb.shell("cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.HOME " + stock).trim().split("\n");
+        String comp = l[l.length - 1].trim();
+        if (comp.startsWith(stock + "/")) sh(adb, "cmd package set-home-activity --user 0 " + comp);
+        if (reallyOff(adb, java.util.Collections.singleton(stock)).isEmpty()) {
+            Set<String> d = store.disabled(); d.remove(stock); store.setDisabled(d);
+            store.commitStr("homeTx", null);
+            sh(adb, "input keyevent KEYCODE_HOME");
+            note(T.t("Заводской «Домой» включён обратно."));
+        } else note(T.t("⚠ Заводской «Домой» пока не включился, попробую при следующем запуске."));
+    }
+
+    /** The exact component on screen, not just a package name somewhere in the line (audit A4). */
+    private static boolean onTop(Adb adb, String component) throws Exception {
+        String top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
+        String pkg = component.substring(0, component.indexOf('/'));
+        String full = pkg + "/" + pkg + component.substring(component.indexOf('/') + 1);
+        for (String l : top.split("\n")) if (l.contains(" " + component + " ") || l.contains(" " + full + " ")) return true;
+        return false;
     }
 
     boolean installLauncher() {

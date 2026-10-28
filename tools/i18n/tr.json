@@ -567,5 +567,14 @@
 "Suçluyu arıyorum: tek tek yeniden devre dışı bırakıyorum…",
 "⚠ Suçlu:",
 "— kapalıyken TV çöküyor. Açık bırakıyorum.",
-"Tek tek hiçbir şey çökmedi: tesadüfmüş, hepsi kapalı."
+"Tek tek hiçbir şey çökmedi: tesadüfmüş, hepsi kapalı.",
+"Fabrika ana ekranını geri getiriyorum:",
+"Fabrika ana ekranı yeniden açıldı.",
+"Fabrika ana ekranına dokunmuyorum: bu yazılımda yedek (FallbackHome) yok.",
+"Fabrika ana ekranına dokunmuyorum: önce yeni ana ekranı kurun.",
+"İşaret kaydedilemedi — fabrika ana ekranına dokunmuyorum.",
+"Fabrika ana ekranını kontrollü kapatıyorum:",
+"⚠ Fabrika ana ekranı henüz açılmadı, bir sonraki başlangıçta yeniden deneyeceğim.",
+"⚠ Yeni ana ekran ekranda kalmadı — fabrika ana ekranını geri getiriyorum.",
+"✔ Fabrika ana ekranı kapalı; Ana Sayfa bizimkini açıyor"
 ]
