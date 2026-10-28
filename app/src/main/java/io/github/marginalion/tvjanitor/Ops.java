@@ -338,13 +338,12 @@ final class Ops {
             SERVICE_DIED = Pattern.compile("Scheduling restart of crashed service ([\\w.]+)/");
 
     /**
-     * What fell over since {@code since}: one entry per crash, the process name and the log line that says so.
+     * What fell over since {@code since} (since boot when null): one entry per crash, the process name and the log line that says so.
      * App crashes (FATAL), native ones (Fatal signal) and services Android has to restart.
      */
     private static List<String[]> crashes(Adb adb, String since) {
         List<String[]> out = new ArrayList<>();
-        if (since == null) return out;
-        String t = " -T '" + since + "'";
+        String t = since == null ? "" : " -T '" + since + "'";
         try {
             String r = adb.shell("logcat -d -b crash" + t + " | grep -E 'Process: |Fatal signal'")
                     + "\n" + adb.shell("logcat -d -b main -b system" + t + " | grep 'Scheduling restart of crashed service'");
@@ -521,6 +520,7 @@ final class Ops {
             try {
                 note(T.t("Подключено"));
                 dbgState(adb, "boot run, before");
+                launcherConfig(adb);
                 rollbackStockHome(adb);                // only if a switch-off was cut short (power, crash)
                 boolean launcher = store.flag("launcher", false);
                 if (launcher) sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
@@ -531,6 +531,16 @@ final class Ops {
                 // that was saved but never applied (the app was closed mid-way) is simply applied now.
                 java.util.Set<String> applied = store.set("appliedOff");
                 int pending = 0;
+                neverOff(adb, null);
+                sparePersistent(adb, store.disabled());
+                // Switched back on from outside since the last run, and the owner uses it (HDMI on Sunwind: the TV
+                // player was put back with adb and Uborshchik switched it off again after the reboot). It stays on.
+                java.util.Set<String> keep = new java.util.TreeSet<>();
+                for (String p : store.disabled()) if (!nowOff.contains(p) && applied.contains(p) && needed(p)) keep.add(p);
+                if (!keep.isEmpty()) {
+                    Set<String> d = store.disabled(); d.removeAll(keep); store.setDisabled(d);
+                    note(T.t("Включено не Уборщиком, а нужно вам — оставляю включённым: ") + String.join(", ", keep));
+                }
                 java.util.Set<String> prot = store.set("protectedPkgs");
                 for (String p : store.disabled()) if (!nowOff.contains(p) && !prot.contains(p) && installed(p)) { if (applied.contains(p)) back.add(p); else pending++; }
                 if (pending > 0) note(T.t("Применяю выбор, который ещё не применялся: ") + pending);
@@ -545,6 +555,7 @@ final class Ops {
                 // Protected ones the owner chose: the freeze survives a reboot, the background limits get renewed.
                 java.util.Set<String> held = new java.util.TreeSet<>(store.disabled()); held.retainAll(store.set("heldPkgs"));
                 if (!held.isEmpty()) holdBack(adb, held);
+                loopsSinceBoot(adb);
                 store.setSet("appliedOff", reallyOff(adb, store.disabled()));
                 if (!store.disabled().isEmpty()) {
                     String first = store.disabled().iterator().next();
@@ -617,6 +628,12 @@ final class Ops {
                 done = 0;
                 for (String p : enable) sh(adb, "pm enable " + p);
                 releaseHeld(adb, enable);
+                neverOff(adb, disable);
+                sparePersistent(adb, disable);
+                for (String p : disable) if (needed(p)) {
+                    Features.F f = Features.of(p);
+                    note(T.t("⚠ Отключаю то, что нужно вам для «") + Features.plain(f.title) + "»: " + p + T.t(". Если функция перестанет работать — снимите галочку."));
+                }
                 // CleanYourTV: small batches, check between them. A batch that starts a crash loop is put back.
                 Set<String> prot = store.set("protectedPkgs");
                 List<String> todo = new ArrayList<>(disable);
@@ -683,7 +700,8 @@ final class Ops {
                 Set<String> refused = new java.util.TreeSet<>(notOff); refused.retainAll(store.set("protectedPkgs"));
                 notOff.removeAll(refused);
                 if (!refused.isEmpty()) {
-                    note(T.t("🔒 Эта прошивка не даёт отключить: ") + refused.size() + "  (" + String.join(", ", refused) + ")"
+                    Set<String> firm = new java.util.TreeSet<>(refused); firm.removeAll(store.set("persistentPkgs"));
+                    if (!firm.isEmpty()) note(T.t("🔒 Эта прошивка не даёт отключить: ") + firm.size() + "  (" + String.join(", ", firm) + ")"
                             + T.t(". Это защита самой прошивки, не ошибка; пробовать снова не буду."));
                     holdBack(adb, refused);
                 }
@@ -765,6 +783,7 @@ final class Ops {
             }
             store.commitStr("homeTx", null);
             note(T.t("✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка"));
+            launcherConfig(adb);
             return true;
         } catch (Exception e) {
             rollbackStockHome(adb);
@@ -875,6 +894,7 @@ final class Ops {
                 }
                 if (stockOff) { Set<String> d = store.disabled(); d.add(s); store.setDisabled(d); }
                 store.setFlag("launcher", true);
+                launcherConfig(adb);
                 note(T.t("Главный экран теперь: ") + now + T.t(" — и он на экране ✔"));
                 note(T.t("Готово"));
                 return true;
@@ -885,9 +905,100 @@ final class Ops {
         }
     }
 
+    private static final String LAUNCHER_CONFIG = "/sdcard/Android/data/" + BuildInfo.LAUNCHER + "/files/config.json";
+    private static final String CONFIG_MARK = "written by TV Janitor";
+
+    /**
+     * Settings for our launcher (its config.json), written only when there is none or the one there is ours.
+     * Yandex TV: HDMI and AV play in com.yandex.tv.live, which takes live-tv:// links; the content:// one sends
+     * it to the Yandex home screen's TV section and, with that switched off, it crashes (Sunwind, 28.10). And the
+     * light keyboard's settings tile is kept off the home screen.
+     */
+    private void launcherConfig(Adb adb) {
+        try {
+            if (!store.flag("launcher", false)) return;
+            String old = adb.shell("cat " + LAUNCHER_CONFIG + " 2>/dev/null");
+            if (!old.trim().isEmpty() && !old.contains(CONFIG_MARK)) { dbg("launcher config is someone else's, left as is"); return; }
+            StringBuilder j = new StringBuilder("{\"_comment\": \"" + CONFIG_MARK + "\"");
+            if (installed("com.yandex.tv.live"))
+                j.append(", \"input_uri_scheme\": \"live-tv\", \"live_tv_package\": \"com.yandex.tv.live\"");
+            j.append(", \"hidden_apps\": [\"com.mediatek.wwtv.tvcenter\", \"com.mitv.gallery\"");
+            if (installed(KEYBOARD)) j.append(", \"").append(KEYBOARD).append("\"");
+            j.append("]}");
+            if (old.trim().equals(j.toString())) return;
+            adb.shell("mkdir -p /sdcard/Android/data/" + BuildInfo.LAUNCHER + "/files");
+            adb.shell("echo '" + j + "' > " + LAUNCHER_CONFIG);
+            sh(adb, "am force-stop " + BuildInfo.LAUNCHER);     // it reads the file when it starts
+            note(T.t("Настроил новую оболочку под этот телевизор (источники HDMI, скрытые плитки)"));
+        } catch (Exception e) { dbg("launcher config: " + e); }
+    }
+
+    /** Started by Android at boot whatever its state: switched off, it only crashes over and over (Sunwind's platform services). */
+    private boolean persistent(String p) {
+        try {
+            return (c.getPackageManager().getApplicationInfo(p, android.content.pm.PackageManager.MATCH_DISABLED_COMPONENTS).flags
+                    & android.content.pm.ApplicationInfo.FLAG_PERSISTENT) != 0;
+        } catch (Exception e) { return false; }
+    }
+
+    /** What the owner said they use, by package: never switched off behind their back. */
+    private boolean needed(String p) {
+        Features.F f = Features.of(p);
+        return f != null && store.set("features").contains(f.id);
+    }
+
+    /**
+     * Of the chosen packages, the persistent ones are never switched off: they join the protected ones and are held
+     * back instead (holdBack). One switched off earlier is switched back on.
+     */
+    private Set<String> sparePersistent(Adb adb, Collection<String> chosen) throws Exception {
+        Set<String> eternal = new java.util.TreeSet<>();
+        for (String p : chosen) if (persistent(p)) eternal.add(p);
+        if (eternal.isEmpty()) return eternal;
+        for (String p : reallyOff(adb, eternal)) sh(adb, "pm enable " + p);
+        Set<String> prot = store.set("protectedPkgs"), known = store.set("persistentPkgs");
+        Set<String> fresh = new java.util.TreeSet<>(eternal); fresh.removeAll(known);
+        prot.addAll(eternal); known.addAll(eternal);
+        store.setSet("protectedPkgs", prot); store.setSet("persistentPkgs", known);
+        if (!fresh.isEmpty()) note(T.t("♾ Android запускает их при каждой загрузке, даже отключённые (и тогда они падают по кругу): не отключаю, а усыпляю: ")
+                + String.join(", ", fresh));
+        return eternal;
+    }
+
+    /** What the TV can't work without (Detector.core) never stays switched off, whatever an older version chose. */
+    private void neverOff(Adb adb, Set<String> disable) throws Exception {
+        Set<String> d = store.disabled(), bad = new java.util.TreeSet<>();
+        for (String p : d) if (Detector.core(p)) bad.add(p);
+        if (disable != null) for (String p : disable) if (Detector.core(p)) bad.add(p);
+        if (bad.isEmpty()) return;
+        for (String p : reallyOff(adb, bad)) sh(adb, "pm enable " + p);
+        d.removeAll(bad); store.setDisabled(d);
+        if (disable != null) disable.removeAll(bad);
+        note(T.t("Без этого телевизор не работает — включаю и больше не трогаю: ") + String.join(", ", bad));
+    }
+
+    /**
+     * Something switched off that still crashes again and again since boot (a persistent service no flag gave
+     * away): switched back on and kept out of the choice, so the TV doesn't spend the day restarting it.
+     */
+    private void loopsSinceBoot(Adb adb) throws Exception {
+        Set<String> off = store.disabled();
+        Map<String, Integer> n = new HashMap<>();
+        for (String[] f : crashes(adb, null)) {
+            String pkg = f[0].contains(":") ? f[0].substring(0, f[0].indexOf(':')) : f[0];
+            if (off.contains(pkg)) n.merge(pkg, 1, Integer::sum);
+        }
+        Set<String> loop = new java.util.TreeSet<>();
+        for (Map.Entry<String, Integer> e : n.entrySet()) if (e.getValue() >= 5) loop.add(e.getKey());
+        if (loop.isEmpty()) return;
+        for (String p : loop) sh(adb, "pm enable " + p);
+        off.removeAll(loop); store.setDisabled(off);
+        Set<String> cr = store.set("crashers"); cr.addAll(loop); store.setSet("crashers", cr);
+        note(T.t("♻ Падали по кругу, пока были отключены — включил обратно: ") + String.join(", ", loop));
+    }
+
     /** LeanKey: a light keyboard made for the remote, bundled with the full edition (MIT, built from source). */
     static final String KEYBOARD = "com.liskovsoft.leankeyboard", KEYBOARD_IME = KEYBOARD + "/.ime.LeanbackImeService";
-    private static final String KEYBOARD_TILE = KEYBOARD + "/.activity.settings.KbSettingsActivity2";
 
     static boolean hasKeyboard(Context c) {
         try (InputStream in = c.getAssets().open("leankey.apk")) { return true; } catch (Exception e) { return false; }
@@ -938,9 +1049,8 @@ final class Ops {
                     note(T.t("⚠ Клавиатура поставилась, но Android не сделал её основной. Прежняя остаётся."));
                     return false;
                 }
-                // Its settings screen is also a launcher tile ("LeanKey Keyboard" on the Home screen): hide the tile.
-                // Layouts are switched on the keyboard itself.
-                sh(adb, "pm disable --user 0 " + KEYBOARD_TILE);
+                // Its settings screen is also a launcher tile: our launcher is told to hide it.
+                launcherConfig(adb);
                 note(T.t("✔ Лёгкая клавиатура теперь основная. Прежнюю можно отключить в списке."));
                 return true;
             } catch (Exception e) {

@@ -66,7 +66,17 @@
 - When switching the stock Home off is undone, the log says what was on screen instead. Any screen of our launcher
   counts as success, and only the stock Home or the empty FallbackHome coming back counts as failure.
 - Packages switched back on between two runs without a reboot are named in the log.
-- The light keyboard's settings tile is hidden from the home screen.
+- The light keyboard's settings tile is hidden from the home screen (through the launcher's own settings).
+- **Yandex TV: HDMI without the Yandex home screen.** The launcher gets a config.json (only where there is none,
+  or ours): inputs open with live-tv:// in Yandex's TV player, which otherwise sends them to the Yandex home
+  screen and crashes once that is off.
+- Persistent packages (Android starts them at every boot, even disabled, and then they crash over and over:
+  Sunwind's platform services) are never disabled, only held back; one disabled earlier is switched back on.
+- After boot, anything disabled that crashes again and again since boot is switched back on and left alone.
+- CVTE's tvapi-service is never touched: Android asks it about every remote key, and without it only the power
+  button works after a reboot (Sunwind).
+- What the owner said they use is no longer switched off behind their back: a ticked one is flagged in the list
+  and in the log, and one switched back on from outside stays on after the next boot.
 - Dev builds keep a second, detailed log (debug.txt): every crash line with its verdict, memory, the biggest
   processes and the screen before and after changes. The test kit's option 4 pulls it too.
 

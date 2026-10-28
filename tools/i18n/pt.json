@@ -598,5 +598,14 @@
 "ℹ Falharam após a alteração, mas a TV não precisa deles:",
 "⚠ Algo os reativou sem o TV Janitor (não foi reinício):",
 "Na tela estava:",
-"♻ para, mas o firmware o inicia de novo na hora:"
+"♻ para, mas o firmware o inicia de novo na hora:",
+"Nova tela inicial configurada para esta TV (entradas HDMI, blocos ocultos)",
+"♾ O Android os inicia em cada arranque, mesmo desativados (e aí falham sem parar): não desativo, ponho para dormir:",
+"⚠ Desativando algo de que você precisa para «",
+". Se parar de funcionar, desmarque.",
+"Ativado fora do TV Janitor e você precisa dele, fica ativado:",
+"A TV não funciona sem isto, ativo e não mexo mais:",
+"♻ Falhavam sem parar desativados, reativados:",
+"♾ O Android sempre o inicia: será posto para dormir, não desativado  ·",
+"⚠ Marcado para desativar, mas você precisa dele. Se a função não funcionar, desmarque  ·"
 ]

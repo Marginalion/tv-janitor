@@ -598,5 +598,14 @@
 "ℹ Crashed after the change, but the TV doesn't need them:",
 "⚠ Something turned these back on without TV Janitor (not a reboot):",
 "On screen was:",
-"♻ stops, but the firmware starts it again at once:"
+"♻ stops, but the firmware starts it again at once:",
+"Set up the new home screen for this TV (HDMI inputs, hidden tiles)",
+"♾ Android starts these at every boot, even disabled (and then they crash over and over): not disabling, holding them back instead:",
+"⚠ Disabling something you need for \"",
+". If it stops working, untick it.",
+"Turned on outside TV Janitor and you need it, leaving it on:",
+"The TV doesn't work without these, turning them on and leaving them alone:",
+"♻ Crashed over and over while disabled, turned back on:",
+"♾ Android always starts it: it will be held back, not disabled  ·",
+"⚠ Ticked to disable, but you need it. If the feature doesn't work, untick it  ·"
 ]

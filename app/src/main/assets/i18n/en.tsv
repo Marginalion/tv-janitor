@@ -601,3 +601,12 @@ Live Channels	Live Channels
 ⚠ Кто-то включил обратно без Уборщика (не перезагрузка): 	⚠ Something turned these back on without TV Janitor (not a reboot): 
 На экране было: 	On screen was: 
 ♻ останавливается, но прошивка тут же запускает снова: 	♻ stops, but the firmware starts it again at once: 
+Настроил новую оболочку под этот телевизор (источники HDMI, скрытые плитки)	Set up the new home screen for this TV (HDMI inputs, hidden tiles)
+♾ Android запускает их при каждой загрузке, даже отключённые (и тогда они падают по кругу): не отключаю, а усыпляю: 	♾ Android starts these at every boot, even disabled (and then they crash over and over): not disabling, holding them back instead: 
+⚠ Отключаю то, что нужно вам для «	⚠ Disabling something you need for "
+. Если функция перестанет работать — снимите галочку.	. If it stops working, untick it.
+Включено не Уборщиком, а нужно вам — оставляю включённым: 	Turned on outside TV Janitor and you need it, leaving it on: 
+Без этого телевизор не работает — включаю и больше не трогаю: 	The TV doesn't work without these, turning them on and leaving them alone: 
+♻ Падали по кругу, пока были отключены — включил обратно: 	♻ Crashed over and over while disabled, turned back on: 
+♾ Android запускает его всегда: будет усыплён, а не отключён  ·  	♾ Android always starts it: it will be held back, not disabled  ·  
+⚠ Отмечен на отключение, а нужен вам. Не работает функция — снимите галочку  ·  	⚠ Ticked to disable, but you need it. If the feature doesn't work, untick it  ·  

@@ -598,5 +598,14 @@
 "ℹ Ont planté après le changement, mais le téléviseur n'en a pas besoin :",
 "⚠ Quelque chose les a réactivés sans TV Janitor (pas un redémarrage) :",
 "À l'écran :",
-"♻ s'arrête, mais le firmware le relance aussitôt :"
+"♻ s'arrête, mais le firmware le relance aussitôt :",
+"Nouvel écran d'accueil configuré pour ce téléviseur (entrées HDMI, tuiles masquées)",
+"♾ Android les lance à chaque démarrage, même désactivés (et ils plantent en boucle) : je ne les désactive pas, je les endors :",
+"⚠ Je désactive quelque chose dont vous avez besoin pour « ",
+". Si cela ne marche plus, décochez-le.",
+"Activé hors de TV Janitor et vous en avez besoin, je le laisse activé :",
+"Le téléviseur ne fonctionne pas sans cela, je l'active et n'y touche plus :",
+"♻ Plantaient en boucle une fois désactivés, réactivés :",
+"♾ Android le lance toujours : il sera endormi, pas désactivé  ·",
+"⚠ Coché pour désactivation, mais vous en avez besoin. Si la fonction ne marche pas, décochez-le  ·"
 ]

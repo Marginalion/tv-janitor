@@ -598,5 +598,14 @@
 "ℹ Se cayeron tras el cambio, pero el televisor no los necesita:",
 "⚠ Algo los reactivó sin TV Janitor (no fue un reinicio):",
 "En pantalla había:",
-"♻ se detiene, pero el firmware lo vuelve a iniciar al instante:"
+"♻ se detiene, pero el firmware lo vuelve a iniciar al instante:",
+"Pantalla de inicio configurada para este televisor (entradas HDMI, mosaicos ocultos)",
+"♾ Android los inicia en cada arranque, incluso desactivados (y entonces se caen una y otra vez): no los desactivo, los duermo:",
+"⚠ Desactivo algo que necesita para «",
+". Si deja de funcionar, desmárquelo.",
+"Activado fuera de TV Janitor y lo necesita, lo dejo activado:",
+"El televisor no funciona sin esto, lo activo y no lo vuelvo a tocar:",
+"♻ Se caían una y otra vez desactivados, reactivados:",
+"♾ Android siempre lo inicia: se dormirá, no se desactivará  ·",
+"⚠ Marcado para desactivar, pero lo necesita. Si la función no va, desmárquelo  ·"
 ]

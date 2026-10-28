@@ -601,3 +601,12 @@ Live Channels	Live Channels
 ⚠ Кто-то включил обратно без Уборщика (не перезагрузка): 	⚠ Algo los reactivó sin TV Janitor (no fue un reinicio): 
 На экране было: 	En pantalla había: 
 ♻ останавливается, но прошивка тут же запускает снова: 	♻ se detiene, pero el firmware lo vuelve a iniciar al instante: 
+Настроил новую оболочку под этот телевизор (источники HDMI, скрытые плитки)	Pantalla de inicio configurada para este televisor (entradas HDMI, mosaicos ocultos)
+♾ Android запускает их при каждой загрузке, даже отключённые (и тогда они падают по кругу): не отключаю, а усыпляю: 	♾ Android los inicia en cada arranque, incluso desactivados (y entonces se caen una y otra vez): no los desactivo, los duermo: 
+⚠ Отключаю то, что нужно вам для «	⚠ Desactivo algo que necesita para «
+. Если функция перестанет работать — снимите галочку.	. Si deja de funcionar, desmárquelo.
+Включено не Уборщиком, а нужно вам — оставляю включённым: 	Activado fuera de TV Janitor y lo necesita, lo dejo activado: 
+Без этого телевизор не работает — включаю и больше не трогаю: 	El televisor no funciona sin esto, lo activo y no lo vuelvo a tocar: 
+♻ Падали по кругу, пока были отключены — включил обратно: 	♻ Se caían una y otra vez desactivados, reactivados: 
+♾ Android запускает его всегда: будет усыплён, а не отключён  ·  	♾ Android siempre lo inicia: se dormirá, no se desactivará  ·  
+⚠ Отмечен на отключение, а нужен вам. Не работает функция — снимите галочку  ·  	⚠ Marcado para desactivar, pero lo necesita. Si la función no va, desmárquelo  ·  

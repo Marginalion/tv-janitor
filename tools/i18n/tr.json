@@ -598,5 +598,14 @@
 "ℹ Değişiklikten sonra çöktü, ama TV'nin bunlara ihtiyacı yok:",
 "⚠ Bir şey bunları TV Janitor olmadan yeniden açtı (yeniden başlatma değil):",
 "Ekranda olan:",
-"♻ duruyor, ama yazılım hemen yeniden başlatıyor:"
+"♻ duruyor, ama yazılım hemen yeniden başlatıyor:",
+"Yeni ana ekran bu TV için ayarlandı (HDMI girişleri, gizli kutucuklar)",
+"♾ Android bunları her açılışta, kapalı olsalar bile başlatır (o zaman sürekli çökerler): kapatmıyorum, uyutuyorum:",
+"⚠ Şunun için ihtiyacınız olanı kapatıyorum: «",
+". Çalışmazsa işareti kaldırın.",
+"TV Janitor dışında açılmış ve ihtiyacınız var, açık bırakıyorum:",
+"TV bunlar olmadan çalışmaz, açıyorum ve bir daha dokunmuyorum:",
+"♻ Kapalıyken sürekli çöktü, yeniden açtım:",
+"♾ Android onu her zaman başlatır: kapatılmayacak, uyutulacak  ·",
+"⚠ Kapatmak için işaretli ama ihtiyacınız var. Özellik çalışmıyorsa işareti kaldırın  ·"
 ]

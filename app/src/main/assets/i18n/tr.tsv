@@ -601,3 +601,12 @@ Live Channels	Live Channels
 ⚠ Кто-то включил обратно без Уборщика (не перезагрузка): 	⚠ Bir şey bunları TV Janitor olmadan yeniden açtı (yeniden başlatma değil): 
 На экране было: 	Ekranda olan: 
 ♻ останавливается, но прошивка тут же запускает снова: 	♻ duruyor, ama yazılım hemen yeniden başlatıyor: 
+Настроил новую оболочку под этот телевизор (источники HDMI, скрытые плитки)	Yeni ana ekran bu TV için ayarlandı (HDMI girişleri, gizli kutucuklar)
+♾ Android запускает их при каждой загрузке, даже отключённые (и тогда они падают по кругу): не отключаю, а усыпляю: 	♾ Android bunları her açılışta, kapalı olsalar bile başlatır (o zaman sürekli çökerler): kapatmıyorum, uyutuyorum: 
+⚠ Отключаю то, что нужно вам для «	⚠ Şunun için ihtiyacınız olanı kapatıyorum: «
+. Если функция перестанет работать — снимите галочку.	. Çalışmazsa işareti kaldırın.
+Включено не Уборщиком, а нужно вам — оставляю включённым: 	TV Janitor dışında açılmış ve ihtiyacınız var, açık bırakıyorum: 
+Без этого телевизор не работает — включаю и больше не трогаю: 	TV bunlar olmadan çalışmaz, açıyorum ve bir daha dokunmuyorum: 
+♻ Падали по кругу, пока были отключены — включил обратно: 	♻ Kapalıyken sürekli çöktü, yeniden açtım: 
+♾ Android запускает его всегда: будет усыплён, а не отключён  ·  	♾ Android onu her zaman başlatır: kapatılmayacak, uyutulacak  ·  
+⚠ Отмечен на отключение, а нужен вам. Не работает функция — снимите галочку  ·  	⚠ Kapatmak için işaretli ama ihtiyacınız var. Özellik çalışmıyorsa işareti kaldırın  ·  

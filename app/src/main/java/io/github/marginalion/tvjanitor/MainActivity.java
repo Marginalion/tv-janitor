@@ -482,6 +482,8 @@ public class MainActivity extends Activity {
             boolean needed = feat != null && used.contains(feat.id);
             if (feat != null) hint = (needed ? T.t("нужно вам: ") : T.t("для функции, которой вы не пользуетесь: ")) + Features.plain(feat.title) + (hint.isEmpty() ? "" : "  ·  " + hint);
             if (rolled.contains(pkg)) hint = T.t("↩ Уборщик вернул его: после отключения что-то начало падать  ·  ") + hint;
+            if ((ai.flags & ApplicationInfo.FLAG_PERSISTENT) != 0) hint = T.t("♾ Android запускает его всегда: будет усыплён, а не отключён  ·  ") + hint;
+            if (needed && chosen.contains(pkg)) hint = T.t("⚠ Отмечен на отключение, а нужен вам. Не работает функция — снимите галочку  ·  ") + hint;
             if (back.contains(pkg)) hint = T.t("прошивка включает его обратно при загрузке  ·  ") + hint;
             Row r = new Row();
             r.pkg = pkg; r.level = level; r.tele = tele; r.userApp = !system && launchable;

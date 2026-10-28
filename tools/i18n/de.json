@@ -598,5 +598,14 @@
 "ℹ Nach der Änderung abgestürzt, der Fernseher braucht sie aber nicht:",
 "⚠ Etwas hat diese ohne TV Janitor wieder aktiviert (kein Neustart):",
 "Auf dem Bildschirm war:",
-"♻ stoppt, aber die Firmware startet es sofort wieder:"
+"♻ stoppt, aber die Firmware startet es sofort wieder:",
+"Neuen Startbildschirm für diesen Fernseher eingerichtet (HDMI-Eingänge, ausgeblendete Kacheln)",
+"♾ Android startet diese bei jedem Start, auch deaktiviert (dann stürzen sie ständig ab): nicht deaktiviert, sondern ruhiggestellt:",
+"⚠ Deaktiviere etwas, das Sie für „",
+". Funktioniert es nicht mehr, Häkchen entfernen.",
+"Außerhalb von TV Janitor aktiviert und von Ihnen benötigt, bleibt an:",
+"Ohne diese funktioniert der Fernseher nicht, aktiviere sie und lasse sie in Ruhe:",
+"♻ Stürzten deaktiviert ständig ab, wieder aktiviert:",
+"♾ Android startet es immer: wird ruhiggestellt, nicht deaktiviert  ·",
+"⚠ Zum Deaktivieren markiert, aber Sie brauchen es. Funktioniert die Funktion nicht, Häkchen entfernen  ·"
 ]

@@ -601,3 +601,12 @@ Live Channels	Live Channels
 ⚠ Кто-то включил обратно без Уборщика (не перезагрузка): 	⚠ Có thứ đã bật lại chúng mà không qua TV Janitor (không phải khởi động lại): 
 На экране было: 	Trên màn hình là: 
 ♻ останавливается, но прошивка тут же запускает снова: 	♻ dừng được, nhưng firmware khởi động lại ngay: 
+Настроил новую оболочку под этот телевизор (источники HDMI, скрытые плитки)	Đã thiết lập màn hình chính mới cho TV này (đầu vào HDMI, ô ẩn)
+♾ Android запускает их при каждой загрузке, даже отключённые (и тогда они падают по кругу): не отключаю, а усыпляю: 	♾ Android khởi động chúng mỗi lần bật máy, kể cả khi đã tắt (khi đó chúng lỗi liên tục): không tắt, chỉ cho ngủ: 
+⚠ Отключаю то, что нужно вам для «	⚠ Đang tắt thứ bạn cần cho «
+. Если функция перестанет работать — снимите галочку.	. Nếu chức năng ngừng hoạt động, hãy bỏ chọn.
+Включено не Уборщиком, а нужно вам — оставляю включённым: 	Được bật ngoài TV Janitor và bạn cần nó, giữ bật: 
+Без этого телевизор не работает — включаю и больше не трогаю: 	TV không hoạt động nếu thiếu những thứ này, bật lại và không động vào nữa: 
+♻ Падали по кругу, пока были отключены — включил обратно: 	♻ Lỗi liên tục khi bị tắt, đã bật lại: 
+♾ Android запускает его всегда: будет усыплён, а не отключён  ·  	♾ Android luôn khởi động nó: sẽ cho ngủ, không tắt  ·  
+⚠ Отмечен на отключение, а нужен вам. Не работает функция — снимите галочку  ·  	⚠ Đã chọn để tắt, nhưng bạn cần nó. Nếu chức năng không hoạt động, hãy bỏ chọn  ·  

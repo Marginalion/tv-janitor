@@ -27,7 +27,10 @@ final class Detector {
                 "com.android.inputdevices", "com.android.location.fused", "com.android.keychain",
                 "com.google.android.webview", "com.android.webview", "com.android.networkstack.inprocess",
                 "com.android.wifi.resources", "com.android.se", "com.android.externalstorage",
-                "com.android.defcontainer", "com.android.media", "com.android.server.telecom"};
+                "com.android.defcontainer", "com.android.media", "com.android.server.telecom",
+                // CVTE firmware (Sunwind): Android asks its hot-key service about every remote key; without it
+                // only the power button works after a reboot.
+                "com.cvte.tv.api.impl"};
         for (String e : exact) if (pkg.equals(e)) return true;
         if (pkg.startsWith("com.android.providers.")) {
             return !(pkg.endsWith(".calendar") || pkg.endsWith(".contacts") || pkg.endsWith(".userdictionary") || pkg.endsWith(".blockednumber"));
