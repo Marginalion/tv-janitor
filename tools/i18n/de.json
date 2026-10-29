@@ -664,5 +664,8 @@
 "TV Janitor braucht Netzwerk-Debugging nur während der Arbeit (nach dem Start etwa eine Minute). Ich prüfe jetzt, dass es auf diesem Fernseher wieder angeht, und schalte es danach selbst aus. ",
 "Wenn Sie sich vom Computer mit dem Fernseher verbinden, wählen Sie „Eingeschaltet lassen\": das lässt sich mit „Netzwerk-Debugging eingeschaltet lassen\" ändern.",
 "OK",
-"Eingeschaltet lassen"
+"Eingeschaltet lassen",
+"Schutz des Fernsehers",
+"Wenn TV Janitor fertig ist, schaltet es das Netzwerk-Debugging selbst aus, damit sich niemand mit dem Fernseher verbinden kann. Wenn es wieder gebraucht wird, schaltet es es wieder ein (nach dem Start etwa eine Minute). Zuerst prüfe ich, dass das auf diesem Fernseher geht.",
+"Wenn Sie sich vom Computer mit dem Fernseher verbinden, drücken Sie „Eingeschaltet lassen\". Das lässt sich jederzeit mit „Netzwerk-Debugging eingeschaltet lassen\" ändern."
 ]

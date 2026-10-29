@@ -664,5 +664,8 @@
 "TV Janitor chỉ cần gỡ lỗi qua mạng khi làm việc (khoảng một phút sau khi khởi động). Giờ tôi sẽ kiểm tra nó bật lại được trên TV này, rồi từ đó tự tắt nó. ",
 "Nếu bạn kết nối TV từ máy tính, hãy chọn \"Để bật\": có thể đổi bằng \"Giữ gỡ lỗi qua mạng luôn bật\".",
 "Được",
-"Để bật"
+"Để bật",
+"Bảo vệ TV",
+"Khi TV Janitor làm xong, nó tự tắt gỡ lỗi qua mạng để không ai kết nối được vào TV. Khi cần, nó sẽ bật lại (sau khi khởi động, khoảng một phút). Trước tiên tôi sẽ kiểm tra TV này có làm được vậy không.",
+"Nếu bạn kết nối TV từ máy tính, hãy nhấn \"Để bật\". Có thể đổi bất cứ lúc nào bằng \"Giữ gỡ lỗi qua mạng luôn bật\"."
 ]

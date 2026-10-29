@@ -664,5 +664,8 @@
 "TV Janitor needs network debugging only while it works (about a minute after boot). I'll now check that it comes back on this TV, and from then on switch it off myself. ",
 "If you connect to the TV from a computer, choose \"Keep it on\": you can change this with \"Keep network debugging on\".",
 "OK",
-"Keep it on"
+"Keep it on",
+"Protecting your TV",
+"When TV Janitor is done, it switches network debugging off by itself, so nobody can connect to the TV. When it needs it again, it switches it back on (after boot, for about a minute). First I'll check that this works on this TV.",
+"If you connect to the TV from a computer, press \"Keep it on\". You can change this at any time with \"Keep network debugging on\"."
 ]

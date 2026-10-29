@@ -667,3 +667,6 @@ Live Channels	Live Channels
 Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	If you connect to the TV from a computer, choose "Keep it on": you can change this with "Keep network debugging on".
 Хорошо	OK
 Оставить включённой	Keep it on
+Защита телевизора	Protecting your TV
+Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	When TV Janitor is done, it switches network debugging off by itself, so nobody can connect to the TV. When it needs it again, it switches it back on (after boot, for about a minute). First I'll check that this works on this TV.
+Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	If you connect to the TV from a computer, press "Keep it on". You can change this at any time with "Keep network debugging on".

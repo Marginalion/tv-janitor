@@ -667,3 +667,6 @@ Live Channels	Live Channels
 Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	TV'ye bilgisayardan bağlanıyorsanız "Açık bırak"ı seçin: bunu "Ağ hata ayıklamasını açık tut" ile değiştirebilirsiniz.
 Хорошо	Tamam
 Оставить включённой	Açık bırak
+Защита телевизора	TV'nin korunması
+Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	TV Janitor işini bitirince ağ hata ayıklamasını kendisi kapatır, böylece kimse TV'ye bağlanamaz. Gerektiğinde yeniden açar (açılıştan sonra yaklaşık bir dakika). Önce bunun bu TV'de çalıştığını kontrol edeceğim.
+Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	TV'ye bilgisayardan bağlanıyorsanız "Açık bırak"a basın. Bunu istediğiniz zaman "Ağ hata ayıklamasını açık tut" ile değiştirebilirsiniz.

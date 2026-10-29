@@ -667,3 +667,6 @@ Live Channels	Live Channels
 Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	Se você se conecta à TV pelo computador, escolha "Deixar ativada": dá para mudar com "Manter a depuração pela rede ativada".
 Хорошо	Certo
 Оставить включённой	Deixar ativada
+Защита телевизора	Proteção da TV
+Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	Quando o TV Janitor termina, ele mesmo desliga a depuração pela rede, para que ninguém consiga se conectar à TV. Quando precisar, ele a liga de novo (após ligar a TV, por cerca de um minuto). Primeiro vou verificar que isso funciona nesta TV.
+Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	Se você se conecta à TV pelo computador, toque em "Deixar ativada". Dá para mudar a qualquer momento com "Manter a depuração pela rede ativada".

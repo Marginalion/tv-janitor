@@ -667,3 +667,6 @@ Live Channels	Live Channels
 Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	Wenn Sie sich vom Computer mit dem Fernseher verbinden, wählen Sie „Eingeschaltet lassen": das lässt sich mit „Netzwerk-Debugging eingeschaltet lassen" ändern.
 Хорошо	OK
 Оставить включённой	Eingeschaltet lassen
+Защита телевизора	Schutz des Fernsehers
+Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	Wenn TV Janitor fertig ist, schaltet es das Netzwerk-Debugging selbst aus, damit sich niemand mit dem Fernseher verbinden kann. Wenn es wieder gebraucht wird, schaltet es es wieder ein (nach dem Start etwa eine Minute). Zuerst prüfe ich, dass das auf diesem Fernseher geht.
+Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	Wenn Sie sich vom Computer mit dem Fernseher verbinden, drücken Sie „Eingeschaltet lassen". Das lässt sich jederzeit mit „Netzwerk-Debugging eingeschaltet lassen" ändern.

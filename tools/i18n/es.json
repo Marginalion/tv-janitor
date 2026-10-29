@@ -664,5 +664,8 @@
 "TV Janitor necesita la depuración por red solo mientras trabaja (un minuto tras el arranque). Ahora compruebo que en este televisor vuelve a activarse, y a partir de ahí la desactivaré yo. ",
 "Si se conecta al televisor desde un ordenador, elija «Dejarla activada»: se puede cambiar con «Mantener la depuración por red activada».",
 "De acuerdo",
-"Dejarla activada"
+"Dejarla activada",
+"Protección del televisor",
+"Cuando TV Janitor termina, desactiva por sí mismo la depuración por red para que nadie pueda conectarse al televisor. Cuando la necesite, la vuelve a activar (tras el arranque, un minuto aproximadamente). Primero compruebo que esto funciona en este televisor.",
+"Si se conecta al televisor desde un ordenador, pulse «Dejarla activada». Puede cambiarlo cuando quiera con «Mantener la depuración por red activada»."
 ]

@@ -664,5 +664,8 @@
 "O TV Janitor só precisa da depuração pela rede enquanto trabalha (cerca de um minuto após ligar). Vou verificar que nesta TV ela volta, e daí em diante eu mesmo a desligo. ",
 "Se você se conecta à TV pelo computador, escolha \"Deixar ativada\": dá para mudar com \"Manter a depuração pela rede ativada\".",
 "Certo",
-"Deixar ativada"
+"Deixar ativada",
+"Proteção da TV",
+"Quando o TV Janitor termina, ele mesmo desliga a depuração pela rede, para que ninguém consiga se conectar à TV. Quando precisar, ele a liga de novo (após ligar a TV, por cerca de um minuto). Primeiro vou verificar que isso funciona nesta TV.",
+"Se você se conecta à TV pelo computador, toque em \"Deixar ativada\". Dá para mudar a qualquer momento com \"Manter a depuração pela rede ativada\"."
 ]

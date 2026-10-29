@@ -667,3 +667,6 @@ Live Channels	Live Channels
 Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	Si vous vous connectez au téléviseur depuis un ordinateur, choisissez « Le laisser activé » : cela se change avec « Garder le débogage réseau activé ».
 Хорошо	D'accord
 Оставить включённой	Le laisser activé
+Защита телевизора	Protection du téléviseur
+Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	Quand TV Janitor a fini, il coupe lui-même le débogage réseau, pour que personne ne puisse se connecter au téléviseur. Quand il en a besoin, il le réactive (après le démarrage, environ une minute). D'abord, je vérifie que cela fonctionne sur ce téléviseur.
+Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	Si vous vous connectez au téléviseur depuis un ordinateur, appuyez sur « Le laisser activé ». Vous pouvez changer cela à tout moment avec « Garder le débogage réseau activé ».

@@ -664,5 +664,8 @@
 "TV Janitor n'a besoin du débogage réseau que pendant son travail (environ une minute après le démarrage). Je vérifie qu'il revient sur ce téléviseur, puis je le couperai moi-même. ",
 "Si vous vous connectez au téléviseur depuis un ordinateur, choisissez « Le laisser activé » : cela se change avec « Garder le débogage réseau activé ».",
 "D'accord",
-"Le laisser activé"
+"Le laisser activé",
+"Protection du téléviseur",
+"Quand TV Janitor a fini, il coupe lui-même le débogage réseau, pour que personne ne puisse se connecter au téléviseur. Quand il en a besoin, il le réactive (après le démarrage, environ une minute). D'abord, je vérifie que cela fonctionne sur ce téléviseur.",
+"Si vous vous connectez au téléviseur depuis un ordinateur, appuyez sur « Le laisser activé ». Vous pouvez changer cela à tout moment avec « Garder le débogage réseau activé »."
 ]

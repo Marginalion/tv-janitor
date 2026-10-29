@@ -664,5 +664,8 @@
 "TV Janitor ağ hata ayıklamasına yalnızca çalışırken ihtiyaç duyar (açılıştan sonra yaklaşık bir dakika). Şimdi bu TV'de yeniden açıldığını kontrol edeceğim, sonra onu kendim kapatacağım. ",
 "TV'ye bilgisayardan bağlanıyorsanız \"Açık bırak\"ı seçin: bunu \"Ağ hata ayıklamasını açık tut\" ile değiştirebilirsiniz.",
 "Tamam",
-"Açık bırak"
+"Açık bırak",
+"TV'nin korunması",
+"TV Janitor işini bitirince ağ hata ayıklamasını kendisi kapatır, böylece kimse TV'ye bağlanamaz. Gerektiğinde yeniden açar (açılıştan sonra yaklaşık bir dakika). Önce bunun bu TV'de çalıştığını kontrol edeceğim.",
+"TV'ye bilgisayardan bağlanıyorsanız \"Açık bırak\"a basın. Bunu istediğiniz zaman \"Ağ hata ayıklamasını açık tut\" ile değiştirebilirsiniz."
 ]
