@@ -658,3 +658,12 @@ Live Channels	Live Channels
 Эта прошивка, похоже, не слушается такого способа. Попробовать другой? Если он сработает, Уборщик запомнит его для этого телевизора.	Diese Firmware scheint diesen Weg zu ignorieren. Den anderen versuchen? Wenn er klappt, merkt sich TV Janitor ihn für diesen Fernseher.
 На некоторых телевизорах другой способ выключает их вместо перезагрузки: тогда включите телевизор пультом.	Bei manchen Fernsehern schaltet der andere Weg sie aus statt neu zu starten: dann mit der Fernbedienung einschalten.
 Попробовать другой способ	Anderen Weg versuchen
+⚠ Тестовая сборка: отладка по сети остаётся включённой	⚠ Testversion: Netzwerk-Debugging bleibt an
+Так набор для тестеров (tvj_test) видит телевизор с компьютера. Пока она включена, любой в вашей сети может попросить доступ к телевизору: без вашего «Разрешить» на экране он его не получит. 	So erreicht das Test-Kit (tvj_test) den Fernseher vom Computer aus. Solange es an ist, kann jeder in Ihrem Netz Zugriff auf den Fernseher anfragen; ohne Ihr „Zulassen" auf dem Bildschirm bekommt er ihn nicht.  
+Закончите тест — снимите галочку «Держать отладку по сети включённой», и Уборщик будет включать её только на время работы.	Nach dem Test das Häkchen „Netzwerk-Debugging eingeschaltet lassen" entfernen, dann schaltet TV Janitor es nur während der Arbeit ein.
+Понятно	Verstanden
+Закрываю телевизор от чужих	Fernseher wird für Fremde geschlossen
+Отладка по сети нужна Уборщику только на время работы (после загрузки — около минуты). Сейчас проверю, что на этом телевизоре она включается обратно, и дальше буду выключать её сам. 	TV Janitor braucht Netzwerk-Debugging nur während der Arbeit (nach dem Start etwa eine Minute). Ich prüfe jetzt, dass es auf diesem Fernseher wieder angeht, und schalte es danach selbst aus.  
+Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	Wenn Sie sich vom Computer mit dem Fernseher verbinden, wählen Sie „Eingeschaltet lassen": das lässt sich mit „Netzwerk-Debugging eingeschaltet lassen" ändern.
+Хорошо	OK
+Оставить включённой	Eingeschaltet lassen

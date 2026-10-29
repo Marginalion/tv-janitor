@@ -655,5 +655,14 @@
 "TV chưa khởi động lại",
 "Firmware này có vẻ không nghe theo cách này. Thử cách khác? Nếu được, TV Janitor sẽ nhớ cách đó cho TV này.",
 "Trên một số TV, cách khác sẽ tắt TV thay vì khởi động lại: khi đó hãy bật TV bằng điều khiển.",
-"Thử cách khác"
+"Thử cách khác",
+"⚠ Bản thử nghiệm: gỡ lỗi qua mạng vẫn bật",
+"Nhờ vậy bộ công cụ thử nghiệm (tvj_test) kết nối được TV từ máy tính. Khi nó bật, bất kỳ ai trong mạng của bạn có thể xin truy cập TV; không có \"Cho phép\" của bạn trên màn hình thì họ không vào được. ",
+"Thử xong, bỏ chọn \"Giữ gỡ lỗi qua mạng luôn bật\", và TV Janitor sẽ chỉ bật nó khi làm việc.",
+"Đã hiểu",
+"Đóng TV với người lạ",
+"TV Janitor chỉ cần gỡ lỗi qua mạng khi làm việc (khoảng một phút sau khi khởi động). Giờ tôi sẽ kiểm tra nó bật lại được trên TV này, rồi từ đó tự tắt nó. ",
+"Nếu bạn kết nối TV từ máy tính, hãy chọn \"Để bật\": có thể đổi bằng \"Giữ gỡ lỗi qua mạng luôn bật\".",
+"Được",
+"Để bật"
 ]

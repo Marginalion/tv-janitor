@@ -1,6 +1,14 @@
 package io.github.marginalion.tvjanitor;
 
 final class BuildInfo {
+    /** A build for testers (…-dev…, …-test…): network debugging stays open by default, for the test kit. */
+    static boolean testBuild(android.content.Context c) {
+        try {
+            String v = c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionName;
+            return v.contains("-dev") || v.contains("-test");
+        } catch (Exception e) { return false; }
+    }
+
     static final String SELF = "io.github.marginalion.tvjanitor";
     static final String LAUNCHER = "com.gathin.tvhome";
     static final String LAUNCHER_HOME = "com.gathin.tvhome/.MainActivity";

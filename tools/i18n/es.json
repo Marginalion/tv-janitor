@@ -655,5 +655,14 @@
 "El televisor no se reinició",
 "Este firmware parece ignorar esta forma. ¿Probar la otra? Si funciona, TV Janitor la recordará para este televisor.",
 "En algunos televisores la otra forma los apaga en vez de reiniciarlos: entonces enciéndalo con el mando.",
-"Probar la otra forma"
+"Probar la otra forma",
+"⚠ Versión de prueba: la depuración por red sigue activada",
+"Así el kit de pruebas (tvj_test) llega al televisor desde un ordenador. Mientras esté activada, cualquiera en su red puede pedir acceso al televisor; sin su «Permitir» en la pantalla no lo obtiene. ",
+"Al terminar la prueba, desmarque «Mantener la depuración por red activada» y TV Janitor la activará solo mientras trabaja.",
+"Entendido",
+"Cerrando el televisor a extraños",
+"TV Janitor necesita la depuración por red solo mientras trabaja (un minuto tras el arranque). Ahora compruebo que en este televisor vuelve a activarse, y a partir de ahí la desactivaré yo. ",
+"Si se conecta al televisor desde un ordenador, elija «Dejarla activada»: se puede cambiar con «Mantener la depuración por red activada».",
+"De acuerdo",
+"Dejarla activada"
 ]

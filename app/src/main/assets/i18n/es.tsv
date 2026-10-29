@@ -658,3 +658,12 @@ Live Channels	Live Channels
 Эта прошивка, похоже, не слушается такого способа. Попробовать другой? Если он сработает, Уборщик запомнит его для этого телевизора.	Este firmware parece ignorar esta forma. ¿Probar la otra? Si funciona, TV Janitor la recordará para este televisor.
 На некоторых телевизорах другой способ выключает их вместо перезагрузки: тогда включите телевизор пультом.	En algunos televisores la otra forma los apaga en vez de reiniciarlos: entonces enciéndalo con el mando.
 Попробовать другой способ	Probar la otra forma
+⚠ Тестовая сборка: отладка по сети остаётся включённой	⚠ Versión de prueba: la depuración por red sigue activada
+Так набор для тестеров (tvj_test) видит телевизор с компьютера. Пока она включена, любой в вашей сети может попросить доступ к телевизору: без вашего «Разрешить» на экране он его не получит. 	Así el kit de pruebas (tvj_test) llega al televisor desde un ordenador. Mientras esté activada, cualquiera en su red puede pedir acceso al televisor; sin su «Permitir» en la pantalla no lo obtiene.  
+Закончите тест — снимите галочку «Держать отладку по сети включённой», и Уборщик будет включать её только на время работы.	Al terminar la prueba, desmarque «Mantener la depuración por red activada» y TV Janitor la activará solo mientras trabaja.
+Понятно	Entendido
+Закрываю телевизор от чужих	Cerrando el televisor a extraños
+Отладка по сети нужна Уборщику только на время работы (после загрузки — около минуты). Сейчас проверю, что на этом телевизоре она включается обратно, и дальше буду выключать её сам. 	TV Janitor necesita la depuración por red solo mientras trabaja (un minuto tras el arranque). Ahora compruebo que en este televisor vuelve a activarse, y a partir de ahí la desactivaré yo.  
+Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	Si se conecta al televisor desde un ordenador, elija «Dejarla activada»: se puede cambiar con «Mantener la depuración por red activada».
+Хорошо	De acuerdo
+Оставить включённой	Dejarla activada

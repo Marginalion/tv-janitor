@@ -901,17 +901,33 @@ public class MainActivity extends Activity {
         });
     }
 
-    /** Once, after the app may switch debugging itself: offer to keep the TV closed while the app isn't working. */
+    /**
+     * Once, after the app may switch debugging itself. A release closes the TV by default: it checks that
+     * debugging comes back on this TV and from then on opens it only while it works (if the check fails, it stays
+     * on and the log says so). A test build keeps it open, for the testers' kit, and says why.
+     */
     private void offerCloseAdb() {
         if (store.has("keepAdb") || !AdbGate.can(this) || busy()) return;
-        store.setFlag("keepAdb", true);
+        if (BuildInfo.testBuild(this)) {
+            store.setFlag("keepAdb", true);
+            syncKeep();
+            new android.app.AlertDialog.Builder(this)
+                    .setTitle(T.t("⚠ Тестовая сборка: отладка по сети остаётся включённой"))
+                    .setMessage(T.t("Так набор для тестеров (tvj_test) видит телевизор с компьютера. Пока она включена, любой в вашей сети может попросить доступ к телевизору: без вашего «Разрешить» на экране он его не получит. ")
+                            + T.t("Закончите тест — снимите галочку «Держать отладку по сети включённой», и Уборщик будет включать её только на время работы."))
+                    .setPositiveButton(T.t("Понятно"), null)
+                    .show();
+            return;
+        }
+        store.setFlag("keepAdb", false);
+        syncKeep();
         new android.app.AlertDialog.Builder(this)
-                .setTitle(T.t("Закрыть телевизор от чужих?"))
-                .setMessage(T.t("Сейчас отладка по сети включена всегда: любой в вашей сети может попросить доступ к телевизору. ")
-                        + T.t("Уборщик может включать её только на время своей работы (после загрузки — около минуты) и выключать сам. ")
-                        + T.t("Сначала проверю, что на этом телевизоре она включается обратно. Если вы подключаетесь к телевизору с компьютера, выберите «Оставить как есть»."))
-                .setPositiveButton(T.t("Проверить и закрыть"), (d, w) -> { store.setFlag("keepAdb", false); syncKeep(); testAdb(); })
-                .setNegativeButton(T.t("Оставить как есть"), (d, w) -> syncKeep())
+                .setTitle(T.t("Закрываю телевизор от чужих"))
+                .setMessage(T.t("Отладка по сети нужна Уборщику только на время работы (после загрузки — около минуты). Сейчас проверю, что на этом телевизоре она включается обратно, и дальше буду выключать её сам. ")
+                        + T.t("Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой»."))
+                .setPositiveButton(T.t("Хорошо"), null)
+                .setNegativeButton(T.t("Оставить включённой"), (d, w) -> store.setFlag("keepAdb", true))
+                .setOnDismissListener(d -> { syncKeep(); if (!store.flag("keepAdb", true)) testAdb(); })
                 .show();
     }
 

@@ -655,5 +655,14 @@
 "Le téléviseur n'a pas redémarré",
 "Ce firmware semble ignorer cette méthode. Essayer l'autre ? Si elle marche, TV Janitor la retiendra pour ce téléviseur.",
 "Sur certains téléviseurs, l'autre méthode les éteint au lieu de les redémarrer : rallumez alors avec la télécommande.",
-"Essayer l'autre méthode"
+"Essayer l'autre méthode",
+"⚠ Version de test : le débogage réseau reste activé",
+"Ainsi le kit de test (tvj_test) atteint le téléviseur depuis un ordinateur. Tant qu'il est activé, n'importe qui sur votre réseau peut demander l'accès au téléviseur ; sans votre « Autoriser » à l'écran, il ne l'obtient pas. ",
+"Le test fini, décochez « Garder le débogage réseau activé », et TV Janitor ne l'activera que pendant son travail.",
+"Compris",
+"Je ferme le téléviseur aux inconnus",
+"TV Janitor n'a besoin du débogage réseau que pendant son travail (environ une minute après le démarrage). Je vérifie qu'il revient sur ce téléviseur, puis je le couperai moi-même. ",
+"Si vous vous connectez au téléviseur depuis un ordinateur, choisissez « Le laisser activé » : cela se change avec « Garder le débogage réseau activé ».",
+"D'accord",
+"Le laisser activé"
 ]

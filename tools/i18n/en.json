@@ -655,5 +655,14 @@
 "The TV did not restart",
 "This firmware seems to ignore this way. Try the other one? If it works, TV Janitor will remember it for this TV.",
 "On some TVs the other way switches them off instead of restarting: then switch the TV on with the remote.",
-"Try the other way"
+"Try the other way",
+"⚠ Test build: network debugging stays on",
+"This way the testers' kit (tvj_test) can reach the TV from a computer. While it is on, anyone on your network can ask for access to the TV; without your \"Allow\" on the screen they don't get it. ",
+"When the test is over, untick \"Keep network debugging on\", and TV Janitor will switch it on only while it works.",
+"Got it",
+"Closing the TV to strangers",
+"TV Janitor needs network debugging only while it works (about a minute after boot). I'll now check that it comes back on this TV, and from then on switch it off myself. ",
+"If you connect to the TV from a computer, choose \"Keep it on\": you can change this with \"Keep network debugging on\".",
+"OK",
+"Keep it on"
 ]

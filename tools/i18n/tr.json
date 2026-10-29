@@ -655,5 +655,14 @@
 "TV yeniden başlamadı",
 "Bu yazılım bu yolu dinlemiyor gibi. Diğerini deneyelim mi? İşe yararsa TV Janitor bu TV için onu hatırlar.",
 "Bazı TV'lerde diğer yol yeniden başlatmak yerine kapatır: o zaman TV'yi kumandayla açın.",
-"Diğer yolu dene"
+"Diğer yolu dene",
+"⚠ Test sürümü: ağ hata ayıklaması açık kalır",
+"Böylece test kiti (tvj_test) TV'ye bilgisayardan ulaşır. Açık olduğu sürece ağınızdaki herkes TV'ye erişim isteyebilir; ekranda sizin \"İzin ver\"iniz olmadan erişemez. ",
+"Test bitince \"Ağ hata ayıklamasını açık tut\" işaretini kaldırın; TV Janitor onu yalnızca çalışırken açar.",
+"Anladım",
+"TV yabancılara kapatılıyor",
+"TV Janitor ağ hata ayıklamasına yalnızca çalışırken ihtiyaç duyar (açılıştan sonra yaklaşık bir dakika). Şimdi bu TV'de yeniden açıldığını kontrol edeceğim, sonra onu kendim kapatacağım. ",
+"TV'ye bilgisayardan bağlanıyorsanız \"Açık bırak\"ı seçin: bunu \"Ağ hata ayıklamasını açık tut\" ile değiştirebilirsiniz.",
+"Tamam",
+"Açık bırak"
 ]

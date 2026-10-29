@@ -658,3 +658,12 @@ Live Channels	Live Channels
 Эта прошивка, похоже, не слушается такого способа. Попробовать другой? Если он сработает, Уборщик запомнит его для этого телевизора.	Este firmware parece ignorar esta forma. Tentar a outra? Se funcionar, o TV Janitor vai lembrá-la para esta TV.
 На некоторых телевизорах другой способ выключает их вместо перезагрузки: тогда включите телевизор пультом.	Em algumas TVs a outra forma desliga em vez de reiniciar: então ligue a TV pelo controle.
 Попробовать другой способ	Tentar a outra forma
+⚠ Тестовая сборка: отладка по сети остаётся включённой	⚠ Versão de teste: a depuração pela rede continua ativada
+Так набор для тестеров (tvj_test) видит телевизор с компьютера. Пока она включена, любой в вашей сети может попросить доступ к телевизору: без вашего «Разрешить» на экране он его не получит. 	Assim o kit de teste (tvj_test) alcança a TV a partir de um computador. Enquanto estiver ativada, qualquer pessoa na sua rede pode pedir acesso à TV; sem o seu "Permitir" na tela, não consegue.  
+Закончите тест — снимите галочку «Держать отладку по сети включённой», и Уборщик будет включать её только на время работы.	Terminado o teste, desmarque "Manter a depuração pela rede ativada", e o TV Janitor só a ativará enquanto trabalha.
+Понятно	Entendi
+Закрываю телевизор от чужих	Fechando a TV para estranhos
+Отладка по сети нужна Уборщику только на время работы (после загрузки — около минуты). Сейчас проверю, что на этом телевизоре она включается обратно, и дальше буду выключать её сам. 	O TV Janitor só precisa da depuração pela rede enquanto trabalha (cerca de um minuto após ligar). Vou verificar que nesta TV ela volta, e daí em diante eu mesmo a desligo.  
+Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	Se você se conecta à TV pelo computador, escolha "Deixar ativada": dá para mudar com "Manter a depuração pela rede ativada".
+Хорошо	Certo
+Оставить включённой	Deixar ativada

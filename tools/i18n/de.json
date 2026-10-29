@@ -655,5 +655,14 @@
 "Der Fernseher hat nicht neu gestartet",
 "Diese Firmware scheint diesen Weg zu ignorieren. Den anderen versuchen? Wenn er klappt, merkt sich TV Janitor ihn für diesen Fernseher.",
 "Bei manchen Fernsehern schaltet der andere Weg sie aus statt neu zu starten: dann mit der Fernbedienung einschalten.",
-"Anderen Weg versuchen"
+"Anderen Weg versuchen",
+"⚠ Testversion: Netzwerk-Debugging bleibt an",
+"So erreicht das Test-Kit (tvj_test) den Fernseher vom Computer aus. Solange es an ist, kann jeder in Ihrem Netz Zugriff auf den Fernseher anfragen; ohne Ihr „Zulassen\" auf dem Bildschirm bekommt er ihn nicht. ",
+"Nach dem Test das Häkchen „Netzwerk-Debugging eingeschaltet lassen\" entfernen, dann schaltet TV Janitor es nur während der Arbeit ein.",
+"Verstanden",
+"Fernseher wird für Fremde geschlossen",
+"TV Janitor braucht Netzwerk-Debugging nur während der Arbeit (nach dem Start etwa eine Minute). Ich prüfe jetzt, dass es auf diesem Fernseher wieder angeht, und schalte es danach selbst aus. ",
+"Wenn Sie sich vom Computer mit dem Fernseher verbinden, wählen Sie „Eingeschaltet lassen\": das lässt sich mit „Netzwerk-Debugging eingeschaltet lassen\" ändern.",
+"OK",
+"Eingeschaltet lassen"
 ]

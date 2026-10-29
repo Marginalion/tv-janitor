@@ -658,3 +658,12 @@ Live Channels	Live Channels
 Эта прошивка, похоже, не слушается такого способа. Попробовать другой? Если он сработает, Уборщик запомнит его для этого телевизора.	This firmware seems to ignore this way. Try the other one? If it works, TV Janitor will remember it for this TV.
 На некоторых телевизорах другой способ выключает их вместо перезагрузки: тогда включите телевизор пультом.	On some TVs the other way switches them off instead of restarting: then switch the TV on with the remote.
 Попробовать другой способ	Try the other way
+⚠ Тестовая сборка: отладка по сети остаётся включённой	⚠ Test build: network debugging stays on
+Так набор для тестеров (tvj_test) видит телевизор с компьютера. Пока она включена, любой в вашей сети может попросить доступ к телевизору: без вашего «Разрешить» на экране он его не получит. 	This way the testers' kit (tvj_test) can reach the TV from a computer. While it is on, anyone on your network can ask for access to the TV; without your "Allow" on the screen they don't get it.  
+Закончите тест — снимите галочку «Держать отладку по сети включённой», и Уборщик будет включать её только на время работы.	When the test is over, untick "Keep network debugging on", and TV Janitor will switch it on only while it works.
+Понятно	Got it
+Закрываю телевизор от чужих	Closing the TV to strangers
+Отладка по сети нужна Уборщику только на время работы (после загрузки — около минуты). Сейчас проверю, что на этом телевизоре она включается обратно, и дальше буду выключать её сам. 	TV Janitor needs network debugging only while it works (about a minute after boot). I'll now check that it comes back on this TV, and from then on switch it off myself.  
+Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	If you connect to the TV from a computer, choose "Keep it on": you can change this with "Keep network debugging on".
+Хорошо	OK
+Оставить включённой	Keep it on

@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- **A release closes the TV by default.** On first connection, a release build no longer asks: it checks that
+  debugging comes back on this TV and from then on opens it only while it works (about a minute after boot).
+  If the check fails, debugging stays on and the log says so; "Keep it on" in the same window, or the "Keep
+  network debugging on" box, leaves it open for people who connect from a computer. A test build (…-dev…,
+  …-test…) keeps it open by default, so the testers' kit reaches the TV, and says so with a warning.
+
 ## 0.9.3-beta (2026-10-28)
 
 - **Ticks survive the other buttons.** Ticking packages and then pressing the keyboard, launcher or refresh

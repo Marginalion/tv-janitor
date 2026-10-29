@@ -658,3 +658,12 @@ Live Channels	Live Channels
 Эта прошивка, похоже, не слушается такого способа. Попробовать другой? Если он сработает, Уборщик запомнит его для этого телевизора.	Ce firmware semble ignorer cette méthode. Essayer l'autre ? Si elle marche, TV Janitor la retiendra pour ce téléviseur.
 На некоторых телевизорах другой способ выключает их вместо перезагрузки: тогда включите телевизор пультом.	Sur certains téléviseurs, l'autre méthode les éteint au lieu de les redémarrer : rallumez alors avec la télécommande.
 Попробовать другой способ	Essayer l'autre méthode
+⚠ Тестовая сборка: отладка по сети остаётся включённой	⚠ Version de test : le débogage réseau reste activé
+Так набор для тестеров (tvj_test) видит телевизор с компьютера. Пока она включена, любой в вашей сети может попросить доступ к телевизору: без вашего «Разрешить» на экране он его не получит. 	Ainsi le kit de test (tvj_test) atteint le téléviseur depuis un ordinateur. Tant qu'il est activé, n'importe qui sur votre réseau peut demander l'accès au téléviseur ; sans votre « Autoriser » à l'écran, il ne l'obtient pas.  
+Закончите тест — снимите галочку «Держать отладку по сети включённой», и Уборщик будет включать её только на время работы.	Le test fini, décochez « Garder le débogage réseau activé », et TV Janitor ne l'activera que pendant son travail.
+Понятно	Compris
+Закрываю телевизор от чужих	Je ferme le téléviseur aux inconnus
+Отладка по сети нужна Уборщику только на время работы (после загрузки — около минуты). Сейчас проверю, что на этом телевизоре она включается обратно, и дальше буду выключать её сам. 	TV Janitor n'a besoin du débogage réseau que pendant son travail (environ une minute après le démarrage). Je vérifie qu'il revient sur ce téléviseur, puis je le couperai moi-même.  
+Если вы подключаетесь к телевизору с компьютера, выберите «Оставить включённой»: это можно поменять галочкой «Держать отладку по сети включённой».	Si vous vous connectez au téléviseur depuis un ordinateur, choisissez « Le laisser activé » : cela se change avec « Garder le débogage réseau activé ».
+Хорошо	D'accord
+Оставить включённой	Le laisser activé
