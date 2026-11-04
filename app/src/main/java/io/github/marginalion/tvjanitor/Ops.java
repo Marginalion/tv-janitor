@@ -84,11 +84,21 @@ final class Ops {
     String journal() {
         String old = "";
         try { File lf = logFile(c); if (lf.isFile()) old = new String(readAll(lf), StandardCharsets.UTF_8); } catch (Exception ignored) {}
-        return old + "\n" + log;
+        return old;
     }
 
+    private static final Object LOG_LOCK = new Object();
+
+    /**
+     * Straight to the journal file, line by line: a run the TV kills half way (rc1 remark 7: the app stopped while
+     * changing Home) leaves its lines behind, and those are the ones that explain what happened.
+     */
     void note(String s) {
-        log.append(new SimpleDateFormat("dd.MM HH:mm:ss", Locale.US).format(new Date())).append("  ").append(s).append('\n');
+        String line = new SimpleDateFormat("dd.MM HH:mm:ss", Locale.US).format(new Date()) + "  " + s + "\n";
+        synchronized (LOG_LOCK) {
+            try (FileOutputStream o = new FileOutputStream(logFile(c), true)) { o.write(line.getBytes(StandardCharsets.UTF_8)); }
+            catch (Exception e) { log.append(line); }
+        }
         if (say != null) say.say(s);
     }
 
@@ -448,6 +458,9 @@ final class Ops {
                 // "As it was" includes debugging: before TV Janitor it was on all the time.
                 store.setFlag("keepAdb", true);
                 sh(adb, "am start -a android.intent.action.MAIN -c android.intent.category.HOME");
+                // The owner waits for the result and maybe a question: back to TV Janitor (Philips, rc1 remark 4).
+                try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
+                backToApp(adb);
                 boolean ok = still.isEmpty() && reoffFailed.isEmpty() && notWoken.isEmpty() && notReleased.isEmpty()
                         && badSettings.isEmpty() && homeOk;
                 if (!still.isEmpty()) note(T.t("⚠ Не вернулось: ") + still.size() + "  (" + String.join(", ", still) + ")"
@@ -511,8 +524,9 @@ final class Ops {
      * put everything back, check that another home screen (any make: Yandex, Google, Xiaomi...) answers Home,
      * and only then remove the launcher, the light keyboard and this app.
      */
-    boolean removeEverything() {
+    boolean removeEverything(java.util.List<String> resetToFactory) {
         if (!restoreAll()) { note(T.t("⚠ Не всё вернулось — удалять ничего не буду. Попробуйте ещё раз после перезагрузки.")); save(); return false; }
+        if (!resetToFactory.isEmpty() && !resetOurs(resetToFactory)) { note(T.t("⚠ Не сбросились настройки — удалять ничего не буду. Попробуйте ещё раз.")); save(); return false; }
         synchronized (LOCK) {
             Adb adb = connect(3);
             if (adb == null) { save(); return false; }
@@ -857,6 +871,8 @@ final class Ops {
         if (changed) store.edit().putStringSet("bgWas", was).commit();
     }
 
+    private static boolean allowLike(String mode) { return mode.equals("allow") || mode.equals("default"); }
+
     /** Background rules back to what rememberBg read (or "allow"/active when there is none); checked by reading. */
     private boolean restoreBg(Adb adb, String p) throws Exception {
         Set<String> was = store.set("bgWas");
@@ -868,8 +884,8 @@ final class Ops {
             String want = f[i + 1];
             sh(adb, "cmd appops set " + p + " " + BG_OPS[i] + " " + want);
             String now = opMode(adb, p, BG_OPS[i]);
-            // A "default" that reads back as the op's own default mode is the same thing.
-            if (now == null || !(now.equals(want) || want.equals("default") && now.equals("allow"))) ok = false;
+            // "allow" and "default" are the same for these ops: Android may answer either, or "No operations" (Philips).
+            if (now == null || !(now.equals(want) || allowLike(want) && allowLike(now))) ok = false;
         }
         String bucket = f.length > 3 && !f[3].isEmpty() ? f[3] : "10";
         adb.shell("am set-standby-bucket " + p + " " + bucket + " 2>&1");
@@ -885,6 +901,27 @@ final class Ops {
             if (l.startsWith("package:") && chosen.contains(l.substring(8))) off.add(l.substring(8));
         }
         return off;
+    }
+
+    /**
+     * Packages the owner removed since they were chosen leave our lists (rc1 remark 8: an uninstalled app was put to
+     * sleep at every boot, with "No UID" errors). Asked from Android over ADB, not from our own package manager view.
+     */
+    Set<String> forgetGone(Adb adb) throws Exception {
+        Set<String> all = new java.util.HashSet<>();
+        for (String l : adb.shell("pm list packages").split("\n")) { l = l.trim(); if (l.startsWith("package:")) all.add(l.substring(8)); }
+        Set<String> gone = new java.util.TreeSet<>();
+        if (all.size() < 20 || !all.contains(BuildInfo.SELF)) return gone;      // an answer we cannot trust
+        Set<String> sl = store.sleeping(), d = store.disabled(), bg = store.set("bgWas");
+        for (String p : sl) if (!all.contains(p)) gone.add(p);
+        for (String p : d) if (!all.contains(p)) gone.add(p);
+        if (gone.isEmpty()) return gone;
+        sl.removeAll(gone); d.removeAll(gone);
+        Set<String> a = store.set("appliedOff"); a.removeAll(gone);
+        bg.removeIf(e -> gone.contains(e.substring(0, e.indexOf('|'))));
+        store.edit().putStringSet("sleep", sl).putStringSet("disabled", d).putStringSet("appliedOff", a).putStringSet("bgWas", bg).commit();
+        note(T.t("Удалены с телевизора — убираю из списка: ") + String.join(", ", gone));
+        return gone;
     }
 
     void disableAll(Adb adb, Collection<String> pkgs) throws Exception {
@@ -948,6 +985,7 @@ final class Ops {
                 // that was saved but never applied (the app was closed mid-way) is simply applied now.
                 java.util.Set<String> applied = store.set("appliedOff");
                 int pending = 0;
+                forgetGone(adb);
                 neverOff(adb, null);
                 sparePersistent(adb, store.disabled());
                 // Switched back on from outside since the last run, and the owner uses it (HDMI on Sunwind: the TV
@@ -1043,6 +1081,8 @@ final class Ops {
                 snapshot(adb);
                 keepAuth(adb);
                 rollbackStockHome(adb);
+                Set<String> gone = forgetGone(adb);
+                disable.removeAll(gone); sleep.removeAll(gone); wake.removeAll(gone); enable.removeAll(gone);
                 // Philips 04.11: "Optimal" left the row of the stock Home unticked, and enable switched it back on,
                 // so Home went to Google's launcher again. While ours is Home, only "Back to the old home" brings it back.
                 String keepOff = store.flag("launcher", false) ? store.str("stockHome") : null;
@@ -1195,6 +1235,7 @@ final class Ops {
         try {
             note(T.t("Отключаю заводской «Домой» с проверкой: ") + stock);
             sh(adb, "pm disable-user --user 0 " + stock);
+            testPause(adb);
             sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
             boolean ok = false;
             String top = "";
@@ -1236,6 +1277,16 @@ final class Ops {
     private boolean inHomeTx;
 
     /** Marker on disk before the stock Home is touched: which one, and which component was Home (F94.3). */
+    /**
+     * Only for a test of a cut-short Home change (audit F94.3): with `setprop debug.tvj.pause 1` set from a computer,
+     * waits 20 s at the riskiest point, so the app can be stopped there by hand. Without the property, nothing.
+     */
+    private void testPause(Adb adb) throws Exception {
+        if (!"1".equals(adb.shell("getprop debug.tvj.pause").trim())) return;
+        note(T.t("⏸ Тестовая пауза 20 секунд (debug.tvj.pause=1)"));
+        Thread.sleep(20000);
+    }
+
     private boolean beginHomeTx(Adb adb, String stock) throws Exception {
         String was = homeComponent(adb);
         inHomeTx = true;
@@ -2023,10 +2074,15 @@ final class Ops {
     private void save() {
         try {
             File lf = logFile(c);
-            String old = lf.isFile() ? new String(readAll(lf), StandardCharsets.UTF_8) : "";
-            if (old.length() > 30000) old = old.substring(old.length() - 30000);
-            try (FileOutputStream o = new FileOutputStream(lf)) { o.write((old + "\n" + log).getBytes(StandardCharsets.UTF_8)); }
-            log.setLength(0);
+            synchronized (LOG_LOCK) {
+                String old = lf.isFile() ? new String(readAll(lf), StandardCharsets.UTF_8) : "";
+                if (old.length() > 40000 || log.length() > 0) {
+                    String all = old + log;
+                    if (all.length() > 30000) { all = all.substring(all.length() - 30000); int nl = all.indexOf('\n'); if (nl >= 0) all = all.substring(nl + 1); }
+                    try (FileOutputStream o = new FileOutputStream(lf)) { o.write(all.getBytes(StandardCharsets.UTF_8)); }
+                    log.setLength(0);
+                }
+            }
             if (dbgLog.length() > 0) {
                 File df = new File(lf.getParentFile(), "debug.txt");
                 String o2 = df.isFile() ? new String(readAll(df), StandardCharsets.UTF_8) : "";

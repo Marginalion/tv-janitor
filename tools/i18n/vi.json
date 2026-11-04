@@ -750,5 +750,18 @@
 "⚠ Chạy nền không trở lại: ",
 "⚠ Cài đặt không trở lại: ",
 "⚠ Không đặt lại được: ",
-"⚠ Ảnh chụp \"như cũ\" chưa đầy đủ: cài đặt trước TV Janitor chưa được ghi. \"Khôi phục tất cả\" sẽ trả lại các gói và giữ nguyên cài đặt"
+"⚠ Ảnh chụp \"như cũ\" chưa đầy đủ: cài đặt trước TV Janitor chưa được ghi. \"Khôi phục tất cả\" sẽ trả lại các gói và giữ nguyên cài đặt",
+"Trước lần chạy đầu của TV Janitor, ở đây đã là đúng các giá trị TV Janitor tự đặt: có lẽ còn sót từ lần cài trước. Sau khi gỡ sẽ không ai đặt lại được.",
+"Giữ và gỡ",
+"Đặt lại và gỡ",
+"Không còn gì để tắt: chỉ launcher.",
+"Gỡ lỗi vẫn mở sau khi TV Janitor bị dừng: đã đóng",
+"Làm tất cả",
+"✨  Làm tất cả",
+"✨ Làm tất cả",
+"Trước tiên cài launcher mới, sau đó áp dụng \"Tối ưu\".",
+"Đã gỡ khỏi TV — bỏ khỏi danh sách: ",
+"launcher mới và \"Tối ưu\" một lần",
+"⏸ Tạm dừng thử 20 giây (debug.tvj.pause=1)",
+"⚠ Cài đặt chưa được đặt lại: không gỡ gì cả. Hãy thử lại."
 ]

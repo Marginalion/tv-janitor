@@ -750,5 +750,18 @@
 "⚠ Arka plan çalışması geri gelmedi: ",
 "⚠ Geri gelmeyen ayarlar: ",
 "⚠ Sıfırlanmadı: ",
-"⚠ \"Olduğu gibi\" anlık görüntüsü eksik: TV Janitor öncesi ayarlar kaydedilmemiş. \"Her şeyi geri al\" paketleri geri getirir, ayarları olduğu gibi bırakır"
+"⚠ \"Olduğu gibi\" anlık görüntüsü eksik: TV Janitor öncesi ayarlar kaydedilmemiş. \"Her şeyi geri al\" paketleri geri getirir, ayarları olduğu gibi bırakır",
+"TV Janitor ilk çalışmadan önce burada TV Janitor'ın kendi koyduğu değerler vardı: büyük olasılıkla önceki bir kurulumdan kaldı. Kaldırıldıktan sonra kimse sıfırlayamaz.",
+"Koru ve kaldır",
+"Sıfırla ve kaldır",
+"Kapatılacak bir şey kalmadı: yalnızca başlatıcı.",
+"TV Janitor durdurulduktan sonra hata ayıklama açık kalmıştı: kapattım",
+"Hepsini yap",
+"✨  Hepsini yap",
+"✨ Hepsini yap",
+"Önce yeni başlatıcı kurulur, sonra \"İdeal\" uygulanır.",
+"TV'den kaldırılmış, listeden çıkarıyorum: ",
+"yeni başlatıcı ve \"İdeal\" tek seferde",
+"⏸ Test duraklatması, 20 saniye (debug.tvj.pause=1)",
+"⚠ Ayarlar sıfırlanmadı: hiçbir şey kaldırmıyorum. Lütfen tekrar deneyin."
 ]

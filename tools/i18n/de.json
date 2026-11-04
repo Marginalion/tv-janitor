@@ -750,5 +750,18 @@
 "⚠ Hintergrundarbeit nicht zurück: ",
 "⚠ Einstellungen nicht zurück: ",
 "⚠ Nicht zurückgesetzt: ",
-"⚠ Der Schnappschuss „wie es war\" ist unvollständig: die Einstellungen von vor TV Janitor fehlen. „Alles zurücksetzen\" stellt die Pakete wieder her und lässt die Einstellungen, wie sie sind"
+"⚠ Der Schnappschuss „wie es war\" ist unvollständig: die Einstellungen von vor TV Janitor fehlen. „Alles zurücksetzen\" stellt die Pakete wieder her und lässt die Einstellungen, wie sie sind",
+"Vor dem ersten Start von TV Janitor standen hier genau die Werte, die TV Janitor selbst setzt: wohl Reste einer früheren Installation. Nach dem Entfernen kann sie niemand mehr zurücksetzen.",
+"Behalten und entfernen",
+"Zurücksetzen und entfernen",
+"Nichts mehr abzuschalten: nur der Launcher.",
+"Debugging blieb nach dem Stoppen von TV Janitor offen: geschlossen",
+"Alles erledigen",
+"✨  Alles erledigen",
+"✨ Alles erledigen",
+"Zuerst kommt der neue Launcher, dann wird „Optimal\" angewendet.",
+"Vom Fernseher entfernt, nehme sie von der Liste: ",
+"neuer Launcher und „Optimal\" auf einmal",
+"⏸ Testpause, 20 Sekunden (debug.tvj.pause=1)",
+"⚠ Die Einstellungen wurden nicht zurückgesetzt: nichts wird entfernt. Bitte erneut versuchen."
 ]

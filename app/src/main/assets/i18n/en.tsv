@@ -753,3 +753,16 @@ Android 11+ забывает «Всегда разрешать» через 7 д
 ⚠ Не вернулись настройки: 	⚠ Settings did not come back:  
 ⚠ Не сбросились: 	⚠ Not reset:  
 ⚠ Снимок «как было» неполный: настройки до Уборщика не записаны. «Вернуть всё» вернёт пакеты, а настройки оставит как есть	⚠ The "as it was" snapshot is incomplete: the settings from before TV Janitor were not recorded. "Restore everything" brings the packages back and leaves the settings as they are
+До первого запуска Уборщика здесь стояли ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки. После удаления сбросить их будет некому.	Before TV Janitor first ran, these held exactly the values TV Janitor itself sets: most likely left by an earlier install. Once it is removed, nobody can reset them.
+Оставить и удалить	Keep and remove
+Сбросить и удалить	Reset and remove
+Отключать уже нечего — только оболочка.	Nothing left to switch off: just the launcher.
+Отладка осталась открытой после остановки Уборщика — закрыл	Debugging was left open after TV Janitor was stopped: closed it
+Сделать всё	Do everything
+✨  Сделать всё	✨  Do everything
+✨ Сделать всё	✨ Do everything
+Сначала поставим новую оболочку, потом применим «Оптимально».	First the new launcher goes in, then "Optimal" is applied.
+Удалены с телевизора — убираю из списка: 	Removed from the TV, taking them off the list:  
+новая оболочка и «Оптимально» одной кнопкой	new launcher and "Optimal" in one go
+⏸ Тестовая пауза 20 секунд (debug.tvj.pause=1)	⏸ Test pause, 20 seconds (debug.tvj.pause=1)
+⚠ Не сбросились настройки — удалять ничего не буду. Попробуйте ещё раз.	⚠ The settings did not reset: removing nothing. Please try again.

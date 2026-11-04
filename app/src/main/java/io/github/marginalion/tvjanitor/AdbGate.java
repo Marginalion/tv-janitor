@@ -73,7 +73,10 @@ final class AdbGate {
 
     /** At process start: debugging left open by a run that died is closed now, not "some time later". */
     static void afterCrash(Context c) {
-        if (new Store(c).flag("adbOpenedTmp", false) && !MainActivity.busy()) close(c);
+        if (!new Store(c).flag("adbOpenedTmp", false) || MainActivity.busy()) return;
+        boolean wasOn = isOn(c);
+        close(c);
+        if (wasOn && !isOn(c)) Ops.logLine(c, T.t("Отладка осталась открытой после остановки Уборщика — закрыл"));
     }
 
     /** Switch off without the checks: only for the cycle test, which switches it on again at once. */

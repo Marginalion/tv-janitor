@@ -750,5 +750,18 @@
 "⚠ O trabalho em segundo plano não voltou: ",
 "⚠ Configurações que não voltaram: ",
 "⚠ Não redefinidas: ",
-"⚠ O instantâneo \"como era\" está incompleto: as configurações de antes do TV Janitor não foram gravadas. \"Restaurar tudo\" devolve os pacotes e deixa as configurações como estão"
+"⚠ O instantâneo \"como era\" está incompleto: as configurações de antes do TV Janitor não foram gravadas. \"Restaurar tudo\" devolve os pacotes e deixa as configurações como estão",
+"Antes da primeira execução do TV Janitor, aqui estavam exatamente os valores que o próprio TV Janitor define: provavelmente sobras de uma instalação anterior. Depois da remoção, ninguém poderá redefini-los.",
+"Manter e remover",
+"Redefinir e remover",
+"Nada mais para desativar: só o launcher.",
+"A depuração ficou aberta após o TV Janitor parar: fechada",
+"Fazer tudo",
+"✨  Fazer tudo",
+"✨ Fazer tudo",
+"Primeiro entra o novo launcher, depois o \"Ideal\" é aplicado.",
+"Removidos da TV, tirando da lista: ",
+"novo launcher e \"Ideal\" de uma vez",
+"⏸ Pausa de teste, 20 segundos (debug.tvj.pause=1)",
+"⚠ As configurações não foram redefinidas: não removo nada. Tente de novo."
 ]

@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.9.5-rc2 (2026-11-04)
+
+After the first run of rc1 on Philips 50PUS8505.
+
+- **"✨ Do everything"** on the simple screen: the new launcher, then "Optimal", with one button. The step by step
+  way stays.
+- **"Uninstall cleanly" no longer stops on a false alarm.** Apps put to sleep by an older version had no saved
+  background rules, and Android answering "no rules" (the same as allowed) was taken for a failure.
+- **"Reset to factory?" is not lost.** After "Restore everything" TV Janitor comes back on screen instead of
+  staying behind Home; the question about values that look like TV Janitor's own comes even when a package did not
+  come back, and "Uninstall cleanly" asks it before removing the app (nobody could reset them afterwards).
+- **Debugging is closed after a force-stop too.** Android gives a force-stopped app no boot signal; our launcher
+  now nudges TV Janitor when it starts, so debugging left open is closed after the next boot.
+- **The journal keeps a run that was cut short:** every line goes to the file at once, not at the end.
+- **Removed apps leave the lists:** no more "No UID" errors at every boot for an app the owner uninstalled.
+- For testers: `adb shell setprop debug.tvj.pause 1` adds a 20 s pause while the stock Home is switched off.
+
 ## 0.9.5-rc1 (2026-11-04)
 
 Reliability and honesty, after the independent audit of 0.9.4-beta2 (all of F94.1–F94.11, R94.1–R94.3).

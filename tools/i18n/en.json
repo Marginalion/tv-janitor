@@ -750,5 +750,18 @@
 "⚠ Background work did not come back: ",
 "⚠ Settings did not come back: ",
 "⚠ Not reset: ",
-"⚠ The \"as it was\" snapshot is incomplete: the settings from before TV Janitor were not recorded. \"Restore everything\" brings the packages back and leaves the settings as they are"
+"⚠ The \"as it was\" snapshot is incomplete: the settings from before TV Janitor were not recorded. \"Restore everything\" brings the packages back and leaves the settings as they are",
+"Before TV Janitor first ran, these held exactly the values TV Janitor itself sets: most likely left by an earlier install. Once it is removed, nobody can reset them.",
+"Keep and remove",
+"Reset and remove",
+"Nothing left to switch off: just the launcher.",
+"Debugging was left open after TV Janitor was stopped: closed it",
+"Do everything",
+"✨  Do everything",
+"✨ Do everything",
+"First the new launcher goes in, then \"Optimal\" is applied.",
+"Removed from the TV, taking them off the list: ",
+"new launcher and \"Optimal\" in one go",
+"⏸ Test pause, 20 seconds (debug.tvj.pause=1)",
+"⚠ The settings did not reset: removing nothing. Please try again."
 ]

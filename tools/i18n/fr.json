@@ -750,5 +750,18 @@
 "⚠ Le travail en arrière-plan n'est pas revenu : ",
 "⚠ Réglages non revenus : ",
 "⚠ Non réinitialisés : ",
-"⚠ L'instantané « comme avant » est incomplet : les réglages d'avant TV Janitor n'ont pas été enregistrés. « Tout rétablir » rétablit les paquets et laisse les réglages tels quels"
+"⚠ L'instantané « comme avant » est incomplet : les réglages d'avant TV Janitor n'ont pas été enregistrés. « Tout rétablir » rétablit les paquets et laisse les réglages tels quels",
+"Avant le premier lancement de TV Janitor, il y avait exactement les valeurs que TV Janitor met lui-même : sans doute restées d'une installation précédente. Une fois supprimé, personne ne pourra les réinitialiser.",
+"Garder et supprimer",
+"Réinitialiser et supprimer",
+"Plus rien à désactiver : seulement le lanceur.",
+"Le débogage était resté ouvert après l'arrêt de TV Janitor : fermé",
+"Tout faire",
+"✨  Tout faire",
+"✨ Tout faire",
+"D'abord le nouveau lanceur, puis « Optimal » est appliqué.",
+"Supprimées du téléviseur, je les retire de la liste : ",
+"nouveau lanceur et « Optimal » d'un coup",
+"⏸ Pause de test, 20 secondes (debug.tvj.pause=1)",
+"⚠ Les réglages ne se sont pas réinitialisés : je ne supprime rien. Réessayez."
 ]

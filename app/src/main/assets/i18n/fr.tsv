@@ -753,3 +753,16 @@ Android 11+ забывает «Всегда разрешать» через 7 д
 ⚠ Не вернулись настройки: 	⚠ Réglages non revenus :  
 ⚠ Не сбросились: 	⚠ Non réinitialisés :  
 ⚠ Снимок «как было» неполный: настройки до Уборщика не записаны. «Вернуть всё» вернёт пакеты, а настройки оставит как есть	⚠ L'instantané « comme avant » est incomplet : les réglages d'avant TV Janitor n'ont pas été enregistrés. « Tout rétablir » rétablit les paquets et laisse les réglages tels quels
+До первого запуска Уборщика здесь стояли ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки. После удаления сбросить их будет некому.	Avant le premier lancement de TV Janitor, il y avait exactement les valeurs que TV Janitor met lui-même : sans doute restées d'une installation précédente. Une fois supprimé, personne ne pourra les réinitialiser.
+Оставить и удалить	Garder et supprimer
+Сбросить и удалить	Réinitialiser et supprimer
+Отключать уже нечего — только оболочка.	Plus rien à désactiver : seulement le lanceur.
+Отладка осталась открытой после остановки Уборщика — закрыл	Le débogage était resté ouvert après l'arrêt de TV Janitor : fermé
+Сделать всё	Tout faire
+✨  Сделать всё	✨  Tout faire
+✨ Сделать всё	✨ Tout faire
+Сначала поставим новую оболочку, потом применим «Оптимально».	D'abord le nouveau lanceur, puis « Optimal » est appliqué.
+Удалены с телевизора — убираю из списка: 	Supprimées du téléviseur, je les retire de la liste :  
+новая оболочка и «Оптимально» одной кнопкой	nouveau lanceur et « Optimal » d'un coup
+⏸ Тестовая пауза 20 секунд (debug.tvj.pause=1)	⏸ Pause de test, 20 secondes (debug.tvj.pause=1)
+⚠ Не сбросились настройки — удалять ничего не буду. Попробуйте ещё раз.	⚠ Les réglages ne se sont pas réinitialisés : je ne supprime rien. Réessayez.

@@ -141,7 +141,8 @@ debug key; such a build can't update the official release in place.
   on" in that window or tick "Keep network debugging on" later. Test builds (…-dev, …-test) keep it on and say so.
   Before closing it, the app checks from inside the TV that port 5555 no longer answers; if it still does (for example
   wireless debugging is on separately), debugging is left on and the log says so. If the app is killed while
-  debugging is open, it closes it at its next start.
+  debugging is open, it closes it at its next start; after a force-stop Android does not start it at boot, so
+  with the new launcher it is woken when Home starts, and without it debugging closes the next time you open TV Janitor.
   With "Don't forget the debugging permission" (on by default, Android 11+), the app sets `adb_allowed_connection_time`
   to 0, so "Always allow" is not forgotten after 7 days. This applies to every computer you allowed before, not
   only to TV Janitor; untick it to get the old value back. "Restore everything" puts it back too. Anyone who reaches port 5555 still needs

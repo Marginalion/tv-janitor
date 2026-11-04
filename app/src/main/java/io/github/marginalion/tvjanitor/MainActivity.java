@@ -123,6 +123,14 @@ public class MainActivity extends Activity {
         Button tOne = tile(T.t("🧹  Оптимизировать телевизор"), T.t("отключит только то, про что точно известно, что оно лишнее"));
         if (Edition.LITE) addTile(tiles, tOne);
         else { addTile(tiles, tSafe); addTile(tiles, tRec); addTile(tiles, tMax); }
+        // Owner, 04.11 (Philips rc1): one button for the usual way, new launcher and "Optimal" together.
+        if (!Edition.LITE) {
+            LinearLayout allRow = row();
+            Button tAll = tile(T.t("✨  Сделать всё"), T.t("новая оболочка и «Оптимально» одной кнопкой"));
+            addTile(allRow, tAll);
+            tAll.setOnClickListener(v -> doAll());
+            simple.addView(allRow);
+        }
         simple.addView(tiles);
         simple.addView(text(T.t("То, чем вы пользуетесь, не тронем. Перед применением покажем, что изменится."), 15, DIM));
         LinearLayout sb = row();
@@ -246,7 +254,7 @@ public class MainActivity extends Activity {
                         + T.t("Эта кнопка сначала вернёт всё как было и проверит, что заводской главный экран на месте, ")
                         + T.t("потом удалит новую оболочку, лёгкую клавиатуру и самого Уборщика. Если что-то не вернётся, ничего удалять не будет."))
                 .setNegativeButton(T.t("Отмена"), null)
-                .setPositiveButton(T.t("Удалить"), (d, w) -> run(T.t("Возвращаю всё и удаляю…"), () -> new Ops(this, this::say).removeEverything()))
+                .setPositiveButton(T.t("Удалить"), (d, w) -> askOursThenRemove())
                 .show());
         refresh.setOnClickListener(v -> scan());
         dbBtn.setOnClickListener(v -> {
@@ -352,6 +360,42 @@ public class MainActivity extends Activity {
     private boolean simpleRun, applyRun;
 
     /** One press: set the mode, show what changes, apply, then offer a reboot. */
+    private boolean allPending;
+    private Runnable afterList;
+
+    /** "✨ Do everything": the new launcher first (the stock one may rely on what goes off), then "Optimal". */
+    private void doAll() {
+        if (busy()) return;
+        if (store.flag("launcher", false)) { quick(1); return; }
+        String msg = summary(1);
+        new android.app.AlertDialog.Builder(this)
+                .setTitle(T.t("✨ Сделать всё"))
+                .setMessage(T.t("Сначала поставим новую оболочку, потом применим «Оптимально».") + "\n\n"
+                        + (msg != null ? msg : T.t("Отключать уже нечего — только оболочка.")))
+                .setNegativeButton(T.t("Отмена"), (d, w) -> buildList())
+                .setPositiveButton(T.t("Сделать всё"), (d, w) -> {
+                    if (msg != null) allPending = true;
+                    toggleLauncher();
+                })
+                .show();
+    }
+
+    /** What a preset changes, in words; null when nothing. Sets the ticks. */
+    private String summary(int mode) {
+        preset(mode);
+        int off = 0, sleep = 0; long kb = 0;
+        Set<String> slept = store.sleeping();
+        for (Row r : rows) {
+            int now = !r.enabled ? 2 : slept.contains(r.pkg) ? 1 : 0;
+            if (r.state == now) continue;
+            if (r.state == 2) { off++; kb += r.kb; } else if (r.state == 1) { sleep++; kb += r.kb; }
+        }
+        if (off + sleep == 0) return null;
+        return (off > 0 ? T.t("Отключим: ") + off + "\n" : "")
+                + (sleep > 0 ? T.t("Не будут запускаться сами: ") + sleep + T.t(" (открываются как обычно)\n") : "")
+                + (kb > 0 ? T.t("Сейчас они занимают около ") + kb / 1024 + T.t(" МБ\n") : "");
+    }
+
     private void quick(int mode) {
         if (busy()) return;
         preset(mode);
@@ -478,7 +522,8 @@ public class MainActivity extends Activity {
             boolean ok = ops.restoreAll();
             // The questions come only after a restore that went through (audit F94.8): "all is back" must be true.
             Set<String> f = ok ? ops.foreignOff() : new HashSet<>();
-            java.util.List<String> ours = ok ? ops.oursInSnapshot() : new java.util.ArrayList<>();
+            // Settings come back even when a package did not (rc1 remark 2): the question about them stands on its own.
+            java.util.List<String> ours = ops.oursInSnapshot();
             if (!f.isEmpty() || !ours.isEmpty()) runOnUiThread(() -> { if (!f.isEmpty()) offerForeign(f, ours); else offerOurs(ours); });
             return ok;
         });
@@ -488,6 +533,21 @@ public class MainActivity extends Activity {
      * The snapshot holds exactly TV Janitor's own values (animations 0.5, AdGuard DNS…): most likely left by an
      * earlier install, but maybe the owner's. Restore kept them (audit F94.1); here the owner decides.
      */
+    /** After the app is gone nobody can reset TV Janitor's own values, so the question comes before (rc1 remark 2). */
+    private void askOursThenRemove() {
+        java.util.List<String> keys = new Ops(this, null).oursInSnapshot();
+        if (keys.isEmpty()) { run(T.t("Возвращаю всё и удаляю…"), () -> new Ops(this, this::say).removeEverything(keys)); return; }
+        StringBuilder names = new StringBuilder();
+        for (String k : keys) names.append("\n• ").append(k).append(" = ").append(store.str("snap_" + k));
+        new android.app.AlertDialog.Builder(this)
+                .setTitle(T.t("Сбросить к заводским?"))
+                .setMessage(T.t("До первого запуска Уборщика здесь стояли ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки. После удаления сбросить их будет некому.") + names
+                        + "\n\n" + T.t("Если вы не ставили их сами, сбросьте к заводским."))
+                .setNegativeButton(T.t("Оставить и удалить"), (d, w) -> run(T.t("Возвращаю всё и удаляю…"), () -> new Ops(this, this::say).removeEverything(new java.util.ArrayList<>())))
+                .setPositiveButton(T.t("Сбросить и удалить"), (d, w) -> run(T.t("Возвращаю всё и удаляю…"), () -> new Ops(this, this::say).removeEverything(keys)))
+                .show();
+    }
+
     private void offerOurs(java.util.List<String> keys) {
         if (keys.isEmpty()) return;
         StringBuilder names = new StringBuilder();
@@ -589,6 +649,7 @@ public class MainActivity extends Activity {
                 show(status, "");
                 buildList();
                 if (afterScan != null) { show(status, afterScan); afterScan = null; }
+                if (afterList != null) { Runnable r = afterList; afterList = null; r.run(); return; }
                 if (m.containsKey("_connected")) offerCloseAdb();
             });
         }).start();
@@ -928,6 +989,7 @@ public class MainActivity extends Activity {
                 if (wasApply && done && Share.shouldAsk(this)) { boolean r = simpleRun; simpleRun = false; askShare(r); }
                 if (simpleRun) { simpleRun = false; if (done) offerReboot(); }
                 if (openAfterJob != null) { String p = openAfterJob; openAfterJob = null; if (done) openApp(p); }
+                if (allPending) { allPending = false; if (done) afterList = () -> { preset(1); simpleRun = true; doApply(); }; }
                 String last = status.getText().toString();
                 show(status, (done ? T.t("Готово ✔") : T.t("Не получилось — см. «Журнал»")) + (last.startsWith("⚠") || last.startsWith(T.t("Итог: ")) ? "  ·  " + last : ""));
                 scan();

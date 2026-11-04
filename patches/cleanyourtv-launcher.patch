@@ -1,5 +1,46 @@
+diff --git a/launcher/app/src/main/AndroidManifest.xml b/launcher/app/src/main/AndroidManifest.xml
+index 5da0f46a..fbd2ff5c 100644
+--- a/launcher/app/src/main/AndroidManifest.xml
++++ b/launcher/app/src/main/AndroidManifest.xml
+@@ -62,6 +62,7 @@
+         </intent>
+         <!-- China-market MIUI TV firmware: the Settings and Wi-Fi pills fall back to Xiaomi's settings app.
+              Fire TV: the real settings menu lives in the stock launcher (see settings_fallback_components). -->
++        <package android:name="io.github.marginalion.tvjanitor" />
+         <package android:name="com.xiaomi.mitv.settings" />
+         <package android:name="com.tcl.settings" />
+         <package android:name="com.amazon.tv.launcher" />
+diff --git a/launcher/app/src/main/java/com/gathin/tvhome/MainActivity.java b/launcher/app/src/main/java/com/gathin/tvhome/MainActivity.java
+index d992768a..664b2de1 100644
+--- a/launcher/app/src/main/java/com/gathin/tvhome/MainActivity.java
++++ b/launcher/app/src/main/java/com/gathin/tvhome/MainActivity.java
+@@ -369,9 +369,24 @@ public class MainActivity extends Activity implements AppAdapter.TileListener {
+         }
+     };
+ 
++    /** Once per launcher process: TV Janitor gets a nudge even when it was force-stopped (no boot broadcast then). */
++    private static boolean janitorNudged;
++
++    private void nudgeJanitor() {
++        if (janitorNudged) return;
++        janitorNudged = true;
++        try {
++            Intent i = new Intent("io.github.marginalion.tvjanitor.HOME_UP")
++                    .setComponent(new ComponentName("io.github.marginalion.tvjanitor", "io.github.marginalion.tvjanitor.BootReceiver"))
++                    .addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
++            sendBroadcast(i);
++        } catch (RuntimeException ignored) { }
++    }
++
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
++        nudgeJanitor();
+         setContentView(R.layout.activity_main);
+         density = getResources().getDisplayMetrics().density;
+         // config.xml, overlaid by config.json from a pushed theme (see Config and tools/theme.sh).
 diff --git a/launcher/app/src/main/java/com/gathin/tvhome/SystemSettings.java b/launcher/app/src/main/java/com/gathin/tvhome/SystemSettings.java
-index 20eb8e0..75700b8 100644
+index 20eb8e01..75700b80 100644
 --- a/launcher/app/src/main/java/com/gathin/tvhome/SystemSettings.java
 +++ b/launcher/app/src/main/java/com/gathin/tvhome/SystemSettings.java
 @@ -15,6 +15,11 @@ final class SystemSettings {
@@ -38,7 +79,7 @@ index 20eb8e0..75700b8 100644
                  continue;
              }
 diff --git a/launcher/app/src/main/res/values/config.xml b/launcher/app/src/main/res/values/config.xml
-index 8dbd32b..25c76c6 100644
+index 8dbd32be..25c76c69 100644
 --- a/launcher/app/src/main/res/values/config.xml
 +++ b/launcher/app/src/main/res/values/config.xml
 @@ -9,6 +9,13 @@

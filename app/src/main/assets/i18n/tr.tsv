@@ -753,3 +753,16 @@ Android 11+ забывает «Всегда разрешать» через 7 д
 ⚠ Не вернулись настройки: 	⚠ Geri gelmeyen ayarlar:  
 ⚠ Не сбросились: 	⚠ Sıfırlanmadı:  
 ⚠ Снимок «как было» неполный: настройки до Уборщика не записаны. «Вернуть всё» вернёт пакеты, а настройки оставит как есть	⚠ "Olduğu gibi" anlık görüntüsü eksik: TV Janitor öncesi ayarlar kaydedilmemiş. "Her şeyi geri al" paketleri geri getirir, ayarları olduğu gibi bırakır
+До первого запуска Уборщика здесь стояли ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки. После удаления сбросить их будет некому.	TV Janitor ilk çalışmadan önce burada TV Janitor'ın kendi koyduğu değerler vardı: büyük olasılıkla önceki bir kurulumdan kaldı. Kaldırıldıktan sonra kimse sıfırlayamaz.
+Оставить и удалить	Koru ve kaldır
+Сбросить и удалить	Sıfırla ve kaldır
+Отключать уже нечего — только оболочка.	Kapatılacak bir şey kalmadı: yalnızca başlatıcı.
+Отладка осталась открытой после остановки Уборщика — закрыл	TV Janitor durdurulduktan sonra hata ayıklama açık kalmıştı: kapattım
+Сделать всё	Hepsini yap
+✨  Сделать всё	✨  Hepsini yap
+✨ Сделать всё	✨ Hepsini yap
+Сначала поставим новую оболочку, потом применим «Оптимально».	Önce yeni başlatıcı kurulur, sonra "İdeal" uygulanır.
+Удалены с телевизора — убираю из списка: 	TV'den kaldırılmış, listeden çıkarıyorum:  
+новая оболочка и «Оптимально» одной кнопкой	yeni başlatıcı ve "İdeal" tek seferde
+⏸ Тестовая пауза 20 секунд (debug.tvj.pause=1)	⏸ Test duraklatması, 20 saniye (debug.tvj.pause=1)
+⚠ Не сбросились настройки — удалять ничего не буду. Попробуйте ещё раз.	⚠ Ayarlar sıfırlanmadı: hiçbir şey kaldırmıyorum. Lütfen tekrar deneyin.
