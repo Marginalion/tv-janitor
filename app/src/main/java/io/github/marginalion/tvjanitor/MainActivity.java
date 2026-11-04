@@ -959,10 +959,20 @@ public class MainActivity extends Activity {
     @Override protected void onStop() {
         super.onStop();
         if (!isChangingConfigurations() && !openingLog) {
-            finishAndRemoveTask();
+            // Not finished at once while a job runs: a Home check presses Home and then brings this very screen
+            // back (with its pending question, or "then Optimal" of "Do everything"). Finishing it here lost both
+            // (Philips rc2: thrown out to Home after "Do everything" and "Restore everything").
+            if (!busy()) finishAndRemoveTask();
             new Thread(() -> {
                 while (busy()) { try { Thread.sleep(500); } catch (InterruptedException ignored) {} }
-                synchronized (Ops.LOCK) { AdbGate.close(this); android.os.Process.killProcess(android.os.Process.myPid()); }
+                try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
+                if (App.visible() > 0) return;                 // back on screen: nothing to end
+                runOnUiThread(() -> { if (App.visible() == 0 && !isFinishing()) finishAndRemoveTask(); });
+                try { Thread.sleep(300); } catch (InterruptedException ignored) {}
+                synchronized (Ops.LOCK) {
+                    if (App.visible() > 0) return;
+                    AdbGate.close(this); android.os.Process.killProcess(android.os.Process.myPid());
+                }
             }).start();
         }
     }
