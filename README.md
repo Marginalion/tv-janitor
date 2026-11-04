@@ -62,7 +62,8 @@ the record, the Janitor doesn't delete anything. The only thing it really cleans
 
 Both are the same app (`io.github.marginalion.tvjanitor`), so one installs over the other and keeps your choices.
 Android still lists the INTERNET permission for Lite: it is needed for the app's own connection to the TV's
-ADB at 127.0.0.1. Lite never goes online: its build switches off the base update.
+ADB at 127.0.0.1. Lite never goes online: its build switches off the base update, update offers and reports.
+Full offers a newer release once one is out (it never updates silently) and checks the file before installing it.
 
 ## What it does
 

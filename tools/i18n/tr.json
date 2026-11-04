@@ -693,5 +693,20 @@
 "Deneyimi otomatik paylaş\nrapor kendiliğinden TV Janitor yazarına gider ve aynı TV'nin sahiplerine yardım eder",
 "Teşekkürler! Rapor kendiliğinden gönderilecek",
 "Deneyiminiz aynı TV'nin sahiplerine neyin kapatılabileceğini gösterir. Kutu işaretliyse rapor kendiliğinden TV Janitor yazarına gider (Google formu, isim ve e-posta yok): ilk yeniden başlatmadan sonra, bir gün sonra, geri almadan sonra ve \"Her şeyi geri yükle\"den sonra. İşaret yoksa hiçbir şey gönderilmez.",
-"Raporla birlikte TV Janitor günlüğü ve sistem paketleri listesi de gider: ilk yeniden başlatmadan sonra, geri almadan sonra ve \"Her şeyi geri yükle\"den sonra. \"ve benim uygulamalarım da\" işaretli değilse uygulamalarınız gizlenir."
+"Raporla birlikte TV Janitor günlüğü ve sistem paketleri listesi de gider: ilk yeniden başlatmadan sonra, geri almadan sonra ve \"Her şeyi geri yükle\"den sonra. \"ve benim uygulamalarım da\" işaretli değilse uygulamalarınız gizlenir.",
+"TV Janitor güncelleniyor: ",
+"⚠ Sağlama toplamı SHA256SUMS.txt ile eşleşmiyor, güncelleme iptal edildi",
+"⚠ Dosya bizim anahtarımızla imzalanmamış, güncelleme iptal edildi",
+"Bu sürüm yüklü olandan yeni değil, yüklemiyorum",
+"İmza ve sağlama toplamı eşleşti ✔ (",
+"Dosya kopyalanırken değişti, güncelleme iptal edildi",
+"Güncelleme yükleniyor: TV Janitor kapanacak ve yarım dakika içinde kendiliğinden yeniden açılacak",
+"✔ TV Janitor güncellendi: ",
+"⚠ Güncelleme yüklenmedi, önceki sürüm çalışıyor: ",
+"Yeni sürüm var: ",
+"Sizdeki: ",
+". TV Janitor yeni sürümü GitHub'dan indirecek, imzayı ve sağlama toplamını kontrol edip kendisi yükleyecek. Seçimleriniz ve ayarlarınız korunur.",
+"Güncelle",
+"Bu sürümü atla",
+"Güncelleniyor…"
 ]

@@ -693,5 +693,20 @@
 "Partager l'expérience automatiquement\nle rapport part tout seul vers l'auteur de TV Janitor et aide les propriétaires du même téléviseur",
 "Merci ! Le rapport sera envoyé tout seul",
 "Votre expérience montrera aux propriétaires du même téléviseur ce qu'on peut désactiver. Avec la case cochée, le rapport part tout seul vers l'auteur de TV Janitor (un formulaire Google, sans nom ni e-mail) : après le premier redémarrage, un jour plus tard, après un retour arrière et après « Tout restaurer ». Sans la case, rien n'est envoyé.",
-"Avec le rapport partent le journal de TV Janitor et la liste des paquets système : après le premier redémarrage, un retour arrière et « Tout restaurer ». Vos applications y sont masquées, sauf si « et mes applications aussi » est coché."
+"Avec le rapport partent le journal de TV Janitor et la liste des paquets système : après le premier redémarrage, un retour arrière et « Tout restaurer ». Vos applications y sont masquées, sauf si « et mes applications aussi » est coché.",
+"Mise à jour de TV Janitor vers ",
+"⚠ La somme de contrôle ne correspond pas à SHA256SUMS.txt, mise à jour annulée",
+"⚠ Le fichier n'est pas signé avec notre clé, mise à jour annulée",
+"Cette version n'est pas plus récente que celle installée, je ne l'installe pas",
+"Signature et somme de contrôle correctes ✔ (",
+"Le fichier a changé pendant la copie, mise à jour annulée",
+"Installation de la mise à jour : TV Janitor va se fermer et se rouvrir tout seul dans une demi-minute",
+"✔ TV Janitor mis à jour : ",
+"⚠ La mise à jour ne s'est pas installée, la version précédente tourne : ",
+"Nouvelle version disponible : ",
+"Vous avez ",
+". TV Janitor téléchargera la nouvelle version depuis GitHub, vérifiera la signature et la somme de contrôle et l'installera lui-même. Vos choix et réglages sont conservés.",
+"Mettre à jour",
+"Ignorer cette version",
+"Mise à jour…"
 ]

@@ -263,7 +263,46 @@ public class MainActivity extends Activity {
         (Edition.LITE ? tOne : simpleUi ? tRec : applyBtn).requestFocus();
         if (missed) run(T.t("Применяю ваш выбор после включения…"), () -> new Ops(this, this::say).bootRun("open"));
         else if (Share.on(this)) { Context app = getApplicationContext(); new Thread(() -> new Ops(app, null).shareNow()).start(); }
+        checkUpdate();
         scan();
+    }
+
+    /** Owner's decision 04.11.2026: a newer published version is offered, never installed silently. Once a day. */
+    private void checkUpdate() {
+        if (Edition.LITE) return;
+        String from = store.str("updFrom");
+        if (from != null) {
+            store.setStr("updFrom", null);
+            String now = "?";
+            try { now = getPackageManager().getPackageInfo(getPackageName(), 0).versionName; } catch (Exception ignored) {}
+            show(status, Ops.compareVersions(now, from) > 0 ? T.t("✔ Уборщик обновлён: ") + from + " → " + now : T.t("⚠ Обновление не встало, работает прежняя версия ") + now);
+        }
+        long last = 0;
+        try { last = Long.parseLong(String.valueOf(store.str("updCheckedAt"))); } catch (Exception ignored) {}
+        if (System.currentTimeMillis() - last < 20L * 3600 * 1000) return;
+        new Thread(() -> {
+            String[] rel = Ops.newerRelease(getApplicationContext());
+            store.setStr("updCheckedAt", String.valueOf(System.currentTimeMillis()));
+            if (rel == null || rel[0].equals(store.str("updSkip"))) return;
+            runOnUiThread(() -> {
+                if (isFinishing() || busy()) return;
+                String mine = "?";
+                try { mine = getPackageManager().getPackageInfo(getPackageName(), 0).versionName; } catch (Exception ignored) {}
+                new android.app.AlertDialog.Builder(this)
+                        .setTitle(T.t("Есть новая версия: ") + rel[0])
+                        .setMessage(T.t("У вас ") + mine + T.t(". Уборщик скачает новую версию с GitHub, проверит подпись и контрольную сумму и поставит её сам. Ваш выбор и настройки сохранятся."))
+                        .setPositiveButton(T.t("Обновить"), (d, w) -> {
+                            progBar.setProgress(0); progBar.setVisibility(android.view.View.VISIBLE);
+                            progText.setText(T.t("Подключаюсь…")); progText.setVisibility(android.view.View.VISIBLE);
+                            run(T.t("Обновляю…"), () -> new Ops(this, this::say).progress((dn, t, wh) -> runOnUiThread(() -> {
+                                progBar.setProgress(dn * 100 / t); progText.setText(dn * 100 / t + "%  ·  " + wh);
+                            })).selfUpdate(rel));
+                        })
+                        .setNegativeButton(T.t("Позже"), null)
+                        .setNeutralButton(T.t("Пропустить эту версию"), (d, w) -> store.setStr("updSkip", rel[0]))
+                        .show();
+            });
+        }).start();
     }
 
     private Button simpleLauncher;

@@ -38,6 +38,13 @@
 - **The snapshot does not take TV Janitor's own settings for the factory ones.** Animation 0.5, the cached-process
   limit and the AdGuard DNS left by an earlier install (data cleared, reinstalled) are kept as unset, so
   "Restore everything" goes back to the TV's defaults.
+- **Offers its own updates.** Once a day Full looks for a newer release on GitHub (betas too, never -dev/-test)
+  and asks "A new version is out: … Update?". On "Update" it downloads the APK, checks it against the release's
+  SHA256SUMS.txt and our signing certificate, and installs it over itself through its own ADB; it closes and
+  opens again. "Skip this version" stops the offer for that version. Lite never looks.
+- **Reports explain more.** With the first-boot, rollback and restore reports go TV Janitor's log and the list of
+  packages with their state (on, off, asleep, off before TV Janitor). The owner's own apps are hidden in both
+  unless their tick is set. A day-after report is the summary only.
 - The welcome wizard says plainly that, with the tick, the report is sent (to the author's Google Form, when).
 
 ## 0.9.3-beta (2026-10-28)

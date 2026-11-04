@@ -131,7 +131,10 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 - The app talks to the TV's own ADB at `127.0.0.1` with its own key, approved once on screen. In a release
   build network debugging is closed by default: after a one-time check it is open only while the app works
   ("Keep it on" or "Keep network debugging on" leaves it open). Test builds keep it open, with a warning.
-- **Full** can update the CleanYourTV base from GitHub (accepted only if at least 80 % of the lists arrive).
+- **Full** can update the CleanYourTV base from GitHub (accepted only if at least 80 % of the lists arrive), and
+  once a day it looks for a newer TV Janitor release on GitHub (betas too, never -dev/-test builds). A newer one is
+  **offered, never installed silently**; on "Update" the APK is checked against the release's SHA256SUMS.txt and
+  our signing certificate before TV Janitor installs it over itself.
   **Lite** never goes online.
 - "Share your experience" is **off unless you say yes** (asked once, after the first "Apply" that went through).
   The report (in English, for the shared base) lists the model, firmware and system packages; your own apps only
@@ -223,7 +226,7 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 проверкой на бред. Часть занятой памяти — ядро и видеобуферы, их не освободить, поэтому сравнивать стоит ТВ
 с самим собой.
 
-**10. Сеть и данные.** Связь только с ADB самого телевизора (127.0.0.1). Отладка по сети в релизной сборке по умолчанию закрыта: после разовой проверки она открыта только на время работы Уборщика (кнопка «Оставить включённой» или галочка «Держать отладку по сети включённой» оставляют её открытой). Full может обновить базу с GitHub,
+**10. Сеть и данные.** Связь только с ADB самого телевизора (127.0.0.1). Отладка по сети в релизной сборке по умолчанию закрыта: после разовой проверки она открыта только на время работы Уборщика (кнопка «Оставить включённой» или галочка «Держать отладку по сети включённой» оставляют её открытой). Full может обновить базу с GitHub и раз в день проверяет, нет ли новой версии Уборщика (беты тоже, -dev/-test нет): новую он только **предлагает**, по кнопке «Обновить» скачивает, сверяет с SHA256SUMS.txt и подписью и ставит сам.
 Lite в интернет не ходит. «Поделиться опытом» выключено, пока вы не согласитесь (вопрос один раз, после первого
 удачного «Применить»). С согласием Full сам отправляет отчёт в Google-форму автора (без имени, почты и аккаунта,
 только случайный номер телевизора): после первой удачной перезагрузки, через сутки, после отката и после «Вернуть

@@ -696,3 +696,18 @@ CI-модуль	CI modülü
 Спасибо! Отчёт будет отправляться сам	Teşekkürler! Rapor kendiliğinden gönderilecek
 Ваш опыт подскажет владельцам таких же телевизоров, что можно отключать. С галочкой отчёт сам уходит автору Уборщика (Google-форма, без имени и почты): после первой перезагрузки, через сутки, после отката и после «Вернуть всё как было». Без галочки ничего не отправляется.	Deneyiminiz aynı TV'nin sahiplerine neyin kapatılabileceğini gösterir. Kutu işaretliyse rapor kendiliğinden TV Janitor yazarına gider (Google formu, isim ve e-posta yok): ilk yeniden başlatmadan sonra, bir gün sonra, geri almadan sonra ve "Her şeyi geri yükle"den sonra. İşaret yoksa hiçbir şey gönderilmez.
 Вместе с отчётом уходят журнал работы Уборщика и список системных пакетов: после первой перезагрузки, отката и «Вернуть всё как было». Ваши приложения в них скрыты, если не отмечено «и мои приложения тоже».	Raporla birlikte TV Janitor günlüğü ve sistem paketleri listesi de gider: ilk yeniden başlatmadan sonra, geri almadan sonra ve "Her şeyi geri yükle"den sonra. "ve benim uygulamalarım da" işaretli değilse uygulamalarınız gizlenir.
+Обновляю Уборщика до 	TV Janitor güncelleniyor:  
+⚠ Контрольная сумма не совпала с SHA256SUMS.txt — обновление отменено	⚠ Sağlama toplamı SHA256SUMS.txt ile eşleşmiyor, güncelleme iptal edildi
+⚠ Файл подписан не нашим ключом — обновление отменено	⚠ Dosya bizim anahtarımızla imzalanmamış, güncelleme iptal edildi
+Эта версия не новее установленной — не ставлю	Bu sürüm yüklü olandan yeni değil, yüklemiyorum
+Подпись и контрольная сумма совпали ✔ (	İmza ve sağlama toplamı eşleşti ✔ (
+Файл изменился при копировании — обновление отменено	Dosya kopyalanırken değişti, güncelleme iptal edildi
+Ставлю обновление: Уборщик закроется и сам откроется снова через полминуты	Güncelleme yükleniyor: TV Janitor kapanacak ve yarım dakika içinde kendiliğinden yeniden açılacak
+✔ Уборщик обновлён: 	✔ TV Janitor güncellendi:  
+⚠ Обновление не встало, работает прежняя версия 	⚠ Güncelleme yüklenmedi, önceki sürüm çalışıyor:  
+Есть новая версия: 	Yeni sürüm var:  
+У вас 	Sizdeki:  
+. Уборщик скачает новую версию с GitHub, проверит подпись и контрольную сумму и поставит её сам. Ваш выбор и настройки сохранятся.	. TV Janitor yeni sürümü GitHub'dan indirecek, imzayı ve sağlama toplamını kontrol edip kendisi yükleyecek. Seçimleriniz ve ayarlarınız korunur.
+Обновить	Güncelle
+Пропустить эту версию	Bu sürümü atla
+Обновляю…	Güncelleniyor…

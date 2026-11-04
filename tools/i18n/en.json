@@ -693,5 +693,20 @@
 "Share experience automatically\nthe report goes to the author of TV Janitor by itself and helps owners of the same TV",
 "Thank you! The report will be sent by itself",
 "Your experience will show owners of the same TV what can be switched off. With the tick, the report goes to the author of TV Janitor by itself (a Google form, no name or e-mail): after the first restart, a day later, after a rollback and after \"Restore everything\". Without the tick nothing is sent.",
-"With the report go TV Janitor's log and the list of system packages: after the first restart, a rollback and \"Restore everything\". Your apps are hidden in them unless \"and my apps too\" is ticked."
+"With the report go TV Janitor's log and the list of system packages: after the first restart, a rollback and \"Restore everything\". Your apps are hidden in them unless \"and my apps too\" is ticked.",
+"Updating TV Janitor to ",
+"⚠ The checksum does not match SHA256SUMS.txt, update cancelled",
+"⚠ The file is not signed with our key, update cancelled",
+"This version is not newer than the installed one, not installing it",
+"Signature and checksum match ✔ (",
+"The file changed while copying, update cancelled",
+"Installing the update: TV Janitor will close and open again by itself in about half a minute",
+"✔ TV Janitor updated: ",
+"⚠ The update did not install, the previous version is running: ",
+"A new version is out: ",
+"You have ",
+". TV Janitor will download the new version from GitHub, check its signature and checksum and install it itself. Your choices and settings are kept.",
+"Update",
+"Skip this version",
+"Updating…"
 ]

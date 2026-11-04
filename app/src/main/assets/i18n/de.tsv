@@ -696,3 +696,18 @@ CI-модуль	CI-Modul
 Спасибо! Отчёт будет отправляться сам	Danke! Der Bericht wird von selbst gesendet
 Ваш опыт подскажет владельцам таких же телевизоров, что можно отключать. С галочкой отчёт сам уходит автору Уборщика (Google-форма, без имени и почты): после первой перезагрузки, через сутки, после отката и после «Вернуть всё как было». Без галочки ничего не отправляется.	Ihre Erfahrung zeigt Besitzern desselben Fernsehers, was man ausschalten kann. Mit dem Häkchen geht der Bericht selbst an den Autor von TV Janitor (Google-Formular, ohne Namen und E-Mail): nach dem ersten Neustart, einen Tag später, nach einem Zurücksetzen und nach „Alles wiederherstellen". Ohne Häkchen wird nichts gesendet.
 Вместе с отчётом уходят журнал работы Уборщика и список системных пакетов: после первой перезагрузки, отката и «Вернуть всё как было». Ваши приложения в них скрыты, если не отмечено «и мои приложения тоже».	Mit dem Bericht gehen das Protokoll von TV Janitor und die Liste der Systempakete mit: nach dem ersten Neustart, einem Zurücksetzen und „Alles wiederherstellen". Ihre Apps sind darin verborgen, außer „…und meine Apps auch" ist angehakt.
+Обновляю Уборщика до 	Aktualisiere TV Janitor auf  
+⚠ Контрольная сумма не совпала с SHA256SUMS.txt — обновление отменено	⚠ Die Prüfsumme passt nicht zu SHA256SUMS.txt, Update abgebrochen
+⚠ Файл подписан не нашим ключом — обновление отменено	⚠ Die Datei ist nicht mit unserem Schlüssel signiert, Update abgebrochen
+Эта версия не новее установленной — не ставлю	Diese Version ist nicht neuer als die installierte, wird nicht installiert
+Подпись и контрольная сумма совпали ✔ (	Signatur und Prüfsumme stimmen ✔ (
+Файл изменился при копировании — обновление отменено	Die Datei hat sich beim Kopieren verändert, Update abgebrochen
+Ставлю обновление: Уборщик закроется и сам откроется снова через полминуты	Update wird installiert: TV Janitor schließt sich und öffnet sich nach etwa einer halben Minute wieder
+✔ Уборщик обновлён: 	✔ TV Janitor aktualisiert:  
+⚠ Обновление не встало, работает прежняя версия 	⚠ Das Update wurde nicht installiert, es läuft die bisherige Version  
+Есть новая версия: 	Neue Version verfügbar:  
+У вас 	Sie haben  
+. Уборщик скачает новую версию с GitHub, проверит подпись и контрольную сумму и поставит её сам. Ваш выбор и настройки сохранятся.	. TV Janitor lädt die neue Version von GitHub, prüft Signatur und Prüfsumme und installiert sie selbst. Ihre Auswahl und Einstellungen bleiben erhalten.
+Обновить	Aktualisieren
+Пропустить эту версию	Diese Version überspringen
+Обновляю…	Aktualisiere…

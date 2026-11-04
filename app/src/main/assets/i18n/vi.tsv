@@ -696,3 +696,18 @@ CI-модуль	Mô-đun CI
 Спасибо! Отчёт будет отправляться сам	Cảm ơn! Báo cáo sẽ tự được gửi
 Ваш опыт подскажет владельцам таких же телевизоров, что можно отключать. С галочкой отчёт сам уходит автору Уборщика (Google-форма, без имени и почты): после первой перезагрузки, через сутки, после отката и после «Вернуть всё как было». Без галочки ничего не отправляется.	Kinh nghiệm của bạn sẽ cho người dùng cùng mẫu TV biết cái gì tắt được. Khi đánh dấu, báo cáo tự gửi cho tác giả TV Janitor (biểu mẫu Google, không tên, không email): sau lần khởi động lại đầu tiên, sau một ngày, sau khi hoàn tác và sau "Khôi phục tất cả". Không đánh dấu thì không gửi gì.
 Вместе с отчётом уходят журнал работы Уборщика и список системных пакетов: после первой перезагрузки, отката и «Вернуть всё как было». Ваши приложения в них скрыты, если не отмечено «и мои приложения тоже».	Cùng với báo cáo là nhật ký của TV Janitor và danh sách gói hệ thống: sau lần khởi động lại đầu tiên, sau khi hoàn tác và sau "Khôi phục tất cả". Ứng dụng của bạn được ẩn trừ khi đánh dấu "và cả ứng dụng của tôi".
+Обновляю Уборщика до 	Đang cập nhật TV Janitor lên  
+⚠ Контрольная сумма не совпала с SHA256SUMS.txt — обновление отменено	⚠ Mã kiểm tra không khớp SHA256SUMS.txt, đã hủy cập nhật
+⚠ Файл подписан не нашим ключом — обновление отменено	⚠ Tệp không được ký bằng khóa của chúng tôi, đã hủy cập nhật
+Эта версия не новее установленной — не ставлю	Phiên bản này không mới hơn bản đã cài, không cài
+Подпись и контрольная сумма совпали ✔ (	Chữ ký và mã kiểm tra khớp ✔ (
+Файл изменился при копировании — обновление отменено	Tệp bị thay đổi khi sao chép, đã hủy cập nhật
+Ставлю обновление: Уборщик закроется и сам откроется снова через полминуты	Đang cài bản cập nhật: TV Janitor sẽ đóng và tự mở lại sau khoảng nửa phút
+✔ Уборщик обновлён: 	✔ Đã cập nhật TV Janitor:  
+⚠ Обновление не встало, работает прежняя версия 	⚠ Cập nhật không cài được, vẫn chạy bản cũ  
+Есть новая версия: 	Có phiên bản mới:  
+У вас 	Bạn đang dùng  
+. Уборщик скачает новую версию с GitHub, проверит подпись и контрольную сумму и поставит её сам. Ваш выбор и настройки сохранятся.	. TV Janitor sẽ tải bản mới từ GitHub, kiểm tra chữ ký và mã kiểm tra rồi tự cài. Lựa chọn và cài đặt của bạn được giữ nguyên.
+Обновить	Cập nhật
+Пропустить эту версию	Bỏ qua phiên bản này
+Обновляю…	Đang cập nhật…

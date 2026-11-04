@@ -696,3 +696,18 @@ CI-модуль	CI module
 Спасибо! Отчёт будет отправляться сам	Thank you! The report will be sent by itself
 Ваш опыт подскажет владельцам таких же телевизоров, что можно отключать. С галочкой отчёт сам уходит автору Уборщика (Google-форма, без имени и почты): после первой перезагрузки, через сутки, после отката и после «Вернуть всё как было». Без галочки ничего не отправляется.	Your experience will show owners of the same TV what can be switched off. With the tick, the report goes to the author of TV Janitor by itself (a Google form, no name or e-mail): after the first restart, a day later, after a rollback and after "Restore everything". Without the tick nothing is sent.
 Вместе с отчётом уходят журнал работы Уборщика и список системных пакетов: после первой перезагрузки, отката и «Вернуть всё как было». Ваши приложения в них скрыты, если не отмечено «и мои приложения тоже».	With the report go TV Janitor's log and the list of system packages: after the first restart, a rollback and "Restore everything". Your apps are hidden in them unless "and my apps too" is ticked.
+Обновляю Уборщика до 	Updating TV Janitor to  
+⚠ Контрольная сумма не совпала с SHA256SUMS.txt — обновление отменено	⚠ The checksum does not match SHA256SUMS.txt, update cancelled
+⚠ Файл подписан не нашим ключом — обновление отменено	⚠ The file is not signed with our key, update cancelled
+Эта версия не новее установленной — не ставлю	This version is not newer than the installed one, not installing it
+Подпись и контрольная сумма совпали ✔ (	Signature and checksum match ✔ (
+Файл изменился при копировании — обновление отменено	The file changed while copying, update cancelled
+Ставлю обновление: Уборщик закроется и сам откроется снова через полминуты	Installing the update: TV Janitor will close and open again by itself in about half a minute
+✔ Уборщик обновлён: 	✔ TV Janitor updated:  
+⚠ Обновление не встало, работает прежняя версия 	⚠ The update did not install, the previous version is running:  
+Есть новая версия: 	A new version is out:  
+У вас 	You have  
+. Уборщик скачает новую версию с GitHub, проверит подпись и контрольную сумму и поставит её сам. Ваш выбор и настройки сохранятся.	. TV Janitor will download the new version from GitHub, check its signature and checksum and install it itself. Your choices and settings are kept.
+Обновить	Update
+Пропустить эту версию	Skip this version
+Обновляю…	Updating…

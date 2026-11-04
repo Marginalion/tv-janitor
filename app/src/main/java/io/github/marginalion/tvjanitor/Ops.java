@@ -1496,6 +1496,107 @@ final class Ops {
         } catch (Exception e) { note("GitLab: " + e.getClass().getSimpleName() + " " + e.getMessage()); return null; }
     }
 
+    // ---------- Updating itself (owner, 04.11.2026): offered, not silent; betas too, never -dev/-test; not Lite ----------
+
+    static final String OWN_REPO = "Marginalion/tv-janitor";
+    static final String OWN_CERT = "f31e30d17e8abe262c05b8fd86945fe7038e3c75b664badeec3e746e10a44580";
+
+    /** A published release newer than this app: {version, apk url, SHA256SUMS url, apk name}, or null. Network. */
+    static String[] newerRelease(Context c) {
+        if (Edition.LITE) return null;
+        try {
+            String mine = c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionName;
+            org.json.JSONArray rels = new org.json.JSONArray(fetch("https://api.github.com/repos/" + OWN_REPO + "/releases?per_page=15"));
+            String[] best = null;
+            for (int i = 0; i < rels.length(); i++) {
+                org.json.JSONObject r = rels.getJSONObject(i);
+                if (r.optBoolean("draft")) continue;
+                String ver = r.optString("tag_name").replaceFirst("^v", "");
+                if (ver.contains("-dev") || ver.contains("-test") || ver.isEmpty()) continue;   // special builds
+                String apk = null, apkName = null, sums = null;
+                org.json.JSONArray as = r.optJSONArray("assets");
+                for (int j = 0; as != null && j < as.length(); j++) {
+                    org.json.JSONObject a = as.getJSONObject(j);
+                    String n = a.optString("name"), u = a.optString("browser_download_url");
+                    if (n.startsWith("TVJanitor-") && n.endsWith("-full.apk")) { apk = u; apkName = n; }
+                    if (n.equals("SHA256SUMS.txt")) sums = u;
+                }
+                if (apk == null || sums == null) continue;
+                if (best == null || compareVersions(ver, best[0]) > 0) best = new String[]{ver, apk, sums, apkName};
+            }
+            return best != null && compareVersions(best[0], mine) > 0 ? best : null;
+        } catch (Exception e) { return null; }
+    }
+
+    /** 0.9.4-dev1 < 0.9.4-test < 0.9.4-rc2 < 0.9.4-beta < 0.9.4; a number after the stage counts too. */
+    static int compareVersions(String a, String b) {
+        long[] x = versionKey(a), y = versionKey(b);
+        for (int i = 0; i < x.length; i++) if (x[i] != y[i]) return x[i] < y[i] ? -1 : 1;
+        return 0;
+    }
+
+    private static long[] versionKey(String v) {
+        v = v.replaceFirst("^v", "").replace("-lite", "").replace("-full", "");
+        String base = v.contains("-") ? v.substring(0, v.indexOf('-')) : v, tail = v.contains("-") ? v.substring(v.indexOf('-') + 1) : "";
+        String[] n = base.split("\\.");
+        long[] k = new long[5];
+        for (int i = 0; i < 3; i++) try { k[i] = i < n.length ? Long.parseLong(n[i].replaceAll("\\D", "")) : 0; } catch (Exception e) { k[i] = 0; }
+        String t = tail.toLowerCase(Locale.ROOT);
+        k[3] = t.isEmpty() ? 9 : t.startsWith("beta") ? 4 : t.startsWith("rc") ? 3 : t.startsWith("test") ? 2 : t.startsWith("dev") ? 1 : 0;
+        Matcher m = Pattern.compile("(\\d+)").matcher(t);
+        k[4] = m.find() ? Long.parseLong(m.group(1)) : 0;
+        return k;
+    }
+
+    /** Download, check (sum from the release, our signature, a newer build of this app) and install over itself. */
+    boolean selfUpdate(String[] rel) {
+        if (Edition.LITE) return false;
+        synchronized (LOCK) {
+            note(T.t("Обновляю Уборщика до ") + rel[0]);
+            File priv = new File(c.getFilesDir(), "update.apk");
+            try {
+                download(rel[1], priv, (d, t) -> { if (prog != null) prog.progress((int) (d / 1024), (int) Math.max(t / 1024, d / 1024 + 1), T.t("Скачиваю: ") + d / 1048576 + (t > 0 ? " / " + t / 1048576 : "") + T.t(" МБ")); });
+                String want = null;
+                for (String l : fetch(rel[2]).split("\n")) {
+                    String[] w = l.trim().split("\\s+");
+                    if (w.length >= 2 && w[1].replace("*", "").equals(rel[3])) want = w[0];
+                }
+                String have = sha256File(priv);
+                if (want == null || !want.equalsIgnoreCase(have)) { note(T.t("⚠ Контрольная сумма не совпала с SHA256SUMS.txt — обновление отменено")); return false; }
+                String signer = signerSha(priv);
+                android.content.pm.PackageInfo pi = c.getPackageManager().getPackageArchiveInfo(priv.getAbsolutePath(), 0);
+                android.content.pm.PackageInfo me = c.getPackageManager().getPackageInfo(c.getPackageName(), 0);
+                if (pi == null || !BuildInfo.SELF.equals(pi.packageName) || !OWN_CERT.equalsIgnoreCase(signer)) {
+                    note(T.t("⚠ Файл подписан не нашим ключом — обновление отменено")); return false;
+                }
+                if (pi.versionCode <= me.versionCode) { note(T.t("Эта версия не новее установленной — не ставлю")); return false; }
+                note(T.t("Подпись и контрольная сумма совпали ✔ (") + pi.versionName + ")");
+                Adb adb = connect(3);
+                if (adb == null) { save(); return false; }
+                try {
+                    File ext = new File(c.getExternalFilesDir(null), "update.apk");
+                    copy(priv, ext);
+                    String tmp = "/data/local/tmp/tvj-self.apk";
+                    sh(adb, "rm -f " + tmp);
+                    sh(adb, "cp " + ext.getAbsolutePath() + " " + tmp);
+                    ext.delete();
+                    String got = adb.shell("sha256sum " + tmp).trim().split("\\s+")[0];
+                    if (!have.equalsIgnoreCase(got)) { sh(adb, "rm -f " + tmp); note(T.t("Файл изменился при копировании — обновление отменено")); return false; }
+                    note(T.t("Ставлю обновление: Уборщик закроется и сам откроется снова через полминуты"));
+                    save();
+                    store.commitStr("updFrom", me.versionName);
+                    // Installing over ourselves ends this process, so the shell finishes the job on its own and opens us again.
+                    adb.shell("nohup sh -c 'pm install -r -g " + tmp + " > /data/local/tmp/tvj-self.log 2>&1; rm -f " + tmp
+                            + "; sleep 2; am start -n " + BuildInfo.SELF + "/.MainActivity' > /dev/null 2>&1 &");
+                    return true;
+                } finally { adb.close(); }
+            } catch (Exception e) {
+                note(T.t("Ошибка: ") + e.getMessage() + T.t(". Есть ли интернет?"));
+                return false;
+            } finally { priv.delete(); save(); }
+        }
+    }
+
     private static String fetch(String url) throws Exception {
         java.net.HttpURLConnection h = (java.net.HttpURLConnection) new java.net.URL(url).openConnection();
         h.setConnectTimeout(15000); h.setReadTimeout(30000);

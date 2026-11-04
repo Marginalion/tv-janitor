@@ -693,5 +693,20 @@
 "Compartir experiencia automáticamente\nel informe llega solo al autor de TV Janitor y ayuda a los dueños del mismo televisor",
 "¡Gracias! El informe se enviará solo",
 "Su experiencia mostrará a los dueños del mismo televisor qué se puede desactivar. Con la casilla, el informe llega solo al autor de TV Janitor (un formulario de Google, sin nombre ni correo): tras el primer reinicio, un día después, tras una reversión y tras «Restaurar todo». Sin la casilla no se envía nada.",
-"Con el informe van el registro de TV Janitor y la lista de paquetes del sistema: tras el primer reinicio, una reversión y «Restaurar todo». Sus aplicaciones quedan ocultas salvo que marque «y mis aplicaciones también»."
+"Con el informe van el registro de TV Janitor y la lista de paquetes del sistema: tras el primer reinicio, una reversión y «Restaurar todo». Sus aplicaciones quedan ocultas salvo que marque «y mis aplicaciones también».",
+"Actualizando TV Janitor a ",
+"⚠ La suma de control no coincide con SHA256SUMS.txt, actualización cancelada",
+"⚠ El archivo no está firmado con nuestra clave, actualización cancelada",
+"Esta versión no es más nueva que la instalada, no la instalo",
+"Firma y suma de control coinciden ✔ (",
+"El archivo cambió al copiarlo, actualización cancelada",
+"Instalando la actualización: TV Janitor se cerrará y volverá a abrirse solo en medio minuto",
+"✔ TV Janitor actualizado: ",
+"⚠ La actualización no se instaló, sigue la versión anterior ",
+"Hay una versión nueva: ",
+"Usted tiene ",
+". TV Janitor descargará la versión nueva de GitHub, comprobará la firma y la suma de control y la instalará solo. Su elección y ajustes se conservan.",
+"Actualizar",
+"Omitir esta versión",
+"Actualizando…"
 ]
