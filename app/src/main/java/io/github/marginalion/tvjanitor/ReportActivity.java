@@ -25,7 +25,7 @@ public class ReportActivity extends Activity {
         TextView t = new TextView(this); t.setText(T.t("Поделиться опытом")); t.setTextSize(28); t.setTextColor(accent); root.addView(t);
         TextView h = new TextView(this);
         h.setText(T.t("Ниже — весь текст отчёта, ничего больше в нём нет: модель, прошивка и системные пакеты. Ваши собственные приложения попадают, только если вы отметите это ниже. ")
-                + T.t("Уборщик ничего не отправляет сам: «Сохранить» кладёт файл на телевизор, а вы решаете, отправить ли его в CleanYourTV, чтобы помочь владельцам таких же телевизоров."));
+                + (Edition.LITE ? T.t("Уборщик ничего не отправляет сам: «Сохранить» кладёт файл на телевизор, а вы решаете, отправить ли его в CleanYourTV, чтобы помочь владельцам таких же телевизоров.") : T.t("С галочкой ниже отчёт сам уходит автору Уборщика (Google-форма, без имени и почты): после первой перезагрузки, через сутки после «Применить», после отката и после «Вернуть всё как было». «Сохранить» просто кладёт файл на телевизор.")));
         android.widget.CheckBox own = new android.widget.CheckBox(this);
         own.setText(T.t("Включить в отчёт мои приложения\nустановленные вами кинотеатры и прочее, что вы отключили или «усыпили». Помогает другим, но это личное — решать вам"));
         own.setTextSize(16); own.setChecked(store.flag("shareOwn", false)); own.setPadding(12, 10, 12, 10);
@@ -38,14 +38,14 @@ public class ReportActivity extends Activity {
         Style.focus(own, accent, text, dim);
         root.addView(own);
         android.widget.CheckBox consent = new android.widget.CheckBox(this);
-        consent.setText(T.t("Делиться опытом автоматически\nотчёт обновляется сам после изменений; когда появится общий сервер — будет отправляться анонимно"));
+        consent.setText((Edition.LITE ? T.t("Делиться опытом автоматически\nотчёт обновляется сам после изменений; когда появится общий сервер — будет отправляться анонимно") : T.t("Делиться опытом автоматически\nотчёт сам уходит автору Уборщика и помогает владельцам таких же телевизоров")));
         consent.setTextSize(16); consent.setPadding(12, 10, 12, 10); consent.setChecked(store.flag("shareConsent", false));
         Style.focus(consent, accent, text, dim);
         root.addView(consent);
         consent.setOnCheckedChangeListener((v, on) -> {
             store.setFlag("shareConsent", on);
             if (!on) { store.setFlag("shareOwn", false); new File(getExternalFilesDir(null), "report.txt").delete(); status.setText(T.t("Согласие отозвано, отчёт удалён с телевизора")); }
-            else { store.setFlag("shareOwn", own.isChecked()); Report.saveIfConsented(this); status.setText(T.t("Спасибо! Отчёт будет обновляться сам")); }
+            else { store.setFlag("shareOwn", own.isChecked()); Report.saveIfConsented(this); status.setText((Edition.LITE ? T.t("Спасибо! Отчёт будет обновляться сам") : T.t("Спасибо! Отчёт будет отправляться сам"))); }
         });
         root.addView(save); root.addView(status);
         body.setText(report[0]);

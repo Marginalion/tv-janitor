@@ -27,6 +27,12 @@
   asked at most once per boot. Cleaning also sets `adb_allowed_connection_time` to 0 (never forget), and
   "Restore everything" puts the old value back.
 
+- **"Share your experience" is sent, with consent.** After the first "Apply" that went through, TV Janitor asks
+  once whether to share. If yes, Full sends the report to the author's Google Form by itself: after the first good
+  restart, a day later, after a rollback and after "Restore everything" (with what was off before it). No name,
+  e-mail or account, only a random TV number; the owner's own apps only with their separate tick; the same report
+  at most once a day; without network it waits for the next run. Lite sends nothing.
+
 ## 0.9.3-beta (2026-10-28)
 
 - **Ticks survive the other buttons.** Ticking packages and then pressing the keyboard, launcher or refresh

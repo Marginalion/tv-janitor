@@ -683,3 +683,14 @@ CI-модуль	Módulo CI
 включите, когда захотите обновиться	actívelo cuando quiera actualizar
 После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора.	El televisor ya pidió permiso de depuración tras este arranque, no vuelvo a preguntar. Abra TV Janitor cuando esté frente al televisor.
 На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»).	No se pulsó «Permitir» en la pantalla del televisor, no vuelvo a preguntar. Abra TV Janitor y permita la depuración («Permitir siempre»).
+📤 Отчёт отправлен автору Уборщика: 	📤 Informe enviado al autor de TV Janitor:  
+Отчёт не ушёл (нет интернета?) — отправлю в следующий раз	El informe no salió (¿sin internet?), lo enviaré la próxima vez
+Поделиться результатом?	¿Compartir el resultado?
+Уборщик может сам отправлять короткий отчёт автору: модель телевизора, прошивку и что на нём отключено. По таким отчётам владельцы такого же телевизора получат подсказки, что можно отключать, а что нельзя.	TV Janitor puede enviar por sí mismo un informe breve a su autor: el modelo del televisor, el firmware y lo que está desactivado. Con estos informes, los dueños del mismo televisor reciben pistas sobre qué se puede desactivar y qué no.
+Без имени, почты и аккаунта. Ваши собственные приложения не отправляются. Отчёт уходит после первой перезагрузки, через сутки, после отката и после «Вернуть всё как было».	Sin nombre, correo ni cuenta. Sus propias aplicaciones no se envían. El informe sale tras el primer reinicio, un día después, tras una reversión y tras «Restaurar todo».
+Посмотреть отчёт и выключить отправку можно в «Поделиться опытом».	Puede ver el informe y desactivar el envío en «Compartir experiencia».
+Да, делиться	Sí, compartir
+Нет, спасибо	No, gracias
+С галочкой ниже отчёт сам уходит автору Уборщика (Google-форма, без имени и почты): после первой перезагрузки, через сутки после «Применить», после отката и после «Вернуть всё как было». «Сохранить» просто кладёт файл на телевизор.	Con la casilla de abajo marcada, el informe llega solo al autor de TV Janitor (un formulario de Google, sin nombre ni correo): tras el primer reinicio, un día después de «Aplicar», tras una reversión y tras «Restaurar todo». «Guardar» solo deja el archivo en el televisor.
+Делиться опытом автоматически\nотчёт сам уходит автору Уборщика и помогает владельцам таких же телевизоров	Compartir experiencia automáticamente\nel informe llega solo al autor de TV Janitor y ayuda a los dueños del mismo televisor
+Спасибо! Отчёт будет отправляться сам	¡Gracias! El informe se enviará solo

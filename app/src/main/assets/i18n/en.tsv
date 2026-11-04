@@ -683,3 +683,14 @@ CI-модуль	CI module
 включите, когда захотите обновиться	switch it on when you want to update
 После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора.	The TV already asked for debugging permission after this boot, so I am not asking again. Open TV Janitor when you are at the TV.
 На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»).	Nobody pressed "Allow" on the TV screen, so I am not asking again. Open TV Janitor and allow debugging ("Always allow").
+📤 Отчёт отправлен автору Уборщика: 	📤 Report sent to the author of TV Janitor:  
+Отчёт не ушёл (нет интернета?) — отправлю в следующий раз	The report did not go out (no internet?), I will send it next time
+Поделиться результатом?	Share the result?
+Уборщик может сам отправлять короткий отчёт автору: модель телевизора, прошивку и что на нём отключено. По таким отчётам владельцы такого же телевизора получат подсказки, что можно отключать, а что нельзя.	TV Janitor can send a short report to its author by itself: the TV model, the firmware and what is switched off on it. From such reports, owners of the same TV get hints on what can be switched off and what cannot.
+Без имени, почты и аккаунта. Ваши собственные приложения не отправляются. Отчёт уходит после первой перезагрузки, через сутки, после отката и после «Вернуть всё как было».	No name, e-mail or account. Your own apps are not sent. The report goes after the first restart, a day later, after a rollback and after "Restore everything".
+Посмотреть отчёт и выключить отправку можно в «Поделиться опытом».	You can see the report and turn sending off in "Share your experience".
+Да, делиться	Yes, share
+Нет, спасибо	No, thanks
+С галочкой ниже отчёт сам уходит автору Уборщика (Google-форма, без имени и почты): после первой перезагрузки, через сутки после «Применить», после отката и после «Вернуть всё как было». «Сохранить» просто кладёт файл на телевизор.	With the box below ticked, the report goes to the author of TV Janitor by itself (a Google form, no name or e-mail): after the first restart, a day after "Apply", after a rollback and after "Restore everything". "Save" just puts the file on the TV.
+Делиться опытом автоматически\nотчёт сам уходит автору Уборщика и помогает владельцам таких же телевизоров	Share experience automatically\nthe report goes to the author of TV Janitor by itself and helps owners of the same TV
+Спасибо! Отчёт будет отправляться сам	Thank you! The report will be sent by itself

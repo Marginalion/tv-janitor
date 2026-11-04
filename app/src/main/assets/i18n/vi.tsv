@@ -683,3 +683,14 @@ CI-модуль	Mô-đun CI
 включите, когда захотите обновиться	bật lên khi muốn cập nhật
 После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора.	Sau lần khởi động này TV đã hỏi quyền gỡ lỗi rồi, tôi không hỏi nữa. Hãy mở TV Janitor khi bạn ở cạnh TV.
 На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»).	Không ai nhấn "Cho phép" trên màn hình TV, tôi không hỏi nữa. Hãy mở TV Janitor và cho phép gỡ lỗi ("Luôn cho phép").
+📤 Отчёт отправлен автору Уборщика: 	📤 Đã gửi báo cáo cho tác giả TV Janitor:  
+Отчёт не ушёл (нет интернета?) — отправлю в следующий раз	Báo cáo chưa gửi được (không có mạng?), lần sau tôi sẽ gửi
+Поделиться результатом?	Chia sẻ kết quả?
+Уборщик может сам отправлять короткий отчёт автору: модель телевизора, прошивку и что на нём отключено. По таким отчётам владельцы такого же телевизора получат подсказки, что можно отключать, а что нельзя.	TV Janitor có thể tự gửi báo cáo ngắn cho tác giả: mẫu TV, firmware và những gì đã tắt. Nhờ các báo cáo này, người dùng cùng mẫu TV sẽ biết cái gì tắt được và cái gì không.
+Без имени, почты и аккаунта. Ваши собственные приложения не отправляются. Отчёт уходит после первой перезагрузки, через сутки, после отката и после «Вернуть всё как было».	Không có tên, email hay tài khoản. Ứng dụng riêng của bạn không được gửi. Báo cáo được gửi sau lần khởi động lại đầu tiên, sau một ngày, sau khi hoàn tác và sau "Khôi phục tất cả".
+Посмотреть отчёт и выключить отправку можно в «Поделиться опытом».	Có thể xem báo cáo và tắt gửi trong "Chia sẻ kinh nghiệm".
+Да, делиться	Có, chia sẻ
+Нет, спасибо	Không, cảm ơn
+С галочкой ниже отчёт сам уходит автору Уборщика (Google-форма, без имени и почты): после первой перезагрузки, через сутки после «Применить», после отката и после «Вернуть всё как было». «Сохранить» просто кладёт файл на телевизор.	Khi đánh dấu ô bên dưới, báo cáo sẽ tự gửi cho tác giả TV Janitor (biểu mẫu Google, không tên, không email): sau lần khởi động lại đầu tiên, một ngày sau "Áp dụng", sau khi hoàn tác và sau "Khôi phục tất cả". "Lưu" chỉ đặt tệp lên TV.
+Делиться опытом автоматически\nотчёт сам уходит автору Уборщика и помогает владельцам таких же телевизоров	Tự động chia sẻ kinh nghiệm\nbáo cáo tự gửi cho tác giả TV Janitor và giúp người dùng cùng mẫu TV
+Спасибо! Отчёт будет отправляться сам	Cảm ơn! Báo cáo sẽ tự được gửi

@@ -11,8 +11,8 @@ android {
         applicationId 'io.github.marginalion.tvjanitor'
         minSdk 26
         targetSdk 28
-        versionCode 49
-        versionName '0.9.4-rc2'
+        versionCode 50
+        versionName '0.9.4-rc3'
     }
     flavorDimensions = ['edition']
     productFlavors {

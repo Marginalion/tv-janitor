@@ -683,3 +683,14 @@ CI-модуль	CI modülü
 включите, когда захотите обновиться	güncellemek istediğinizde açın
 После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора.	TV bu açılıştan sonra hata ayıklama iznini zaten sordu, tekrar sormuyorum. TV'nin başındayken TV Janitor'u açın.
 На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»).	TV ekranında "İzin ver"e basılmadı, tekrar sormuyorum. TV Janitor'u açın ve hata ayıklamaya izin verin ("Her zaman izin ver").
+📤 Отчёт отправлен автору Уборщика: 	📤 Rapor TV Janitor yazarına gönderildi:  
+Отчёт не ушёл (нет интернета?) — отправлю в следующий раз	Rapor gitmedi (internet yok mu?), bir dahaki sefere göndereceğim
+Поделиться результатом?	Sonucu paylaşalım mı?
+Уборщик может сам отправлять короткий отчёт автору: модель телевизора, прошивку и что на нём отключено. По таким отчётам владельцы такого же телевизора получат подсказки, что можно отключать, а что нельзя.	TV Janitor yazarına kendiliğinden kısa bir rapor gönderebilir: TV modeli, yazılım ve kapatılanlar. Bu raporlarla aynı TV'nin sahipleri neyin kapatılabileceğini, neyin kapatılamayacağını öğrenir.
+Без имени, почты и аккаунта. Ваши собственные приложения не отправляются. Отчёт уходит после первой перезагрузки, через сутки, после отката и после «Вернуть всё как было».	İsim, e-posta ve hesap yok. Kendi uygulamalarınız gönderilmez. Rapor ilk yeniden başlatmadan sonra, bir gün sonra, geri almadan sonra ve "Her şeyi geri yükle"den sonra gider.
+Посмотреть отчёт и выключить отправку можно в «Поделиться опытом».	Raporu görmek ve göndermeyi kapatmak için "Deneyimi paylaş"a gidin.
+Да, делиться	Evet, paylaş
+Нет, спасибо	Hayır, teşekkürler
+С галочкой ниже отчёт сам уходит автору Уборщика (Google-форма, без имени и почты): после первой перезагрузки, через сутки после «Применить», после отката и после «Вернуть всё как было». «Сохранить» просто кладёт файл на телевизор.	Aşağıdaki kutu işaretliyse rapor kendiliğinden TV Janitor yazarına gider (Google formu, isim ve e-posta yok): ilk yeniden başlatmadan sonra, "Uygula"dan bir gün sonra, geri almadan sonra ve "Her şeyi geri yükle"den sonra. "Kaydet" dosyayı yalnızca TV'ye koyar.
+Делиться опытом автоматически\nотчёт сам уходит автору Уборщика и помогает владельцам таких же телевизоров	Deneyimi otomatik paylaş\nrapor kendiliğinden TV Janitor yazarına gider ve aynı TV'nin sahiplerine yardım eder
+Спасибо! Отчёт будет отправляться сам	Teşekkürler! Rapor kendiliğinden gönderilecek

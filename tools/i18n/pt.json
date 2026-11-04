@@ -680,5 +680,16 @@
 "necessário para atualizar o firmware",
 "ative quando quiser atualizar",
 "A TV já pediu permissão de depuração depois desta inicialização, não vou pedir de novo. Abra o TV Janitor quando estiver na frente da TV.",
-"Ninguém tocou em \"Permitir\" na tela da TV, não vou pedir de novo. Abra o TV Janitor e permita a depuração (\"Sempre permitir\")."
+"Ninguém tocou em \"Permitir\" na tela da TV, não vou pedir de novo. Abra o TV Janitor e permita a depuração (\"Sempre permitir\").",
+"📤 Relatório enviado ao autor do TV Janitor: ",
+"O relatório não saiu (sem internet?), envio na próxima vez",
+"Compartilhar o resultado?",
+"O TV Janitor pode enviar sozinho um relatório curto ao autor: o modelo da TV, o firmware e o que está desativado nela. Com esses relatórios, donos da mesma TV recebem dicas do que pode ou não ser desativado.",
+"Sem nome, e-mail ou conta. Seus próprios apps não são enviados. O relatório sai após a primeira reinicialização, um dia depois, após uma reversão e após \"Restaurar tudo\".",
+"Você pode ver o relatório e desligar o envio em \"Compartilhar experiência\".",
+"Sim, compartilhar",
+"Não, obrigado",
+"Com a caixa abaixo marcada, o relatório vai sozinho para o autor do TV Janitor (formulário do Google, sem nome nem e-mail): após a primeira reinicialização, um dia depois de \"Aplicar\", após uma reversão e após \"Restaurar tudo\". \"Salvar\" só grava o arquivo na TV.",
+"Compartilhar experiência automaticamente\no relatório vai sozinho para o autor do TV Janitor e ajuda donos da mesma TV",
+"Obrigado! O relatório será enviado sozinho"
 ]

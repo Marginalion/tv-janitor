@@ -680,5 +680,16 @@
 "für Firmware-Updates nötig",
 "einschalten, wenn Sie aktualisieren möchten",
 "Der Fernseher hat nach diesem Start schon nach der Debugging-Erlaubnis gefragt, ich frage nicht noch einmal. Öffnen Sie TV Janitor, wenn Sie am Fernseher sind.",
-"Auf dem Fernseher wurde nicht „Zulassen\" gedrückt, ich frage nicht noch einmal. Öffnen Sie TV Janitor und erlauben Sie das Debugging („Immer zulassen\")."
+"Auf dem Fernseher wurde nicht „Zulassen\" gedrückt, ich frage nicht noch einmal. Öffnen Sie TV Janitor und erlauben Sie das Debugging („Immer zulassen\").",
+"📤 Bericht an den Autor von TV Janitor gesendet: ",
+"Der Bericht ging nicht raus (kein Internet?), ich sende ihn beim nächsten Mal",
+"Ergebnis teilen?",
+"TV Janitor kann selbst einen kurzen Bericht an den Autor senden: Fernsehermodell, Firmware und was darauf ausgeschaltet ist. Aus solchen Berichten bekommen Besitzer desselben Fernsehers Hinweise, was man ausschalten kann und was nicht.",
+"Ohne Namen, E-Mail und Konto. Ihre eigenen Apps werden nicht gesendet. Der Bericht geht nach dem ersten Neustart, einen Tag später, nach einem Zurücksetzen und nach „Alles wiederherstellen\" raus.",
+"Bericht ansehen und Senden ausschalten können Sie unter „Erfahrung teilen\".",
+"Ja, teilen",
+"Nein, danke",
+"Mit dem Häkchen unten geht der Bericht selbst an den Autor von TV Janitor (Google-Formular, ohne Namen und E-Mail): nach dem ersten Neustart, einen Tag nach „Anwenden\", nach einem Zurücksetzen und nach „Alles wiederherstellen\". „Speichern\" legt die Datei nur auf den Fernseher.",
+"Erfahrung automatisch teilen\nder Bericht geht selbst an den Autor von TV Janitor und hilft Besitzern desselben Fernsehers",
+"Danke! Der Bericht wird von selbst gesendet"
 ]

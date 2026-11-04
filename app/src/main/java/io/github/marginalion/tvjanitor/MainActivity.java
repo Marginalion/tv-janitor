@@ -1,6 +1,7 @@
 package io.github.marginalion.tvjanitor;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -261,6 +262,7 @@ public class MainActivity extends Activity {
         buildList();
         (Edition.LITE ? tOne : simpleUi ? tRec : applyBtn).requestFocus();
         if (missed) run(T.t("Применяю ваш выбор после включения…"), () -> new Ops(this, this::say).bootRun("open"));
+        else if (Share.on(this)) { Context app = getApplicationContext(); new Thread(() -> new Ops(app, null).shareNow()).start(); }
         scan();
     }
 
@@ -284,7 +286,7 @@ public class MainActivity extends Activity {
                 + T.t("Если нужно, оставьте один магазин включённым или поставьте другой: Aurora Store (каталог Google Play без аккаунта), ")
                 + T.t("F-Droid (приложения с открытым кодом) или магазин вашего региона.");
     }
-    private boolean simpleRun;
+    private boolean simpleRun, applyRun;
 
     /** One press: set the mode, show what changes, apply, then offer a reboot. */
     private void quick(int mode) {
@@ -380,6 +382,19 @@ public class MainActivity extends Activity {
         openingLog = true;
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
+    }
+
+    /** Once, after the first "Apply" that went through (owner's decision 04.11.2026: sent by itself, with consent). */
+    private void askShare(boolean thenReboot) {
+        new android.app.AlertDialog.Builder(this)
+                .setTitle(T.t("Поделиться результатом?"))
+                .setMessage(T.t("Уборщик может сам отправлять короткий отчёт автору: модель телевизора, прошивку и что на нём отключено. По таким отчётам владельцы такого же телевизора получат подсказки, что можно отключать, а что нельзя.")
+                        + "\n\n" + T.t("Без имени, почты и аккаунта. Ваши собственные приложения не отправляются. Отчёт уходит после первой перезагрузки, через сутки, после отката и после «Вернуть всё как было».")
+                        + "\n\n" + T.t("Посмотреть отчёт и выключить отправку можно в «Поделиться опытом»."))
+                .setPositiveButton(T.t("Да, делиться"), (d, w) -> { store.setFlag("shareConsent", true); Report.saveIfConsented(this); })
+                .setNegativeButton(T.t("Нет, спасибо"), (d, w) -> store.setFlag("shareConsent", false))
+                .setOnDismissListener(d -> { if (!store.has("shareConsent")) store.setFlag("shareConsent", false); if (thenReboot) offerReboot(); })
+                .show();
     }
 
     private void offerReboot() {
@@ -753,6 +768,7 @@ public class MainActivity extends Activity {
     private void doApply() {
         saveFlags();
         keepTicks = false;
+        applyRun = true;
         Set<String> chosen = new HashSet<>(), disable = new HashSet<>(), enable = new HashSet<>();
         Set<String> sleep = new HashSet<>(), wake = new HashSet<>();
         Set<String> before = store.disabled(), sleptBefore = store.sleeping();
@@ -821,6 +837,8 @@ public class MainActivity extends Activity {
                 }
                 launcherBtn.setText(store.flag("launcher", false) ? T.t("Вернуть старую оболочку") : T.t("Новая оболочка"));
                 simpleLauncher.setText(launcherBtn.getText());
+                boolean wasApply = applyRun; applyRun = false;
+                if (wasApply && done && Share.shouldAsk(this)) { boolean r = simpleRun; simpleRun = false; askShare(r); }
                 if (simpleRun) { simpleRun = false; if (done) offerReboot(); }
                 if (openAfterJob != null) { String p = openAfterJob; openAfterJob = null; if (done) openApp(p); }
                 String last = status.getText().toString();

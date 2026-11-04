@@ -680,5 +680,16 @@
 "needed for firmware updates",
 "switch it on when you want to update",
 "The TV already asked for debugging permission after this boot, so I am not asking again. Open TV Janitor when you are at the TV.",
-"Nobody pressed \"Allow\" on the TV screen, so I am not asking again. Open TV Janitor and allow debugging (\"Always allow\")."
+"Nobody pressed \"Allow\" on the TV screen, so I am not asking again. Open TV Janitor and allow debugging (\"Always allow\").",
+"📤 Report sent to the author of TV Janitor: ",
+"The report did not go out (no internet?), I will send it next time",
+"Share the result?",
+"TV Janitor can send a short report to its author by itself: the TV model, the firmware and what is switched off on it. From such reports, owners of the same TV get hints on what can be switched off and what cannot.",
+"No name, e-mail or account. Your own apps are not sent. The report goes after the first restart, a day later, after a rollback and after \"Restore everything\".",
+"You can see the report and turn sending off in \"Share your experience\".",
+"Yes, share",
+"No, thanks",
+"With the box below ticked, the report goes to the author of TV Janitor by itself (a Google form, no name or e-mail): after the first restart, a day after \"Apply\", after a rollback and after \"Restore everything\". \"Save\" just puts the file on the TV.",
+"Share experience automatically\nthe report goes to the author of TV Janitor by itself and helps owners of the same TV",
+"Thank you! The report will be sent by itself"
 ]

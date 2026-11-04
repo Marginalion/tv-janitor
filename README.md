@@ -97,8 +97,10 @@ ADB at 127.0.0.1. Lite never goes online: its build switches off the base update
 - **Light keyboard** (Full): LeanKey, made for the remote, instead of a heavy stock keyboard.
 - **🗑 Uninstall cleanly**: puts everything back, checks that a home screen answers Home, then removes the
   launcher, the keyboard and the app. Uninstalling the app alone would leave everything it disabled disabled.
-- **Share your experience** (opt-in, off by default): a report in CleanYourTV's `debloat.txt` format. Nothing
-  is sent anywhere by the app.
+- **Share your experience** (asked once after the first "Apply", off unless you say yes): a report in CleanYourTV's
+  `debloat.txt` format goes to the author's Google Form by itself after the first good restart, a day later, after
+  a rollback and after "Restore everything". No name, e-mail or account, a random TV number only; your own apps
+  only with a separate tick. Lite never sends anything.
 - Leaves nothing behind: about 0 MB when closed.
 
 How every decision is made, rule by rule: **[docs/HOW-IT-DECIDES.md](docs/HOW-IT-DECIDES.md)**.

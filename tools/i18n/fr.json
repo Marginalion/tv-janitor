@@ -680,5 +680,16 @@
 "nécessaire aux mises à jour du micrologiciel",
 "réactivez-le quand vous voudrez mettre à jour",
 "Le téléviseur a déjà demandé l'autorisation de débogage depuis ce démarrage, je ne redemande pas. Ouvrez TV Janitor quand vous serez devant le téléviseur.",
-"Personne n'a appuyé sur « Autoriser » sur le téléviseur, je ne redemande pas. Ouvrez TV Janitor et autorisez le débogage (« Toujours autoriser »)."
+"Personne n'a appuyé sur « Autoriser » sur le téléviseur, je ne redemande pas. Ouvrez TV Janitor et autorisez le débogage (« Toujours autoriser »).",
+"📤 Rapport envoyé à l'auteur de TV Janitor : ",
+"Le rapport n'est pas parti (pas d'internet ?), je l'enverrai la prochaine fois",
+"Partager le résultat ?",
+"TV Janitor peut envoyer lui-même un court rapport à son auteur : le modèle du téléviseur, le micrologiciel et ce qui y est désactivé. Grâce à ces rapports, les propriétaires du même téléviseur sauront ce qu'on peut désactiver et ce qu'il ne faut pas toucher.",
+"Sans nom, e-mail ni compte. Vos propres applications ne sont pas envoyées. Le rapport part après le premier redémarrage, un jour plus tard, après un retour arrière et après « Tout restaurer ».",
+"Vous pouvez voir le rapport et couper l'envoi dans « Partager l'expérience ».",
+"Oui, partager",
+"Non, merci",
+"Avec la case ci-dessous cochée, le rapport part tout seul vers l'auteur de TV Janitor (un formulaire Google, sans nom ni e-mail) : après le premier redémarrage, un jour après « Appliquer », après un retour arrière et après « Tout restaurer ». « Enregistrer » dépose seulement le fichier sur le téléviseur.",
+"Partager l'expérience automatiquement\nle rapport part tout seul vers l'auteur de TV Janitor et aide les propriétaires du même téléviseur",
+"Merci ! Le rapport sera envoyé tout seul"
 ]

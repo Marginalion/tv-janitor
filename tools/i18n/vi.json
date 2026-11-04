@@ -680,5 +680,16 @@
 "cần để cập nhật firmware",
 "bật lên khi muốn cập nhật",
 "Sau lần khởi động này TV đã hỏi quyền gỡ lỗi rồi, tôi không hỏi nữa. Hãy mở TV Janitor khi bạn ở cạnh TV.",
-"Không ai nhấn \"Cho phép\" trên màn hình TV, tôi không hỏi nữa. Hãy mở TV Janitor và cho phép gỡ lỗi (\"Luôn cho phép\")."
+"Không ai nhấn \"Cho phép\" trên màn hình TV, tôi không hỏi nữa. Hãy mở TV Janitor và cho phép gỡ lỗi (\"Luôn cho phép\").",
+"📤 Đã gửi báo cáo cho tác giả TV Janitor: ",
+"Báo cáo chưa gửi được (không có mạng?), lần sau tôi sẽ gửi",
+"Chia sẻ kết quả?",
+"TV Janitor có thể tự gửi báo cáo ngắn cho tác giả: mẫu TV, firmware và những gì đã tắt. Nhờ các báo cáo này, người dùng cùng mẫu TV sẽ biết cái gì tắt được và cái gì không.",
+"Không có tên, email hay tài khoản. Ứng dụng riêng của bạn không được gửi. Báo cáo được gửi sau lần khởi động lại đầu tiên, sau một ngày, sau khi hoàn tác và sau \"Khôi phục tất cả\".",
+"Có thể xem báo cáo và tắt gửi trong \"Chia sẻ kinh nghiệm\".",
+"Có, chia sẻ",
+"Không, cảm ơn",
+"Khi đánh dấu ô bên dưới, báo cáo sẽ tự gửi cho tác giả TV Janitor (biểu mẫu Google, không tên, không email): sau lần khởi động lại đầu tiên, một ngày sau \"Áp dụng\", sau khi hoàn tác và sau \"Khôi phục tất cả\". \"Lưu\" chỉ đặt tệp lên TV.",
+"Tự động chia sẻ kinh nghiệm\nbáo cáo tự gửi cho tác giả TV Janitor và giúp người dùng cùng mẫu TV",
+"Cảm ơn! Báo cáo sẽ tự được gửi"
 ]

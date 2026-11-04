@@ -97,7 +97,7 @@ final class Report {
         return out;
     }
 
-    private static Set<String> system(PackageManager pm, Set<String> pkgs) {
+    static Set<String> system(PackageManager pm, Set<String> pkgs) {
         Set<String> out = new TreeSet<>();
         for (String p : pkgs) {
             try {

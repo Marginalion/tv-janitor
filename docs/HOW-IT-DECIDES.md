@@ -131,9 +131,11 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 - The app talks to the TV's own ADB at `127.0.0.1` with its own key, approved once on screen.
 - **Full** can update the CleanYourTV base from GitHub (accepted only if at least 80 % of the lists arrive).
   **Lite** never goes online.
-- "Share your experience" is **off unless you tick it**. The report (in English, for the shared base) lists the
-  model, firmware and system packages; your own apps only if you tick that too. It is saved on the TV;
-  nothing is sent anywhere.
+- "Share your experience" is **off unless you say yes** (asked once, after the first "Apply" that went through).
+  The report (in English, for the shared base) lists the model, firmware and system packages; your own apps only
+  if you tick that too. With consent, Full sends it to the author's Google Form (no name, e-mail or account; a
+  random TV number keeps one TV's reports together) after the first good restart after "Apply", a day later, after
+  a rollback and after "Restore everything", at most once a day for the same report. Lite sends nothing.
 
 ---
 
@@ -220,5 +222,7 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 с самим собой.
 
 **10. Сеть и данные.** Связь только с ADB самого телевизора (127.0.0.1). Full может обновить базу с GitHub,
-Lite в интернет не ходит. «Поделиться опытом» выключено, пока вы не поставите галочку; отчёт остаётся на
-телевизоре и никуда не отправляется.
+Lite в интернет не ходит. «Поделиться опытом» выключено, пока вы не согласитесь (вопрос один раз, после первого
+удачного «Применить»). С согласием Full сам отправляет отчёт в Google-форму автора (без имени, почты и аккаунта,
+только случайный номер телевизора): после первой удачной перезагрузки, через сутки, после отката и после «Вернуть
+всё как было». Ваши приложения уходят только с отдельной галочкой.

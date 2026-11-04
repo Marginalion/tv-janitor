@@ -680,5 +680,16 @@
 "necesario para actualizar el firmware",
 "actívelo cuando quiera actualizar",
 "El televisor ya pidió permiso de depuración tras este arranque, no vuelvo a preguntar. Abra TV Janitor cuando esté frente al televisor.",
-"No se pulsó «Permitir» en la pantalla del televisor, no vuelvo a preguntar. Abra TV Janitor y permita la depuración («Permitir siempre»)."
+"No se pulsó «Permitir» en la pantalla del televisor, no vuelvo a preguntar. Abra TV Janitor y permita la depuración («Permitir siempre»).",
+"📤 Informe enviado al autor de TV Janitor: ",
+"El informe no salió (¿sin internet?), lo enviaré la próxima vez",
+"¿Compartir el resultado?",
+"TV Janitor puede enviar por sí mismo un informe breve a su autor: el modelo del televisor, el firmware y lo que está desactivado. Con estos informes, los dueños del mismo televisor reciben pistas sobre qué se puede desactivar y qué no.",
+"Sin nombre, correo ni cuenta. Sus propias aplicaciones no se envían. El informe sale tras el primer reinicio, un día después, tras una reversión y tras «Restaurar todo».",
+"Puede ver el informe y desactivar el envío en «Compartir experiencia».",
+"Sí, compartir",
+"No, gracias",
+"Con la casilla de abajo marcada, el informe llega solo al autor de TV Janitor (un formulario de Google, sin nombre ni correo): tras el primer reinicio, un día después de «Aplicar», tras una reversión y tras «Restaurar todo». «Guardar» solo deja el archivo en el televisor.",
+"Compartir experiencia automáticamente\nel informe llega solo al autor de TV Janitor y ayuda a los dueños del mismo televisor",
+"¡Gracias! El informe se enviará solo"
 ]

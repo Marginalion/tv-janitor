@@ -680,5 +680,16 @@
 "yazılım güncellemeleri için gerekli",
 "güncellemek istediğinizde açın",
 "TV bu açılıştan sonra hata ayıklama iznini zaten sordu, tekrar sormuyorum. TV'nin başındayken TV Janitor'u açın.",
-"TV ekranında \"İzin ver\"e basılmadı, tekrar sormuyorum. TV Janitor'u açın ve hata ayıklamaya izin verin (\"Her zaman izin ver\")."
+"TV ekranında \"İzin ver\"e basılmadı, tekrar sormuyorum. TV Janitor'u açın ve hata ayıklamaya izin verin (\"Her zaman izin ver\").",
+"📤 Rapor TV Janitor yazarına gönderildi: ",
+"Rapor gitmedi (internet yok mu?), bir dahaki sefere göndereceğim",
+"Sonucu paylaşalım mı?",
+"TV Janitor yazarına kendiliğinden kısa bir rapor gönderebilir: TV modeli, yazılım ve kapatılanlar. Bu raporlarla aynı TV'nin sahipleri neyin kapatılabileceğini, neyin kapatılamayacağını öğrenir.",
+"İsim, e-posta ve hesap yok. Kendi uygulamalarınız gönderilmez. Rapor ilk yeniden başlatmadan sonra, bir gün sonra, geri almadan sonra ve \"Her şeyi geri yükle\"den sonra gider.",
+"Raporu görmek ve göndermeyi kapatmak için \"Deneyimi paylaş\"a gidin.",
+"Evet, paylaş",
+"Hayır, teşekkürler",
+"Aşağıdaki kutu işaretliyse rapor kendiliğinden TV Janitor yazarına gider (Google formu, isim ve e-posta yok): ilk yeniden başlatmadan sonra, \"Uygula\"dan bir gün sonra, geri almadan sonra ve \"Her şeyi geri yükle\"den sonra. \"Kaydet\" dosyayı yalnızca TV'ye koyar.",
+"Deneyimi otomatik paylaş\nrapor kendiliğinden TV Janitor yazarına gider ve aynı TV'nin sahiplerine yardım eder",
+"Teşekkürler! Rapor kendiliğinden gönderilecek"
 ]
