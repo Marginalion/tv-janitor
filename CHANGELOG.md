@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.9.5-rc3 (2026-11-04)
+
+After the run of rc2 on Philips.
+
+- **Back on screen, really.** The screen was closed the moment Home came up during a check, so TV Janitor came
+  back as a fresh screen: "Do everything" did not go on to "Optimal", and "Reset to factory?" after "Restore
+  everything" was lost. While a job runs the screen now stays, and the app ends only if it is really not on screen.
+- **Debugging stays closed by default after "Restore everything" too** (the owner's call): before, restoring ticked
+  "Keep network debugging on", and a later "Apply" left debugging open for good.
+- The test pause (`debug.tvj.pause`) works on "New launcher" too; "debugging left open … closed" is written once.
+
 ## 0.9.5-rc2 (2026-11-04)
 
 After the first run of rc1 on Philips 50PUS8505.
