@@ -713,3 +713,43 @@ CI-модуль	Mô-đun CI
 Обновляю…	Đang cập nhật…
 Отчёт не ушёл — отправлю в следующий раз	Báo cáo chưa gửi được, lần sau tôi sẽ gửi
 ⚠ Обновление не встало: 	⚠ Bản cập nhật không cài được:  
+ — обновление отменено	  — đã hủy cập nhật
+). Уборщик не будет обещать закрытие и оставит её как есть.	). TV Janitor sẽ không hứa đóng và để nguyên như cũ.
+, а предлагалась 	, nhưng bản được đề xuất là  
+, включена «Беспроводная отладка»	, "Gỡ lỗi không dây" đang bật
+, сейчас: 	, hiện tại:  
+. Вернулось не всё — см. строки с ⚠ выше	. Chưa trở lại hết — xem các dòng ⚠ ở trên
+Android 11+ забывает «Всегда разрешать» через 7 дней без подключения, и окно «Разрешить отладку?» появляется снова. Галочка отключает это забывание для всех компьютеров, которым вы уже разрешили отладку. Новым компьютерам по-прежнему нужно ваше «Разрешить»	Android 11+ quên "Luôn cho phép" sau 7 ngày không kết nối, và hộp "Cho phép gỡ lỗi?" lại hiện ra. Ô này tắt việc quên đó cho mọi máy tính bạn đã cho phép. Máy tính mới vẫn cần bạn nhấn "Cho phép"
+Версия	Phiên bản
+Возвращаю…	Đang khôi phục…
+Если вы не ставили их сами, сбросьте к заводским.	Nếu bạn không tự đặt, hãy đặt lại về mặc định.
+Модель	Mẫu
+На экране телевизора не нажали «Разрешить» — проверку закончу, когда попробуете снова.	Không ai nhấn "Cho phép" trên TV — kiểm tra dừng ở đây, sẽ chạy lại khi bạn thử lần nữa.
+Настройки до Уборщика не были записаны — оставляю их как есть	Cài đặt trước TV Janitor chưa được ghi lại — để nguyên
+Настройки от прошлой установки Уборщика сброшены к заводским: 	Cài đặt do lần cài TV Janitor trước để lại đã về mặc định:  
+Не забывать разрешение отладки	Không quên quyền gỡ lỗi
+Не смог записать отметку на диск — обновление не ставлю	Không ghi được dấu lên bộ nhớ — không cài bản cập nhật
+Обновление установлено, Уборщик сейчас перезапустится	Đã cài bản cập nhật, TV Janitor sẽ khởi động lại
+Оставить	Giữ nguyên
+Отчёт	Báo cáo
+Отчёт не записан: 	Chưa ghi được báo cáo:  
+Пакеты	Gói
+Разрешение отладки больше не забывается	Quyền gỡ lỗi không còn bị quên
+Разрешение отладки снова забывается, как задумано в Android (через 7 дней без подключения)	Quyền gỡ lỗi lại bị quên như Android thiết kế (sau 7 ngày không kết nối)
+Сбрасываю…	Đang đặt lại…
+Сбросить	Đặt lại
+Сбросить к заводским?	Đặt lại về mặc định?
+Снова отключено, как было в снимке: 	Đã tắt lại như trong ảnh chụp:  
+Событие	Sự kiện
+Эти настройки вернулись такими, какими были до первого запуска Уборщика. Но это ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки.	Các cài đặt này đã về như trước lần chạy đầu của TV Janitor. Nhưng đó đúng là giá trị TV Janitor tự đặt: có lẽ còn sót lại từ lần cài trước.
+не отключилось: 	không tắt được:  
+⚠ «Домой» не вернулся к 	⚠ "Màn hình chính" không trở về  
+⚠ В файле версия 	⚠ Tệp chứa phiên bản  
+⚠ Выключение отладки не закрывает её на этом телевизоре (порт 5555 отвечает и выключенным	⚠ Tắt gỡ lỗi không đóng nó trên TV này (cổng 5555 vẫn trả lời khi đã tắt
+⚠ Заводской «Домой» включён, но Android открывает по «Домой» другой экран. Выберите главный экран в Настройках → Приложения → Главный экран.	⚠ Màn hình chính gốc đã bật, nhưng Android mở màn hình khác. Hãy chọn trong Cài đặt → Ứng dụng → Ứng dụng màn hình chính.
+⚠ Заводской «Домой» включён, но ещё не стал главным экраном — попробую при следующем запуске.	⚠ Màn hình chính gốc đã bật nhưng chưa là màn hình chính — sẽ thử lại lần khởi động sau.
+⚠ Не вернулась настройка adb_allowed_connection_time	⚠ Cài đặt adb_allowed_connection_time không trở lại
+⚠ Не вернулась работа в фоне: 	⚠ Chạy nền không trở lại:  
+⚠ Не вернулись настройки: 	⚠ Cài đặt không trở lại:  
+⚠ Не сбросились: 	⚠ Không đặt lại được:  
+⚠ Снимок «как было» неполный: настройки до Уборщика не записаны. «Вернуть всё» вернёт пакеты, а настройки оставит как есть	⚠ Ảnh chụp "như cũ" chưa đầy đủ: cài đặt trước TV Janitor chưa được ghi. "Khôi phục tất cả" sẽ trả lại các gói và giữ nguyên cài đặt

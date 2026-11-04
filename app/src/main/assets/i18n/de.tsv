@@ -713,3 +713,43 @@ CI-модуль	CI-Modul
 Обновляю…	Aktualisiere…
 Отчёт не ушёл — отправлю в следующий раз	Der Bericht ging nicht raus, ich sende ihn beim nächsten Mal
 ⚠ Обновление не встало: 	⚠ Das Update wurde nicht installiert:  
+ — обновление отменено	  — Update abgebrochen
+). Уборщик не будет обещать закрытие и оставит её как есть.	). TV Janitor verspricht das Schließen nicht und lässt es, wie es ist.
+, а предлагалась 	, angeboten war aber  
+, включена «Беспроводная отладка»	, „Kabelloses Debugging" ist an
+, сейчас: 	, jetzt:  
+. Вернулось не всё — см. строки с ⚠ выше	. Nicht alles kam zurück — siehe die ⚠-Zeilen oben
+Android 11+ забывает «Всегда разрешать» через 7 дней без подключения, и окно «Разрешить отладку?» появляется снова. Галочка отключает это забывание для всех компьютеров, которым вы уже разрешили отладку. Новым компьютерам по-прежнему нужно ваше «Разрешить»	Android 11+ vergisst „Immer zulassen" nach 7 Tagen ohne Verbindung, dann kommt „Debugging zulassen?" wieder. Dieses Häkchen schaltet das Vergessen für alle Computer ab, die Sie schon zugelassen haben. Ein neuer Computer braucht weiterhin Ihr „Zulassen"
+Версия	Version
+Возвращаю…	Stelle zurück…
+Если вы не ставили их сами, сбросьте к заводским.	Wenn Sie sie nicht selbst gesetzt haben, auf Werkseinstellung zurücksetzen.
+Модель	Modell
+На экране телевизора не нажали «Разрешить» — проверку закончу, когда попробуете снова.	Auf dem Fernseher wurde nicht „Zulassen" gedrückt — die Prüfung endet hier, beim nächsten Versuch läuft sie wieder.
+Настройки до Уборщика не были записаны — оставляю их как есть	Die Einstellungen von vor TV Janitor wurden nie gespeichert — sie bleiben, wie sie sind
+Настройки от прошлой установки Уборщика сброшены к заводским: 	Einstellungen einer früheren TV-Janitor-Installation auf Werkseinstellung zurückgesetzt:  
+Не забывать разрешение отладки	Debugging-Erlaubnis nicht vergessen
+Не смог записать отметку на диск — обновление не ставлю	Konnte die Markierung nicht speichern — Update wird nicht installiert
+Обновление установлено, Уборщик сейчас перезапустится	Update installiert, TV Janitor startet jetzt neu
+Оставить	Behalten
+Отчёт	Bericht
+Отчёт не записан: 	Bericht nicht geschrieben:  
+Пакеты	Pakete
+Разрешение отладки больше не забывается	Die Debugging-Erlaubnis wird nicht mehr vergessen
+Разрешение отладки снова забывается, как задумано в Android (через 7 дней без подключения)	Die Debugging-Erlaubnis wird wieder vergessen, wie Android es vorsieht (nach 7 Tagen ohne Verbindung)
+Сбрасываю…	Setze zurück…
+Сбросить	Zurücksetzen
+Сбросить к заводским?	Auf Werkseinstellung zurücksetzen?
+Снова отключено, как было в снимке: 	Wieder aus, wie im Schnappschuss:  
+Событие	Ereignis
+Эти настройки вернулись такими, какими были до первого запуска Уборщика. Но это ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки.	Diese Einstellungen sind wieder wie vor dem ersten Start von TV Janitor. Es sind aber genau die Werte, die TV Janitor selbst setzt: wahrscheinlich von einer früheren Installation übrig.
+не отключилось: 	nicht abgeschaltet:  
+⚠ «Домой» не вернулся к 	⚠ „Home" ist nicht zurück zu  
+⚠ В файле версия 	⚠ Die Datei enthält Version  
+⚠ Выключение отладки не закрывает её на этом телевизоре (порт 5555 отвечает и выключенным	⚠ Ausschalten schließt das Debugging auf diesem Fernseher nicht (Port 5555 antwortet auch aus
+⚠ Заводской «Домой» включён, но Android открывает по «Домой» другой экран. Выберите главный экран в Настройках → Приложения → Главный экран.	⚠ Der Standard-Startbildschirm ist an, aber Android öffnet mit „Home" einen anderen. Wählen Sie ihn unter Einstellungen → Apps → Start-App.
+⚠ Заводской «Домой» включён, но ещё не стал главным экраном — попробую при следующем запуске.	⚠ Der Standard-Startbildschirm ist an, aber noch nicht Start-App — nächster Versuch beim nächsten Start.
+⚠ Не вернулась настройка adb_allowed_connection_time	⚠ Die Einstellung adb_allowed_connection_time kam nicht zurück
+⚠ Не вернулась работа в фоне: 	⚠ Hintergrundarbeit nicht zurück:  
+⚠ Не вернулись настройки: 	⚠ Einstellungen nicht zurück:  
+⚠ Не сбросились: 	⚠ Nicht zurückgesetzt:  
+⚠ Снимок «как было» неполный: настройки до Уборщика не записаны. «Вернуть всё» вернёт пакеты, а настройки оставит как есть	⚠ Der Schnappschuss „wie es war" ist unvollständig: die Einstellungen von vor TV Janitor fehlen. „Alles zurücksetzen" stellt die Pakete wieder her und lässt die Einstellungen, wie sie sind

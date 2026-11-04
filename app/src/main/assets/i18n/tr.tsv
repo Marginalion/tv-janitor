@@ -713,3 +713,43 @@ CI-модуль	CI modülü
 Обновляю…	Güncelleniyor…
 Отчёт не ушёл — отправлю в следующий раз	Rapor gitmedi, bir dahaki sefere göndereceğim
 ⚠ Обновление не встало: 	⚠ Güncelleme yüklenmedi:  
+ — обновление отменено	  — güncelleme iptal edildi
+). Уборщик не будет обещать закрытие и оставит её как есть.	). TV Janitor kapatmayı vaat etmeyecek ve olduğu gibi bırakacak.
+, а предлагалась 	, ama önerilen  
+, включена «Беспроводная отладка»	, "Kablosuz hata ayıklama" açık
+, сейчас: 	, şu an:  
+. Вернулось не всё — см. строки с ⚠ выше	. Her şey geri gelmedi — yukarıdaki ⚠ satırlarına bakın
+Android 11+ забывает «Всегда разрешать» через 7 дней без подключения, и окно «Разрешить отладку?» появляется снова. Галочка отключает это забывание для всех компьютеров, которым вы уже разрешили отладку. Новым компьютерам по-прежнему нужно ваше «Разрешить»	Android 11+ bağlantı olmadan 7 gün sonra "Her zaman izin ver"i unutur ve "Hata ayıklamaya izin verilsin mi?" yeniden çıkar. Bu kutu, daha önce izin verdiğiniz tüm bilgisayarlar için bu unutmayı kapatır. Yeni bir bilgisayar yine sizin "İzin ver"inize ihtiyaç duyar
+Версия	Sürüm
+Возвращаю…	Geri alıyorum…
+Если вы не ставили их сами, сбросьте к заводским.	Bunları kendiniz ayarlamadıysanız fabrika ayarına döndürün.
+Модель	Model
+На экране телевизора не нажали «Разрешить» — проверку закончу, когда попробуете снова.	TV ekranında "İzin ver"e basılmadı — kontrol burada bitiyor, tekrar denediğinizde yeniden çalışır.
+Настройки до Уборщика не были записаны — оставляю их как есть	TV Janitor öncesi ayarlar kaydedilmemiş — olduğu gibi bırakıyorum
+Настройки от прошлой установки Уборщика сброшены к заводским: 	Önceki TV Janitor kurulumunun bıraktığı ayarlar fabrika ayarına döndü:  
+Не забывать разрешение отладки	Hata ayıklama iznini unutma
+Не смог записать отметку на диск — обновление не ставлю	İşaret diske yazılamadı — güncellemeyi kurmuyorum
+Обновление установлено, Уборщик сейчас перезапустится	Güncelleme kuruldu, TV Janitor şimdi yeniden başlıyor
+Оставить	Bırak
+Отчёт	Rapor
+Отчёт не записан: 	Rapor yazılamadı:  
+Пакеты	Paketler
+Разрешение отладки больше не забывается	Hata ayıklama izni artık unutulmuyor
+Разрешение отладки снова забывается, как задумано в Android (через 7 дней без подключения)	Hata ayıklama izni Android'in öngördüğü gibi yine unutuluyor (bağlantısız 7 gün sonra)
+Сбрасываю…	Sıfırlıyorum…
+Сбросить	Sıfırla
+Сбросить к заводским?	Fabrika ayarına döndürülsün mü?
+Снова отключено, как было в снимке: 	Anlık görüntüdeki gibi yeniden kapatıldı:  
+Событие	Olay
+Эти настройки вернулись такими, какими были до первого запуска Уборщика. Но это ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки.	Bu ayarlar TV Janitor ilk çalışmadan önceki hâline döndü. Ama bunlar tam da TV Janitor'un kendi koyduğu değerler: büyük olasılıkla önceki bir kurulumdan kaldı.
+не отключилось: 	kapanmadı:  
+⚠ «Домой» не вернулся к 	⚠ "Ana ekran" şuna dönmedi:  
+⚠ В файле версия 	⚠ Dosyadaki sürüm  
+⚠ Выключение отладки не закрывает её на этом телевизоре (порт 5555 отвечает и выключенным	⚠ Bu TV'de hata ayıklamayı kapatmak onu kapatmıyor (5555 portu kapalıyken de yanıt veriyor
+⚠ Заводской «Домой» включён, но Android открывает по «Домой» другой экран. Выберите главный экран в Настройках → Приложения → Главный экран.	⚠ Fabrika ana ekranı açık ama Android başka bir ekran açıyor. Ayarlar → Uygulamalar → Ana ekran uygulaması'ndan seçin.
+⚠ Заводской «Домой» включён, но ещё не стал главным экраном — попробую при следующем запуске.	⚠ Fabrika ana ekranı açık ama henüz ana ekran değil — bir sonraki açılışta tekrar deneyeceğim.
+⚠ Не вернулась настройка adb_allowed_connection_time	⚠ adb_allowed_connection_time ayarı geri gelmedi
+⚠ Не вернулась работа в фоне: 	⚠ Arka plan çalışması geri gelmedi:  
+⚠ Не вернулись настройки: 	⚠ Geri gelmeyen ayarlar:  
+⚠ Не сбросились: 	⚠ Sıfırlanmadı:  
+⚠ Снимок «как было» неполный: настройки до Уборщика не записаны. «Вернуть всё» вернёт пакеты, а настройки оставит как есть	⚠ "Olduğu gibi" anlık görüntüsü eksik: TV Janitor öncesi ayarlar kaydedilmemiş. "Her şeyi geri al" paketleri geri getirir, ayarları olduğu gibi bırakır

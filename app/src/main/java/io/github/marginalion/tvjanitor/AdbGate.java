@@ -33,6 +33,8 @@ final class AdbGate {
     static boolean open(Context c) {
         if (!can(c)) return false;
         boolean changed = false;
+        // Written before the change (audit F94.9): if the process dies with debugging open, the next start closes it.
+        if (!isOn(c) || !devOn(c)) new Store(c).edit().putBoolean("adbOpenedTmp", true).commit();
         try {
             if (!devOn(c)) {
                 Settings.Global.putInt(c.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 1);
@@ -54,6 +56,8 @@ final class AdbGate {
     static void close(Context c) {
         if (!mayClose(c)) return;
         synchronized (Ops.LOCK) {
+            // Asked again under the lock: keepAdb may have changed while we waited (audit 4.3).
+            if (!mayClose(c)) return;
             try {
                 if (isOn(c)) Settings.Global.putInt(c.getContentResolver(), Settings.Global.ADB_ENABLED, 0);
                 // Developer options go back off only if the app switched them on (the firmware wants them off).
@@ -62,8 +66,14 @@ final class AdbGate {
                     Settings.Global.putInt(c.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0);
                     s.setFlag("devOpenedByUs", false);
                 }
+                s.edit().remove("adbOpenedTmp").commit();
             } catch (SecurityException ignored) {}
         }
+    }
+
+    /** At process start: debugging left open by a run that died is closed now, not "some time later". */
+    static void afterCrash(Context c) {
+        if (new Store(c).flag("adbOpenedTmp", false) && !MainActivity.busy()) close(c);
     }
 
     /** Switch off without the checks: only for the cycle test, which switches it on again at once. */

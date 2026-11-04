@@ -713,3 +713,43 @@ CI-модуль	Módulo CI
 Обновляю…	Actualizando…
 Отчёт не ушёл — отправлю в следующий раз	El informe no salió, lo enviaré la próxima vez
 ⚠ Обновление не встало: 	⚠ La actualización no se instaló:  
+ — обновление отменено	  — actualización cancelada
+). Уборщик не будет обещать закрытие и оставит её как есть.	). TV Janitor no promete cerrarla y la deja como está.
+, а предлагалась 	, pero se ofrecía  
+, включена «Беспроводная отладка»	, la «Depuración inalámbrica» está activada
+, сейчас: 	, ahora:  
+. Вернулось не всё — см. строки с ⚠ выше	. No todo volvió — vea las líneas ⚠ de arriba
+Android 11+ забывает «Всегда разрешать» через 7 дней без подключения, и окно «Разрешить отладку?» появляется снова. Галочка отключает это забывание для всех компьютеров, которым вы уже разрешили отладку. Новым компьютерам по-прежнему нужно ваше «Разрешить»	Android 11+ olvida «Permitir siempre» tras 7 días sin conexión y vuelve a aparecer «¿Permitir depuración?». Esta casilla desactiva ese olvido para todos los ordenadores que ya permitió. Un ordenador nuevo sigue necesitando su «Permitir»
+Версия	Versión
+Возвращаю…	Restaurando…
+Если вы не ставили их сами, сбросьте к заводским.	Si no las puso usted, restablézcalas a las de fábrica.
+Модель	Modelo
+На экране телевизора не нажали «Разрешить» — проверку закончу, когда попробуете снова.	No se pulsó «Permitir» en el televisor: la prueba termina aquí y se repetirá cuando lo intente de nuevo.
+Настройки до Уборщика не были записаны — оставляю их как есть	La configuración anterior a TV Janitor no se guardó: la dejo como está
+Настройки от прошлой установки Уборщика сброшены к заводским: 	Configuración de una instalación anterior de TV Janitor restablecida a la de fábrica:  
+Не забывать разрешение отладки	No olvidar el permiso de depuración
+Не смог записать отметку на диск — обновление не ставлю	No pude escribir la marca en el disco: no instalo la actualización
+Обновление установлено, Уборщик сейчас перезапустится	Actualización instalada, TV Janitor se reinicia ahora
+Оставить	Mantener
+Отчёт	Informe
+Отчёт не записан: 	Informe no guardado:  
+Пакеты	Paquetes
+Разрешение отладки больше не забывается	El permiso de depuración ya no se olvida
+Разрешение отладки снова забывается, как задумано в Android (через 7 дней без подключения)	El permiso de depuración vuelve a olvidarse, como prevé Android (tras 7 días sin conexión)
+Сбрасываю…	Restableciendo…
+Сбросить	Restablecer
+Сбросить к заводским?	¿Restablecer a valores de fábrica?
+Снова отключено, как было в снимке: 	Desactivado de nuevo, como en la instantánea:  
+Событие	Evento
+Эти настройки вернулись такими, какими были до первого запуска Уборщика. Но это ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки.	Estos ajustes volvieron a como estaban antes del primer inicio de TV Janitor. Pero son justo los valores que pone TV Janitor: seguramente quedaron de una instalación anterior.
+не отключилось: 	no se desactivó:  
+⚠ «Домой» не вернулся к 	⚠ «Inicio» no volvió a  
+⚠ В файле версия 	⚠ El archivo trae la versión  
+⚠ Выключение отладки не закрывает её на этом телевизоре (порт 5555 отвечает и выключенным	⚠ Apagar la depuración no la cierra en este televisor (el puerto 5555 responde apagado
+⚠ Заводской «Домой» включён, но Android открывает по «Домой» другой экран. Выберите главный экран в Настройках → Приложения → Главный экран.	⚠ El inicio de fábrica está activado, pero Android abre otra pantalla con «Inicio». Elíjala en Ajustes → Aplicaciones → Aplicación de inicio.
+⚠ Заводской «Домой» включён, но ещё не стал главным экраном — попробую при следующем запуске.	⚠ El inicio de fábrica está activado pero aún no es la pantalla de inicio: lo intentaré en el próximo arranque.
+⚠ Не вернулась настройка adb_allowed_connection_time	⚠ El ajuste adb_allowed_connection_time no volvió
+⚠ Не вернулась работа в фоне: 	⚠ El trabajo en segundo plano no volvió:  
+⚠ Не вернулись настройки: 	⚠ Ajustes que no volvieron:  
+⚠ Не сбросились: 	⚠ No se restablecieron:  
+⚠ Снимок «как было» неполный: настройки до Уборщика не записаны. «Вернуть всё» вернёт пакеты, а настройки оставит как есть	⚠ La instantánea «como estaba» está incompleta: no se guardó la configuración anterior a TV Janitor. «Restaurar todo» devuelve los paquetes y deja la configuración como está

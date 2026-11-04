@@ -65,8 +65,16 @@ final class Ops {
     /** The activity in front, as "package/.Activity", or "" when Android shows none. */
     private static String topActivity(Adb adb) throws Exception {
         String top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
-        Matcher m = Pattern.compile("u0 (\\S+/\\S+)").matcher(top);
-        return m.find() ? m.group(1) : "";
+        // One activity, not "somewhere in the dump" (audit R94.2): the system-wide top resumed one when Android
+        // names it (10+), else the first resumed one, which is the default display's.
+        Pattern p = Pattern.compile("u0 (\\S+/[^\\s}]+)");
+        for (String want : new String[]{"topResumedActivity", "mResumedActivity"})
+            for (String l : top.split("\n")) {
+                if (!l.contains(want)) continue;
+                Matcher m = p.matcher(l);
+                if (m.find()) return m.group(1);
+            }
+        return "";
     }
 
     /** A report that waited for the network (or the day after "Apply"): from the app's screen, off the UI thread. */
@@ -548,8 +556,21 @@ final class Ops {
             if (store.flag("adbCycleOk", false)) return true;
             note(T.t("Проверяю: выключаю отладку и включаю обратно…"));
             AdbGate.forceOff(c);
-            try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
+            // Off must mean closed (audit F94.10): on Android 11+ wireless debugging is a transport of its own, and a
+            // firmware may keep adbd listening. The port is tried while off; if it still answers, we never close it.
+            boolean closed = false;
+            for (int i = 0; i < 8 && !closed; i++) {
+                try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+                closed = !portOpen(5555);
+            }
             AdbGate.open(c);
+            if (!closed) {
+                store.setFlag("adbCycleFail", true); store.setFlag("keepAdb", true);
+                note(T.t("⚠ Выключение отладки не закрывает её на этом телевизоре (порт 5555 отвечает и выключенным")
+                        + (wifiAdbOn() ? T.t(", включена «Беспроводная отладка»") : "") + T.t("). Уборщик не будет обещать закрытие и оставит её как есть."));
+                save();
+                return false;
+            }
             try { Thread.sleep(3000); } catch (InterruptedException ignored) {}
             for (int i = 0; i < 6; i++) {
                 try {
@@ -558,12 +579,53 @@ final class Ops {
                     note(T.t("✔ Получилось: отладка теперь включается, только пока Уборщик работает"));
                     save();
                     return true;
+                } catch (Adb.AuthRefused e) {
+                    // One prompt, not six (audit F94.11): not answered with "Allow" ends the test until the owner tries again.
+                    note(T.t("На экране телевизора не нажали «Разрешить» — проверку закончу, когда попробуете снова."));
+                    store.setFlag("keepAdb", true);
+                    save();
+                    return false;
                 } catch (Exception e) { try { Thread.sleep(5000); } catch (InterruptedException ignored) {} }
             }
             store.setFlag("adbCycleFail", true); store.setFlag("keepAdb", true);
             note(T.t("⚠ После выключения отладка по сети не вернулась сама. Включите «Отладку по сети» в настройках разработчика: Уборщик больше не будет её выключать."));
             save();
             return false;
+        }
+    }
+
+    /** Something answers on this local port (adbd). */
+    static boolean portOpen(int port) {
+        try (java.net.Socket s = new java.net.Socket()) { s.connect(new java.net.InetSocketAddress("127.0.0.1", port), 800); return true; }
+        catch (Exception e) { return false; }
+    }
+
+    private boolean wifiAdbOn() {
+        try { return android.provider.Settings.Global.getInt(c.getContentResolver(), "adb_wifi_enabled", 0) == 1; } catch (Exception e) { return false; }
+    }
+
+    /** The owner's tick "Don't forget the debugging permission" (R94.1): on puts 0, off puts the old value back. */
+    boolean setKeepAuth(boolean on) {
+        synchronized (LOCK) {
+            store.edit().putBoolean("keepAuth", on).commit();
+            if (android.os.Build.VERSION.SDK_INT < 30) return true;
+            if (on && store.has("adbTimeWas")) return true;
+            if (!on && !store.has("adbTimeWas")) return true;
+            Adb adb = connect(3);
+            if (adb == null) { save(); return false; }
+            try {
+                if (on) { keepAuth(adb); note(T.t("Разрешение отладки больше не забывается")); return true; }
+                if (putSetting(adb, "adb_allowed_connection_time", store.str("adbTimeWas"))) {
+                    store.edit().remove("adbTimeWas").commit();
+                    note(T.t("Разрешение отладки снова забывается, как задумано в Android (через 7 дней без подключения)"));
+                    return true;
+                }
+                note(T.t("⚠ Не вернулась настройка adb_allowed_connection_time"));
+                return false;
+            } catch (Exception e) {
+                note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
+                return false;
+            } finally { adb.close(); save(); }
         }
     }
 
@@ -957,9 +1019,9 @@ final class Ops {
                     store.setFlag("openAfterBoot", false);
                     // Be polite: open with the report only over the Home screen. If the TV came up in live TV, an
                     // input or an app, stay out of the way; the report waits until the app is opened.
-                    String top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
+                    String top = topActivity(adb);
                     String home = homePackage(adb);
-                    if (home != null && top.contains(home + "/")) sh(adb, "am start -n " + BuildInfo.SELF + "/.MainActivity --ez report true");
+                    if (home != null && top.startsWith(home + "/")) sh(adb, "am start -n " + BuildInfo.SELF + "/.MainActivity --ez report true");
                     else note(T.t("На экране что-то смотрят — отчёт покажу, когда откроете Уборщика"));
                 }
                 note(T.t("Готово"));
@@ -1232,7 +1294,7 @@ final class Ops {
      * 0 = never forget. The old value is kept and "Restore everything" puts it back.
      */
     private void keepAuth(Adb adb) throws Exception {
-        if (android.os.Build.VERSION.SDK_INT < 30 || store.has("adbTimeWas")) return;
+        if (android.os.Build.VERSION.SDK_INT < 30 || store.has("adbTimeWas") || !store.flag("keepAuth", true)) return;
         String v = adb.shell("settings get global adb_allowed_connection_time").trim();
         if (v.contains("\n") || v.contains("Exception")) return;
         // On disk before the change (audit, 4.5): the old value is what "Restore everything" puts back.
@@ -1317,8 +1379,8 @@ final class Ops {
                 for (int i = 0; i < 2 && !onScreen; i++) {
                     sh(adb, "input keyevent KEYCODE_HOME");
                     Thread.sleep(2500);
-                    top = adb.shell("dumpsys activity activities | grep -E 'mResumedActivity|topResumedActivity'");
-                    onScreen = top.contains(BuildInfo.LAUNCHER + "/");
+                    top = topActivity(adb);
+                    onScreen = top.startsWith(BuildInfo.LAUNCHER + "/");
                 }
                 if (!onScreen) {
                     note(T.t("По «Домой» открылось: ") + firstLine(top.trim()));
@@ -1726,13 +1788,15 @@ final class Ops {
         if (Edition.LITE) return null;
         try {
             String mine = c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionName;
-            org.json.JSONArray rels = new org.json.JSONArray(fetch("https://api.github.com/repos/" + OWN_REPO + "/releases?per_page=15"));
+            org.json.JSONArray rels = new org.json.JSONArray(fetch("https://api.github.com/repos/" + OWN_REPO + "/releases?per_page=30"));
             String[] best = null;
             for (int i = 0; i < rels.length(); i++) {
                 org.json.JSONObject r = rels.getJSONObject(i);
                 if (r.optBoolean("draft")) continue;
                 String ver = r.optString("tag_name").replaceFirst("^v", "");
                 if (ver.contains("-dev") || ver.contains("-test") || ver.isEmpty()) continue;   // special builds
+                // A tag outside our scheme is skipped on its own, not the whole list with it (audit R94.3).
+                if (!VERSION.matcher(ver).matches()) continue;
                 String apk = null, apkName = null, sums = null;
                 org.json.JSONArray as = r.optJSONArray("assets");
                 for (int j = 0; as != null && j < as.length(); j++) {
@@ -1755,8 +1819,12 @@ final class Ops {
         return 0;
     }
 
+    /** Our scheme: 0.9.4, 0.9.4-beta2, 0.9.4-rc5-lite…; numbers short enough to be numbers. */
+    static final Pattern VERSION = Pattern.compile("v?\\d{1,4}(\\.\\d{1,4}){0,2}(-(dev|test|rc|beta)\\d{0,4}(\\.\\d{1,3})?)?(-lite|-full)?");
+
     private static long[] versionKey(String v) {
         v = v.replaceFirst("^v", "").replace("-lite", "").replace("-full", "");
+        if (v.length() > 40) v = v.substring(0, 40);
         String base = v.contains("-") ? v.substring(0, v.indexOf('-')) : v, tail = v.contains("-") ? v.substring(v.indexOf('-') + 1) : "";
         String[] n = base.split("\\.");
         long[] k = new long[5];
@@ -1764,7 +1832,7 @@ final class Ops {
         String t = tail.toLowerCase(Locale.ROOT);
         k[3] = t.isEmpty() ? 9 : t.startsWith("beta") ? 4 : t.startsWith("rc") ? 3 : t.startsWith("test") ? 2 : t.startsWith("dev") ? 1 : 0;
         Matcher m = Pattern.compile("(\\d+)").matcher(t);
-        k[4] = m.find() ? Long.parseLong(m.group(1)) : 0;
+        try { k[4] = m.find() ? Long.parseLong(m.group(1)) : 0; } catch (NumberFormatException e) { k[4] = 0; }
         return k;
     }
 

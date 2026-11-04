@@ -189,6 +189,12 @@ public class MainActivity extends Activity {
         root.addView(expert);
         keepE = keepAdbBox();
         root.addView(keepE);
+        if (android.os.Build.VERSION.SDK_INT >= 30) {
+            // R94.1, owner's decision 04.11: on by default, said plainly what it does.
+            CheckBox auth = check(T.t("Не забывать разрешение отладки"), T.t("Android 11+ забывает «Всегда разрешать» через 7 дней без подключения, и окно «Разрешить отладку?» появляется снова. Галочка отключает это забывание для всех компьютеров, которым вы уже разрешили отладку. Новым компьютерам по-прежнему нужно ваше «Разрешить»"), store.flag("keepAuth", true));
+            auth.setOnCheckedChangeListener((v, on) -> run(on ? T.t("Включаю…") : T.t("Возвращаю…"), () -> new Ops(this, this::say).setKeepAuth(on)));
+            root.addView(auth);
+        }
 
         list = new LinearLayout(this);
         list.setOrientation(LinearLayout.VERTICAL);

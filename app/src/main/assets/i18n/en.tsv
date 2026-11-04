@@ -713,3 +713,43 @@ CI-модуль	CI module
 Обновляю…	Updating…
 Отчёт не ушёл — отправлю в следующий раз	The report did not go out, I will send it next time
 ⚠ Обновление не встало: 	⚠ The update did not go in:  
+ — обновление отменено	  — update cancelled
+). Уборщик не будет обещать закрытие и оставит её как есть.	). TV Janitor will not promise to close it and leaves it as it is.
+, а предлагалась 	, but the offer was  
+, включена «Беспроводная отладка»	, "Wireless debugging" is on
+, сейчас: 	, now:  
+. Вернулось не всё — см. строки с ⚠ выше	. Not everything came back — see the ⚠ lines above
+Android 11+ забывает «Всегда разрешать» через 7 дней без подключения, и окно «Разрешить отладку?» появляется снова. Галочка отключает это забывание для всех компьютеров, которым вы уже разрешили отладку. Новым компьютерам по-прежнему нужно ваше «Разрешить»	Android 11+ forgets "Always allow" after 7 days without a connection, and the "Allow debugging?" prompt comes back. This tick turns that forgetting off for every computer you have already allowed. A new computer still needs your "Allow"
+Версия	Version
+Возвращаю…	Putting it back…
+Если вы не ставили их сами, сбросьте к заводским.	If you did not set them yourself, reset them to factory defaults.
+Модель	Model
+На экране телевизора не нажали «Разрешить» — проверку закончу, когда попробуете снова.	Nobody pressed "Allow" on the TV screen — the check ends here; it runs again when you try once more.
+Настройки до Уборщика не были записаны — оставляю их как есть	The settings from before TV Janitor were never recorded — leaving them as they are
+Настройки от прошлой установки Уборщика сброшены к заводским: 	Settings left by an earlier TV Janitor install are back to factory defaults:  
+Не забывать разрешение отладки	Don't forget the debugging permission
+Не смог записать отметку на диск — обновление не ставлю	Could not write the marker to disk — not installing the update
+Обновление установлено, Уборщик сейчас перезапустится	The update is installed, TV Janitor restarts now
+Оставить	Keep
+Отчёт	Report
+Отчёт не записан: 	Report not written:  
+Пакеты	Packages
+Разрешение отладки больше не забывается	The debugging permission is no longer forgotten
+Разрешение отладки снова забывается, как задумано в Android (через 7 дней без подключения)	The debugging permission is forgotten again, as Android intends (after 7 days without a connection)
+Сбрасываю…	Resetting…
+Сбросить	Reset
+Сбросить к заводским?	Reset to factory defaults?
+Снова отключено, как было в снимке: 	Off again, as in the snapshot:  
+Событие	Event
+Эти настройки вернулись такими, какими были до первого запуска Уборщика. Но это ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки.	These settings are back as they were before TV Janitor first ran. But they are exactly the values TV Janitor itself sets: most likely they were left by an earlier install.
+не отключилось: 	did not go off:  
+⚠ «Домой» не вернулся к 	⚠ Home did not go back to  
+⚠ В файле версия 	⚠ The file holds version  
+⚠ Выключение отладки не закрывает её на этом телевизоре (порт 5555 отвечает и выключенным	⚠ Switching debugging off does not close it on this TV (port 5555 answers while off
+⚠ Заводской «Домой» включён, но Android открывает по «Домой» другой экран. Выберите главный экран в Настройках → Приложения → Главный экран.	⚠ The stock Home is on, but Android opens another screen on Home. Choose the home screen in Settings → Apps → Home app.
+⚠ Заводской «Домой» включён, но ещё не стал главным экраном — попробую при следующем запуске.	⚠ The stock Home is on but not the home screen yet — I will try again at the next start.
+⚠ Не вернулась настройка adb_allowed_connection_time	⚠ The adb_allowed_connection_time setting did not come back
+⚠ Не вернулась работа в фоне: 	⚠ Background work did not come back:  
+⚠ Не вернулись настройки: 	⚠ Settings did not come back:  
+⚠ Не сбросились: 	⚠ Not reset:  
+⚠ Снимок «как было» неполный: настройки до Уборщика не записаны. «Вернуть всё» вернёт пакеты, а настройки оставит как есть	⚠ The "as it was" snapshot is incomplete: the settings from before TV Janitor were not recorded. "Restore everything" brings the packages back and leaves the settings as they are
