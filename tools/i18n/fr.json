@@ -708,5 +708,6 @@
 ". TV Janitor téléchargera la nouvelle version depuis GitHub, vérifiera la signature et la somme de contrôle et l'installera lui-même. Vos choix et réglages sont conservés.",
 "Mettre à jour",
 "Ignorer cette version",
-"Mise à jour…"
+"Mise à jour…",
+"Le rapport n'est pas parti, je l'enverrai la prochaine fois"
 ]

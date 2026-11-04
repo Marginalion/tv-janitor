@@ -44,7 +44,8 @@
   opens again. "Later" waits a day, "Skip this version" stops the offer for that version. Lite never looks.
 - **Reports explain more.** With the first-boot, rollback and restore reports go TV Janitor's log and the list of
   packages with their state (on, off, asleep, off before TV Janitor). The owner's own apps are hidden in both
-  unless their tick is set. A day-after report is the summary only.
+  unless their tick is set. A day-after report is the summary only. If the form refuses a long log, the report goes again
+  with only its end; a report that did not go out says why in the log and waits for the next run.
 - The welcome wizard says plainly that, with the tick, the report is sent (to the author's Google Form, when).
 
 ## 0.9.3-beta (2026-10-28)

@@ -708,5 +708,6 @@
 ". TV Janitor will download the new version from GitHub, check its signature and checksum and install it itself. Your choices and settings are kept.",
 "Update",
 "Skip this version",
-"Updating…"
+"Updating…",
+"The report did not go out, I will send it next time"
 ]
