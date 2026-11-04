@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.9.4-beta (2026-11-04)
 
 - **A release closes the TV by default.** On first connection, a release build no longer asks: it checks that
   debugging comes back on this TV and from then on opens it only while it works (about a minute after boot).
@@ -32,6 +32,13 @@
   restart, a day later, after a rollback and after "Restore everything" (with what was off before it). No name,
   e-mail or account, only a random TV number; the owner's own apps only with their separate tick; the same report
   at most once a day; without network it waits for the next run. Lite sends nothing.
+
+- **"Restore everything" leaves no false alarm.** After it, the next "Apply" no longer reports that "someone
+  switched on without TV Janitor" everything restore had switched back on.
+- **The snapshot does not take TV Janitor's own settings for the factory ones.** Animation 0.5, the cached-process
+  limit and the AdGuard DNS left by an earlier install (data cleared, reinstalled) are kept as unset, so
+  "Restore everything" goes back to the TV's defaults.
+- The welcome wizard says plainly that, with the tick, the report is sent (to the author's Google Form, when).
 
 ## 0.9.3-beta (2026-10-28)
 

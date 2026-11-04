@@ -10,7 +10,7 @@ the launcher of [CleanYourTV](https://github.com/Gathin23/cleanyourtv).
 **No AI agent, no subscription, no computer after setup:** install the APK once with `adb`, and the cleanup
 runs on the TV itself.
 
-> **0.9.3 beta.** Tested on five TVs so far. Every TV is different: read "Things to know" first.
+> **0.9.4 beta.** Tested on five TVs so far. Every TV is different: read "Things to know" first.
 > Speaks the TV's language: English, Russian, Ukrainian, German, French, Spanish, Portuguese, Turkish, Chinese,
 > Japanese and Vietnamese (other languages fall back to English). Translations: [tools/i18n](tools/i18n).
 
@@ -107,7 +107,7 @@ How every decision is made, rule by rule: **[docs/HOW-IT-DECIDES.md](docs/HOW-IT
 
 ## Install
 
-**Ready-made APK:** download `TVJanitor-0.9.3-beta-lite.apk` or `TVJanitor-0.9.3-beta-full.apk` from
+**Ready-made APK:** download `TVJanitor-0.9.4-beta-lite.apk` or `TVJanitor-0.9.4-beta-full.apk` from
 [Releases](../../releases) and check it against `SHA256SUMS.txt`. Release signing certificate SHA-256:
 `f31e30d17e8abe262c05b8fd86945fe7038e3c75b664badeec3e746e10a44580`.
 
@@ -116,7 +116,7 @@ if there is one. From a computer on the same Wi-Fi:
 
 ```sh
 adb connect <tv ip>
-adb install -r TVJanitor-0.9.3-beta-lite.apk
+adb install -r TVJanitor-0.9.4-beta-lite.apk
 adb shell am start -n io.github.marginalion.tvjanitor/.MainActivity
 ```
 
@@ -132,9 +132,12 @@ debug key; such a build can't update the official release in place.
 
 ## Things to know
 
-- **Network ADB is how the app works without a computer.** By default it stays on. Untick "Keep network
-  debugging on" and, after a one-time test on your TV (off, on, reconnect), the app switches debugging on only
-  while it works: after boot the port is open for about a minute. Anyone who reaches port 5555 still needs
+- **Network ADB is how the app works without a computer, and it is closed by default.** On first start the app
+  checks once on your TV that debugging comes back (off, on, reconnect) and from then on switches it on only
+  while it works: after boot the port is open for about a minute. If you connect from a computer, press "Keep it
+  on" in that window or tick "Keep network debugging on" later. Test builds (…-dev, …-test) keep it on and say so.
+  The app also sets `adb_allowed_connection_time` to 0, so "Always allow" is not forgotten after 7 days; "Restore
+  everything" puts the old value back. Anyone who reaches port 5555 still needs
   your approval on the screen, unless the firmware has `ro.adb.secure=0`; the app warns about that. To take
   the app's access away: Developer options → Revoke USB debugging authorisations.
 - Android 8.0 (API 26) or newer. Not for LG webOS, Samsung Tizen, Hisense VIDAA or Fire TV.
@@ -209,7 +212,7 @@ MIT, see [LICENSE](LICENSE). The bundled launcher (modified) and the hint base c
 **Чистит любой телевизор на Android TV или Google TV прямо на нём самом, после установки компьютер не
 нужен.** Спрашивает, чем вы пользуетесь, отключает лишнее, может поставить чистую оболочку и повторяет всё
 после каждой загрузки: некоторые прошивки сами включают пакеты обратно. В приложении оно называется
-«Уборщик». **Без ИИ, без подписки и без компьютера после установки:** один раз ставите APK через `adb`, дальше всё работает на самом телевизоре. **Версия 0.9.3 бета.** Проверено на пяти телевизорах: два Новекса, Sunwind, Xiaomi и Philips. Говорит на языке телевизора: 11 языков, остальные — по-английски.
+«Уборщик». **Без ИИ, без подписки и без компьютера после установки:** один раз ставите APK через `adb`, дальше всё работает на самом телевизоре. **Версия 0.9.4 бета.** Проверено на пяти телевизорах: два Новекса, Sunwind, Xiaomi и Philips. Говорит на языке телевизора: 11 языков, остальные — по-английски.
 
 **Две версии.** **Lite** — одна кнопка, отключает только то, про что точно известно, что оно лишнее, и
 ничего не скачивает из интернета. **Full** — три режима («Бережно», «Оптимально», «Максимум»), экран «Для
@@ -243,8 +246,9 @@ MIT, see [LICENSE](LICENSE). The bundled launcher (modified) and the hint base c
 которые телевизор сам даёт владельцу (режим разработчика, отладка, обычное «Отключить» из Android), ничего
 не удаляет, не взламывает и не обходит защиту. Пользуетесь на своём телевизоре и на свой риск.
 
-**Важно:** отладка по сети нужна, чтобы приложение работало без компьютера. По умолчанию она остаётся
-включённой. Если снять галочку «Держать отладку по сети включённой», Уборщик после разовой проверки включает
-её только на время работы. Нужен Android 8.0
+**Важно:** отладка по сети нужна, чтобы приложение работало без компьютера, и **по умолчанию она закрыта**:
+после разовой проверки Уборщик включает её только на время работы (после загрузки примерно на минуту). Если
+подключаетесь к телевизору с компьютера, нажмите «Оставить включённой» в первом окне или поставьте галочку
+«Держать отладку по сети включённой». Нужен Android 8.0
 или новее. Не для LG webOS, Samsung Tizen, Hisense VIDAA и Fire TV. Пользуетесь на свой риск. Лицензия MIT;
 оболочка и база взяты из CleanYourTV (MIT), см. [NOTICE](NOTICE).

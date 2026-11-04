@@ -205,6 +205,13 @@ final class Ops {
         return "";
     }
 
+    private static boolean ours(String k, String v) {
+        if (k.endsWith("_scale")) return v.equals("0.5");
+        if (k.equals("activity_manager_constants")) return v.equals("max_cached_processes=8");
+        if (k.equals("private_dns_specifier")) return v.equals("dns.adguard-dns.com");
+        return false;
+    }
+
     void tweaks(Adb adb) throws Exception {
         String anim = store.flag("anim", true) ? "0.5" : "1";
         sh(adb, "settings put global window_animation_scale " + anim);
@@ -239,8 +246,13 @@ final class Ops {
         for (String l : adb.shell("pm list packages -d").split("\n")) { l = l.trim(); if (l.startsWith("package:")) d.add(l.substring(8)); }
         store.setSet("snap_disabled", d);
         for (String k : new String[]{"window_animation_scale", "transition_animation_scale", "animator_duration_scale",
-                "activity_manager_constants", "private_dns_mode", "private_dns_specifier"})
-            store.setStr("snap_" + k, adb.shell("settings get global " + k).trim());
+                "activity_manager_constants", "private_dns_mode", "private_dns_specifier"}) {
+            String v = adb.shell("settings get global " + k).trim();
+            // Our own values left by an earlier TV Janitor (data cleared, reinstalled) are not "as it was":
+            // Philips 04.11, rc3 took 0.5 and max_cached_processes=8 from rc1 and "Restore" put them back.
+            if (ours(k, v)) { dbg("snapshot: " + k + "=" + v + " is ours, kept as unset"); v = "null"; }
+            store.setStr("snap_" + k, v);
+        }
         store.setStr("snap_home", homeComponent(adb));
         // A disabled com.yandex.* most likely means another cleaner got here first (Novex Cleaner had 23 off, the
         // Yandex home and the HDMI player among them). The snapshot keeps them off all the same ("restore" = the
@@ -295,6 +307,8 @@ final class Ops {
                 if (home != null && home.contains("/") && !home.startsWith(BuildInfo.LAUNCHER)) sh(adb, "cmd package set-home-activity --user 0 " + home);
                 store.setDisabled(new java.util.HashSet<>());
                 store.setSleeping(new java.util.HashSet<>());
+                // Or the next "Apply" takes all that came back for "switched on by someone else" (Philips 04.11).
+                store.setSet("appliedOff", new java.util.HashSet<>());
                 store.setFlag("launcher", false);
                 store.setFlag("dns", false); store.setFlag("dnsWasOn", false);
                 // "As it was" includes debugging: before TV Janitor it was on all the time.

@@ -128,7 +128,9 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 
 ## 10. Network and data
 
-- The app talks to the TV's own ADB at `127.0.0.1` with its own key, approved once on screen.
+- The app talks to the TV's own ADB at `127.0.0.1` with its own key, approved once on screen. In a release
+  build network debugging is closed by default: after a one-time check it is open only while the app works
+  ("Keep it on" or "Keep network debugging on" leaves it open). Test builds keep it open, with a warning.
 - **Full** can update the CleanYourTV base from GitHub (accepted only if at least 80 % of the lists arrive).
   **Lite** never goes online.
 - "Share your experience" is **off unless you say yes** (asked once, after the first "Apply" that went through).
@@ -221,7 +223,7 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 проверкой на бред. Часть занятой памяти — ядро и видеобуферы, их не освободить, поэтому сравнивать стоит ТВ
 с самим собой.
 
-**10. Сеть и данные.** Связь только с ADB самого телевизора (127.0.0.1). Full может обновить базу с GitHub,
+**10. Сеть и данные.** Связь только с ADB самого телевизора (127.0.0.1). Отладка по сети в релизной сборке по умолчанию закрыта: после разовой проверки она открыта только на время работы Уборщика (кнопка «Оставить включённой» или галочка «Держать отладку по сети включённой» оставляют её открытой). Full может обновить базу с GitHub,
 Lite в интернет не ходит. «Поделиться опытом» выключено, пока вы не согласитесь (вопрос один раз, после первого
 удачного «Применить»). С согласием Full сам отправляет отчёт в Google-форму автора (без имени, почты и аккаунта,
 только случайный номер телевизора): после первой удачной перезагрузки, через сутки, после отката и после «Вернуть
