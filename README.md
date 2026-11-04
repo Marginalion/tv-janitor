@@ -100,8 +100,10 @@ Full offers a newer release once one is out (it never updates silently) and chec
   launcher, the keyboard and the app. Uninstalling the app alone would leave everything it disabled disabled.
 - **Share your experience** (asked once after the first "Apply", off unless you say yes): a report in CleanYourTV's
   `debloat.txt` format goes to the author's Google Form by itself after the first good restart, a day later, after
-  a rollback and after "Restore everything". No name, e-mail or account, a random TV number only; your own apps
-  only with a separate tick. Lite never sends anything.
+  a rollback and after "Restore everything". No name, e-mail or account, a random TV number only. Any package that
+  is not part of the system or the catalog, including one you removed long ago, goes as "(own app)" unless you tick
+  "and my apps"; "Share your experience" shows exactly what will be sent. Each report has its own number and time,
+  so a report sent twice is easy to spot. Lite never sends anything.
 - Leaves nothing behind: about 0 MB when closed.
 
 How every decision is made, rule by rule: **[docs/HOW-IT-DECIDES.md](docs/HOW-IT-DECIDES.md)**.
@@ -137,8 +139,12 @@ debug key; such a build can't update the official release in place.
   checks once on your TV that debugging comes back (off, on, reconnect) and from then on switches it on only
   while it works: after boot the port is open for about a minute. If you connect from a computer, press "Keep it
   on" in that window or tick "Keep network debugging on" later. Test builds (…-dev, …-test) keep it on and say so.
-  The app also sets `adb_allowed_connection_time` to 0, so "Always allow" is not forgotten after 7 days; "Restore
-  everything" puts the old value back. Anyone who reaches port 5555 still needs
+  Before closing it, the app checks from inside the TV that port 5555 no longer answers; if it still does (for example
+  wireless debugging is on separately), debugging is left on and the log says so. If the app is killed while
+  debugging is open, it closes it at its next start.
+  With "Don't forget the debugging permission" (on by default, Android 11+), the app sets `adb_allowed_connection_time`
+  to 0, so "Always allow" is not forgotten after 7 days. This applies to every computer you allowed before, not
+  only to TV Janitor; untick it to get the old value back. "Restore everything" puts it back too. Anyone who reaches port 5555 still needs
   your approval on the screen, unless the firmware has `ro.adb.secure=0`; the app warns about that. To take
   the app's access away: Developer options → Revoke USB debugging authorisations.
 - Android 8.0 (API 26) or newer. Not for LG webOS, Samsung Tizen, Hisense VIDAA or Fire TV.

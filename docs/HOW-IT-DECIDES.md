@@ -68,7 +68,9 @@ base, seen on the same TV, or a feature you don't use. No guessing by name.
 
 ## 6. Applying
 
-1. The first time, a **snapshot** of what was already off and of the settings it may change.
+1. The first time, a **snapshot** of what was already off and of the settings it may change, with their exact
+   values (also when they look like ours: if you set 0.5 animations or AdGuard DNS yourself, they are kept). It is
+   read first and saved in one go; a snapshot that was cut off is never taken for a full one.
 2. Switch back on what you unticked.
 3. Switch off in **batches of five**. First it measures how much the TV crashes on its own in 8 seconds with
    nothing changed; after each batch it counts crashes in the crash log and "Scheduling restart of crashed
@@ -109,10 +111,12 @@ the TV off (Sunwind). The app uses one way; if the TV is still running 20 second
 
 ## 8. Restore everything
 
-Back to the snapshot, exactly: switches back on everything that is off now but was not off in the snapshot,
-wakes the sleeping apps, puts back the snapshot's settings and the stock home screen. Then it asks Android
-again: what is still off is named, with a hint to press the button once more (if it still stays off, the
-firmware won't allow it). What was already off before TV Janitor stays off; if Yandex packages were among
+Back to the snapshot, exactly, both ways: switches back on everything that is off now but was not off in the
+snapshot, and switches off again a factory package that was off in the snapshot and is on now. Wakes the sleeping
+apps with the background rules they had before, puts back the snapshot's settings (each one read back) and the
+stock home screen. Without a full snapshot it changes nothing and says why. Then it asks Android again: what is
+still off is named and kept for the next press (if it still stays off, the firmware won't allow it). The questions
+below come only after everything came back. What was already off before TV Janitor stays off; if Yandex packages were among
 them (most likely another cleaner's work), the app lists them and asks whether to switch them on too. Then
 reboot.
 
@@ -140,7 +144,9 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
   The report (in English, for the shared base) lists the model, firmware and system packages; your own apps only
   if you tick that too. With consent, Full sends it to the author's Google Form (no name, e-mail or account; a
   random TV number keeps one TV's reports together) after the first good restart after "Apply", a day later, after
-  a rollback and after "Restore everything", at most once a day for the same report. Lite sends nothing.
+  a rollback and after "Restore everything", at most once a day for the same report. Every report carries its own
+  number, the time and the boot number, and is built at the moment of the event. Without the tick, any package not
+  known as system or catalog (also one removed long ago) is sent as "(own app)". Lite sends nothing.
 
 ---
 
@@ -183,7 +189,9 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 магазина приложений.
 
 **6. Применение:**
-1. при первом запуске — снимок «как было»;
+1. при первом запуске — снимок «как было» с точными значениями (в том числе похожими на наши: если 0,5 анимации
+   или AdGuard DNS вы поставили сами, они сохранятся); сначала всё читается, потом записывается разом, и
+   оборванный снимок никогда не считается полным;
 2. сначала замер, сколько телевизор падает сам за 8 секунд без изменений; потом отключение порциями по пять
    с подсчётом сбоев после каждой;
 3. если сбоев заметно больше обычного, порция возвращается, и её пакеты отключаются заново по одному: включённым
@@ -212,9 +220,12 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 телевизор всё ещё работает, он говорит об этом и предлагает «Попробовать другой способ». Сработавший способ
 запоминается для этого телевизора. Оба подряд по таймеру — никогда.
 
-**8. «Вернуть всё как было»** — ровно к снимку: включает всё, чего не было в снимке, будит «уснувшие»
-приложения, возвращает настройки и заводскую оболочку, а потом перепроверяет: что не вернулось, называется по
-имени с подсказкой нажать ещё раз (если не помогает, прошивка не даёт это включить). Что было отключено ещё
+**8. «Вернуть всё как было»** — ровно к снимку, в обе стороны: включает всё, чего не было в снимке, и
+отключает обратно заводской пакет, который был отключён в снимке, а сейчас включён. Будит «уснувшие» приложения
+с их прежними правилами фона, возвращает настройки (каждую с проверкой чтением) и заводскую оболочку. Без
+полного снимка ничего не меняет и объясняет почему. Потом перепроверяет: что не вернулось, называется по имени
+и остаётся на следующее нажатие (если не помогает, прошивка не даёт это включить). Вопросы ниже — только если
+вернулось всё. Что было отключено ещё
 до Уборщика, остаётся отключённым; если среди этого есть пакеты Яндекса (скорее всего, работа другого
 чистильщика), Уборщик покажет список и спросит, включить ли их тоже.
 
@@ -230,4 +241,6 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 Lite в интернет не ходит. «Поделиться опытом» выключено, пока вы не согласитесь (вопрос один раз, после первого
 удачного «Применить»). С согласием Full сам отправляет отчёт в Google-форму автора (без имени, почты и аккаунта,
 только случайный номер телевизора): после первой удачной перезагрузки, через сутки, после отката и после «Вернуть
-всё как было». Ваши приложения уходят только с отдельной галочкой.
+всё как было». У каждого отчёта свой номер, время и номер загрузки, собирается он в момент события. Без
+отдельной галочки любой пакет, не признанный системным или каталожным (в том числе давно удалённый), уходит как
+«(own app)». Если Уборщик упал с открытой отладкой, он закроет её при следующем запуске.

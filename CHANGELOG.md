@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.9.5-rc1 (2026-11-04)
+
+Reliability and honesty, after the independent audit of 0.9.4-beta2 (all of F94.1–F94.11, R94.1–R94.3).
+
+- **The snapshot keeps exactly what was there.** Animations at 0.5, AdGuard DNS or 8 cached processes that you
+  set yourself before TV Janitor are kept as they are, and "Restore everything" puts them back instead of
+  deleting them. Private DNS is read and restored as a pair. The snapshot is read first and saved in one go: a
+  snapshot cut off half way (the app killed) is never taken for a full one, and without a full snapshot "Restore
+  everything" changes nothing and says why. An old partial snapshot is taken again if nothing was changed yet.
+- **"Restore everything" goes both ways.** A factory package that was off in the snapshot and is on now goes off
+  again; sleeping apps get back the background rules they had, not "allow"; each setting is read back. What did
+  not come back is kept for the next press, and "Switch this on too?" comes only when everything came back.
+- **Home is never left half changed.** If the app was killed while putting in or taking out a launcher, any
+  next start (screen, boot, job) finishes the job, and the mark is removed only after Home really works.
+- **Reports keep your apps private.** Without "and my apps", any package that is not system or catalog, also one
+  you removed long ago, and its activities go as "(own app)". "Share your experience" shows exactly what is sent.
+  Each report is built at the moment of the event, has its own number, time and boot number, and is sent by one
+  sender at a time; only sent reports leave the queue. "First good restart" needs a real restart; a partial
+  restore is reported as partial.
+- **Self-update reopens the app.** The update is now one record (from, to, checksum, time), which the screen does
+  not wipe. The result is read from the version actually installed, also at the next opening if Android's signal
+  did not come: "✔ updated" or "⚠ did not install". The version inside the APK must match the release.
+- **Debugging is closed after a crash.** If the app is killed while network debugging is open, it closes it at
+  its next start. The first check now also makes sure port 5555 really stops answering (wireless debugging on
+  Android 11+ is separate); if it does not, debugging stays on and the app says so. That check asks "Allow
+  debugging?" once, not up to six times.
+- **"Don't forget the debugging permission"** (expert settings, Android 11+, on by default). It keeps "Always
+  allow" from expiring after 7 days, for every computer you allowed, not only TV Janitor. Untick it to get the
+  old value back.
+- Smaller: the Home check looks at the one app on screen, not the whole window list; one broken release tag no
+  longer stops the update check.
+
 ## 0.9.4-beta2 (2026-11-04)
 
 Replaces 0.9.4-beta, which was taken down the same day: its own update downloaded and checked the new version but
