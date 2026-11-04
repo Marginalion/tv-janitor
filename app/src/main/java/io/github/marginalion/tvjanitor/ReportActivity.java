@@ -19,7 +19,8 @@ public class ReportActivity extends Activity {
         getWindow().setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.parseColor("#101714")));
         int accent = Color.parseColor("#F2C14E"), text = Color.parseColor("#E8EFEA"), dim = Color.parseColor("#93A69C");
         Store store = new Store(this);
-        final String[] report = {Report.build(this, store.flag("shareOwn", false))};
+        // Full shows exactly what would leave the TV, journal and package list included, after the same filters (audit 4.4).
+        final String[] report = {view(store.flag("shareOwn", false))};
         LinearLayout root = new LinearLayout(this); root.setOrientation(LinearLayout.VERTICAL); root.setPadding(64, 32, 64, 32);
         root.setBackgroundColor(Color.parseColor("#101714"));
         TextView t = new TextView(this); t.setText(T.t("Поделиться опытом")); t.setTextSize(28); t.setTextColor(accent); root.addView(t);
@@ -50,7 +51,7 @@ public class ReportActivity extends Activity {
         root.addView(save); root.addView(status);
         body.setText(report[0]);
         own.setOnCheckedChangeListener((v, on) -> {
-            report[0] = Report.build(this, on); body.setText(report[0]); status.setText("");
+            report[0] = view(on); body.setText(report[0]); status.setText("");
             if (store.flag("shareConsent", false)) { store.setFlag("shareOwn", on); Report.saveIfConsented(this); }
         }); body.setTextSize(13); body.setTypeface(Typeface.MONOSPACE);
         body.setTextColor(text); body.setFocusable(true);
@@ -68,4 +69,6 @@ public class ReportActivity extends Activity {
         setContentView(root);
         save.requestFocus();
     }
+
+    private String view(boolean own) { return Edition.LITE ? Report.build(this, own) : Share.preview(this, own); }
 }
