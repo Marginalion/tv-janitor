@@ -25,6 +25,10 @@ final class Share {
     private static final String FORM = "https://docs.google.com/forms/d/e/1FAIpQLSeN_wJ2mWx0xqY4GIbCE_C1TFbUCHgY-utFcacoILvfYYwW7w/formResponse";
     private static final String E_EVENT = "entry.1060640759", E_VERSION = "entry.1806818354", E_MODEL = "entry.1722400568",
             E_TV = "entry.1240508133", E_REPORT = "entry.1963188422";
+    // «Журнал» and «Пакеты» (owner, 04.11): set once the form has them.
+    private static final String E_LOG = null, E_PKGS = null;
+    /** A Google Sheets cell holds 50 000 characters. */
+    private static final int MAX = 45000;
     private static final long DAY_MS = 24L * 3600 * 1000;
 
     private Share() {}
@@ -43,28 +47,28 @@ final class Share {
     }
 
     /** The boot run reached its end: the first one after "Apply" is worth a report. */
-    static void bootOk(Context c, Ops.Say note) {
+    static void bootOk(Context c, Ops ops) {
         Store s = new Store(c);
-        if (s.flag("shareWaitBoot", false)) { s.setFlag("shareWaitBoot", false); event(c, FIRST_BOOT, note); }
-        else flush(c, note);
+        if (s.flag("shareWaitBoot", false)) { s.setFlag("shareWaitBoot", false); event(c, FIRST_BOOT, ops); }
+        else flush(c, ops);
     }
 
     /** "Restore everything": nothing to wait for any more. */
-    static void restored(Context c, Ops.Say note) {
+    static void restored(Context c, Ops ops) {
         Store s = new Store(c);
         s.setStr("shareAppliedAt", null); s.setFlag("shareWaitBoot", false);
-        event(c, RESTORE, note);
+        event(c, RESTORE, ops);
     }
 
-    static void event(Context c, String ev, Ops.Say note) {
+    static void event(Context c, String ev, Ops ops) {
         if (!on(c)) return;
         Store s = new Store(c);
         Set<String> p = s.set("sharePending"); p.add(ev); s.setSet("sharePending", p);
-        flush(c, note);
+        flush(c, ops);
     }
 
     /** Sends what is waiting (and the day-after report when it is due). note: where to log, may be null. */
-    static void flush(Context c, Ops.Say note) {
+    static void flush(Context c, Ops ops) {
         Store s = new Store(c);
         if (!on(c)) { if (s.has("sharePending")) s.setSet("sharePending", new TreeSet<>()); return; }
         Set<String> p = new TreeSet<>(s.set("sharePending"));
@@ -78,7 +82,7 @@ final class Share {
             Set<String> was = Report.system(c.getPackageManager(), s.set("shareWasOff"));
             if (!was.isEmpty()) report += "\n# Before \"Restore everything\" these were off (system packages):\n#   " + String.join(" ", was) + "\n";
         }
-        if (report.length() > 40000) report = report.substring(0, 40000) + "\n# (cut)";
+        if (report.length() > MAX) report = report.substring(0, MAX) + "\n# (cut)";
         String ev = String.join(",", p);
         // The same events with the same report within a day say nothing new (two boot paths, a retry).
         String sig = ev + ":" + Integer.toHexString(report.hashCode());
@@ -86,25 +90,73 @@ final class Share {
             s.setSet("sharePending", new TreeSet<>()); return;
         }
         try {
-            post(c, ev, report);
+            // The journal and the full package list go with the events that need explaining (owner, 04.11): a new TV
+            // can't be understood from the summary alone. The day-after report is the summary only.
+            boolean full = p.contains(FIRST_BOOT) || p.contains(ROLLBACK) || p.contains(RESTORE);
+            post(c, ev, report, full ? journal(c, ops) : "", full ? packages(c) : "");
             s.setSet("sharePending", new TreeSet<>());
             s.setStr("shareLastSig", sig);
             s.setStr("shareLastAt", String.valueOf(System.currentTimeMillis()));
-            if (note != null) note.say(T.t("📤 Отчёт отправлен автору Уборщика: ") + ev);
+            if (ops != null) ops.note(T.t("📤 Отчёт отправлен автору Уборщика: ") + ev);
         } catch (Exception e) {
             s.setSet("sharePending", p);
-            if (note != null) note.say(T.t("Отчёт не ушёл (нет интернета?) — отправлю в следующий раз"));
+            if (ops != null) ops.note(T.t("Отчёт не ушёл (нет интернета?) — отправлю в следующий раз"));
         }
     }
 
-    private static void post(Context c, String ev, String report) throws Exception {
+    /** The last part of the journal; the owner's own apps are named only with their tick. */
+    static String journal(Context c, Ops ops) {
+        String j = ops != null ? ops.journal() : "";
+        if (ops == null) try { java.io.File f = Ops.logFile(c); if (f.isFile()) j = new String(Ops.readAll(f), StandardCharsets.UTF_8); } catch (Exception ignored) {}
+        if (!new Store(c).flag("shareOwn", false)) for (String own : ownApps(c)) j = j.replace(own, "(own app)");
+        j = j.replaceAll("\n{3,}", "\n\n");
+        return j.length() > MAX ? j.substring(j.length() - MAX) : j;
+    }
+
+    /** Every package with its state, name and whether it was off before TV Janitor: the snapshot, in one cell. */
+    static String packages(Context c) {
+        Store s = new Store(c);
+        android.content.pm.PackageManager pm = c.getPackageManager();
+        boolean own = s.flag("shareOwn", false);
+        Set<String> before = s.set("snap_disabled"), sleep = s.sleeping(), chosen = s.disabled();
+        StringBuilder b = new StringBuilder("# package | state now (on/off/sleep) | off before TV Janitor | chosen off | system | label\n");
+        java.util.List<android.content.pm.ApplicationInfo> all = pm.getInstalledApplications(android.content.pm.PackageManager.MATCH_DISABLED_COMPONENTS);
+        all.sort((x, y) -> x.packageName.compareTo(y.packageName));
+        for (android.content.pm.ApplicationInfo ai : all) {
+            boolean system = (ai.flags & android.content.pm.ApplicationInfo.FLAG_SYSTEM) != 0;
+            if (!system && !own) continue;
+            int st = pm.getApplicationEnabledSetting(ai.packageName);
+            boolean on = ai.enabled && st != android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                    && st != android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
+            String label;
+            try { label = String.valueOf(ai.loadLabel(pm)).replace('\n', ' ').replace('|', '/'); } catch (Exception e) { label = ""; }
+            b.append(ai.packageName).append(" | ").append(!on ? "off" : sleep.contains(ai.packageName) ? "sleep" : "on")
+             .append(" | ").append(before.contains(ai.packageName) ? "yes" : "-")
+             .append(" | ").append(chosen.contains(ai.packageName) ? "yes" : "-")
+             .append(" | ").append(system ? "sys" : "own").append(" | ").append(label).append('\n');
+            if (b.length() > MAX) { b.append("# (cut)\n"); break; }
+        }
+        return b.toString();
+    }
+
+    private static Set<String> ownApps(Context c) {
+        Set<String> out = new TreeSet<>((x, y) -> y.length() != x.length() ? y.length() - x.length() : x.compareTo(y));   // longest first
+        for (android.content.pm.ApplicationInfo ai : c.getPackageManager().getInstalledApplications(android.content.pm.PackageManager.MATCH_DISABLED_COMPONENTS))
+            if ((ai.flags & android.content.pm.ApplicationInfo.FLAG_SYSTEM) == 0 && !ai.packageName.equals(BuildInfo.SELF)
+                    && !ai.packageName.equals(BuildInfo.LAUNCHER) && !ai.packageName.equals(Ops.KEYBOARD)) out.add(ai.packageName);
+        return out;
+    }
+
+    private static void post(Context c, String ev, String report, String journal, String pkgs) throws Exception {
         Store s = new Store(c);
         String tv = s.str("tvId");
         if (tv == null) { tv = java.util.UUID.randomUUID().toString().substring(0, 8); s.setStr("tvId", tv); }
         String ver = "?";
         try { ver = c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionName + (Edition.LITE ? "" : " full"); } catch (Exception ignored) {}
         String model = Build.MANUFACTURER + " " + Build.MODEL + " (" + Build.DEVICE + "), Android " + Build.VERSION.RELEASE;
-        String body = enc(E_EVENT, ev) + "&" + enc(E_VERSION, ver) + "&" + enc(E_MODEL, model) + "&" + enc(E_TV, tv) + "&" + enc(E_REPORT, report);
+        String body = enc(E_EVENT, ev) + "&" + enc(E_VERSION, ver) + "&" + enc(E_MODEL, model) + "&" + enc(E_TV, tv) + "&" + enc(E_REPORT, report)
+                + (E_LOG != null && !journal.isEmpty() ? "&" + enc(E_LOG, journal) : "")
+                + (E_PKGS != null && !pkgs.isEmpty() ? "&" + enc(E_PKGS, pkgs) : "");
         byte[] b = body.getBytes(StandardCharsets.UTF_8);
         HttpURLConnection h = (HttpURLConnection) new URL(FORM).openConnection();
         try {

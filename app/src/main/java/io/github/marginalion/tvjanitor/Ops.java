@@ -70,7 +70,14 @@ final class Ops {
     }
 
     /** A report that waited for the network (or the day after "Apply"): from the app's screen, off the UI thread. */
-    void shareNow() { Share.flush(c, this::note); save(); }
+    void shareNow() { Share.flush(c, this); save(); }
+
+    /** The journal as it stands, with this run's lines that are not saved yet: a report sent mid-run needs them. */
+    String journal() {
+        String old = "";
+        try { File lf = logFile(c); if (lf.isFile()) old = new String(readAll(lf), StandardCharsets.UTF_8); } catch (Exception ignored) {}
+        return old + "\n" + log;
+    }
 
     void note(String s) {
         log.append(new SimpleDateFormat("dd.MM HH:mm:ss", Locale.US).format(new Date())).append("  ").append(s).append('\n');
@@ -319,11 +326,11 @@ final class Ops {
                             + T.t(". Нажмите «Вернуть всё как было» ещё раз; если не помогает, прошивка не даёт их включить."));
                     note(T.t("Итог: ") + T.t("включено обратно ") + (tried.size() - still.size()) + T.t(" из ") + tried.size()
                             + T.t(". Перезагрузите телевизор, чтобы всё встало на места."));
-                    Share.restored(c, this::note);
+                    Share.restored(c, this);
                     return false;
                 }
                 note(T.t("Итог: ") + T.t("включено обратно ") + tried.size() + T.t(". Перезагрузите телевизор, чтобы всё встало на места."));
-                Share.restored(c, this::note);
+                Share.restored(c, this);
                 return true;
             } catch (Exception e) {
                 note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
@@ -763,7 +770,7 @@ final class Ops {
                 store.setFlag("reportUnseen", true);
                 store.setStr("bootDone", String.valueOf(Boot.count(c)));
                 markRun();
-                Share.bootOk(c, this::note);
+                Share.bootOk(c, this);
                 // Late (scheduled) runs never pop the app up: minutes have passed, the owner is watching something.
                 if (!receiver) store.setFlag("openAfterBoot", false);
                 if (store.flag("openAfterBoot", false)) {
@@ -903,7 +910,7 @@ final class Ops {
                         + T.t(", не запускаются сами ") + sleep.size());
                 markRun();
                 Share.applied(c);
-                if (!rolled.isEmpty()) Share.event(c, Share.ROLLBACK, this::note);
+                if (!rolled.isEmpty()) Share.event(c, Share.ROLLBACK, this);
                 return true;
             } catch (Exception e) {
                 note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());

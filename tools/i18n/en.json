@@ -692,5 +692,6 @@
 "With the box below ticked, the report goes to the author of TV Janitor by itself (a Google form, no name or e-mail): after the first restart, a day after \"Apply\", after a rollback and after \"Restore everything\". \"Save\" just puts the file on the TV.",
 "Share experience automatically\nthe report goes to the author of TV Janitor by itself and helps owners of the same TV",
 "Thank you! The report will be sent by itself",
-"Your experience will show owners of the same TV what can be switched off. With the tick, the report goes to the author of TV Janitor by itself (a Google form, no name or e-mail): after the first restart, a day later, after a rollback and after \"Restore everything\". Without the tick nothing is sent."
+"Your experience will show owners of the same TV what can be switched off. With the tick, the report goes to the author of TV Janitor by itself (a Google form, no name or e-mail): after the first restart, a day later, after a rollback and after \"Restore everything\". Without the tick nothing is sent.",
+"With the report go TV Janitor's log and the list of system packages: after the first restart, a rollback and \"Restore everything\". Your apps are hidden in them unless \"and my apps too\" is ticked."
 ]
