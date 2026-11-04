@@ -26,7 +26,7 @@ final class Share {
     private static final String E_EVENT = "entry.1060640759", E_VERSION = "entry.1806818354", E_MODEL = "entry.1722400568",
             E_TV = "entry.1240508133", E_REPORT = "entry.1963188422";
     // «Журнал» and «Пакеты» (owner, 04.11): set once the form has them.
-    private static final String E_LOG = null, E_PKGS = null;
+    private static final String E_LOG = "entry.1015749407", E_PKGS = "entry.340309280";
     /** A Google Sheets cell holds 50 000 characters. */
     private static final int MAX = 45000;
     private static final long DAY_MS = 24L * 3600 * 1000;
