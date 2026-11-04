@@ -1422,7 +1422,7 @@ final class Ops {
                     if (!beginHomeTx(adb, s)) { note(T.t("Не смог записать отметку на диск — заводской «Домой» не трогаю.")); break; }
                     sh(adb, "pm disable-user --user 0 " + s);
                     stockOff = !reallyOff(adb, java.util.Collections.singleton(s)).isEmpty();
-                    if (!stockOff) endHomeTx();
+                    if (!stockOff) endHomeTx(); else testPause(adb);
                 }
                 sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
                 String now = homePackage(adb);

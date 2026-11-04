@@ -72,7 +72,7 @@ final class AdbGate {
     }
 
     /** At process start: debugging left open by a run that died is closed now, not "some time later". */
-    static void afterCrash(Context c) {
+    static synchronized void afterCrash(Context c) {      // once: the app start and our launcher's nudge may race
         if (!new Store(c).flag("adbOpenedTmp", false) || MainActivity.busy()) return;
         boolean wasOn = isOn(c);
         close(c);
