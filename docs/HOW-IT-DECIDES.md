@@ -114,7 +114,8 @@ the TV off (Sunwind). The app uses one way; if the TV is still running 20 second
 Back to the snapshot, exactly, both ways: switches back on everything that is off now but was not off in the
 snapshot, and switches off again a factory package that was off in the snapshot and is on now. Wakes the sleeping
 apps with the background rules they had before, puts back the snapshot's settings (each one read back) and the
-stock home screen. Without a full snapshot it changes nothing and says why. Then it asks Android again: what is
+stock home screen. Without a full snapshot it switches on only what TV Janitor itself switched off, leaves
+the settings as they are and says so. Then it asks Android again: what is
 still off is named and kept for the next press (if it still stays off, the firmware won't allow it). The questions
 below come only after everything came back. What was already off before TV Janitor stays off; if Yandex packages were among
 them (most likely another cleaner's work), the app lists them and asks whether to switch them on too. Then
@@ -223,7 +224,7 @@ kernel and video buffers, which no app can free: compare a TV with itself, befor
 **8. «Вернуть всё как было»** — ровно к снимку, в обе стороны: включает всё, чего не было в снимке, и
 отключает обратно заводской пакет, который был отключён в снимке, а сейчас включён. Будит «уснувшие» приложения
 с их прежними правилами фона, возвращает настройки (каждую с проверкой чтением) и заводскую оболочку. Без
-полного снимка ничего не меняет и объясняет почему. Потом перепроверяет: что не вернулось, называется по имени
+полного снимка включает только то, что отключил сам Уборщик, а настройки оставляет как есть и говорит об этом. Потом перепроверяет: что не вернулось, называется по имени
 и остаётся на следующее нажатие (если не помогает, прошивка не даёт это включить). Вопросы ниже — только если
 вернулось всё. Что было отключено ещё
 до Уборщика, остаётся отключённым; если среди этого есть пакеты Яндекса (скорее всего, работа другого
