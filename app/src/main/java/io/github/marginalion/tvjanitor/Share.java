@@ -56,10 +56,10 @@ final class Share {
     }
 
     /** "Restore everything": nothing to wait for any more. */
-    static void restored(Context c, Ops ops) {
+    static void restored(Context c, Ops ops, boolean ok) {
         Store s = new Store(c);
         s.setStr("shareAppliedAt", null); s.setFlag("shareWaitBoot", false);
-        event(c, RESTORE, ops);
+        event(c, ok ? RESTORE : RESTORE + "_partial", ops);
     }
 
     static void event(Context c, String ev, Ops ops) {

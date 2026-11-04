@@ -9,7 +9,7 @@ public class BootReceiver extends BroadcastReceiver {
         String a = intent.getAction();
         if (!Intent.ACTION_BOOT_COMPLETED.equals(a) && !Intent.ACTION_MY_PACKAGE_REPLACED.equals(a)) return;
         // Updated by TV Janitor itself: only reopen it (CleanerService "updated"); otherwise nothing to do on an update.
-        if (Intent.ACTION_MY_PACKAGE_REPLACED.equals(a) && (Edition.LITE || new Store(c).str("updFrom") == null)) return;
+        if (Intent.ACTION_MY_PACKAGE_REPLACED.equals(a) && (Edition.LITE || !Ops.ownUpdateLanded(c))) return;
         Intent i = new Intent(c, CleanerService.class).putExtra("reason", String.valueOf(intent.getAction()));
         c.startForegroundService(i);
     }

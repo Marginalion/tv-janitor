@@ -11,6 +11,21 @@ public class BootJob extends JobService {
         // The after-restart job on the very boot the restart was asked on: the TV never went down. Nothing to do.
         String asked = s.str("rebootAskedBoot");
         if (p.getJobId() == Boot.AFTER_RESTART && asked != null && asked.equals(String.valueOf(Boot.count(this)))) { leave(); return false; }
+        // A Home switch cut short (F94.3) is put right even on a boot already handled: connect() does it first.
+        if (s.str("homeTx") != null && Boot.done(this) && SystemClock.elapsedRealtime() > 120000) {
+            new Thread(() -> {
+                synchronized (Ops.LOCK) {
+                    Ops o = new Ops(this, null);
+                    Adb adb = o.connect(1);
+                    if (adb != null) adb.close();
+                    o.flush();
+                }
+                if (App.visible() == 0) AdbGate.close(this);
+                jobFinished(p, false);
+                leave();
+            }).start();
+            return true;
+        }
         boolean blockedBefore = s.flag("bootBlocked", false);
         // Nothing to do, or the receiver still has time (it starts 15 s after boot on most TVs).
         if (Boot.count(this) < 0 || !Boot.setUp(this) || Boot.done(this) || (SystemClock.elapsedRealtime() < 120000 && !blockedBefore)) {

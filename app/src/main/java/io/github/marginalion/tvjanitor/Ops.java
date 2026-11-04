@@ -84,6 +84,9 @@ final class Ops {
         if (say != null) say.say(s);
     }
 
+    /** Writes what this Ops noted to the journal (for callers outside a job). */
+    void flush() { save(); }
+
     /** One line in the journal from outside a job (the screen). */
     static void logLine(Context c, String s) { Ops o = new Ops(c, null); o.note(s); o.save(); }
 
@@ -108,6 +111,11 @@ final class Ops {
                     // Once: lets the app switch debugging on and off itself. Shell may grant this "development" permission.
                     adb.shell("pm grant " + BuildInfo.SELF + " " + AdbGate.PERM);
                     if (AdbGate.can(c)) note(T.t("Получил право самому включать и выключать отладку"));
+                }
+                // Unfinished work first, whatever brought us here (audit F94.3): a stock Home switched off by a run that
+                // died before its check is put back before anything else, on any start, not only after a new boot.
+                if (store.str("homeTx") != null && !inHomeTx) {
+                    try { rollbackStockHome(adb); } catch (Exception e) { note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage()); }
                 }
                 return adb;
             }
@@ -215,7 +223,13 @@ final class Ops {
         return "";
     }
 
-    private static boolean ours(String k, String v) {
+    /** The global settings TV Janitor changes; the snapshot keeps each one exactly as it was read. */
+    static final String[] SNAP_SETTINGS = {"window_animation_scale", "transition_animation_scale", "animator_duration_scale",
+            "activity_manager_constants", "private_dns_mode", "private_dns_specifier"};
+
+    /** The values TV Janitor itself puts there. Only for a question after "Restore everything", never to change the snapshot. */
+    static boolean ours(String k, String v) {
+        if (v == null) return false;
         if (k.endsWith("_scale")) return v.equals("0.5");
         if (k.equals("activity_manager_constants")) return v.equals("max_cached_processes=8");
         if (k.equals("private_dns_specifier")) return v.equals("dns.adguard-dns.com");
@@ -241,9 +255,26 @@ final class Ops {
         }
     }
 
+    /**
+     * The snapshot is whole or it is not there (audit F94.2): before 0.9.5 it was written key by key, so a process
+     * that died in between left the package list without the settings, and that counted as a snapshot.
+     * 2 = written in one commit with "snap_ok"; 1 = an older one that got to its last key (home); 0 = none or partial.
+     */
+    int snapLevel() {
+        if (store.flag("snap_ok", false)) return 2;
+        if (store.has("snap_disabled") && store.has("snap_home") && !store.flag("snap_partial", false)) return 1;
+        return 0;
+    }
+
+    /** Something has been changed by TV Janitor since its first run: a snapshot taken now would not be "as it was". */
+    private boolean changedSomething() {
+        return !store.disabled().isEmpty() || !store.sleeping().isEmpty() || !store.set("appliedOff").isEmpty()
+                || store.flag("launcher", false) || store.has("snap_ime") || store.has("adbTimeWas");
+    }
+
     /** Before the first change: what was disabled and how the touched settings looked, for "restore everything". */
     void snapshot(Adb adb) throws Exception {
-        if (store.has("snap_disabled")) {
+        if (snapLevel() > 0) {
             // Snapshots from before dev11 had no such list: work it out from what they recorded.
             if (!store.has("snap_foreign")) {
                 java.util.Set<String> foreign = new java.util.TreeSet<>();
@@ -252,61 +283,139 @@ final class Ops {
             }
             return;
         }
-        java.util.Set<String> d = new java.util.HashSet<>();
-        for (String l : adb.shell("pm list packages -d").split("\n")) { l = l.trim(); if (l.startsWith("package:")) d.add(l.substring(8)); }
-        store.setSet("snap_disabled", d);
-        for (String k : new String[]{"window_animation_scale", "transition_animation_scale", "animator_duration_scale",
-                "activity_manager_constants", "private_dns_mode", "private_dns_specifier"}) {
-            String v = adb.shell("settings get global " + k).trim();
-            // Our own values left by an earlier TV Janitor (data cleared, reinstalled) are not "as it was":
-            // Philips 04.11, rc3 took 0.5 and max_cached_processes=8 from rc1 and "Restore" put them back.
-            if (ours(k, v)) { dbg("snapshot: " + k + "=" + v + " is ours, kept as unset"); v = "null"; }
-            store.setStr("snap_" + k, v);
+        if (store.has("snap_disabled")) {
+            // An older snapshot cut short. If nothing was changed since, take it again whole; otherwise its package
+            // list (read before any change) still holds, but the settings were never read: restore leaves them be.
+            if (changedSomething()) {
+                if (!store.flag("snap_partial", false)) {
+                    store.edit().putBoolean("snap_partial", true).commit();
+                    note(T.t("⚠ Снимок «как было» неполный: настройки до Уборщика не записаны. «Вернуть всё» вернёт пакеты, а настройки оставит как есть"));
+                }
+                return;
+            }
+            store.edit().remove("snap_disabled").remove("snap_home").remove("snap_foreign").remove("snap_partial").commit();
         }
-        store.setStr("snap_home", homeComponent(adb));
+        // Everything is read first; nothing is stored until all of it is known.
+        java.util.Set<String> d = new java.util.HashSet<>();
+        String list = adb.shell("pm list packages -d");
+        for (String l : list.split("\n")) {
+            l = l.trim();
+            if (l.startsWith("package:")) d.add(l.substring(8));
+            else if (!l.isEmpty()) throw new java.io.IOException("pm list: " + l);
+        }
+        Map<String, String> vals = new HashMap<>();
+        for (String k : SNAP_SETTINGS) {
+            // Exactly what Android says; "null" is how it says "not set". Our own values left by an earlier install
+            // are kept as they are (F94.1): after "Restore everything" the owner is asked whether to reset them.
+            String v = adb.shell("settings get global " + k).trim();
+            if (v.contains("\n") || v.contains("Exception") || v.startsWith("Error")) throw new java.io.IOException("settings get " + k + ": " + firstLine(v));
+            vals.put(k, v);
+        }
+        String home = homeComponent(adb);
+        java.util.Set<String> foreign = new java.util.TreeSet<>();
+        for (String p : d) if (p.startsWith("com.yandex.") || p.startsWith("ru.yandex.")) foreign.add(p);
+        android.content.SharedPreferences.Editor e = store.edit();
+        e.putStringSet("snap_disabled", new java.util.HashSet<>(d));
+        for (String k : SNAP_SETTINGS) e.putString("snap_" + k, vals.get(k));
+        e.putString("snap_home", home);
         // A disabled com.yandex.* most likely means another cleaner got here first (Novex Cleaner had 23 off, the
         // Yandex home and the HDMI player among them). The snapshot keeps them off all the same ("restore" = the
         // snapshot); after restoring, the owner is asked whether to switch these on too.
-        java.util.Set<String> foreign = new java.util.TreeSet<>();
-        for (String p : d) if (p.startsWith("com.yandex.") || p.startsWith("ru.yandex.")) foreign.add(p);
-        store.setSet("snap_foreign", foreign);
+        e.putStringSet("snap_foreign", new java.util.HashSet<>(foreign));
+        e.putInt("snap_v", 2).putBoolean("snap_ok", true).remove("snap_partial");
+        if (!e.commit()) throw new java.io.IOException("snapshot not written");
         note(T.t("Снимок «как было» сохранён: отключено до Уборщика ") + d.size() + T.t(" пакетов"));
         if (!foreign.isEmpty()) note(T.t("Из них, похоже, отключено другим чистильщиком (после «Вернуть всё как было» Уборщик спросит, включить ли их): ")
                 + String.join(", ", foreign));
     }
 
-    /** Back to the snapshot: everything we disabled or put to sleep comes back, settings too. */
+    /** Snapshot settings that hold exactly what TV Janitor itself puts there: maybe left by an earlier install. */
+    java.util.List<String> oursInSnapshot() {
+        java.util.List<String> out = new ArrayList<>();
+        if (snapLevel() == 0) return out;
+        for (String k : SNAP_SETTINGS) if (ours(k, store.str("snap_" + k))) out.add(k);
+        if (out.contains("private_dns_specifier") && !out.contains("private_dns_mode")) out.add("private_dns_mode");
+        return out;
+    }
+
+    /** The owner's answer after "Restore everything": these were ours from an earlier install, back to Android's default. */
+    boolean resetOurs(java.util.List<String> keys) {
+        synchronized (LOCK) {
+            Adb adb = connect(3);
+            if (adb == null) { save(); return false; }
+            try {
+                java.util.List<String> bad = new ArrayList<>();
+                for (String k : keys) if (!putSetting(adb, k, "null")) bad.add(k);
+                // From now on "as it was" for these means Android's default.
+                android.content.SharedPreferences.Editor e = store.edit();
+                for (String k : keys) if (!bad.contains(k)) e.putString("snap_" + k, "null");
+                e.commit();
+                note(bad.isEmpty() ? T.t("Настройки от прошлой установки Уборщика сброшены к заводским: ") + String.join(", ", keys)
+                        : T.t("⚠ Не сбросились: ") + String.join(", ", bad));
+                return bad.isEmpty();
+            } catch (Exception e) {
+                note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
+                return false;
+            } finally { adb.close(); save(); }
+        }
+    }
+
+    /** settings put/delete, then read back: true only if Android now holds that value ("null" = not set). */
+    private boolean putSetting(Adb adb, String k, String v) throws Exception {
+        boolean unset = v == null || v.equals("null") || v.isEmpty();
+        sh(adb, unset ? "settings delete global " + k : "settings put global " + k + " " + v);
+        String now = adb.shell("settings get global " + k).trim();
+        return unset ? now.equals("null") || now.isEmpty() : now.equals(v);
+    }
+
+    /**
+     * Back to the snapshot, both ways (audit F94.5): what we switched off comes back on, what was off in the
+     * snapshot and is on now goes off again (unless the owner switched it on with "Switch these on too?"),
+     * settings, background rules and Home as they were read. Each part is checked with Android; what did not
+     * come back is kept, with what it should be, for the next try. Without a whole snapshot nothing is guessed:
+     * only TV Janitor's own changes are undone and the settings are left as they are (F94.2).
+     */
     boolean restoreAll() {
         synchronized (LOCK) {
             note(T.t("Возвращаю всё как было"));
             Adb adb = connect(3);
             if (adb == null) { save(); return false; }
             try {
+                int level = snapLevel();
+                boolean pkgsKnown = level > 0 || store.flag("snap_partial", false);
                 store.setSet("shareWasOff", store.disabled());   // for the report: what the owner gave up on
-                java.util.Set<String> factory = store.set("snap_disabled");
-                java.util.Set<String> tried = new java.util.TreeSet<>();
-                for (String l : adb.shell("pm list packages -d").split("\n")) {
-                    l = l.trim();
-                    if (!l.startsWith("package:")) continue;
-                    String p = l.substring(8);
-                    if (!factory.contains(p)) { sh(adb, "pm enable " + p); tried.add(p); }
+                java.util.Set<String> factory = store.set("snap_disabled"), mine = store.disabled();
+                mine.addAll(store.set("appliedOff"));
+                java.util.Set<String> offNow = new java.util.HashSet<>(), tried = new java.util.TreeSet<>();
+                for (String l : adb.shell("pm list packages -d").split("\n")) { l = l.trim(); if (l.startsWith("package:")) offNow.add(l.substring(8)); }
+                for (String p : offNow) {
+                    if (pkgsKnown ? !factory.contains(p) : mine.contains(p)) { sh(adb, "pm enable " + p); tried.add(p); }
                 }
                 // Check with Android, not with our own count: what is still off has not come back.
                 java.util.Set<String> still = reallyOff(adb, tried);
-                wakeAll(adb, store.sleeping());
-                releaseHeld(adb, null);
-                backToOldIme(adb);
-                for (String k : new String[]{"window_animation_scale", "transition_animation_scale", "animator_duration_scale",
-                        "activity_manager_constants", "private_dns_mode", "private_dns_specifier"}) {
-                    String v = store.str("snap_" + k);
-                    if (v == null || v.equals("null") || v.isEmpty()) sh(adb, "settings delete global " + k);
-                    else sh(adb, "settings put global " + k + " " + v);
+                // The other way: off in the snapshot, on now. The owner's own "Switch these on too" stays.
+                java.util.Set<String> reoff = new java.util.TreeSet<>(), reoffFailed = new java.util.TreeSet<>();
+                if (pkgsKnown) {
+                    java.util.Set<String> keepOn = store.set("snap_foreignOn");
+                    for (String p : factory) if (!offNow.contains(p) && !keepOn.contains(p) && installed(p)) { sh(adb, "pm disable-user --user 0 " + p); reoff.add(p); }
+                    if (!reoff.isEmpty()) {
+                        java.util.Set<String> off = reallyOff(adb, reoff);
+                        for (String p : reoff) if (!off.contains(p)) reoffFailed.add(p);
+                        note(T.t("Снова отключено, как было в снимке: ") + (reoff.size() - reoffFailed.size()) + T.t(" из ") + reoff.size()
+                                + (reoffFailed.isEmpty() ? "" : "  (" + T.t("не отключилось: ") + String.join(", ", reoffFailed) + ")"));
+                    }
                 }
+                java.util.Set<String> notWoken = wakeAll(adb, store.sleeping());
+                java.util.Set<String> notReleased = releaseHeld(adb, null);
+                backToOldIme(adb);
+                java.util.List<String> badSettings = new ArrayList<>();
+                if (level > 0) {
+                    for (String k : SNAP_SETTINGS) if (!putSetting(adb, k, store.str("snap_" + k))) badSettings.add(k);
+                } else note(T.t("Настройки до Уборщика не были записаны — оставляю их как есть"));
                 if (store.has("adbTimeWas")) {
-                    String was = store.str("adbTimeWas");
-                    if (was == null || was.equals("null") || was.isEmpty()) sh(adb, "settings delete global adb_allowed_connection_time");
-                    else sh(adb, "settings put global adb_allowed_connection_time " + was);
-                    store.setStr("adbTimeWas", null);
+                    // The old value goes only once Android holds it again: a refused command keeps it for the next try.
+                    if (putSetting(adb, "adb_allowed_connection_time", store.str("adbTimeWas"))) store.edit().remove("adbTimeWas").commit();
+                    else badSettings.add("adb_allowed_connection_time");
                 }
                 String home = store.str("snap_home");
                 String stock = store.str("stockHome");
@@ -314,27 +423,37 @@ final class Ops {
                     String[] l = adb.shell("cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.HOME " + stock).trim().split("\n");
                     home = l[l.length - 1].trim();
                 }
-                if (home != null && home.contains("/") && !home.startsWith(BuildInfo.LAUNCHER)) sh(adb, "cmd package set-home-activity --user 0 " + home);
-                store.setDisabled(new java.util.HashSet<>());
-                store.setSleeping(new java.util.HashSet<>());
-                // Or the next "Apply" takes all that came back for "switched on by someone else" (Philips 04.11).
-                store.setSet("appliedOff", new java.util.HashSet<>());
+                boolean homeOk = true;
+                if (home != null && home.contains("/") && !home.startsWith(BuildInfo.LAUNCHER)) {
+                    sh(adb, "cmd package set-home-activity --user 0 " + home);
+                    String now = homeComponent(adb);
+                    homeOk = now.equals(home) || !now.startsWith(BuildInfo.LAUNCHER) && now.contains("/");
+                    if (!homeOk) note(T.t("⚠ «Домой» не вернулся к ") + home + T.t(", сейчас: ") + now);
+                }
+                // Only what is really back is forgotten; the rest stays for the next "Restore everything".
+                java.util.Set<String> keepOff = new java.util.HashSet<>(still);
+                store.setDisabled(keepOff);
+                store.setSleeping(notWoken);
+                store.setSet("appliedOff", keepOff);
                 store.setFlag("launcher", false);
                 store.setFlag("dns", false); store.setFlag("dnsWasOn", false);
                 // "As it was" includes debugging: before TV Janitor it was on all the time.
                 store.setFlag("keepAdb", true);
                 sh(adb, "am start -a android.intent.action.MAIN -c android.intent.category.HOME");
-                if (!still.isEmpty()) {
-                    note(T.t("⚠ Не вернулось: ") + still.size() + "  (" + String.join(", ", still) + ")"
-                            + T.t(". Нажмите «Вернуть всё как было» ещё раз; если не помогает, прошивка не даёт их включить."));
-                    note(T.t("Итог: ") + T.t("включено обратно ") + (tried.size() - still.size()) + T.t(" из ") + tried.size()
-                            + T.t(". Перезагрузите телевизор, чтобы всё встало на места."));
-                    Share.restored(c, this);
-                    return false;
+                boolean ok = still.isEmpty() && reoffFailed.isEmpty() && notWoken.isEmpty() && notReleased.isEmpty()
+                        && badSettings.isEmpty() && homeOk;
+                if (!still.isEmpty()) note(T.t("⚠ Не вернулось: ") + still.size() + "  (" + String.join(", ", still) + ")"
+                        + T.t(". Нажмите «Вернуть всё как было» ещё раз; если не помогает, прошивка не даёт их включить."));
+                if (!notWoken.isEmpty() || !notReleased.isEmpty()) {
+                    java.util.Set<String> bg = new java.util.TreeSet<>(notWoken); bg.addAll(notReleased);
+                    note(T.t("⚠ Не вернулась работа в фоне: ") + String.join(", ", bg));
                 }
-                note(T.t("Итог: ") + T.t("включено обратно ") + tried.size() + T.t(". Перезагрузите телевизор, чтобы всё встало на места."));
-                Share.restored(c, this);
-                return true;
+                if (!badSettings.isEmpty()) note(T.t("⚠ Не вернулись настройки: ") + String.join(", ", badSettings));
+                note(T.t("Итог: ") + T.t("включено обратно ") + (tried.size() - still.size()) + T.t(" из ") + tried.size()
+                        + (ok ? "" : T.t(". Вернулось не всё — см. строки с ⚠ выше"))
+                        + T.t(". Перезагрузите телевизор, чтобы всё встало на места."));
+                Share.restored(c, this, ok);
+                return ok;
             } catch (Exception e) {
                 note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
                 return false;
@@ -364,6 +483,10 @@ final class Ops {
             try {
                 for (String p : pkgs) sh(adb, "pm enable " + p);
                 java.util.Set<String> still = reallyOff(adb, pkgs);
+                // The owner chose these on: the next "Restore everything" must not switch them off again.
+                java.util.Set<String> on = store.set("snap_foreignOn");
+                for (String p : pkgs) if (!still.contains(p)) on.add(p);
+                store.edit().putStringSet("snap_foreignOn", on).commit();
                 note(T.t("Включено отключённое до Уборщика: ") + (pkgs.size() - still.size()) + T.t(" из ") + pkgs.size()
                         + (still.isEmpty() ? "" : T.t(". Не включилось: ") + String.join(", ", new java.util.TreeSet<>(still))));
                 return still.isEmpty();
@@ -588,6 +711,7 @@ final class Ops {
      * for "Restore everything"; a process the firmware keeps alive whatever we do is named, not hidden.
      */
     private void holdBack(Adb adb, Collection<String> pkgs) throws Exception {
+        rememberBg(adb, pkgs);
         Set<String> frozen = store.set("frozenPkgs"), held = store.set("heldPkgs"), immortal = store.set("immortalPkgs");
         for (String p : pkgs) {
             if (!frozen.contains(p) && adb.shell("pm suspend --user 0 " + p + " 2>&1").contains("new suspended state: true")) {
@@ -622,21 +746,73 @@ final class Ops {
         store.setSet("frozenPkgs", frozen); store.setSet("heldPkgs", held); store.setSet("immortalPkgs", immortal);
     }
 
-    /** Undo holdBack for these packages (all of them when null): the owner unticked them, or "Restore everything". */
-    private void releaseHeld(Adb adb, Collection<String> only) throws Exception {
+    /** Undo holdBack for these packages (all of them when null); returns those that did not come back. */
+    private Set<String> releaseHeld(Adb adb, Collection<String> only) throws Exception {
         Set<String> frozen = store.set("frozenPkgs"), held = store.set("heldPkgs"), immortal = store.set("immortalPkgs");
+        Set<String> failed = new java.util.TreeSet<>();
         for (String p : new java.util.TreeSet<>(frozen)) {
             if (only != null && !only.contains(p)) continue;
-            sh(adb, "pm unsuspend --user 0 " + p); frozen.remove(p);
+            String r = adb.shell("pm unsuspend --user 0 " + p + " 2>&1");
+            if (r.contains("new suspended state: false") || !installed(p)) frozen.remove(p); else failed.add(p);
         }
         for (String p : new java.util.TreeSet<>(held)) {
             if (only != null && !only.contains(p)) continue;
-            sh(adb, "cmd appops set " + p + " RUN_ANY_IN_BACKGROUND allow");
-            sh(adb, "cmd appops set " + p + " RUN_IN_BACKGROUND allow");
-            adb.shell("am set-standby-bucket " + p + " active 2>&1");
-            held.remove(p); immortal.remove(p);
+            if (!installed(p) || restoreBg(adb, p)) { held.remove(p); immortal.remove(p); } else failed.add(p);
         }
         store.setSet("frozenPkgs", frozen); store.setSet("heldPkgs", held); store.setSet("immortalPkgs", immortal);
+        return failed;
+    }
+
+    private static final String[] BG_OPS = {"RUN_ANY_IN_BACKGROUND", "RUN_IN_BACKGROUND"};
+
+    /** "allow", "ignore", "default"...: the mode Android reports for this package and op. */
+    private static String opMode(Adb adb, String p, String op) throws Exception {
+        String r = adb.shell("cmd appops get " + p + " " + op + " 2>&1").trim();
+        Matcher m = Pattern.compile(op + ": (\\w+)").matcher(r);
+        if (m.find()) return m.group(1);
+        return r.isEmpty() || r.startsWith("No operations") ? "default" : null;
+    }
+
+    /**
+     * Before the first time a package is put to sleep or held back: its background rules as they were (F94.5),
+     * so that waking it gives back exactly those, not "allow". Kept in "bgWas" as package|op modes|bucket.
+     */
+    private void rememberBg(Adb adb, Collection<String> pkgs) throws Exception {
+        Set<String> was = store.set("bgWas");
+        Set<String> known = new java.util.HashSet<>();
+        for (String e : was) known.add(e.substring(0, e.indexOf('|')));
+        boolean changed = false;
+        for (String p : pkgs) {
+            if (known.contains(p)) continue;
+            StringBuilder e = new StringBuilder(p);
+            boolean ok = true;
+            for (String op : BG_OPS) { String m = opMode(adb, p, op); if (m == null) ok = false; e.append('|').append(m); }
+            String b = adb.shell("am get-standby-bucket " + p + " 2>&1").trim();
+            e.append('|').append(b.matches("\\d+") ? b : "");
+            if (!ok) { dbg("bg baseline unreadable: " + p); continue; }
+            was.add(e.toString()); changed = true;
+        }
+        if (changed) store.edit().putStringSet("bgWas", was).commit();
+    }
+
+    /** Background rules back to what rememberBg read (or "allow"/active when there is none); checked by reading. */
+    private boolean restoreBg(Adb adb, String p) throws Exception {
+        Set<String> was = store.set("bgWas");
+        String entry = null;
+        for (String e : was) if (e.startsWith(p + "|")) entry = e;
+        String[] f = entry != null ? entry.split("\\|", -1) : new String[]{p, "allow", "allow", "10"};
+        boolean ok = true;
+        for (int i = 0; i < BG_OPS.length; i++) {
+            String want = f[i + 1];
+            sh(adb, "cmd appops set " + p + " " + BG_OPS[i] + " " + want);
+            String now = opMode(adb, p, BG_OPS[i]);
+            // A "default" that reads back as the op's own default mode is the same thing.
+            if (now == null || !(now.equals(want) || want.equals("default") && now.equals("allow"))) ok = false;
+        }
+        String bucket = f.length > 3 && !f[3].isEmpty() ? f[3] : "10";
+        adb.shell("am set-standby-bucket " + p + " " + bucket + " 2>&1");
+        if (ok && entry != null) { was.remove(entry); store.edit().putStringSet("bgWas", was).commit(); }
+        return ok;
     }
 
     /** Of the chosen packages, the ones Android really reports as disabled right now. */
@@ -655,6 +831,7 @@ final class Ops {
 
     /** No background running; force-stop also keeps the boot broadcast away until the app is opened by hand. */
     void sleepAll(Adb adb, Collection<String> pkgs) throws Exception {
+        rememberBg(adb, pkgs);
         for (String p : pkgs) {
             sh(adb, "cmd appops set " + p + " RUN_ANY_IN_BACKGROUND ignore");
             sh(adb, "cmd appops set " + p + " RUN_IN_BACKGROUND ignore");
@@ -662,11 +839,11 @@ final class Ops {
         }
     }
 
-    void wakeAll(Adb adb, Collection<String> pkgs) throws Exception {
-        for (String p : pkgs) {
-            sh(adb, "cmd appops set " + p + " RUN_ANY_IN_BACKGROUND allow");
-            sh(adb, "cmd appops set " + p + " RUN_IN_BACKGROUND allow");
-        }
+    /** Background rules back as they were before sleep; returns the packages that did not take them. */
+    Set<String> wakeAll(Adb adb, Collection<String> pkgs) throws Exception {
+        Set<String> failed = new java.util.HashSet<>();
+        for (String p : pkgs) if (installed(p) && !restoreBg(adb, p)) failed.add(p);
+        return failed;
     }
 
     /** When and on which boot Uborshchik last put the TV in order, to tell a real reboot from a run on the same boot. */
@@ -952,7 +1129,7 @@ final class Ops {
             note(T.t("Заводской «Домой» не трогаю: на этой прошивке нет запасного (FallbackHome)."));
             return false;
         }
-        if (!store.commitStr("homeTx", stock)) { note(T.t("Не смог записать отметку на диск — заводской «Домой» не трогаю.")); return false; }
+        if (!beginHomeTx(adb, stock)) { note(T.t("Не смог записать отметку на диск — заводской «Домой» не трогаю.")); return false; }
         try {
             note(T.t("Отключаю заводской «Домой» с проверкой: ") + stock);
             sh(adb, "pm disable-user --user 0 " + stock);
@@ -981,7 +1158,7 @@ final class Ops {
                 rollbackStockHome(adb);
                 return false;
             }
-            store.commitStr("homeTx", null);
+            endHomeTx();
             note(T.t("✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка"));
             launcherConfig(adb);
             backToApp(adb);
@@ -993,20 +1170,58 @@ final class Ops {
     }
 
     /** Put the stock Home back if a switch-off didn't finish; checked by asking Android, marker cleared only then. */
+    /** True while a Home switch is in progress in this run: connect() must not undo it from under us. */
+    private boolean inHomeTx;
+
+    /** Marker on disk before the stock Home is touched: which one, and which component was Home (F94.3). */
+    private boolean beginHomeTx(Adb adb, String stock) throws Exception {
+        String was = homeComponent(adb);
+        inHomeTx = true;
+        return store.edit().putString("homeTx", stock).putString("homeTxWas", was.contains("/") ? was : null).putString("homeTxTries", "0").commit();
+    }
+
+    private void endHomeTx() {
+        store.edit().remove("homeTx").remove("homeTxWas").remove("homeTxTries").commit();
+        inHomeTx = false;
+    }
+
+    /**
+     * Stock Home back on and back as Home. The marker goes only once Android shows both; otherwise it stays for
+     * the next start, three tries at most, then the owner is told what is left.
+     */
     private void rollbackStockHome(Adb adb) throws Exception {
         String stock = store.str("homeTx");
         if (stock == null) return;
         note(T.t("Возвращаю заводской «Домой»: ") + stock);
         sh(adb, "pm enable " + stock);
-        String[] l = adb.shell("cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.HOME " + stock).trim().split("\n");
-        String comp = l[l.length - 1].trim();
+        String comp = store.str("homeTxWas");
+        if (comp == null || !comp.startsWith(stock + "/")) {
+            String[] l = adb.shell("cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.HOME " + stock).trim().split("\n");
+            comp = l[l.length - 1].trim();
+        }
         if (comp.startsWith(stock + "/")) sh(adb, "cmd package set-home-activity --user 0 " + comp);
-        if (reallyOff(adb, java.util.Collections.singleton(stock)).isEmpty()) {
+        boolean on = reallyOff(adb, java.util.Collections.singleton(stock)).isEmpty();
+        boolean home = homePackage(adb).equals(stock);
+        if (on && home) {
             Set<String> d = store.disabled(); d.remove(stock); store.setDisabled(d);
-            store.commitStr("homeTx", null);
+            endHomeTx();
             sh(adb, "input keyevent KEYCODE_HOME");
             note(T.t("Заводской «Домой» включён обратно."));
-        } else note(T.t("⚠ Заводской «Домой» пока не включился, попробую при следующем запуске."));
+            return;
+        }
+        int tries = 0;
+        try { tries = Integer.parseInt(String.valueOf(store.str("homeTxTries"))); } catch (Exception ignored) {}
+        tries++;
+        if (tries >= 3 && on) {
+            // On, but Android picks another Home: nothing more this marker can do. Say so, and stop retrying.
+            endHomeTx();
+            note(T.t("⚠ Заводской «Домой» включён, но Android открывает по «Домой» другой экран. Выберите главный экран в Настройках → Приложения → Главный экран."));
+            return;
+        }
+        store.edit().putString("homeTxTries", String.valueOf(tries)).commit();
+        inHomeTx = false;
+        note(on ? T.t("⚠ Заводской «Домой» включён, но ещё не стал главным экраном — попробую при следующем запуске.")
+                : T.t("⚠ Заводской «Домой» пока не включился, попробую при следующем запуске."));
     }
 
     /** The exact component on screen, not just a package name somewhere in the line (audit A4). */
@@ -1019,7 +1234,9 @@ final class Ops {
     private void keepAuth(Adb adb) throws Exception {
         if (android.os.Build.VERSION.SDK_INT < 30 || store.has("adbTimeWas")) return;
         String v = adb.shell("settings get global adb_allowed_connection_time").trim();
-        store.setStr("adbTimeWas", v.isEmpty() ? "null" : v);
+        if (v.contains("\n") || v.contains("Exception")) return;
+        // On disk before the change (audit, 4.5): the old value is what "Restore everything" puts back.
+        if (!store.commitStr("adbTimeWas", v.isEmpty() ? "null" : v)) return;
         sh(adb, "settings put global adb_allowed_connection_time 0");
     }
 
@@ -1088,10 +1305,10 @@ final class Ops {
                 if (s != null) for (String safe : BuildInfo.SAFE_TO_DISABLE_HOME) {
                     if (!safe.equals(s)) continue;
                     // Marker on disk first: whatever happens next (an error, a power cut), the stock Home comes back.
-                    if (!store.commitStr("homeTx", s)) { note(T.t("Не смог записать отметку на диск — заводской «Домой» не трогаю.")); break; }
+                    if (!beginHomeTx(adb, s)) { note(T.t("Не смог записать отметку на диск — заводской «Домой» не трогаю.")); break; }
                     sh(adb, "pm disable-user --user 0 " + s);
                     stockOff = !reallyOff(adb, java.util.Collections.singleton(s)).isEmpty();
-                    if (!stockOff) store.commitStr("homeTx", null);
+                    if (!stockOff) endHomeTx();
                 }
                 sh(adb, "cmd package set-home-activity --user 0 " + BuildInfo.LAUNCHER_HOME);
                 String now = homePackage(adb);
@@ -1116,7 +1333,7 @@ final class Ops {
                     note(T.t("⚠ Новая оболочка не открылась по «Домой», поэтому заводская осталась на месте. Новую можно открыть из списка приложений."));
                     return false;
                 }
-                if (stockOff) { Set<String> d = store.disabled(); d.add(s); store.setDisabled(d); store.commitStr("homeTx", null); }
+                if (stockOff) { Set<String> d = store.disabled(); d.add(s); store.setDisabled(d); endHomeTx(); }
                 store.setFlag("launcher", true);
                 launcherConfig(adb);
                 note(T.t("Главный экран теперь: ") + now + T.t(" — и он на экране ✔"));
@@ -1573,6 +1790,8 @@ final class Ops {
                     note(T.t("⚠ Файл подписан не нашим ключом — обновление отменено")); return false;
                 }
                 if (pi.versionCode <= me.versionCode) { note(T.t("Эта версия не новее установленной — не ставлю")); return false; }
+                // The file must be the version the offer named (audit 4.1): a higher code alone does not prove it.
+                if (!rel[0].equals(pi.versionName)) { note(T.t("⚠ В файле версия ") + pi.versionName + T.t(", а предлагалась ") + rel[0] + T.t(" — обновление отменено")); return false; }
                 note(T.t("Подпись и контрольная сумма совпали ✔ (") + pi.versionName + ")");
                 Adb adb = connect(3);
                 if (adb == null) { save(); return false; }
@@ -1587,12 +1806,18 @@ final class Ops {
                     if (!have.equalsIgnoreCase(got)) { sh(adb, "rm -f " + tmp); note(T.t("Файл изменился при копировании — обновление отменено")); return false; }
                     note(T.t("Ставлю обновление: Уборщик закроется и сам откроется снова через полминуты"));
                     save();
-                    store.commitStr("updFrom", me.versionName);
+                    // The update as one record on disk before it starts (audit F94.6): what from, what to, which file,
+                    // when. The screen never wipes it; the result is judged by the version Android really has.
+                    String tx = me.versionCode + "|" + me.versionName + "|" + pi.versionCode + "|" + pi.versionName + "|" + have + "|" + System.currentTimeMillis();
+                    if (!store.commitStr("updTx", tx)) { sh(adb, "rm -f " + tmp); note(T.t("Не смог записать отметку на диск — обновление не ставлю")); return false; }
                     // Philips 04.11 (rc5): a background "nohup … &" was killed with the connection, before it even wrote its
                     // log. So the install runs in the foreground: Android ends this process inside it, after the commit,
                     // and opens us again through MY_PACKAGE_REPLACED (BootReceiver → afterUpdate). Back here means it failed.
                     String out = adb.shell("pm install -r -g " + tmp + " 2>&1").trim();
                     sh(adb, "rm -f " + tmp);
+                    // Still here: either Android has not ended us yet after "Success", or it refused.
+                    if (out.contains("Success")) { note(T.t("Обновление установлено, Уборщик сейчас перезапустится")); return true; }
+                    store.commitStr("updTx", null);
                     note(T.t("⚠ Обновление не встало: ") + (out.isEmpty() ? "?" : out));
                     return false;
                 } finally { adb.close(); }
@@ -1603,9 +1828,30 @@ final class Ops {
         }
     }
 
+    /** The update record: {fromCode, fromName, toCode, toName, sha, startedAt}, or null. */
+    static String[] updTx(Store s) {
+        String v = s.str("updTx");
+        if (v == null) return null;
+        String[] f = v.split("\\|", -1);
+        return f.length == 6 ? f : null;
+    }
+
+    /** Our own update has put this version in: a record whose target is the installed code, at most 15 minutes old. */
+    static boolean ownUpdateLanded(Context c) {
+        Store s = new Store(c);
+        if (s.str("updFrom") != null) return true;    // written by 0.9.4-beta2 and older
+        String[] tx = updTx(s);
+        if (tx == null) return false;
+        try {
+            int code = c.getPackageManager().getPackageInfo(c.getPackageName(), 0).versionCode;
+            long age = System.currentTimeMillis() - Long.parseLong(tx[5]);
+            return code == Integer.parseInt(tx[2]) && age >= 0 && age < 15 * 60 * 1000L;
+        } catch (Exception e) { return false; }
+    }
+
     /** Called once Android has put the new version in place (MY_PACKAGE_REPLACED): tidy up and open the app again. */
     void afterUpdate() {
-        if (Edition.LITE || store.str("updFrom") == null) return;   // an update by hand or from a store: nothing to do
+        if (Edition.LITE || !ownUpdateLanded(c)) return;   // an update by hand or from a store: nothing to do
         synchronized (LOCK) {
             Adb adb = connect(3);
             if (adb == null) { save(); return; }

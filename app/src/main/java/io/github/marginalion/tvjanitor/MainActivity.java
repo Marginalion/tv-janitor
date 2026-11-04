@@ -270,11 +270,26 @@ public class MainActivity extends Activity {
     /** Owner's decision 04.11.2026: a newer published version is offered, never installed silently. */
     private void checkUpdate() {
         if (Edition.LITE) return;
-        String from = store.str("updFrom");
+        String now = "?";
+        int code = 0;
+        try { android.content.pm.PackageInfo me = getPackageManager().getPackageInfo(getPackageName(), 0); now = me.versionName; code = me.versionCode; } catch (Exception ignored) {}
+        // The update record (audit F94.6): judged by the version Android has. While it is young and not in, the
+        // install may still be running (Philips: the screen reopened before it): wait, say nothing, offer nothing.
+        String[] tx = Ops.updTx(store);
+        if (tx != null) {
+            long age = Long.MAX_VALUE;
+            try { age = System.currentTimeMillis() - Long.parseLong(tx[5]); } catch (Exception ignored) {}
+            boolean in = false;
+            try { in = code >= Integer.parseInt(tx[2]); } catch (Exception ignored) {}
+            if (!in && age >= 0 && age < 3 * 60 * 1000L) return;
+            store.commitStr("updTx", null);
+            afterScan = in ? T.t("✔ Уборщик обновлён: ") + tx[1] + " → " + now : T.t("⚠ Обновление не встало, работает прежняя версия ") + now;
+            Ops.logLine(getApplicationContext(), afterScan);
+            show(status, afterScan);
+        }
+        String from = store.str("updFrom");   // from 0.9.4-beta2 and older
         if (from != null) {
             store.setStr("updFrom", null);
-            String now = "?";
-            try { now = getPackageManager().getPackageInfo(getPackageName(), 0).versionName; } catch (Exception ignored) {}
             // Philips 04.11: scan() replaced this line at once, so nobody saw it. It waits for the scan, and goes in the journal.
             afterScan = Ops.compareVersions(now, from) > 0 ? T.t("✔ Уборщик обновлён: ") + from + " → " + now : T.t("⚠ Обновление не встало, работает прежняя версия ") + now;
             Ops.logLine(getApplicationContext(), afterScan);
@@ -455,13 +470,32 @@ public class MainActivity extends Activity {
         run(T.t("Возвращаю всё как было…"), () -> {
             Ops ops = new Ops(this, this::say);
             boolean ok = ops.restoreAll();
-            Set<String> f = ops.foreignOff();
-            if (!f.isEmpty()) runOnUiThread(() -> offerForeign(f));
+            // The questions come only after a restore that went through (audit F94.8): "all is back" must be true.
+            Set<String> f = ok ? ops.foreignOff() : new HashSet<>();
+            java.util.List<String> ours = ok ? ops.oursInSnapshot() : new java.util.ArrayList<>();
+            if (!f.isEmpty() || !ours.isEmpty()) runOnUiThread(() -> { if (!f.isEmpty()) offerForeign(f, ours); else offerOurs(ours); });
             return ok;
         });
     }
 
-    private void offerForeign(Set<String> f) {
+    /**
+     * The snapshot holds exactly TV Janitor's own values (animations 0.5, AdGuard DNS…): most likely left by an
+     * earlier install, but maybe the owner's. Restore kept them (audit F94.1); here the owner decides.
+     */
+    private void offerOurs(java.util.List<String> keys) {
+        if (keys.isEmpty()) return;
+        StringBuilder names = new StringBuilder();
+        for (String k : keys) names.append("\n• ").append(k).append(" = ").append(store.str("snap_" + k));
+        new android.app.AlertDialog.Builder(this)
+                .setTitle(T.t("Сбросить к заводским?"))
+                .setMessage(T.t("Эти настройки вернулись такими, какими были до первого запуска Уборщика. Но это ровно те значения, что ставит сам Уборщик: похоже, они остались от его прошлой установки.") + names
+                        + "\n\n" + T.t("Если вы не ставили их сами, сбросьте к заводским."))
+                .setNegativeButton(T.t("Оставить"), null)
+                .setPositiveButton(T.t("Сбросить"), (d, w) -> run(T.t("Сбрасываю…"), () -> new Ops(this, this::say).resetOurs(keys)))
+                .show();
+    }
+
+    private void offerForeign(Set<String> f, java.util.List<String> thenOurs) {
         StringBuilder names = new StringBuilder();
         PackageManager pm = getPackageManager();
         for (String p : f) {
@@ -474,8 +508,8 @@ public class MainActivity extends Activity {
                 .setTitle(T.t("Включить и это?"))
                 .setMessage(T.t("Всё вернулось к снимку «как было». Но ещё до Уборщика на телевизоре было отключено вот это, похоже, другим чистильщиком:") + names
                         + "\n\n" + T.t("Включить и их, как с завода?"))
-                .setNegativeButton(T.t("Оставить отключённым"), null)
-                .setPositiveButton(T.t("Включить"), (d, w) -> run(T.t("Включаю…"), () -> new Ops(this, this::say).enableForeign(f)))
+                .setNegativeButton(T.t("Оставить отключённым"), (d, w) -> offerOurs(thenOurs))
+                .setPositiveButton(T.t("Включить"), (d, w) -> { run(T.t("Включаю…"), () -> new Ops(this, this::say).enableForeign(f)); offerOurs(thenOurs); })
                 .show();
     }
 
