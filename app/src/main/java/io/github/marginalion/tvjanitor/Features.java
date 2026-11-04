@@ -24,7 +24,7 @@ final class Features {
                 "\\.efir|livechannels|epgdata|teletext|euinstaller|\\.dtv\\.|tvguide",
                 "com.yandex.tv.input.efir", "com.google.android.tv", "org.droidtv.epgdata", "org.droidtv.teletext", "org.droidtv.ci"),
         new F("hdmi", "🎮 HDMI-устройства", "приставки, консоли, ресиверы и управление ими пультом ТВ (CEC)",
-                "hdmi|\\.cec", "com.yandex.tv.live"),
+                "hdmi|\\.cec", "com.yandex.tv.live", "org.droidtv.playtv", "org.droidtv.channels", "org.droidtv.fastip"),
         new F("cast", "📱 Трансляция с телефона (Chromecast)", "кнопка «Транслировать» в YouTube и других приложениях",
                 "mediashell|chromecast|googlecast", "com.google.android.apps.mediashell"),
         new F("mirror", "🪞 Повтор экрана (Miracast) и DLNA", "экран телефона или ноутбука на телевизоре",

@@ -667,5 +667,18 @@
 "Açık bırak",
 "TV'nin korunması",
 "TV Janitor işini bitirince ağ hata ayıklamasını kendisi kapatır, böylece kimse TV'ye bağlanamaz. Gerektiğinde yeniden açar (açılıştan sonra yaklaşık bir dakika). Önce bunun bu TV'de çalıştığını kontrol edeceğim.",
-"TV'ye bilgisayardan bağlanıyorsanız \"Açık bırak\"a basın. Bunu istediğiniz zaman \"Ağ hata ayıklamasını açık tut\" ile değiştirebilirsiniz."
+"TV'ye bilgisayardan bağlanıyorsanız \"Açık bırak\"a basın. Bunu istediğiniz zaman \"Ağ hata ayıklamasını açık tut\" ile değiştirebilirsiniz.",
+"Philips yeniden başlatma günlüğü",
+"Mağaza etiketleri",
+"Teletekst",
+"Yayın akışı",
+"CI modülü",
+"Anten ve kablo kanal arama",
+"Uydu kanal arama",
+"Yayın üzerinden yazılım güncelleme",
+"Philips kaydı",
+"yazılım güncellemeleri için gerekli",
+"güncellemek istediğinizde açın",
+"TV bu açılıştan sonra hata ayıklama iznini zaten sordu, tekrar sormuyorum. TV'nin başındayken TV Janitor'u açın.",
+"TV ekranında \"İzin ver\"e basılmadı, tekrar sormuyorum. TV Janitor'u açın ve hata ayıklamaya izin verin (\"Her zaman izin ver\")."
 ]

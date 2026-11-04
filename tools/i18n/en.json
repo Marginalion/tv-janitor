@@ -667,5 +667,18 @@
 "Keep it on",
 "Protecting your TV",
 "When TV Janitor is done, it switches network debugging off by itself, so nobody can connect to the TV. When it needs it again, it switches it back on (after boot, for about a minute). First I'll check that this works on this TV.",
-"If you connect to the TV from a computer, press \"Keep it on\". You can change this at any time with \"Keep network debugging on\"."
+"If you connect to the TV from a computer, press \"Keep it on\". You can change this at any time with \"Keep network debugging on\".",
+"Philips restart log",
+"Shop-window stickers",
+"Teletext",
+"TV guide data",
+"CI module",
+"Antenna and cable channel search",
+"Satellite channel search",
+"Firmware update over the air",
+"Philips registration",
+"needed for firmware updates",
+"switch it on when you want to update",
+"The TV already asked for debugging permission after this boot, so I am not asking again. Open TV Janitor when you are at the TV.",
+"Nobody pressed \"Allow\" on the TV screen, so I am not asking again. Open TV Janitor and allow debugging (\"Always allow\")."
 ]

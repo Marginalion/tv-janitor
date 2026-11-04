@@ -670,3 +670,16 @@ Live Channels	Live Channels
 Защита телевизора	Protection du téléviseur
 Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	Quand TV Janitor a fini, il coupe lui-même le débogage réseau, pour que personne ne puisse se connecter au téléviseur. Quand il en a besoin, il le réactive (après le démarrage, environ une minute). D'abord, je vérifie que cela fonctionne sur ce téléviseur.
 Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	Si vous vous connectez au téléviseur depuis un ordinateur, appuyez sur « Le laisser activé ». Vous pouvez changer cela à tout moment avec « Garder le débogage réseau activé ».
+Журнал перезагрузок Philips	Journal des redémarrages Philips
+Витринные наклейки	Autocollants de magasin
+Телетекст	Télétexte
+Программа передач	Guide des programmes
+CI-модуль	Module CI
+Поиск эфирных и кабельных каналов	Recherche des chaînes antenne et câble
+Поиск спутниковых каналов	Recherche des chaînes satellite
+Обновление прошивки по эфиру	Mise à jour du micrologiciel par antenne
+Регистрация Philips	Enregistrement Philips
+нужен для обновлений прошивки	nécessaire aux mises à jour du micrologiciel
+включите, когда захотите обновиться	réactivez-le quand vous voudrez mettre à jour
+После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора.	Le téléviseur a déjà demandé l'autorisation de débogage depuis ce démarrage, je ne redemande pas. Ouvrez TV Janitor quand vous serez devant le téléviseur.
+На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»).	Personne n'a appuyé sur « Autoriser » sur le téléviseur, je ne redemande pas. Ouvrez TV Janitor et autorisez le débogage (« Toujours autoriser »).

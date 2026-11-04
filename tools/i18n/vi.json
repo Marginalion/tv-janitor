@@ -667,5 +667,18 @@
 "Để bật",
 "Bảo vệ TV",
 "Khi TV Janitor làm xong, nó tự tắt gỡ lỗi qua mạng để không ai kết nối được vào TV. Khi cần, nó sẽ bật lại (sau khi khởi động, khoảng một phút). Trước tiên tôi sẽ kiểm tra TV này có làm được vậy không.",
-"Nếu bạn kết nối TV từ máy tính, hãy nhấn \"Để bật\". Có thể đổi bất cứ lúc nào bằng \"Giữ gỡ lỗi qua mạng luôn bật\"."
+"Nếu bạn kết nối TV từ máy tính, hãy nhấn \"Để bật\". Có thể đổi bất cứ lúc nào bằng \"Giữ gỡ lỗi qua mạng luôn bật\".",
+"Nhật ký khởi động lại Philips",
+"Nhãn dán trưng bày",
+"Teletext",
+"Lịch phát sóng",
+"Mô-đun CI",
+"Dò kênh ăng-ten và cáp",
+"Dò kênh vệ tinh",
+"Cập nhật firmware qua sóng",
+"Đăng ký Philips",
+"cần để cập nhật firmware",
+"bật lên khi muốn cập nhật",
+"Sau lần khởi động này TV đã hỏi quyền gỡ lỗi rồi, tôi không hỏi nữa. Hãy mở TV Janitor khi bạn ở cạnh TV.",
+"Không ai nhấn \"Cho phép\" trên màn hình TV, tôi không hỏi nữa. Hãy mở TV Janitor và cho phép gỡ lỗi (\"Luôn cho phép\")."
 ]

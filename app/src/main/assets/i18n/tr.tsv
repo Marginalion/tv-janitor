@@ -670,3 +670,16 @@ Live Channels	Live Channels
 Защита телевизора	TV'nin korunması
 Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	TV Janitor işini bitirince ağ hata ayıklamasını kendisi kapatır, böylece kimse TV'ye bağlanamaz. Gerektiğinde yeniden açar (açılıştan sonra yaklaşık bir dakika). Önce bunun bu TV'de çalıştığını kontrol edeceğim.
 Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	TV'ye bilgisayardan bağlanıyorsanız "Açık bırak"a basın. Bunu istediğiniz zaman "Ağ hata ayıklamasını açık tut" ile değiştirebilirsiniz.
+Журнал перезагрузок Philips	Philips yeniden başlatma günlüğü
+Витринные наклейки	Mağaza etiketleri
+Телетекст	Teletekst
+Программа передач	Yayın akışı
+CI-модуль	CI modülü
+Поиск эфирных и кабельных каналов	Anten ve kablo kanal arama
+Поиск спутниковых каналов	Uydu kanal arama
+Обновление прошивки по эфиру	Yayın üzerinden yazılım güncelleme
+Регистрация Philips	Philips kaydı
+нужен для обновлений прошивки	yazılım güncellemeleri için gerekli
+включите, когда захотите обновиться	güncellemek istediğinizde açın
+После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора.	TV bu açılıştan sonra hata ayıklama iznini zaten sordu, tekrar sormuyorum. TV'nin başındayken TV Janitor'u açın.
+На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»).	TV ekranında "İzin ver"e basılmadı, tekrar sormuyorum. TV Janitor'u açın ve hata ayıklamaya izin verin ("Her zaman izin ver").

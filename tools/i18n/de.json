@@ -667,5 +667,18 @@
 "Eingeschaltet lassen",
 "Schutz des Fernsehers",
 "Wenn TV Janitor fertig ist, schaltet es das Netzwerk-Debugging selbst aus, damit sich niemand mit dem Fernseher verbinden kann. Wenn es wieder gebraucht wird, schaltet es es wieder ein (nach dem Start etwa eine Minute). Zuerst prüfe ich, dass das auf diesem Fernseher geht.",
-"Wenn Sie sich vom Computer mit dem Fernseher verbinden, drücken Sie „Eingeschaltet lassen\". Das lässt sich jederzeit mit „Netzwerk-Debugging eingeschaltet lassen\" ändern."
+"Wenn Sie sich vom Computer mit dem Fernseher verbinden, drücken Sie „Eingeschaltet lassen\". Das lässt sich jederzeit mit „Netzwerk-Debugging eingeschaltet lassen\" ändern.",
+"Philips-Neustartprotokoll",
+"Ladenaufkleber",
+"Videotext",
+"Programmführer",
+"CI-Modul",
+"Antennen- und Kabelsendersuche",
+"Satellitensendersuche",
+"Firmware-Update über Antenne",
+"Philips-Registrierung",
+"für Firmware-Updates nötig",
+"einschalten, wenn Sie aktualisieren möchten",
+"Der Fernseher hat nach diesem Start schon nach der Debugging-Erlaubnis gefragt, ich frage nicht noch einmal. Öffnen Sie TV Janitor, wenn Sie am Fernseher sind.",
+"Auf dem Fernseher wurde nicht „Zulassen\" gedrückt, ich frage nicht noch einmal. Öffnen Sie TV Janitor und erlauben Sie das Debugging („Immer zulassen\")."
 ]

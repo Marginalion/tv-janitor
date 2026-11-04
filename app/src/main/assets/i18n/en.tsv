@@ -670,3 +670,16 @@ Live Channels	Live Channels
 Защита телевизора	Protecting your TV
 Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	When TV Janitor is done, it switches network debugging off by itself, so nobody can connect to the TV. When it needs it again, it switches it back on (after boot, for about a minute). First I'll check that this works on this TV.
 Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	If you connect to the TV from a computer, press "Keep it on". You can change this at any time with "Keep network debugging on".
+Журнал перезагрузок Philips	Philips restart log
+Витринные наклейки	Shop-window stickers
+Телетекст	Teletext
+Программа передач	TV guide data
+CI-модуль	CI module
+Поиск эфирных и кабельных каналов	Antenna and cable channel search
+Поиск спутниковых каналов	Satellite channel search
+Обновление прошивки по эфиру	Firmware update over the air
+Регистрация Philips	Philips registration
+нужен для обновлений прошивки	needed for firmware updates
+включите, когда захотите обновиться	switch it on when you want to update
+После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора.	The TV already asked for debugging permission after this boot, so I am not asking again. Open TV Janitor when you are at the TV.
+На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»).	Nobody pressed "Allow" on the TV screen, so I am not asking again. Open TV Janitor and allow debugging ("Always allow").

@@ -667,5 +667,18 @@
 "Deixar ativada",
 "Proteção da TV",
 "Quando o TV Janitor termina, ele mesmo desliga a depuração pela rede, para que ninguém consiga se conectar à TV. Quando precisar, ele a liga de novo (após ligar a TV, por cerca de um minuto). Primeiro vou verificar que isso funciona nesta TV.",
-"Se você se conecta à TV pelo computador, toque em \"Deixar ativada\". Dá para mudar a qualquer momento com \"Manter a depuração pela rede ativada\"."
+"Se você se conecta à TV pelo computador, toque em \"Deixar ativada\". Dá para mudar a qualquer momento com \"Manter a depuração pela rede ativada\".",
+"Registro de reinícios Philips",
+"Adesivos de loja",
+"Teletexto",
+"Guia de programação",
+"Módulo CI",
+"Busca de canais de antena e cabo",
+"Busca de canais via satélite",
+"Atualização de firmware pela antena",
+"Registro Philips",
+"necessário para atualizar o firmware",
+"ative quando quiser atualizar",
+"A TV já pediu permissão de depuração depois desta inicialização, não vou pedir de novo. Abra o TV Janitor quando estiver na frente da TV.",
+"Ninguém tocou em \"Permitir\" na tela da TV, não vou pedir de novo. Abra o TV Janitor e permita a depuração (\"Sempre permitir\")."
 ]

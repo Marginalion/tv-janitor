@@ -670,3 +670,16 @@ Live Channels	Live Channels
 Защита телевизора	Bảo vệ TV
 Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	Khi TV Janitor làm xong, nó tự tắt gỡ lỗi qua mạng để không ai kết nối được vào TV. Khi cần, nó sẽ bật lại (sau khi khởi động, khoảng một phút). Trước tiên tôi sẽ kiểm tra TV này có làm được vậy không.
 Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	Nếu bạn kết nối TV từ máy tính, hãy nhấn "Để bật". Có thể đổi bất cứ lúc nào bằng "Giữ gỡ lỗi qua mạng luôn bật".
+Журнал перезагрузок Philips	Nhật ký khởi động lại Philips
+Витринные наклейки	Nhãn dán trưng bày
+Телетекст	Teletext
+Программа передач	Lịch phát sóng
+CI-модуль	Mô-đun CI
+Поиск эфирных и кабельных каналов	Dò kênh ăng-ten và cáp
+Поиск спутниковых каналов	Dò kênh vệ tinh
+Обновление прошивки по эфиру	Cập nhật firmware qua sóng
+Регистрация Philips	Đăng ký Philips
+нужен для обновлений прошивки	cần để cập nhật firmware
+включите, когда захотите обновиться	bật lên khi muốn cập nhật
+После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора.	Sau lần khởi động này TV đã hỏi quyền gỡ lỗi rồi, tôi không hỏi nữa. Hãy mở TV Janitor khi bạn ở cạnh TV.
+На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»).	Không ai nhấn "Cho phép" trên màn hình TV, tôi không hỏi nữa. Hãy mở TV Janitor và cho phép gỡ lỗi ("Luôn cho phép").

@@ -74,7 +74,18 @@ final class Ops {
         if (say != null) say.say(s);
     }
 
-    Adb connect(int attempts) {
+    Adb connect(int attempts) { return connect(attempts, false); }
+
+    /**
+     * At most one "Allow USB debugging?" prompt per run, and after boot at most one per boot: the Philips showed it
+     * about ten times in a row (12 tries, 5 s apart, each with a new prompt; "Cancel" only brought the next one).
+     */
+    Adb connect(int attempts, boolean boot) {
+        int bc = Boot.count(c);
+        if (boot && bc > 0 && String.valueOf(bc).equals(store.str("authAskedBoot"))) {
+            note(T.t("После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора."));
+            return null;
+        }
         // Debugging may be switched off while the app is not working (AdbGate): open it and give adbd a moment.
         if (AdbGate.open(c)) { note(T.t("Включаю отладку на время работы")); try { Thread.sleep(3000); } catch (InterruptedException ignored) {} }
         for (int i = 1; i <= attempts; i++) {
@@ -86,6 +97,11 @@ final class Ops {
                     if (AdbGate.can(c)) note(T.t("Получил право самому включать и выключать отладку"));
                 }
                 return adb;
+            }
+            catch (Adb.AuthRefused e) {
+                if (bc > 0) store.setStr("authAskedBoot", String.valueOf(bc));
+                note(T.t("На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»)."));
+                return null;
             }
             catch (Exception e) {
                 note(T.t("Нет связи с ADB (") + i + "/" + attempts + "): " + e.getClass().getSimpleName() + " " + e.getMessage());
@@ -259,6 +275,12 @@ final class Ops {
                     String v = store.str("snap_" + k);
                     if (v == null || v.equals("null") || v.isEmpty()) sh(adb, "settings delete global " + k);
                     else sh(adb, "settings put global " + k + " " + v);
+                }
+                if (store.has("adbTimeWas")) {
+                    String was = store.str("adbTimeWas");
+                    if (was == null || was.equals("null") || was.isEmpty()) sh(adb, "settings delete global adb_allowed_connection_time");
+                    else sh(adb, "settings put global adb_allowed_connection_time " + was);
+                    store.setStr("adbTimeWas", null);
                 }
                 String home = store.str("snap_home");
                 String stock = store.str("stockHome");
@@ -641,7 +663,7 @@ final class Ops {
             if (Boot.done(c)) return true;
             Boot.checkReboot(c);
             note(T.t("Старт (") + reason + ")" + (receiver ? "" : T.t(", через ") + Boot.upMinutes() + T.t(" мин после включения")));
-            Adb adb = connect(12);
+            Adb adb = connect(12, true);
             if (adb == null) { save(); return false; }
             try {
                 note(T.t("Подключено"));
@@ -749,7 +771,14 @@ final class Ops {
             if (adb == null) { save(); return false; }
             try {
                 snapshot(adb);
+                keepAuth(adb);
                 rollbackStockHome(adb);
+                // Philips 04.11: "Optimal" left the row of the stock Home unticked, and enable switched it back on,
+                // so Home went to Google's launcher again. While ours is Home, only "Back to the old home" brings it back.
+                String keepOff = store.flag("launcher", false) ? store.str("stockHome") : null;
+                if (keepOff != null && enable.remove(keepOff)) {
+                    Set<String> d = store.disabled(); d.add(keepOff); store.setDisabled(d);
+                }
                 // Sunwind, 28.10: 22 packages came back on between two runs with no reboot and nothing in our log.
                 Set<String> applied = store.set("appliedOff");
                 applied.removeAll(reallyOff(adb, applied));
@@ -922,6 +951,7 @@ final class Ops {
             store.commitStr("homeTx", null);
             note(T.t("✔ Заводской «Домой» отключён, по «Домой» открывается наша оболочка"));
             launcherConfig(adb);
+            backToApp(adb);
             return true;
         } catch (Exception e) {
             rollbackStockHome(adb);
@@ -948,12 +978,30 @@ final class Ops {
 
     /** The exact component on screen, not just a package name somewhere in the line (audit A4). */
 
+    /**
+     * Android 11+ forgets "Always allow" after 7 days without a connection (adb_allowed_connection_time), and then
+     * every connect shows the prompt again: a Philips left off for a week asked about ten times after power-on.
+     * 0 = never forget. The old value is kept and "Restore everything" puts it back.
+     */
+    private void keepAuth(Adb adb) throws Exception {
+        if (android.os.Build.VERSION.SDK_INT < 30 || store.has("adbTimeWas")) return;
+        String v = adb.shell("settings get global adb_allowed_connection_time").trim();
+        store.setStr("adbTimeWas", v.isEmpty() ? "null" : v);
+        sh(adb, "settings put global adb_allowed_connection_time 0");
+    }
+
+    /** Back to TV Janitor after a Home check pressed Home: the owner is in the middle of something here. */
+    private void backToApp(Adb adb) throws Exception {
+        sh(adb, "am start --activity-reorder-to-front -n " + BuildInfo.SELF + "/.MainActivity");
+    }
+
     boolean installLauncher() {
         synchronized (LOCK) {
             note(T.t("Ставлю новую оболочку"));
             Adb adb = connect(3);
             if (adb == null) { save(); return false; }
             try {
+                keepAuth(adb);
                 File apk = new File(c.getExternalFilesDir(null), "tvhome.apk");
                 try (InputStream in = c.getAssets().open("tvhome.apk"); OutputStream out = new FileOutputStream(apk)) {
                     byte[] b = new byte[65536]; int n; while ((n = in.read(b)) > 0) out.write(b, 0, n);
@@ -1039,6 +1087,8 @@ final class Ops {
                 store.setFlag("launcher", true);
                 launcherConfig(adb);
                 note(T.t("Главный экран теперь: ") + now + T.t(" — и он на экране ✔"));
+                Thread.sleep(1500);
+                backToApp(adb);
                 note(T.t("Готово"));
                 return true;
             } catch (Exception e) {

@@ -74,6 +74,15 @@ org.droidtv.nettvrecommender|safe|Лучшие подборки Philips|
 org.droidtv.recommendation|safe|Рекомендации Philips|
 org.droidtv.nettv.market|safe|Магазин Philips|
 org.droidtv.android.fitness|safe|Фитнес Philips|
+org.droidtv.tv.frameworklogger|safe|Журнал перезагрузок Philips|
+org.droidtv.sticker|safe|Витринные наклейки|
+org.droidtv.teletext|ask|Телетекст|
+org.droidtv.epgdata|ask|Программа передач|
+org.droidtv.ci|ask|CI-модуль|
+org.droidtv.euinstallertc|ask|Поиск эфирных и кабельных каналов|
+org.droidtv.euinstallersat|ask|Поиск спутниковых каналов|
+org.droidtv.oad|ask|Обновление прошивки по эфиру|включите, когда захотите обновиться
+org.droidtv.nettvregistration|ask|Регистрация Philips|нужен для обновлений прошивки
 org.droidtv.alhuewizard|ask|Philips Hue|
 com.phorus.playfi.softap|ask|DTS Play-Fi|
 com.phorus.playfi.tv|ask|DTS Play-Fi|

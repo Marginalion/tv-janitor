@@ -8,6 +8,25 @@
   network debugging on" box, leaves it open for people who connect from a computer. A test build (…-dev…,
   …-test…) keeps it open by default, so the testers' kit reaches the TV, and says so with a warning.
 
+- **The new home screen stays Home after "Apply".** On Google/Android TV, putting in the new launcher switches
+  the stock one off, but its row stayed in the list: "Optimal" left it unticked and "Apply" switched it back on,
+  so Home went to Google's screen again (Philips). While the new launcher is Home, the stock one is no longer a
+  row, and "Apply" never switches it on; "Back to the old home" and "Restore everything" still do.
+- **Philips: HDMI is not switched off by accident.** "TV Philips" (`org.droidtv.playtv`), the channel list and
+  the sources menu belong to "HDMI devices": switching them off by hand when you use HDMI now warns first.
+  Unticking "TV Philips" on a 50PUS8505 made every HDMI input "not available on this TV".
+- **Philips packages in the catalog.** The restart log and shop-window stickers are marked safe; teletext, the
+  TV guide data, the CI module, the antenna/cable and satellite channel search, the over-the-air firmware update
+  and the Philips registration are your choice and follow the answer about broadcast TV and updates. Before,
+  every `org.droidtv.*` package counted as part of the TV and "Optimal" left them all.
+- **Back in the app after a Home check.** Putting in the launcher, or switching the stock Home off, presses Home
+  to check where it goes; TV Janitor now comes back to the screen afterwards instead of leaving you on Home.
+- **One "Allow USB debugging?" prompt, not ten.** Android 11+ forgets "Always allow" after 7 days without a
+  connection; a TV left off for a week then asked again at every one of the 12 tries after boot, and "Cancel"
+  only brought the next prompt. Now a prompt that is not answered with "Allow" ends the run, and after boot it is
+  asked at most once per boot. Cleaning also sets `adb_allowed_connection_time` to 0 (never forget), and
+  "Restore everything" puts the old value back.
+
 ## 0.9.3-beta (2026-10-28)
 
 - **Ticks survive the other buttons.** Ticking packages and then pressing the keyboard, launcher or refresh

@@ -670,3 +670,16 @@ Live Channels	Live Channels
 Защита телевизора	Proteção da TV
 Когда Уборщик закончит работу, он сам выключит отладку по сети, чтобы к телевизору никто не смог подключиться. Когда она понадобится, он включит её снова (после загрузки — примерно на минуту). Сначала проверю, что на этом телевизоре так можно.	Quando o TV Janitor termina, ele mesmo desliga a depuração pela rede, para que ninguém consiga se conectar à TV. Quando precisar, ele a liga de novo (após ligar a TV, por cerca de um minuto). Primeiro vou verificar que isso funciona nesta TV.
 Если вы подключаетесь к телевизору с компьютера, нажмите «Оставить включённой». Это можно поменять в любой момент галочкой «Держать отладку по сети включённой».	Se você se conecta à TV pelo computador, toque em "Deixar ativada". Dá para mudar a qualquer momento com "Manter a depuração pela rede ativada".
+Журнал перезагрузок Philips	Registro de reinícios Philips
+Витринные наклейки	Adesivos de loja
+Телетекст	Teletexto
+Программа передач	Guia de programação
+CI-модуль	Módulo CI
+Поиск эфирных и кабельных каналов	Busca de canais de antena e cabo
+Поиск спутниковых каналов	Busca de canais via satélite
+Обновление прошивки по эфиру	Atualização de firmware pela antena
+Регистрация Philips	Registro Philips
+нужен для обновлений прошивки	necessário para atualizar o firmware
+включите, когда захотите обновиться	ative quando quiser atualizar
+После этой загрузки телевизор уже спрашивал разрешение на отладку — больше не спрашиваю. Откройте Уборщика, когда будете у телевизора.	A TV já pediu permissão de depuração depois desta inicialização, não vou pedir de novo. Abra o TV Janitor quando estiver na frente da TV.
+На экране телевизора не нажали «Разрешить» — больше не спрашиваю. Откройте Уборщика и разрешите отладку («Всегда разрешать»).	Ninguém tocou em "Permitir" na tela da TV, não vou pedir de novo. Abra o TV Janitor e permita a depuração ("Sempre permitir").

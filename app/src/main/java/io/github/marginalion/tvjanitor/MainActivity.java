@@ -515,9 +515,12 @@ public class MainActivity extends Activity {
                 ? T.t("Ваш телевизор есть в базе CleanYourTV (") + baseInfo() + "): " + same.tv + T.t(". Подсказки ниже — с такого же телевизора.")
                 : T.t("Вашей модели нет в базе CleanYourTV (") + baseInfo() + T.t(") — Уборщик сам определит важное, а подсказки собраны со всех телевизоров."), 14, DIM));
         stores = Features.stores(this);
+        // While our launcher is Home, the stock one it replaced is not a row: "Optimal" left it unticked and
+        // "Apply" switched it back on (Philips 04.11). It comes back only with "Back to the old home".
+        String stockOff = store.flag("launcher", false) && chosen.contains(String.valueOf(store.str("stockHome"))) ? store.str("stockHome") : null;
         for (ApplicationInfo ai : pm.getInstalledApplications(PackageManager.MATCH_DISABLED_COMPONENTS)) {
             String pkg = ai.packageName;
-            if (Detector.core(pkg) || pkg.equals(BuildInfo.LAUNCHER) || pkg.equals(Ops.KEYBOARD)) continue;
+            if (Detector.core(pkg) || pkg.equals(BuildInfo.LAUNCHER) || pkg.equals(Ops.KEYBOARD) || pkg.equals(stockOff)) continue;
             Catalog.Entry e = cat.get(pkg);
             Community.Stat cs = com.get(pkg);
             boolean system = (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0;

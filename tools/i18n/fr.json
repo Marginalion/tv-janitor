@@ -667,5 +667,18 @@
 "Le laisser activé",
 "Protection du téléviseur",
 "Quand TV Janitor a fini, il coupe lui-même le débogage réseau, pour que personne ne puisse se connecter au téléviseur. Quand il en a besoin, il le réactive (après le démarrage, environ une minute). D'abord, je vérifie que cela fonctionne sur ce téléviseur.",
-"Si vous vous connectez au téléviseur depuis un ordinateur, appuyez sur « Le laisser activé ». Vous pouvez changer cela à tout moment avec « Garder le débogage réseau activé »."
+"Si vous vous connectez au téléviseur depuis un ordinateur, appuyez sur « Le laisser activé ». Vous pouvez changer cela à tout moment avec « Garder le débogage réseau activé ».",
+"Journal des redémarrages Philips",
+"Autocollants de magasin",
+"Télétexte",
+"Guide des programmes",
+"Module CI",
+"Recherche des chaînes antenne et câble",
+"Recherche des chaînes satellite",
+"Mise à jour du micrologiciel par antenne",
+"Enregistrement Philips",
+"nécessaire aux mises à jour du micrologiciel",
+"réactivez-le quand vous voudrez mettre à jour",
+"Le téléviseur a déjà demandé l'autorisation de débogage depuis ce démarrage, je ne redemande pas. Ouvrez TV Janitor quand vous serez devant le téléviseur.",
+"Personne n'a appuyé sur « Autoriser » sur le téléviseur, je ne redemande pas. Ouvrez TV Janitor et autorisez le débogage (« Toujours autoriser »)."
 ]

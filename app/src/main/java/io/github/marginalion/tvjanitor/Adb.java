@@ -47,6 +47,9 @@ final class Adb implements Closeable {
         out = s.getOutputStream();
     }
 
+    /** The TV showed "Allow USB debugging?" and the answer was not "Allow" (Cancel, or nobody there). */
+    static final class AuthRefused extends IOException { AuthRefused(String m) { super(m); } }
+
     /** Connects and authenticates. authTimeoutMs covers the "Allow USB debugging?" prompt on first use. */
     static Adb connect(String host, int port, File keyDir, int authTimeoutMs) throws Exception {
         KeyPair kp = loadOrCreateKey(keyDir);
@@ -54,6 +57,7 @@ final class Adb implements Closeable {
         s.connect(new InetSocketAddress(host, port), 5000);
         s.setSoTimeout(10000);
         Adb adb = new Adb(s);
+        boolean sentKey = false;
         try {
             adb.send(A_CNXN, VERSION, MAX_DATA, "host::\0".getBytes(StandardCharsets.US_ASCII));
             boolean sentSignature = false;
@@ -70,12 +74,14 @@ final class Adb implements Closeable {
                             + " tvjanitor@tv\0").getBytes(StandardCharsets.US_ASCII);
                     adb.send(A_AUTH, AUTH_RSAPUBLICKEY, 0, pub);
                     s.setSoTimeout(authTimeoutMs);
+                    sentKey = true;
                 }
             }
             s.setSoTimeout(60000);
             return adb;
         } catch (Exception e) {
             adb.close();
+            if (sentKey && !(e instanceof AuthRefused)) throw new AuthRefused(e.getClass().getSimpleName() + " " + e.getMessage());
             throw e;
         }
     }
