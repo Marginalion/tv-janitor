@@ -455,8 +455,9 @@ final class Ops {
                 store.setSet("appliedOff", keepOff);
                 store.setFlag("launcher", false);
                 store.setFlag("dns", false); store.setFlag("dnsWasOn", false);
-                // "As it was" includes debugging: before TV Janitor it was on all the time.
-                store.setFlag("keepAdb", true);
+                // Debugging keeps the owner's choice (owner, 04.11, Philips rc2): closed by default, also after
+                // "Restore everything", so a later "Apply" does not leave it open for good. "Uninstall cleanly" ends
+                // with it open anyway: the app removes itself over it.
                 sh(adb, "am start -a android.intent.action.MAIN -c android.intent.category.HOME");
                 // The owner waits for the result and maybe a question: back to TV Janitor (Philips, rc1 remark 4).
                 try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
