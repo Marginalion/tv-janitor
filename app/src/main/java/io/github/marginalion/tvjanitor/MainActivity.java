@@ -267,7 +267,7 @@ public class MainActivity extends Activity {
         scan();
     }
 
-    /** Owner's decision 04.11.2026: a newer published version is offered, never installed silently. Once a day. */
+    /** Owner's decision 04.11.2026: a newer published version is offered, never installed silently. */
     private void checkUpdate() {
         if (Edition.LITE) return;
         String from = store.str("updFrom");
@@ -277,13 +277,13 @@ public class MainActivity extends Activity {
             try { now = getPackageManager().getPackageInfo(getPackageName(), 0).versionName; } catch (Exception ignored) {}
             show(status, Ops.compareVersions(now, from) > 0 ? T.t("✔ Уборщик обновлён: ") + from + " → " + now : T.t("⚠ Обновление не встало, работает прежняя версия ") + now);
         }
-        long last = 0;
-        try { last = Long.parseLong(String.valueOf(store.str("updCheckedAt"))); } catch (Exception ignored) {}
-        if (System.currentTimeMillis() - last < 20L * 3600 * 1000) return;
+        // Asking GitHub is cheap; the offer is what must not nag: after "Later" the same version waits a day.
         new Thread(() -> {
             String[] rel = Ops.newerRelease(getApplicationContext());
-            store.setStr("updCheckedAt", String.valueOf(System.currentTimeMillis()));
             if (rel == null || rel[0].equals(store.str("updSkip"))) return;
+            long later = 0;
+            try { later = Long.parseLong(String.valueOf(store.str("updLaterAt"))); } catch (Exception ignored) {}
+            if (rel[0].equals(store.str("updLaterVer")) && System.currentTimeMillis() - later < 20L * 3600 * 1000) return;
             runOnUiThread(() -> {
                 if (isFinishing() || busy()) return;
                 String mine = "?";
@@ -298,7 +298,7 @@ public class MainActivity extends Activity {
                                 progBar.setProgress(dn * 100 / t); progText.setText(dn * 100 / t + "%  ·  " + wh);
                             })).selfUpdate(rel));
                         })
-                        .setNegativeButton(T.t("Позже"), null)
+                        .setNegativeButton(T.t("Позже"), (d, w) -> { store.setStr("updLaterVer", rel[0]); store.setStr("updLaterAt", String.valueOf(System.currentTimeMillis())); })
                         .setNeutralButton(T.t("Пропустить эту версию"), (d, w) -> store.setStr("updSkip", rel[0]))
                         .show();
             });
