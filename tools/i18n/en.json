@@ -709,5 +709,6 @@
 "Update",
 "Skip this version",
 "Updating…",
-"The report did not go out, I will send it next time"
+"The report did not go out, I will send it next time",
+"⚠ The update did not go in: "
 ]

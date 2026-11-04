@@ -21,6 +21,19 @@ public class CleanerService extends Service {
         if (!running) {
             running = true;
             String reason = intent != null && intent.getStringExtra("reason") != null ? intent.getStringExtra("reason") : "service";
+            if (reason.endsWith("MY_PACKAGE_REPLACED")) {
+                // Our own update went in: reopen the app (it shows "updated: A → B"). Its process is this one, so no
+                // killProcess here; debugging closes as usual when the owner leaves the app.
+                new Thread(() -> {
+                    new Ops(this, null).afterUpdate();
+                    try { Thread.sleep(5000); } catch (InterruptedException ignored) {}
+                    if (App.visible() == 0) AdbGate.close(this);
+                    running = false;
+                    stopForeground(true);
+                    stopSelf();
+                }).start();
+                return START_NOT_STICKY;
+            }
             new Thread(() -> {
                 if (reason.endsWith("BOOT_COMPLETED")) { try { Thread.sleep(15000); } catch (InterruptedException ignored) {} }
                 new Ops(this, null).bootRun(reason);

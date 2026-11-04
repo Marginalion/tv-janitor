@@ -1585,15 +1585,33 @@ final class Ops {
                     note(T.t("Ставлю обновление: Уборщик закроется и сам откроется снова через полминуты"));
                     save();
                     store.commitStr("updFrom", me.versionName);
-                    // Installing over ourselves ends this process, so the shell finishes the job on its own and opens us again.
-                    adb.shell("nohup sh -c 'pm install -r -g " + tmp + " > /data/local/tmp/tvj-self.log 2>&1; rm -f " + tmp
-                            + "; sleep 2; am start -n " + BuildInfo.SELF + "/.MainActivity' > /dev/null 2>&1 &");
-                    return true;
+                    // Philips 04.11 (rc5): a background "nohup … &" was killed with the connection, before it even wrote its
+                    // log. So the install runs in the foreground: Android ends this process inside it, after the commit,
+                    // and opens us again through MY_PACKAGE_REPLACED (BootReceiver → afterUpdate). Back here means it failed.
+                    String out = adb.shell("pm install -r -g " + tmp + " 2>&1").trim();
+                    sh(adb, "rm -f " + tmp);
+                    note(T.t("⚠ Обновление не встало: ") + (out.isEmpty() ? "?" : out));
+                    return false;
                 } finally { adb.close(); }
             } catch (Exception e) {
                 note(T.t("Ошибка: ") + e.getMessage() + T.t(". Есть ли интернет?"));
                 return false;
             } finally { priv.delete(); save(); }
+        }
+    }
+
+    /** Called once Android has put the new version in place (MY_PACKAGE_REPLACED): tidy up and open the app again. */
+    void afterUpdate() {
+        if (Edition.LITE || store.str("updFrom") == null) return;   // an update by hand or from a store: nothing to do
+        synchronized (LOCK) {
+            Adb adb = connect(3);
+            if (adb == null) { save(); return; }
+            try {
+                sh(adb, "rm -f /data/local/tmp/tvj-self.apk");
+                sh(adb, "am start -n " + BuildInfo.SELF + "/.MainActivity");
+            } catch (Exception e) {
+                note(T.t("Ошибка: ") + e.getClass().getSimpleName() + " " + e.getMessage());
+            } finally { adb.close(); save(); }
         }
     }
 
