@@ -84,6 +84,9 @@ final class Ops {
         if (say != null) say.say(s);
     }
 
+    /** One line in the journal from outside a job (the screen). */
+    static void logLine(Context c, String s) { Ops o = new Ops(c, null); o.note(s); o.save(); }
+
     Adb connect(int attempts) { return connect(attempts, false); }
 
     /**

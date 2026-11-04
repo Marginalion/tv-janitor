@@ -19,7 +19,7 @@ body:
     id: version
     attributes:
       label: "TV Janitor edition and version / Версия TV Janitor"
-      placeholder: "Full 0.9.4-beta"
+      placeholder: "Full 0.9.4-beta2"
     validations:
       required: true
   - type: textarea

@@ -275,7 +275,10 @@ public class MainActivity extends Activity {
             store.setStr("updFrom", null);
             String now = "?";
             try { now = getPackageManager().getPackageInfo(getPackageName(), 0).versionName; } catch (Exception ignored) {}
-            show(status, Ops.compareVersions(now, from) > 0 ? T.t("✔ Уборщик обновлён: ") + from + " → " + now : T.t("⚠ Обновление не встало, работает прежняя версия ") + now);
+            // Philips 04.11: scan() replaced this line at once, so nobody saw it. It waits for the scan, and goes in the journal.
+            afterScan = Ops.compareVersions(now, from) > 0 ? T.t("✔ Уборщик обновлён: ") + from + " → " + now : T.t("⚠ Обновление не встало, работает прежняя версия ") + now;
+            Ops.logLine(getApplicationContext(), afterScan);
+            show(status, afterScan);
         }
         // Asking GitHub is cheap; the offer is what must not nag: after "Later" the same version waits a day.
         new Thread(() -> {
@@ -526,6 +529,9 @@ public class MainActivity extends Activity {
         t.setVisibility(s == null || s.length() == 0 ? android.view.View.GONE : android.view.View.VISIBLE);
     }
 
+    /** A line for the status once the first scan is done (the update result), or null. */
+    private String afterScan;
+
     private void scan() {
         show(status, T.t("Считаю память…"));
         new Thread(() -> {
@@ -542,6 +548,7 @@ public class MainActivity extends Activity {
                         : "");
                 show(status, "");
                 buildList();
+                if (afterScan != null) { show(status, afterScan); afterScan = null; }
                 if (m.containsKey("_connected")) offerCloseAdb();
             });
         }).start();

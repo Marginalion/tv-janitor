@@ -1,6 +1,18 @@
 # Changelog
 
-## 0.9.4-beta (2026-11-04)
+## 0.9.4-beta2 (2026-11-04)
+
+Replaces 0.9.4-beta, which was taken down the same day: its own update downloaded and checked the new version but
+never installed it.
+
+- **The update offer now installs.** The install ran in the background and the TV ended it together with the
+  debugging connection, before it started (Philips). Now it runs directly, and Android itself opens TV Janitor
+  again once the new version is in place. From this version on the next update reopens the app by itself.
+- **"TV Janitor updated: A → B" is seen.** The line under the list was replaced at once by the memory count; it
+  now waits for it, and goes in the log too.
+
+Everything below came with 0.9.4-beta:
+
 
 - **A release closes the TV by default.** On first connection, a release build no longer asks: it checks that
   debugging comes back on this TV and from then on opens it only while it works (about a minute after boot).

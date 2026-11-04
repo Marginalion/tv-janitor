@@ -108,7 +108,7 @@ How every decision is made, rule by rule: **[docs/HOW-IT-DECIDES.md](docs/HOW-IT
 
 ## Install
 
-**Ready-made APK:** download `TVJanitor-0.9.4-beta-lite.apk` or `TVJanitor-0.9.4-beta-full.apk` from
+**Ready-made APK:** download `TVJanitor-0.9.4-beta2-lite.apk` or `TVJanitor-0.9.4-beta2-full.apk` from
 [Releases](../../releases) and check it against `SHA256SUMS.txt`. Release signing certificate SHA-256:
 `f31e30d17e8abe262c05b8fd86945fe7038e3c75b664badeec3e746e10a44580`.
 
@@ -117,7 +117,7 @@ if there is one. From a computer on the same Wi-Fi:
 
 ```sh
 adb connect <tv ip>
-adb install -r TVJanitor-0.9.4-beta-lite.apk
+adb install -r TVJanitor-0.9.4-beta2-lite.apk
 adb shell am start -n io.github.marginalion.tvjanitor/.MainActivity
 ```
 
